@@ -1,5 +1,7 @@
 It is the fork of https://github.com/chaserhkj/PyMajSoul/ package with different improvements.
 
+`example.py` is working only with **Python3.7+**.
+
 # How to update protocol files to the newest version
 
 1. Download the new liqi.json file (find it in the network tab of your browser) and put it to data/liqi.json. For example https://mahjongsoul.game.yo-star.com/v0.6.58.w/res/proto/liqi.json

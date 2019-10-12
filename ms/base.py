@@ -1,9 +1,10 @@
 import asyncio
 import websockets
-from .protocol_pb2 import Wrapper
+
+from protocol_pb2 import Wrapper
 
 
-class MSJRpcChannel:
+class MSRPCChannel:
 
     def __init__(self, endpoint):
         self._endpoint = endpoint
@@ -89,7 +90,7 @@ class MSJRpcChannel:
         return body.data
 
 
-class MSJRpcService:
+class MSRPCService:
 
     def __init__(self, channel):
         self._channel = channel

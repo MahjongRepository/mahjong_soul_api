@@ -4,12 +4,15 @@ import sys
 
 from google.protobuf.compiler import plugin_pb2 as plugin
 
-header = '''from . import protocol_pb2 as pb
-from .msjrpc import MSJRpcService
+header = '''# -*- coding: utf-8 -*-
+# Generated.  DO NOT EDIT!
+
+import protocol_pb2 as pb
+from base import MSRPCService
 '''
 
 cls_tplt = '''
-class {class_name}(MSJRpcService):
+class {class_name}(MSRPCService):
     version = None
     
     _req = {{
@@ -47,7 +50,6 @@ def to_snake_case(name):
 
 def generate_code(request, response):
     for proto_file in request.proto_file:
-        proto_name = 'protocol'
         package_name = proto_file.package
 
         services = []
@@ -76,7 +78,7 @@ def generate_code(request, response):
         body = '\n'.join(services)
         src = header + '\n' + body
         f = response.file.add()
-        f.name = proto_name + '_msjrpc.py'
+        f.name = 'rpc.py'
         f.content = src
 
 

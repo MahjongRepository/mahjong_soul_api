@@ -1,8 +1,11 @@
-from . import protocol_pb2 as pb
-from .msjrpc import MSJRpcService
+# -*- coding: utf-8 -*-
+# Generated.  DO NOT EDIT!
+
+import protocol_pb2 as pb
+from base import MSRPCService
 
 
-class Lobby(MSJRpcService):
+class Lobby(MSRPCService):
     version = None
     
     _req = {
@@ -873,7 +876,7 @@ class Lobby(MSJRpcService):
         return await self.call_method('gainRankPointReward', req)
 
 
-class FastTest(MSJRpcService):
+class FastTest(MSRPCService):
     version = None
     
     _req = {
