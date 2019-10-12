@@ -2,21 +2,19 @@ import setuptools
 
 from distutils.core import setup
 
-with open('README.rst', 'r') as f:
-    readme = f.read()
-
 setup(
     name='mahjong',
     packages=[
         'ms',
+        'ms.data',
     ],
     version='0.0.1',
-    description='',
-    long_description=readme,
+    description='Python connectors to the Mahjong Soul API',
+    long_description='',
     author='Alexey Lisikhin',
     author_email='lisikhin@gmail.com',
     url='https://github.com/MahjongRepository/mahjong_soul_api',
-    data_files=[('', ['README.rst'])],
+    data_files=[('',)],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Console',
