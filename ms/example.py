@@ -8,9 +8,9 @@ from optparse import OptionParser
 
 import aiohttp
 
-from base import MSRPCChannel
-from rpc import Lobby
-import protocol_pb2 as pb
+from ms.base import MSRPCChannel
+from ms.rpc import Lobby
+import ms.protocol_pb2 as pb
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s: %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 

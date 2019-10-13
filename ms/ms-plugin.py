@@ -7,8 +7,8 @@ from google.protobuf.compiler import plugin_pb2 as plugin
 header = '''# -*- coding: utf-8 -*-
 # Generated.  DO NOT EDIT!
 
-import protocol_pb2 as pb
-from base import MSRPCService
+import ms.protocol_pb2 as pb
+from ms.base import MSRPCService
 '''
 
 cls_tplt = '''

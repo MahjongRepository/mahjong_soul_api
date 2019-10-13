@@ -2,11 +2,13 @@ import setuptools
 
 from distutils.core import setup
 
+with open('requirements.txt') as f:
+    requirements = f.read().splitlines()
+
 setup(
-    name='mahjong',
+    name='ms_api',
     packages=[
         'ms',
-        'ms.data',
     ],
     version='0.0.1',
     description='Python connectors to the Mahjong Soul API',
@@ -14,7 +16,7 @@ setup(
     author='Alexey Lisikhin',
     author_email='lisikhin@gmail.com',
     url='https://github.com/MahjongRepository/mahjong_soul_api',
-    data_files=[('',)],
+    install_requires=requirements,
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Console',

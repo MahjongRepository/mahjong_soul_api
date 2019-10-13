@@ -1,7 +1,7 @@
 import asyncio
 import websockets
 
-from protocol_pb2 import Wrapper
+from ms.protocol_pb2 import Wrapper
 
 
 class MSRPCChannel:

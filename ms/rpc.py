@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Generated.  DO NOT EDIT!
 
-import protocol_pb2 as pb
-from base import MSRPCService
+import ms.protocol_pb2 as pb
+from ms.base import MSRPCService
 
 
 class Lobby(MSRPCService):
