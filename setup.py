@@ -10,7 +10,7 @@ setup(
     packages=[
         'ms',
     ],
-    version='0.0.1',
+    version='0.6.58',
     description='Python connectors to the Mahjong Soul API',
     long_description='',
     author='Alexey Lisikhin',
