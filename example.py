@@ -14,7 +14,7 @@ import ms.protocol_pb2 as pb
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s: %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 
-MS_HOST = 'https://www.majsoul.com'
+MS_HOST = 'https://game.maj-soul.com'
 
 
 async def main():
@@ -47,14 +47,17 @@ async def connect():
     async with aiohttp.ClientSession() as session:
         async with session.get('{}/1/version.json'.format(MS_HOST)) as res:
             version = await res.json()
+            print(version)
             version = version['version']
 
         async with session.get('{}/1/v{}/config.json'.format(MS_HOST, version)) as res:
             config = await res.json()
-            url = config['ip'][0]['region_urls']['mainland']
+            print(config)
+            url = config['ip'][0]['region_urls'][1]
 
         async with session.get(url + '?service=ws-gateway&protocol=ws&ssl=true') as res:
             servers = await res.json()
+            print(servers)
             servers = servers['servers']
             server = random.choice(servers)
             endpoint = 'wss://{}/'.format(server)
@@ -107,6 +110,7 @@ async def load_game_logs(lobby):
     req.count = step
     res = await lobby.fetch_game_record_list(req)
     records.extend([r.uuid for r in res.record_list])
+
     return records
 
 

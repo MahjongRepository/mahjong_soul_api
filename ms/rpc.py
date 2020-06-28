@@ -17,10 +17,14 @@ class Lobby(MSRPCService):
         'oauth2Check': pb.ReqOauth2Check,
         'oauth2Signup': pb.ReqOauth2Signup,
         'oauth2Login': pb.ReqOauth2Login,
+        'dmmPreLogin': pb.ReqDMMPreLogin,
         'createPhoneVerifyCode': pb.ReqCreatePhoneVerifyCode,
         'createEmailVerifyCode': pb.ReqCreateEmailVerifyCode,
         'verfifyCodeForSecure': pb.ReqVerifyCodeForSecure,
         'bindPhoneNumber': pb.ReqBindPhoneNumber,
+        'unbindPhoneNumber': pb.ReqUnbindPhoneNumber,
+        'fetchPhoneLoginBind': pb.ReqCommon,
+        'createPhoneLoginBind': pb.ReqCreatePhoneLoginBind,
         'bindEmail': pb.ReqBindEmail,
         'modifyPassword': pb.ReqModifyPassword,
         'bindAccount': pb.ReqBindAccount,
@@ -35,6 +39,7 @@ class Lobby(MSRPCService):
         'joinRoom': pb.ReqJoinRoom,
         'leaveRoom': pb.ReqCommon,
         'readyPlay': pb.ReqRoomReady,
+        'dressingStatus': pb.ReqRoomDressing,
         'startRoom': pb.ReqRoomStart,
         'kickPlayer': pb.ReqRoomKick,
         'modifyRoom': pb.ReqModifyRoom,
@@ -81,6 +86,7 @@ class Lobby(MSRPCService):
         'fetchClientValue': pb.ReqCommon,
         'clientMessage': pb.ReqClientMessage,
         'fetchCurrentMatchInfo': pb.ReqCurrentMatchInfo,
+        'userComplain': pb.ReqUserComplain,
         'fetchReviveCoinInfo': pb.ReqCommon,
         'gainReviveCoin': pb.ReqCommon,
         'fetchDailyTask': pb.ReqCommon,
@@ -102,8 +108,6 @@ class Lobby(MSRPCService):
         'fetchRollingNotice': pb.ReqCommon,
         'fetchServerTime': pb.ReqCommon,
         'fetchPlatformProducts': pb.ReqPlatformBillingProducts,
-        'createBillingOrder': pb.ReqCreateBillingOrder,
-        'solveGooglePlayOrder': pb.ReqSolveGooglePlayOrder,
         'cancelGooglePlayOrder': pb.ReqCancelGooglePlayOrder,
         'openChest': pb.ReqOpenChest,
         'buyFromChestShop': pb.ReqBuyFromChestShop,
@@ -118,16 +122,23 @@ class Lobby(MSRPCService):
         'sellItem': pb.ReqSellItem,
         'fetchCommonView': pb.ReqCommon,
         'changeCommonView': pb.ReqChangeCommonView,
+        'saveCommonViews': pb.ReqSaveCommonViews,
+        'fetchCommonViews': pb.ReqCommonViews,
+        'fetchAllCommonViews': pb.ReqCommon,
+        'useCommonView': pb.ReqUseCommonView,
         'upgradeCharacter': pb.ReqUpgradeCharacter,
+        'addFinishedEnding': pb.ReqFinishedEnding,
+        'receiveEndingReward': pb.ReqFinishedEnding,
         'gameMasterCommand': pb.ReqGMCommand,
         'fetchShopInfo': pb.ReqCommon,
         'buyFromShop': pb.ReqBuyFromShop,
         'buyFromZHP': pb.ReqBuyFromZHP,
-        'refreshZHPShop': pb.ReqCommon,
+        'refreshZHPShop': pb.ReqReshZHPShop,
         'fetchMonthTicketInfo': pb.ReqCommon,
         'payMonthTicket': pb.ReqPayMonthTicket,
         'exchangeCurrency': pb.ReqExchangeCurrency,
         'exchangeChestStone': pb.ReqExchangeCurrency,
+        'exchangeDiamond': pb.ReqExchangeCurrency,
         'fetchServerSettings': pb.ReqCommon,
         'fetchAccountSettings': pb.ReqCommon,
         'updateAccountSettings': pb.ReqUpdateAccountSettings,
@@ -148,6 +159,16 @@ class Lobby(MSRPCService):
         'createENVisaOrder': pb.ReqCreateENVisaOrder,
         'createENJCBOrder': pb.ReqCreateENJCBOrder,
         'createENAlipayOrder': pb.ReqCreateENAlipayOrder,
+        'createDMMOrder': pb.ReqCreateDMMOrder,
+        'createIAPOrder': pb.ReqCreateIAPOrder,
+        'createMyCardAndroidOrder': pb.ReqCreateMyCardOrder,
+        'createMyCardWebOrder': pb.ReqCreateMyCardOrder,
+        'verifyMyCardOrder': pb.ReqVerifyMyCardOrder,
+        'verificationIAPOrder': pb.ReqVerificationIAPOrder,
+        'createYostarSDKOrder': pb.ReqCreateYostarOrder,
+        'createBillingOrder': pb.ReqCreateBillingOrder,
+        'solveGooglePlayOrder': pb.ReqSolveGooglePlayOrder,
+        'solveGooglePayOrderV3': pb.ReqSolveGooglePlayOrderV3,
         'fetchMisc': pb.ReqCommon,
         'modifySignature': pb.ReqModifySignature,
         'fetchIDCardInfo': pb.ReqCommon,
@@ -156,6 +177,7 @@ class Lobby(MSRPCService):
         'gainVipReward': pb.ReqGainVipReward,
         'fetchCustomizedContestList': pb.ReqFetchCustomizedContestList,
         'fetchCustomizedContestExtendInfo': pb.ReqFetchCustomizedContestExtendInfo,
+        'fetchCustomizedContestAuthInfo': pb.ReqFetchCustomizedContestAuthInfo,
         'enterCustomizedContest': pb.ReqEnterCustomizedContest,
         'leaveCustomizedContest': pb.ReqCommon,
         'fetchCustomizedContestOnlineInfo': pb.ReqFetchCustomizedContestOnlineInfo,
@@ -174,11 +196,18 @@ class Lobby(MSRPCService):
         'exchangeActivityItem': pb.ReqExchangeActivityItem,
         'completeActivityTask': pb.ReqCompleteActivityTask,
         'completeActivityFlipTask': pb.ReqCompleteActivityTask,
-        'recieveActivityFlipTask': pb.ReqRecieveActivityFlipTask,
+        'completePeriodActivityTask': pb.ReqCompleteActivityTask,
+        'completeRandomActivityTask': pb.ReqCompleteActivityTask,
+        'receiveActivityFlipTask': pb.ReqReceiveActivityFlipTask,
         'fetchActivityFlipInfo': pb.ReqFetchActivityFlipInfo,
         'gainAccumulatedPointActivityReward': pb.ReqGainAccumulatedPointActivityReward,
         'fetchRankPointLeaderboard': pb.ReqFetchRankPointLeaderboard,
         'gainRankPointReward': pb.ReqGainRankPointReward,
+        'richmanActivityNextMove': pb.ReqRichmanNextMove,
+        'richmanAcitivitySpecialMove': pb.ReqRichmanSpecialMove,
+        'richmanActivityChestInfo': pb.ReqRichmanChestInfo,
+        'createGameObserveAuth': pb.ReqCreateGameObserveAuth,
+        'refreshGameObserveAuth': pb.ReqRefreshGameObserveAuth,
     }
     _res = {
         'fetchConnectionInfo': pb.ResConnectionInfo,
@@ -189,10 +218,14 @@ class Lobby(MSRPCService):
         'oauth2Check': pb.ResOauth2Check,
         'oauth2Signup': pb.ResOauth2Signup,
         'oauth2Login': pb.ResLogin,
+        'dmmPreLogin': pb.ResDMMPreLogin,
         'createPhoneVerifyCode': pb.ResCommon,
         'createEmailVerifyCode': pb.ResCommon,
         'verfifyCodeForSecure': pb.ResVerfiyCodeForSecure,
         'bindPhoneNumber': pb.ResCommon,
+        'unbindPhoneNumber': pb.ResCommon,
+        'fetchPhoneLoginBind': pb.ResFetchPhoneLoginBind,
+        'createPhoneLoginBind': pb.ResCommon,
         'bindEmail': pb.ResCommon,
         'modifyPassword': pb.ResCommon,
         'bindAccount': pb.ResCommon,
@@ -207,6 +240,7 @@ class Lobby(MSRPCService):
         'joinRoom': pb.ResJoinRoom,
         'leaveRoom': pb.ResCommon,
         'readyPlay': pb.ResCommon,
+        'dressingStatus': pb.ResCommon,
         'startRoom': pb.ResCommon,
         'kickPlayer': pb.ResCommon,
         'modifyRoom': pb.ResCommon,
@@ -253,6 +287,7 @@ class Lobby(MSRPCService):
         'fetchClientValue': pb.ResClientValue,
         'clientMessage': pb.ResCommon,
         'fetchCurrentMatchInfo': pb.ResCurrentMatchInfo,
+        'userComplain': pb.ResCommon,
         'fetchReviveCoinInfo': pb.ResReviveCoinInfo,
         'gainReviveCoin': pb.ResCommon,
         'fetchDailyTask': pb.ResDailyTask,
@@ -274,8 +309,6 @@ class Lobby(MSRPCService):
         'fetchRollingNotice': pb.ReqRollingNotice,
         'fetchServerTime': pb.ResServerTime,
         'fetchPlatformProducts': pb.ResPlatformBillingProducts,
-        'createBillingOrder': pb.ResCreateBillingOrder,
-        'solveGooglePlayOrder': pb.ResCommon,
         'cancelGooglePlayOrder': pb.ResCommon,
         'openChest': pb.ResOpenChest,
         'buyFromChestShop': pb.ResBuyFromChestShop,
@@ -290,7 +323,13 @@ class Lobby(MSRPCService):
         'sellItem': pb.ResCommon,
         'fetchCommonView': pb.ResCommonView,
         'changeCommonView': pb.ResCommon,
+        'saveCommonViews': pb.ResCommon,
+        'fetchCommonViews': pb.ResCommonViews,
+        'fetchAllCommonViews': pb.ResAllcommonViews,
+        'useCommonView': pb.ResCommon,
         'upgradeCharacter': pb.ResUpgradeCharacter,
+        'addFinishedEnding': pb.ResCommon,
+        'receiveEndingReward': pb.ResCommon,
         'gameMasterCommand': pb.ResCommon,
         'fetchShopInfo': pb.ResShopInfo,
         'buyFromShop': pb.ResBuyFromShop,
@@ -300,6 +339,7 @@ class Lobby(MSRPCService):
         'payMonthTicket': pb.ResPayMonthTicket,
         'exchangeCurrency': pb.ResCommon,
         'exchangeChestStone': pb.ResCommon,
+        'exchangeDiamond': pb.ResCommon,
         'fetchServerSettings': pb.ResServerSettings,
         'fetchAccountSettings': pb.ResAccountSettings,
         'updateAccountSettings': pb.ResCommon,
@@ -320,6 +360,16 @@ class Lobby(MSRPCService):
         'createENVisaOrder': pb.ResCreateENVisaOrder,
         'createENJCBOrder': pb.ResCreateENJCBOrder,
         'createENAlipayOrder': pb.ResCreateENAlipayOrder,
+        'createDMMOrder': pb.ResCreateDmmOrder,
+        'createIAPOrder': pb.ResCreateIAPOrder,
+        'createMyCardAndroidOrder': pb.ResCreateMyCardOrder,
+        'createMyCardWebOrder': pb.ResCreateMyCardOrder,
+        'verifyMyCardOrder': pb.ResCommon,
+        'verificationIAPOrder': pb.ResVerificationIAPOrder,
+        'createYostarSDKOrder': pb.ResCreateYostarOrder,
+        'createBillingOrder': pb.ResCreateBillingOrder,
+        'solveGooglePlayOrder': pb.ResCommon,
+        'solveGooglePayOrderV3': pb.ResCommon,
         'fetchMisc': pb.ResMisc,
         'modifySignature': pb.ResCommon,
         'fetchIDCardInfo': pb.ResIDCardInfo,
@@ -328,6 +378,7 @@ class Lobby(MSRPCService):
         'gainVipReward': pb.ResCommon,
         'fetchCustomizedContestList': pb.ResFetchCustomizedContestList,
         'fetchCustomizedContestExtendInfo': pb.ResFetchCustomizedContestExtendInfo,
+        'fetchCustomizedContestAuthInfo': pb.ResFetchCustomizedContestAuthInfo,
         'enterCustomizedContest': pb.ResEnterCustomizedContest,
         'leaveCustomizedContest': pb.ResCommon,
         'fetchCustomizedContestOnlineInfo': pb.ResFetchCustomizedContestOnlineInfo,
@@ -346,11 +397,18 @@ class Lobby(MSRPCService):
         'exchangeActivityItem': pb.ResExchangeActivityItem,
         'completeActivityTask': pb.ResCommon,
         'completeActivityFlipTask': pb.ResCommon,
-        'recieveActivityFlipTask': pb.ResRecieveActivityFlipTask,
+        'completePeriodActivityTask': pb.ResCommon,
+        'completeRandomActivityTask': pb.ResCommon,
+        'receiveActivityFlipTask': pb.ResReceiveActivityFlipTask,
         'fetchActivityFlipInfo': pb.ResFetchActivityFlipInfo,
         'gainAccumulatedPointActivityReward': pb.ResCommon,
         'fetchRankPointLeaderboard': pb.ResFetchRankPointLeaderboard,
         'gainRankPointReward': pb.ResCommon,
+        'richmanActivityNextMove': pb.ResRichmanNextMove,
+        'richmanAcitivitySpecialMove': pb.ResRichmanNextMove,
+        'richmanActivityChestInfo': pb.ResRichmanChestInfo,
+        'createGameObserveAuth': pb.ResCreateGameObserveAuth,
+        'refreshGameObserveAuth': pb.ResRefreshGameObserveAuth,
     }
 
     def get_package_name(self):
@@ -389,6 +447,9 @@ class Lobby(MSRPCService):
     async def oauth2_login(self, req):
         return await self.call_method('oauth2Login', req)
 
+    async def dmm_pre_login(self, req):
+        return await self.call_method('dmmPreLogin', req)
+
     async def create_phone_verify_code(self, req):
         return await self.call_method('createPhoneVerifyCode', req)
 
@@ -400,6 +461,15 @@ class Lobby(MSRPCService):
 
     async def bind_phone_number(self, req):
         return await self.call_method('bindPhoneNumber', req)
+
+    async def unbind_phone_number(self, req):
+        return await self.call_method('unbindPhoneNumber', req)
+
+    async def fetch_phone_login_bind(self, req):
+        return await self.call_method('fetchPhoneLoginBind', req)
+
+    async def create_phone_login_bind(self, req):
+        return await self.call_method('createPhoneLoginBind', req)
 
     async def bind_email(self, req):
         return await self.call_method('bindEmail', req)
@@ -442,6 +512,9 @@ class Lobby(MSRPCService):
 
     async def ready_play(self, req):
         return await self.call_method('readyPlay', req)
+
+    async def dressing_status(self, req):
+        return await self.call_method('dressingStatus', req)
 
     async def start_room(self, req):
         return await self.call_method('startRoom', req)
@@ -581,6 +654,9 @@ class Lobby(MSRPCService):
     async def fetch_current_match_info(self, req):
         return await self.call_method('fetchCurrentMatchInfo', req)
 
+    async def user_complain(self, req):
+        return await self.call_method('userComplain', req)
+
     async def fetch_revive_coin_info(self, req):
         return await self.call_method('fetchReviveCoinInfo', req)
 
@@ -644,12 +720,6 @@ class Lobby(MSRPCService):
     async def fetch_platform_products(self, req):
         return await self.call_method('fetchPlatformProducts', req)
 
-    async def create_billing_order(self, req):
-        return await self.call_method('createBillingOrder', req)
-
-    async def solve_google_play_order(self, req):
-        return await self.call_method('solveGooglePlayOrder', req)
-
     async def cancel_google_play_order(self, req):
         return await self.call_method('cancelGooglePlayOrder', req)
 
@@ -692,8 +762,26 @@ class Lobby(MSRPCService):
     async def change_common_view(self, req):
         return await self.call_method('changeCommonView', req)
 
+    async def save_common_views(self, req):
+        return await self.call_method('saveCommonViews', req)
+
+    async def fetch_common_views(self, req):
+        return await self.call_method('fetchCommonViews', req)
+
+    async def fetch_all_common_views(self, req):
+        return await self.call_method('fetchAllCommonViews', req)
+
+    async def use_common_view(self, req):
+        return await self.call_method('useCommonView', req)
+
     async def upgrade_character(self, req):
         return await self.call_method('upgradeCharacter', req)
+
+    async def add_finished_ending(self, req):
+        return await self.call_method('addFinishedEnding', req)
+
+    async def receive_ending_reward(self, req):
+        return await self.call_method('receiveEndingReward', req)
 
     async def game_master_command(self, req):
         return await self.call_method('gameMasterCommand', req)
@@ -721,6 +809,9 @@ class Lobby(MSRPCService):
 
     async def exchange_chest_stone(self, req):
         return await self.call_method('exchangeChestStone', req)
+
+    async def exchange_diamond(self, req):
+        return await self.call_method('exchangeDiamond', req)
 
     async def fetch_server_settings(self, req):
         return await self.call_method('fetchServerSettings', req)
@@ -782,6 +873,36 @@ class Lobby(MSRPCService):
     async def create_en_alipay_order(self, req):
         return await self.call_method('createENAlipayOrder', req)
 
+    async def create_dmm_order(self, req):
+        return await self.call_method('createDMMOrder', req)
+
+    async def create_iap_order(self, req):
+        return await self.call_method('createIAPOrder', req)
+
+    async def create_my_card_android_order(self, req):
+        return await self.call_method('createMyCardAndroidOrder', req)
+
+    async def create_my_card_web_order(self, req):
+        return await self.call_method('createMyCardWebOrder', req)
+
+    async def verify_my_card_order(self, req):
+        return await self.call_method('verifyMyCardOrder', req)
+
+    async def verification_iap_order(self, req):
+        return await self.call_method('verificationIAPOrder', req)
+
+    async def create_yostar_sdk_order(self, req):
+        return await self.call_method('createYostarSDKOrder', req)
+
+    async def create_billing_order(self, req):
+        return await self.call_method('createBillingOrder', req)
+
+    async def solve_google_play_order(self, req):
+        return await self.call_method('solveGooglePlayOrder', req)
+
+    async def solve_google_pay_order_v3(self, req):
+        return await self.call_method('solveGooglePayOrderV3', req)
+
     async def fetch_misc(self, req):
         return await self.call_method('fetchMisc', req)
 
@@ -805,6 +926,9 @@ class Lobby(MSRPCService):
 
     async def fetch_customized_contest_extend_info(self, req):
         return await self.call_method('fetchCustomizedContestExtendInfo', req)
+
+    async def fetch_customized_contest_auth_info(self, req):
+        return await self.call_method('fetchCustomizedContestAuthInfo', req)
 
     async def enter_customized_contest(self, req):
         return await self.call_method('enterCustomizedContest', req)
@@ -860,8 +984,14 @@ class Lobby(MSRPCService):
     async def complete_activity_flip_task(self, req):
         return await self.call_method('completeActivityFlipTask', req)
 
-    async def recieve_activity_flip_task(self, req):
-        return await self.call_method('recieveActivityFlipTask', req)
+    async def complete_period_activity_task(self, req):
+        return await self.call_method('completePeriodActivityTask', req)
+
+    async def complete_random_activity_task(self, req):
+        return await self.call_method('completeRandomActivityTask', req)
+
+    async def receive_activity_flip_task(self, req):
+        return await self.call_method('receiveActivityFlipTask', req)
 
     async def fetch_activity_flip_info(self, req):
         return await self.call_method('fetchActivityFlipInfo', req)
@@ -874,6 +1004,21 @@ class Lobby(MSRPCService):
 
     async def gain_rank_point_reward(self, req):
         return await self.call_method('gainRankPointReward', req)
+
+    async def richman_activity_next_move(self, req):
+        return await self.call_method('richmanActivityNextMove', req)
+
+    async def richman_acitivity_special_move(self, req):
+        return await self.call_method('richmanAcitivitySpecialMove', req)
+
+    async def richman_activity_chest_info(self, req):
+        return await self.call_method('richmanActivityChestInfo', req)
+
+    async def create_game_observe_auth(self, req):
+        return await self.call_method('createGameObserveAuth', req)
+
+    async def refresh_game_observe_auth(self, req):
+        return await self.call_method('refreshGameObserveAuth', req)
 
 
 class FastTest(MSRPCService):
@@ -892,6 +1037,11 @@ class FastTest(MSRPCService):
         'inputGameGMCommand': pb.ReqGMCommandInGaming,
         'fetchGamePlayerState': pb.ReqCommon,
         'checkNetworkDelay': pb.ReqCommon,
+        'clearLeaving': pb.ReqCommon,
+        'voteGameEnd': pb.ReqVoteGameEnd,
+        'authObserve': pb.ReqAuthObserve,
+        'startObserve': pb.ReqCommon,
+        'stopObserve': pb.ReqCommon,
     }
     _res = {
         'authGame': pb.ResAuthGame,
@@ -906,6 +1056,11 @@ class FastTest(MSRPCService):
         'inputGameGMCommand': pb.ResCommon,
         'fetchGamePlayerState': pb.ResGamePlayerState,
         'checkNetworkDelay': pb.ResCommon,
+        'clearLeaving': pb.ResCommon,
+        'voteGameEnd': pb.ResGameEndVote,
+        'authObserve': pb.ResCommon,
+        'startObserve': pb.ResStartObserve,
+        'stopObserve': pb.ResCommon,
     }
 
     def get_package_name(self):
@@ -955,3 +1110,18 @@ class FastTest(MSRPCService):
 
     async def check_network_delay(self, req):
         return await self.call_method('checkNetworkDelay', req)
+
+    async def clear_leaving(self, req):
+        return await self.call_method('clearLeaving', req)
+
+    async def vote_game_end(self, req):
+        return await self.call_method('voteGameEnd', req)
+
+    async def auth_observe(self, req):
+        return await self.call_method('authObserve', req)
+
+    async def start_observe(self, req):
+        return await self.call_method('startObserve', req)
+
+    async def stop_observe(self, req):
+        return await self.call_method('stopObserve', req)

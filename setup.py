@@ -10,11 +10,11 @@ setup(
     packages=[
         'ms',
     ],
-    version='0.6.58',
+    version='0.8.41',
     description='Python connectors to the Mahjong Soul API',
     long_description='',
-    author='Alexey Lisikhin',
-    author_email='lisikhin@gmail.com',
+    author='Nihisil',
+    author_email='alexey@nihisil.com',
     url='https://github.com/MahjongRepository/mahjong_soul_api',
     install_requires=requirements,
     classifiers=[
@@ -23,5 +23,6 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
     ],
 )

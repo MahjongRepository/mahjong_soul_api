@@ -4,7 +4,7 @@ from collections import OrderedDict
 from io import StringIO
 from pprint import pprint
 
-filename = 'data/liqi.json'
+filename = 'liqi.json'
 data = json.load(open(filename), object_pairs_hook=OrderedDict)
 buf = StringIO()
 buf.write('syntax = "proto3";\n\n')
@@ -73,5 +73,5 @@ def parse_item(name, item):
 for name in data:
     parse_item(name, data[name])
 
-with open('data/protocol.proto', 'w') as f:
+with open('protocol.proto', 'w') as f:
     f.write(buf.getvalue())
