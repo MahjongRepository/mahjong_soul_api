@@ -1,13 +1,26 @@
-It is the fork of https://github.com/chaserhkj/PyMajSoul/ package with different improvements.
+The idea of repository based on https://github.com/chaserhkj/PyMajSoul/
 
-`example.py` is working only with **Python3.7+**.
+Python wrappers for Majsoul allow you to interact with their servers from Python scripts.
 
-## Requirements
+## For User
+
+1. Install python packages from `requerements.txt`
+2. `python example.py -u username -p password`
+
+This example is working only with **Python3.7+**.
+
+Also, you need to have a Chinese account to run this example, because only accounts from these servers has the ability to login with login and password.
+
+If you want to login to EN or JP servers you need to write your code to authenticate via email code or social network. Protobuf wrapper from this repository contains all needed API objects.
+
+## For Developer
+
+### Requirements
 
 1. Install python packages from `requerements.txt`
 1. Install protobuf compiler `sudo apt install protobuf-compiler`
 
-## How to update protocol files to the new version
+### How to update protocol files to the new version
 
 It was tested on Ubuntu.
 
