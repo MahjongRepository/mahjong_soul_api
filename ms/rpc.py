@@ -58,6 +58,8 @@ class Lobby(MSRPCService):
         'removeCollectedGameRecord': pb.ReqRemoveCollectedGameRecord,
         'changeCollectedGameRecordRemarks': pb.ReqChangeCollectedGameRecordRemarks,
         'fetchLevelLeaderboard': pb.ReqLevelLeaderboard,
+        'fetchChallengeLeaderboard': pb.ReqChallangeLeaderboard,
+        'fetchMutiChallengeLevel': pb.ReqMutiChallengeLevel,
         'fetchMultiAccountBrief': pb.ReqMultiAccountId,
         'fetchFriendList': pb.ReqCommon,
         'fetchFriendApplyList': pb.ReqCommon,
@@ -72,7 +74,7 @@ class Lobby(MSRPCService):
         'openManualItem': pb.ReqOpenManualItem,
         'openRandomRewardItem': pb.ReqOpenRandomRewardItem,
         'composeShard': pb.ReqComposeShard,
-        'fetchAnnouncement': pb.ReqCommon,
+        'fetchAnnouncement': pb.ReqFetchAnnouncement,
         'readAnnouncement': pb.ReqReadAnnouncement,
         'fetchMailInfo': pb.ReqCommon,
         'readMail': pb.ReqReadMail,
@@ -161,6 +163,8 @@ class Lobby(MSRPCService):
         'createENAlipayOrder': pb.ReqCreateENAlipayOrder,
         'createDMMOrder': pb.ReqCreateDMMOrder,
         'createIAPOrder': pb.ReqCreateIAPOrder,
+        'createSteamOrder': pb.ReqCreateSteamOrder,
+        'verifySteamOrder': pb.ReqVerifySteamOrder,
         'createMyCardAndroidOrder': pb.ReqCreateMyCardOrder,
         'createMyCardWebOrder': pb.ReqCreateMyCardOrder,
         'verifyMyCardOrder': pb.ReqVerifyMyCardOrder,
@@ -208,6 +212,14 @@ class Lobby(MSRPCService):
         'richmanActivityChestInfo': pb.ReqRichmanChestInfo,
         'createGameObserveAuth': pb.ReqCreateGameObserveAuth,
         'refreshGameObserveAuth': pb.ReqRefreshGameObserveAuth,
+        'upgradeChallenge': pb.ReqCommon,
+        'refreshChallenge': pb.ReqCommon,
+        'fetchChallengeInfo': pb.ReqCommon,
+        'forceCompleteChallengeTask': pb.ReqForceCompleteChallengeTask,
+        'fetchChallengeSeason': pb.ReqCommon,
+        'receiveChallengeRankReward': pb.ReqReceiveChallengeRankReward,
+        'startUnifiedMatch': pb.ReqStartUnifiedMatch,
+        'cancelUnifiedMatch': pb.ReqCancelUnifiedMatch,
     }
     _res = {
         'fetchConnectionInfo': pb.ResConnectionInfo,
@@ -259,6 +271,8 @@ class Lobby(MSRPCService):
         'removeCollectedGameRecord': pb.ResRemoveCollectedGameRecord,
         'changeCollectedGameRecordRemarks': pb.ResChangeCollectedGameRecordRemarks,
         'fetchLevelLeaderboard': pb.ResLevelLeaderboard,
+        'fetchChallengeLeaderboard': pb.ResChallengeLeaderboard,
+        'fetchMutiChallengeLevel': pb.ResMutiChallengeLevel,
         'fetchMultiAccountBrief': pb.ResMultiAccountBrief,
         'fetchFriendList': pb.ResFriendList,
         'fetchFriendApplyList': pb.ResFriendApplyList,
@@ -362,6 +376,8 @@ class Lobby(MSRPCService):
         'createENAlipayOrder': pb.ResCreateENAlipayOrder,
         'createDMMOrder': pb.ResCreateDmmOrder,
         'createIAPOrder': pb.ResCreateIAPOrder,
+        'createSteamOrder': pb.ResCreateSteamOrder,
+        'verifySteamOrder': pb.ResCommon,
         'createMyCardAndroidOrder': pb.ResCreateMyCardOrder,
         'createMyCardWebOrder': pb.ResCreateMyCardOrder,
         'verifyMyCardOrder': pb.ResCommon,
@@ -409,6 +425,14 @@ class Lobby(MSRPCService):
         'richmanActivityChestInfo': pb.ResRichmanChestInfo,
         'createGameObserveAuth': pb.ResCreateGameObserveAuth,
         'refreshGameObserveAuth': pb.ResRefreshGameObserveAuth,
+        'upgradeChallenge': pb.ResUpgradeChallenge,
+        'refreshChallenge': pb.ResRefreshChallenge,
+        'fetchChallengeInfo': pb.ResFetchChallengeInfo,
+        'forceCompleteChallengeTask': pb.ResCommon,
+        'fetchChallengeSeason': pb.ResChallengeSeasonInfo,
+        'receiveChallengeRankReward': pb.ResReceiveChallengeRankReward,
+        'startUnifiedMatch': pb.ResCommon,
+        'cancelUnifiedMatch': pb.ResCommon,
     }
 
     def get_package_name(self):
@@ -569,6 +593,12 @@ class Lobby(MSRPCService):
 
     async def fetch_level_leaderboard(self, req):
         return await self.call_method('fetchLevelLeaderboard', req)
+
+    async def fetch_challenge_leaderboard(self, req):
+        return await self.call_method('fetchChallengeLeaderboard', req)
+
+    async def fetch_muti_challenge_level(self, req):
+        return await self.call_method('fetchMutiChallengeLevel', req)
 
     async def fetch_multi_account_brief(self, req):
         return await self.call_method('fetchMultiAccountBrief', req)
@@ -879,6 +909,12 @@ class Lobby(MSRPCService):
     async def create_iap_order(self, req):
         return await self.call_method('createIAPOrder', req)
 
+    async def create_steam_order(self, req):
+        return await self.call_method('createSteamOrder', req)
+
+    async def verify_steam_order(self, req):
+        return await self.call_method('verifySteamOrder', req)
+
     async def create_my_card_android_order(self, req):
         return await self.call_method('createMyCardAndroidOrder', req)
 
@@ -1019,6 +1055,30 @@ class Lobby(MSRPCService):
 
     async def refresh_game_observe_auth(self, req):
         return await self.call_method('refreshGameObserveAuth', req)
+
+    async def upgrade_challenge(self, req):
+        return await self.call_method('upgradeChallenge', req)
+
+    async def refresh_challenge(self, req):
+        return await self.call_method('refreshChallenge', req)
+
+    async def fetch_challenge_info(self, req):
+        return await self.call_method('fetchChallengeInfo', req)
+
+    async def force_complete_challenge_task(self, req):
+        return await self.call_method('forceCompleteChallengeTask', req)
+
+    async def fetch_challenge_season(self, req):
+        return await self.call_method('fetchChallengeSeason', req)
+
+    async def receive_challenge_rank_reward(self, req):
+        return await self.call_method('receiveChallengeRankReward', req)
+
+    async def start_unified_match(self, req):
+        return await self.call_method('startUnifiedMatch', req)
+
+    async def cancel_unified_match(self, req):
+        return await self.call_method('cancelUnifiedMatch', req)
 
 
 class FastTest(MSRPCService):
