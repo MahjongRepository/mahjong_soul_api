@@ -48,6 +48,7 @@ class Lobby(MSRPCService):
         'fetchAccountInfo': pb.ReqAccountInfo,
         'changeAvatar': pb.ReqChangeAvatar,
         'fetchAccountStatisticInfo': pb.ReqAccountStatisticInfo,
+        'fetchAccountChallengeRankInfo': pb.ReqAccountInfo,
         'fetchAccountCharacterInfo': pb.ReqCommon,
         'shopPurchase': pb.ReqShopPurchase,
         'fetchGameRecord': pb.ReqGameRecord,
@@ -117,6 +118,7 @@ class Lobby(MSRPCService):
         'doDailySignIn': pb.ReqCommon,
         'doActivitySignIn': pb.ReqDoActivitySignIn,
         'fetchCharacterInfo': pb.ReqCommon,
+        'updateCharacterSort': pb.ReqUpdateCharacterSort,
         'changeMainCharacter': pb.ReqChangeMainCharacter,
         'changeCharacterSkin': pb.ReqChangeCharacterSkin,
         'changeCharacterView': pb.ReqChangeCharacterView,
@@ -167,6 +169,7 @@ class Lobby(MSRPCService):
         'verifySteamOrder': pb.ReqVerifySteamOrder,
         'createMyCardAndroidOrder': pb.ReqCreateMyCardOrder,
         'createMyCardWebOrder': pb.ReqCreateMyCardOrder,
+        'createPaypalOrder': pb.ReqCreatePaypalOrder,
         'verifyMyCardOrder': pb.ReqVerifyMyCardOrder,
         'verificationIAPOrder': pb.ReqVerificationIAPOrder,
         'createYostarSDKOrder': pb.ReqCreateYostarOrder,
@@ -261,6 +264,7 @@ class Lobby(MSRPCService):
         'fetchAccountInfo': pb.ResAccountInfo,
         'changeAvatar': pb.ResCommon,
         'fetchAccountStatisticInfo': pb.ResAccountStatisticInfo,
+        'fetchAccountChallengeRankInfo': pb.ResAccountChallengeRankInfo,
         'fetchAccountCharacterInfo': pb.ResAccountCharacterInfo,
         'shopPurchase': pb.ResShopPurchase,
         'fetchGameRecord': pb.ResGameRecord,
@@ -330,6 +334,7 @@ class Lobby(MSRPCService):
         'doDailySignIn': pb.ResCommon,
         'doActivitySignIn': pb.ResDoActivitySignIn,
         'fetchCharacterInfo': pb.ResCharacterInfo,
+        'updateCharacterSort': pb.ResCommon,
         'changeMainCharacter': pb.ResCommon,
         'changeCharacterSkin': pb.ResCommon,
         'changeCharacterView': pb.ResCommon,
@@ -380,6 +385,7 @@ class Lobby(MSRPCService):
         'verifySteamOrder': pb.ResCommon,
         'createMyCardAndroidOrder': pb.ResCreateMyCardOrder,
         'createMyCardWebOrder': pb.ResCreateMyCardOrder,
+        'createPaypalOrder': pb.ResCreatePaypalOrder,
         'verifyMyCardOrder': pb.ResCommon,
         'verificationIAPOrder': pb.ResVerificationIAPOrder,
         'createYostarSDKOrder': pb.ResCreateYostarOrder,
@@ -563,6 +569,9 @@ class Lobby(MSRPCService):
 
     async def fetch_account_statistic_info(self, req):
         return await self.call_method('fetchAccountStatisticInfo', req)
+
+    async def fetch_account_challenge_rank_info(self, req):
+        return await self.call_method('fetchAccountChallengeRankInfo', req)
 
     async def fetch_account_character_info(self, req):
         return await self.call_method('fetchAccountCharacterInfo', req)
@@ -771,6 +780,9 @@ class Lobby(MSRPCService):
     async def fetch_character_info(self, req):
         return await self.call_method('fetchCharacterInfo', req)
 
+    async def update_character_sort(self, req):
+        return await self.call_method('updateCharacterSort', req)
+
     async def change_main_character(self, req):
         return await self.call_method('changeMainCharacter', req)
 
@@ -920,6 +932,9 @@ class Lobby(MSRPCService):
 
     async def create_my_card_web_order(self, req):
         return await self.call_method('createMyCardWebOrder', req)
+
+    async def create_paypal_order(self, req):
+        return await self.call_method('createPaypalOrder', req)
 
     async def verify_my_card_order(self, req):
         return await self.call_method('verifyMyCardOrder', req)

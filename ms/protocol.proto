@@ -351,6 +351,7 @@ message Account {
   message ChallengeLevel {
     uint32 season = 1;
     uint32 level = 2;
+    uint32 rank = 3;
   }
 
 }
@@ -446,6 +447,7 @@ message AccountCacheView {
   uint32 verified = 15;
   uint32 ban_deadline = 16;
   uint32 comment_ban = 17;
+  uint32 ban_state = 18;
 }
 
 message PlayerBaseView {
@@ -457,6 +459,7 @@ message PlayerBaseView {
   AccountLevel level3 = 6;
   uint32 avatar_frame = 7;
   uint32 verified = 8;
+  uint32 is_banned = 9;
 }
 
 message PlayerGameView {
@@ -745,10 +748,20 @@ message AccountShiLian {
 }
 
 message ClientDeviceInfo {
-  string device_type = 1;
-  string os = 2;
-  string os_version = 3;
-  string browser = 4;
+  string platform = 1;
+  string hardware = 2;
+  string os = 3;
+  string os_version = 4;
+  bool is_browser = 5;
+  string software = 6;
+  string sale_platform = 7;
+  string hardware_vendor = 8;
+  string model_number = 9;
+}
+
+message ClientVersionInfo {
+  string resource = 1;
+  string package = 2;
 }
 
 enum GamePlayerState {
@@ -839,6 +852,7 @@ message RollingNotice {
   uint32 start_time = 3;
   uint32 end_time = 4;
   uint32 repeat_interval = 5;
+  string lang = 6;
 }
 
 message BillingGoods {
@@ -916,11 +930,19 @@ message ServerSettings {
 message PaymentSettingV2 {
   uint32 open_payment = 1;
   repeated PaymentSettingUnit payment_platforms = 2;
+  message PaymentMaintain {
+    uint32 start_time = 1;
+    uint32 end_time = 2;
+    uint32 goods_click_action = 3;
+    string goods_click_text = 4;
+  }
+
   message PaymentSettingUnit {
     string platform = 1;
     bool is_show = 2;
     uint32 goods_click_action = 3;
     string goods_click_text = 4;
+    PaymentMaintain maintain = 5;
   }
 
 }
@@ -1294,6 +1316,7 @@ service Lobby {
   rpc fetchAccountInfo (ReqAccountInfo) returns (ResAccountInfo);
   rpc changeAvatar (ReqChangeAvatar) returns (ResCommon);
   rpc fetchAccountStatisticInfo (ReqAccountStatisticInfo) returns (ResAccountStatisticInfo);
+  rpc fetchAccountChallengeRankInfo (ReqAccountInfo) returns (ResAccountChallengeRankInfo);
   rpc fetchAccountCharacterInfo (ReqCommon) returns (ResAccountCharacterInfo);
   rpc shopPurchase (ReqShopPurchase) returns (ResShopPurchase);
   rpc fetchGameRecord (ReqGameRecord) returns (ResGameRecord);
@@ -1363,6 +1386,7 @@ service Lobby {
   rpc doDailySignIn (ReqCommon) returns (ResCommon);
   rpc doActivitySignIn (ReqDoActivitySignIn) returns (ResDoActivitySignIn);
   rpc fetchCharacterInfo (ReqCommon) returns (ResCharacterInfo);
+  rpc updateCharacterSort (ReqUpdateCharacterSort) returns (ResCommon);
   rpc changeMainCharacter (ReqChangeMainCharacter) returns (ResCommon);
   rpc changeCharacterSkin (ReqChangeCharacterSkin) returns (ResCommon);
   rpc changeCharacterView (ReqChangeCharacterView) returns (ResCommon);
@@ -1413,6 +1437,7 @@ service Lobby {
   rpc verifySteamOrder (ReqVerifySteamOrder) returns (ResCommon);
   rpc createMyCardAndroidOrder (ReqCreateMyCardOrder) returns (ResCreateMyCardOrder);
   rpc createMyCardWebOrder (ReqCreateMyCardOrder) returns (ResCreateMyCardOrder);
+  rpc createPaypalOrder (ReqCreatePaypalOrder) returns (ResCreatePaypalOrder);
   rpc verifyMyCardOrder (ReqVerifyMyCardOrder) returns (ResCommon);
   rpc verificationIAPOrder (ReqVerificationIAPOrder) returns (ResVerificationIAPOrder);
   rpc createYostarSDKOrder (ReqCreateYostarOrder) returns (ResCreateYostarOrder);
@@ -1490,7 +1515,7 @@ message ReqLogin {
   bool reconnect = 3;
   ClientDeviceInfo device = 4;
   string random_key = 5;
-  string client_version = 6;
+  ClientVersionInfo client_version = 6;
   bool gen_access_token = 7;
   repeated uint32 currency_platforms = 8;
   uint32 type = 9;
@@ -1615,7 +1640,8 @@ message ReqOauth2Login {
   bool reconnect = 3;
   ClientDeviceInfo device = 4;
   string random_key = 5;
-  string client_version = 6;
+  ClientVersionInfo client_version = 6;
+  bool gen_access_token = 7;
   repeated uint32 currency_platforms = 8;
 }
 
@@ -1732,6 +1758,17 @@ message ResAccountStatisticInfo {
   AccountDetailStatisticV2 detail_data = 3;
 }
 
+message ResAccountChallengeRankInfo {
+  Error error = 1;
+  repeated ChallengeRank season_info = 2;
+  message ChallengeRank {
+    uint32 season = 1;
+    uint32 rank = 2;
+    uint32 level = 3;
+  }
+
+}
+
 message ResAccountCharacterInfo {
   repeated uint32 unlock_list = 1;
 }
@@ -1838,6 +1875,7 @@ message ResChallengeLeaderboard {
   message Item {
     uint32 account_id = 1;
     uint32 level = 2;
+    string nickname = 3;
   }
 
 }
@@ -2159,7 +2197,7 @@ message ReqUpdateReadComment {
 }
 
 message ReqRollingNotice {
-  RollingNotice notice = 1;
+  repeated RollingNotice notice = 1;
 }
 
 message ResServerTime {
@@ -2506,6 +2544,18 @@ message ReqVerifyMyCardOrder {
   uint32 account_id = 2;
 }
 
+message ReqCreatePaypalOrder {
+  uint32 goods_id = 1;
+  uint32 client_type = 2;
+  uint32 account_id = 3;
+}
+
+message ResCreatePaypalOrder {
+  Error error = 1;
+  string order_id = 2;
+  string url = 3;
+}
+
 message ReqOpenChest {
   uint32 chest_id = 1;
   uint32 count = 2;
@@ -2560,6 +2610,11 @@ message ResCharacterInfo {
   uint32 send_gift_limit = 6;
   repeated uint32 finished_endings = 7;
   repeated uint32 rewarded_endings = 8;
+  repeated uint32 character_sort = 9;
+}
+
+message ReqUpdateCharacterSort {
+  repeated uint32 sort = 1;
 }
 
 message ReqChangeMainCharacter {

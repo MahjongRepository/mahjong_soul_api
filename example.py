@@ -66,7 +66,6 @@ async def connect():
     channel = MSRPCChannel(endpoint)
 
     lobby = Lobby(channel)
-    lobby.version = version
 
     await channel.connect(MS_HOST)
     logging.info('Connection was established')
@@ -82,10 +81,8 @@ async def login(lobby, username, password):
     req = pb.ReqLogin()
     req.account = username
     req.password = hmac.new(b'lailai', password.encode(), hashlib.sha256).hexdigest()
-    req.device.device_type = 'pc'
-    req.device.browser = 'safari'
+    req.device.is_browser = True
     req.random_key = uuid_key
-    req.client_version = lobby.version
     req.gen_access_token = True
     req.currency_platforms.append(2)
 
