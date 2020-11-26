@@ -170,6 +170,7 @@ class Lobby(MSRPCService):
         'createMyCardAndroidOrder': pb.ReqCreateMyCardOrder,
         'createMyCardWebOrder': pb.ReqCreateMyCardOrder,
         'createPaypalOrder': pb.ReqCreatePaypalOrder,
+        'createXsollaOrder': pb.ReqCreateXsollaOrder,
         'verifyMyCardOrder': pb.ReqVerifyMyCardOrder,
         'verificationIAPOrder': pb.ReqVerificationIAPOrder,
         'createYostarSDKOrder': pb.ReqCreateYostarOrder,
@@ -221,6 +222,10 @@ class Lobby(MSRPCService):
         'forceCompleteChallengeTask': pb.ReqForceCompleteChallengeTask,
         'fetchChallengeSeason': pb.ReqCommon,
         'receiveChallengeRankReward': pb.ReqReceiveChallengeRankReward,
+        'fetchABMatchInfo': pb.ReqCommon,
+        'buyInABMatch': pb.ReqBuyInABMatch,
+        'receiveABMatchReward': pb.ReqCommon,
+        'quitABMatch': pb.ReqCommon,
         'startUnifiedMatch': pb.ReqStartUnifiedMatch,
         'cancelUnifiedMatch': pb.ReqCancelUnifiedMatch,
     }
@@ -386,6 +391,7 @@ class Lobby(MSRPCService):
         'createMyCardAndroidOrder': pb.ResCreateMyCardOrder,
         'createMyCardWebOrder': pb.ResCreateMyCardOrder,
         'createPaypalOrder': pb.ResCreatePaypalOrder,
+        'createXsollaOrder': pb.ResCreateXsollaOrder,
         'verifyMyCardOrder': pb.ResCommon,
         'verificationIAPOrder': pb.ResVerificationIAPOrder,
         'createYostarSDKOrder': pb.ResCreateYostarOrder,
@@ -437,6 +443,10 @@ class Lobby(MSRPCService):
         'forceCompleteChallengeTask': pb.ResCommon,
         'fetchChallengeSeason': pb.ResChallengeSeasonInfo,
         'receiveChallengeRankReward': pb.ResReceiveChallengeRankReward,
+        'fetchABMatchInfo': pb.ResFetchABMatch,
+        'buyInABMatch': pb.ResCommon,
+        'receiveABMatchReward': pb.ResCommon,
+        'quitABMatch': pb.ResCommon,
         'startUnifiedMatch': pb.ResCommon,
         'cancelUnifiedMatch': pb.ResCommon,
     }
@@ -936,6 +946,9 @@ class Lobby(MSRPCService):
     async def create_paypal_order(self, req):
         return await self.call_method('createPaypalOrder', req)
 
+    async def create_xsolla_order(self, req):
+        return await self.call_method('createXsollaOrder', req)
+
     async def verify_my_card_order(self, req):
         return await self.call_method('verifyMyCardOrder', req)
 
@@ -1088,6 +1101,18 @@ class Lobby(MSRPCService):
 
     async def receive_challenge_rank_reward(self, req):
         return await self.call_method('receiveChallengeRankReward', req)
+
+    async def fetch_ab_match_info(self, req):
+        return await self.call_method('fetchABMatchInfo', req)
+
+    async def buy_in_ab_match(self, req):
+        return await self.call_method('buyInABMatch', req)
+
+    async def receive_ab_match_reward(self, req):
+        return await self.call_method('receiveABMatchReward', req)
+
+    async def quit_ab_match(self, req):
+        return await self.call_method('quitABMatch', req)
 
     async def start_unified_match(self, req):
         return await self.call_method('startUnifiedMatch', req)

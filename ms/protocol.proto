@@ -374,6 +374,7 @@ message AccountUpdate {
   TaskUpdate activity_period_task = 11;
   TaskUpdate activity_random_task = 12;
   AccountChallengeUpdate challenge = 13;
+  AccountABMatchUpdate ab_match = 14;
   message NumericalUpdate {
     uint32 id = 1;
     uint32 final = 3;
@@ -413,6 +414,21 @@ message AccountUpdate {
     uint32 ticket_id = 5;
     repeated uint32 task_list = 6;
     repeated uint32 rewarded_season = 7;
+  }
+
+  message AccountABMatchUpdate {
+    uint32 match_id = 1;
+    uint32 match_count = 2;
+    uint32 buy_in_count = 3;
+    uint32 point = 4;
+    bool rewarded = 5;
+    repeated MatchPoint match_max_point = 6;
+    bool quit = 7;
+    message MatchPoint {
+      uint32 match_id = 1;
+      uint32 point = 2;
+    }
+
   }
 
 }
@@ -475,12 +491,17 @@ message PlayerGameView {
   repeated ViewSlot views = 10;
 }
 
+message GameSetting {
+  uint32 emoji_switch = 1;
+}
+
 message GameMode {
   uint32 mode = 1;
   bool ai = 4;
   string extendinfo = 5;
   GameDetailRule detail_rule = 6;
   GameTestingEnvironmentSet testing_environment = 7;
+  GameSetting game_setting = 8;
 }
 
 message GameTestingEnvironmentSet {
@@ -536,6 +557,7 @@ message GameDetailRule {
   uint32 jiuchao_mode = 45;
   uint32 muyu_mode = 46;
   uint32 open_hand = 47;
+  bool disable_leijiyiman = 60;
 }
 
 message Room {
@@ -1036,6 +1058,7 @@ message CustomizedContestDetail {
   GameMode game_mode = 11;
   string private_notice = 12;
   uint32 observer_switch = 13;
+  uint32 emoji_switch = 14;
 }
 
 message CustomizedContestPlayerReport {
@@ -1438,6 +1461,7 @@ service Lobby {
   rpc createMyCardAndroidOrder (ReqCreateMyCardOrder) returns (ResCreateMyCardOrder);
   rpc createMyCardWebOrder (ReqCreateMyCardOrder) returns (ResCreateMyCardOrder);
   rpc createPaypalOrder (ReqCreatePaypalOrder) returns (ResCreatePaypalOrder);
+  rpc createXsollaOrder (ReqCreateXsollaOrder) returns (ResCreateXsollaOrder);
   rpc verifyMyCardOrder (ReqVerifyMyCardOrder) returns (ResCommon);
   rpc verificationIAPOrder (ReqVerificationIAPOrder) returns (ResVerificationIAPOrder);
   rpc createYostarSDKOrder (ReqCreateYostarOrder) returns (ResCreateYostarOrder);
@@ -1489,6 +1513,10 @@ service Lobby {
   rpc forceCompleteChallengeTask (ReqForceCompleteChallengeTask) returns (ResCommon);
   rpc fetchChallengeSeason (ReqCommon) returns (ResChallengeSeasonInfo);
   rpc receiveChallengeRankReward (ReqReceiveChallengeRankReward) returns (ResReceiveChallengeRankReward);
+  rpc fetchABMatchInfo (ReqCommon) returns (ResFetchABMatch);
+  rpc buyInABMatch (ReqBuyInABMatch) returns (ResCommon);
+  rpc receiveABMatchReward (ReqCommon) returns (ResCommon);
+  rpc quitABMatch (ReqCommon) returns (ResCommon);
   rpc startUnifiedMatch (ReqStartUnifiedMatch) returns (ResCommon);
   rpc cancelUnifiedMatch (ReqCancelUnifiedMatch) returns (ResCommon);
 }
@@ -1503,6 +1531,7 @@ message ReqSignupAccount {
   string password = 2;
   string code = 3;
   uint32 type = 4;
+  ClientDeviceInfo device = 5;
 }
 
 message ResSignupAccount {
@@ -1628,6 +1657,7 @@ message ReqOauth2Signup {
   string access_token = 2;
   string email = 3;
   string advertise_str = 4;
+  ClientDeviceInfo device = 5;
 }
 
 message ResOauth2Signup {
@@ -2556,6 +2586,19 @@ message ResCreatePaypalOrder {
   string url = 3;
 }
 
+message ReqCreateXsollaOrder {
+  uint32 goods_id = 1;
+  uint32 client_type = 2;
+  uint32 account_id = 3;
+  uint32 payment_method = 4;
+}
+
+message ResCreateXsollaOrder {
+  Error error = 1;
+  string order_id = 2;
+  string url = 3;
+}
+
 message ReqOpenChest {
   uint32 chest_id = 1;
   uint32 count = 2;
@@ -3128,6 +3171,22 @@ message ReqForceCompleteChallengeTask {
   uint32 task_id = 1;
 }
 
+message ResFetchABMatch {
+  Error error = 1;
+  uint32 match_id = 2;
+  uint32 match_count = 3;
+  uint32 buy_in_count = 4;
+  uint32 point = 5;
+  bool rewarded = 6;
+  repeated MatchPoint match_max_point = 7;
+  bool quit = 8;
+  message MatchPoint {
+    uint32 match_id = 1;
+    uint32 point = 2;
+  }
+
+}
+
 message ReqStartUnifiedMatch {
   string match_sid = 1;
 }
@@ -3158,6 +3217,10 @@ message ResReceiveChallengeRankReward {
     uint32 count = 2;
   }
 
+}
+
+message ReqBuyInABMatch {
+  uint32 match_id = 1;
 }
 
 message ActionMJStart {
