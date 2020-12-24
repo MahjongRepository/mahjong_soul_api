@@ -12,6 +12,7 @@ class Lobby(MSRPCService):
         'fetchConnectionInfo': pb.ReqCommon,
         'signup': pb.ReqSignupAccount,
         'login': pb.ReqLogin,
+        'loginSuccess': pb.ReqCommon,
         'emailLogin': pb.ReqEmailLogin,
         'oauth2Auth': pb.ReqOauth2Auth,
         'oauth2Check': pb.ReqOauth2Check,
@@ -47,11 +48,13 @@ class Lobby(MSRPCService):
         'cancelMatch': pb.ReqCancelMatchQueue,
         'fetchAccountInfo': pb.ReqAccountInfo,
         'changeAvatar': pb.ReqChangeAvatar,
+        'receiveVersionReward': pb.ReqCommon,
         'fetchAccountStatisticInfo': pb.ReqAccountStatisticInfo,
         'fetchAccountChallengeRankInfo': pb.ReqAccountInfo,
         'fetchAccountCharacterInfo': pb.ReqCommon,
         'shopPurchase': pb.ReqShopPurchase,
         'fetchGameRecord': pb.ReqGameRecord,
+        'readGameRecord': pb.ReqGameRecord,
         'fetchGameRecordList': pb.ReqGameRecordList,
         'fetchCollectedGameRecordList': pb.ReqCommon,
         'fetchGameRecordsDetail': pb.ReqGameRecordsDetail,
@@ -81,6 +84,9 @@ class Lobby(MSRPCService):
         'readMail': pb.ReqReadMail,
         'deleteMail': pb.ReqDeleteMail,
         'takeAttachmentFromMail': pb.ReqTakeAttachment,
+        'receiveAchievementReward': pb.ReqReceiveAchievementReward,
+        'receiveAchievementGroupReward': pb.ReqReceiveAchievementGroupReward,
+        'fetchAchievementRate': pb.ReqCommon,
         'fetchAchievement': pb.ReqCommon,
         'buyShiLian': pb.ReqBuyShiLian,
         'matchShiLian': pb.ReqCommon,
@@ -95,6 +101,7 @@ class Lobby(MSRPCService):
         'fetchDailyTask': pb.ReqCommon,
         'refreshDailyTask': pb.ReqRefreshDailyTask,
         'useGiftCode': pb.ReqUseGiftCode,
+        'useSpecialGiftCode': pb.ReqUseGiftCode,
         'fetchTitleList': pb.ReqCommon,
         'useTitle': pb.ReqUseTitle,
         'sendClientMessage': pb.ReqSendClientMessage,
@@ -209,6 +216,7 @@ class Lobby(MSRPCService):
         'receiveActivityFlipTask': pb.ReqReceiveActivityFlipTask,
         'fetchActivityFlipInfo': pb.ReqFetchActivityFlipInfo,
         'gainAccumulatedPointActivityReward': pb.ReqGainAccumulatedPointActivityReward,
+        'gainMultiPointActivityReward': pb.ReqGainMultiPointActivityReward,
         'fetchRankPointLeaderboard': pb.ReqFetchRankPointLeaderboard,
         'gainRankPointReward': pb.ReqGainRankPointReward,
         'richmanActivityNextMove': pb.ReqRichmanNextMove,
@@ -233,6 +241,7 @@ class Lobby(MSRPCService):
         'fetchConnectionInfo': pb.ResConnectionInfo,
         'signup': pb.ResSignupAccount,
         'login': pb.ResLogin,
+        'loginSuccess': pb.ResCommon,
         'emailLogin': pb.ResLogin,
         'oauth2Auth': pb.ResOauth2Auth,
         'oauth2Check': pb.ResOauth2Check,
@@ -268,11 +277,13 @@ class Lobby(MSRPCService):
         'cancelMatch': pb.ResCommon,
         'fetchAccountInfo': pb.ResAccountInfo,
         'changeAvatar': pb.ResCommon,
+        'receiveVersionReward': pb.ResCommon,
         'fetchAccountStatisticInfo': pb.ResAccountStatisticInfo,
         'fetchAccountChallengeRankInfo': pb.ResAccountChallengeRankInfo,
         'fetchAccountCharacterInfo': pb.ResAccountCharacterInfo,
         'shopPurchase': pb.ResShopPurchase,
         'fetchGameRecord': pb.ResGameRecord,
+        'readGameRecord': pb.ResCommon,
         'fetchGameRecordList': pb.ResGameRecordList,
         'fetchCollectedGameRecordList': pb.ResCollectedGameRecordList,
         'fetchGameRecordsDetail': pb.ResGameRecordsDetail,
@@ -302,6 +313,9 @@ class Lobby(MSRPCService):
         'readMail': pb.ResCommon,
         'deleteMail': pb.ResCommon,
         'takeAttachmentFromMail': pb.ResCommon,
+        'receiveAchievementReward': pb.ResReceiveAchievementReward,
+        'receiveAchievementGroupReward': pb.ResReceiveAchievementGroupReward,
+        'fetchAchievementRate': pb.ResFetchAchievementRate,
         'fetchAchievement': pb.ResAchievement,
         'buyShiLian': pb.ResCommon,
         'matchShiLian': pb.ResCommon,
@@ -316,6 +330,7 @@ class Lobby(MSRPCService):
         'fetchDailyTask': pb.ResDailyTask,
         'refreshDailyTask': pb.ResRefreshDailyTask,
         'useGiftCode': pb.ResUseGiftCode,
+        'useSpecialGiftCode': pb.ResUseSpecialGiftCode,
         'fetchTitleList': pb.ResTitleList,
         'useTitle': pb.ResCommon,
         'sendClientMessage': pb.ResCommon,
@@ -430,6 +445,7 @@ class Lobby(MSRPCService):
         'receiveActivityFlipTask': pb.ResReceiveActivityFlipTask,
         'fetchActivityFlipInfo': pb.ResFetchActivityFlipInfo,
         'gainAccumulatedPointActivityReward': pb.ResCommon,
+        'gainMultiPointActivityReward': pb.ResCommon,
         'fetchRankPointLeaderboard': pb.ResFetchRankPointLeaderboard,
         'gainRankPointReward': pb.ResCommon,
         'richmanActivityNextMove': pb.ResRichmanNextMove,
@@ -471,6 +487,9 @@ class Lobby(MSRPCService):
 
     async def login(self, req):
         return await self.call_method('login', req)
+
+    async def login_success(self, req):
+        return await self.call_method('loginSuccess', req)
 
     async def email_login(self, req):
         return await self.call_method('emailLogin', req)
@@ -577,6 +596,9 @@ class Lobby(MSRPCService):
     async def change_avatar(self, req):
         return await self.call_method('changeAvatar', req)
 
+    async def receive_version_reward(self, req):
+        return await self.call_method('receiveVersionReward', req)
+
     async def fetch_account_statistic_info(self, req):
         return await self.call_method('fetchAccountStatisticInfo', req)
 
@@ -591,6 +613,9 @@ class Lobby(MSRPCService):
 
     async def fetch_game_record(self, req):
         return await self.call_method('fetchGameRecord', req)
+
+    async def read_game_record(self, req):
+        return await self.call_method('readGameRecord', req)
 
     async def fetch_game_record_list(self, req):
         return await self.call_method('fetchGameRecordList', req)
@@ -679,6 +704,15 @@ class Lobby(MSRPCService):
     async def take_attachment_from_mail(self, req):
         return await self.call_method('takeAttachmentFromMail', req)
 
+    async def receive_achievement_reward(self, req):
+        return await self.call_method('receiveAchievementReward', req)
+
+    async def receive_achievement_group_reward(self, req):
+        return await self.call_method('receiveAchievementGroupReward', req)
+
+    async def fetch_achievement_rate(self, req):
+        return await self.call_method('fetchAchievementRate', req)
+
     async def fetch_achievement(self, req):
         return await self.call_method('fetchAchievement', req)
 
@@ -720,6 +754,9 @@ class Lobby(MSRPCService):
 
     async def use_gift_code(self, req):
         return await self.call_method('useGiftCode', req)
+
+    async def use_special_gift_code(self, req):
+        return await self.call_method('useSpecialGiftCode', req)
 
     async def fetch_title_list(self, req):
         return await self.call_method('fetchTitleList', req)
@@ -1062,6 +1099,9 @@ class Lobby(MSRPCService):
 
     async def gain_accumulated_point_activity_reward(self, req):
         return await self.call_method('gainAccumulatedPointActivityReward', req)
+
+    async def gain_multi_point_activity_reward(self, req):
+        return await self.call_method('gainMultiPointActivityReward', req)
 
     async def fetch_rank_point_leaderboard(self, req):
         return await self.call_method('fetchRankPointLeaderboard', req)
