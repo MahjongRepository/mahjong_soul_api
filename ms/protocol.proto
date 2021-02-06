@@ -564,6 +564,8 @@ message GameDetailRule {
   uint32 jiuchao_mode = 45;
   uint32 muyu_mode = 46;
   uint32 open_hand = 47;
+  uint32 xuezhandaodi = 48;
+  uint32 huansanzhang = 49;
   bool disable_leijiyiman = 60;
 }
 
@@ -738,6 +740,8 @@ message AccountDetailStatisticV2 {
   CustomizedContestStatistic customized_contest_statistic = 3;
   AccountDetailStatistic leisure_match_statistic = 4;
   ChallengeStatistic challenge_match_statistic = 5;
+  AccountDetailStatistic activity_match_statistic = 6;
+  AccountDetailStatistic ab_match_statistic = 7;
   message RankStatistic {
     RankData total_statistic = 1;
     RankData month_statistic = 2;
@@ -1324,6 +1328,7 @@ message RecordNoTilePlayerInfo {
   bool tingpai = 3;
   repeated string hand = 4;
   repeated RecordTingPaiInfo tings = 5;
+  bool liuman = 6;
 }
 
 message RecordHuleInfo {
@@ -1488,6 +1493,7 @@ service Lobby {
   rpc useBagItem (ReqUseBagItem) returns (ResCommon);
   rpc openManualItem (ReqOpenManualItem) returns (ResCommon);
   rpc openRandomRewardItem (ReqOpenRandomRewardItem) returns (ResOpenRandomRewardItem);
+  rpc openAllRewardItem (ReqOpenAllRewardItem) returns (ResOpenAllRewardItem);
   rpc composeShard (ReqComposeShard) returns (ResCommon);
   rpc fetchAnnouncement (ReqFetchAnnouncement) returns (ResAnnouncement);
   rpc readAnnouncement (ReqReadAnnouncement) returns (ResCommon);
@@ -1635,6 +1641,8 @@ service Lobby {
   rpc richmanActivityChestInfo (ReqRichmanChestInfo) returns (ResRichmanChestInfo);
   rpc createGameObserveAuth (ReqCreateGameObserveAuth) returns (ResCreateGameObserveAuth);
   rpc refreshGameObserveAuth (ReqRefreshGameObserveAuth) returns (ResRefreshGameObserveAuth);
+  rpc fetchActivityBuff (ReqCommon) returns (ResActivityBuff);
+  rpc upgradeActivityBuff (ReqUpgradeActivityBuff) returns (ResActivityBuff);
   rpc upgradeChallenge (ReqCommon) returns (ResUpgradeChallenge);
   rpc refreshChallenge (ReqCommon) returns (ResRefreshChallenge);
   rpc fetchChallengeInfo (ReqCommon) returns (ResFetchChallengeInfo);
@@ -1647,6 +1655,8 @@ service Lobby {
   rpc quitABMatch (ReqCommon) returns (ResCommon);
   rpc startUnifiedMatch (ReqStartUnifiedMatch) returns (ResCommon);
   rpc cancelUnifiedMatch (ReqCancelUnifiedMatch) returns (ResCommon);
+  rpc fetchGamePointRank (ReqGamePointRank) returns (ResGamePointRank);
+  rpc fetchSelfGamePointRank (ReqGamePointRank) returns (ResFetchSelfGamePointRank);
 }
 
 message ResConnectionInfo {
@@ -1790,6 +1800,7 @@ message ReqOauth2Signup {
   string email = 3;
   string advertise_str = 4;
   ClientDeviceInfo device = 5;
+  ClientVersionInfo client_version = 6;
 }
 
 message ResOauth2Signup {
@@ -2147,6 +2158,15 @@ message ReqOpenRandomRewardItem {
 }
 
 message ResOpenRandomRewardItem {
+  Error error = 1;
+  repeated OpenResult results = 2;
+}
+
+message ReqOpenAllRewardItem {
+  uint32 item_id = 1;
+}
+
+message ResOpenAllRewardItem {
   Error error = 1;
   repeated OpenResult results = 2;
 }
@@ -2777,6 +2797,12 @@ message ResOpenChest {
   repeated OpenResult results = 2;
   uint32 total_open_count = 3;
   uint32 faith_count = 4;
+  repeated ChestReplaceCountData chest_replace_up = 5;
+  message ChestReplaceCountData {
+    uint32 id = 1;
+    uint32 count = 2;
+  }
+
 }
 
 message ReqBuyFromChestShop {
@@ -3148,6 +3174,7 @@ message ResAccountActivityData {
   repeated ActivityRichmanData richman_data = 8;
   repeated TaskProgress period_task_progress_list = 9;
   repeated TaskProgress random_task_progress_list = 10;
+  repeated ChestUpData chest_up_data = 11;
   message ActivitySignInData {
     uint32 activity_id = 1;
     uint32 sign_in_count = 2;
@@ -3168,6 +3195,11 @@ message ResAccountActivityData {
     uint32 bank_save = 5;
     uint32 exp = 6;
     repeated BuffData buff = 7;
+  }
+
+  message ChestUpData {
+    uint32 id = 1;
+    uint32 count = 2;
   }
 
 }
@@ -3311,6 +3343,20 @@ message ResRefreshGameObserveAuth {
   uint32 ttl = 2;
 }
 
+message ResActivityBuff {
+  Error error = 1;
+  repeated ActivityBuffData buff_list = 2;
+  message ActivityBuffData {
+    uint32 buff_id = 1;
+    uint32 level = 2;
+  }
+
+}
+
+message ReqUpgradeActivityBuff {
+  uint32 buff_id = 1;
+}
+
 message ResUpgradeChallenge {
   Error error = 1;
   repeated TaskProgress task_progress = 2;
@@ -3395,6 +3441,26 @@ message ReqBuyInABMatch {
   uint32 match_id = 1;
 }
 
+message ReqGamePointRank {
+  uint32 activity_id = 1;
+}
+
+message ResGamePointRank {
+  Error error = 1;
+  repeated RankInfo rank = 2;
+  uint32 self_rank = 3;
+  message RankInfo {
+    uint32 account_id = 1;
+    uint32 point = 2;
+  }
+
+}
+
+message ResFetchSelfGamePointRank {
+  Error error = 1;
+  uint32 self_rate = 2;
+}
+
 message ActionMJStart {
 }
 
@@ -3449,6 +3515,7 @@ message RecordNewRound {
   repeated string doras = 16;
   repeated NewRoundOpenedTiles opens = 17;
   MuyuInfo muyu = 18;
+  repeated OptionalOperationList operations = 19;
   message TingPai {
     uint32 seat = 1;
     repeated TingPaiInfo tingpais1 = 2;
@@ -3496,6 +3563,8 @@ message GameDetailRecords {
 message OptionalOperation {
   uint32 type = 1;
   repeated string combination = 2;
+  repeated string change_tiles = 3;
+  repeated int32 change_tile_states = 4;
 }
 
 message OptionalOperationList {
@@ -3509,6 +3578,7 @@ message LiQiSuccess {
   uint32 seat = 1;
   int32 score = 2;
   uint32 liqibang = 3;
+  bool failed = 4;
 }
 
 message FanInfo {
@@ -3537,6 +3607,7 @@ message HuleInfo {
   uint32 point_zimo_xian = 17;
   uint32 title_id = 18;
   uint32 point_sum = 19;
+  uint32 dadian = 20;
 }
 
 message TingPaiInfo {
@@ -3559,6 +3630,38 @@ message TingPaiDiscardInfo {
 
 message GameEnd {
   repeated int32 scores = 1;
+}
+
+message ActionChangeTile {
+  repeated string in_tiles = 1;
+  repeated int32 in_tile_states = 2;
+  repeated string out_tiles = 3;
+  repeated int32 out_tile_states = 4;
+  repeated string doras = 5;
+  repeated TingPaiDiscardInfo tingpais0 = 6;
+  repeated TingPaiInfo tingpais1 = 7;
+  OptionalOperationList operation = 8;
+  uint32 change_type = 9;
+}
+
+message RecordChangeTile {
+  repeated string doras = 1;
+  repeated TingPai tingpai = 2;
+  repeated ChangeTile change_tile_infos = 3;
+  OptionalOperationList operation = 4;
+  uint32 change_type = 5;
+  message TingPai {
+    uint32 seat = 1;
+    repeated TingPaiInfo tingpais1 = 2;
+  }
+
+  message ChangeTile {
+    repeated string in_tiles = 1;
+    repeated int32 in_tile_states = 2;
+    repeated string out_tiles = 3;
+    repeated int32 out_tile_states = 4;
+  }
+
 }
 
 message ActionDiscardTile {
@@ -3701,6 +3804,66 @@ message RecordHule {
   MuyuInfo muyu = 8;
 }
 
+message HuInfoXueZhanMid {
+  uint32 seat = 1;
+  uint32 hand_count = 2;
+  repeated string hand = 3;
+  repeated string ming = 4;
+  string hu_tile = 5;
+  bool zimo = 6;
+  bool yiman = 7;
+  uint32 count = 8;
+  repeated FanInfo fans = 9;
+  uint32 fu = 10;
+  uint32 title_id = 11;
+}
+
+message ActionHuleXueZhanMid {
+  repeated HuInfoXueZhanMid hules = 1;
+  repeated int32 old_scores = 2;
+  repeated int32 delta_scores = 3;
+  repeated int32 scores = 5;
+  repeated string doras = 7;
+  MuyuInfo muyu = 8;
+  LiQiSuccess liqi = 9;
+  bool zhenting = 10;
+}
+
+message RecordHuleXueZhanMid {
+  repeated HuInfoXueZhanMid hules = 1;
+  repeated int32 old_scores = 2;
+  repeated int32 delta_scores = 3;
+  repeated int32 scores = 5;
+  repeated string doras = 7;
+  MuyuInfo muyu = 8;
+  LiQiSuccess liqi = 9;
+  repeated bool zhenting = 10;
+}
+
+message ActionHuleXueZhanEnd {
+  repeated HuInfoXueZhanMid hules = 1;
+  repeated int32 old_scores = 2;
+  repeated int32 delta_scores = 3;
+  repeated int32 scores = 4;
+  uint32 wait_timeout = 5;
+  GameEnd gameend = 6;
+  repeated string doras = 7;
+  MuyuInfo muyu = 8;
+  repeated HuleInfo hules_history = 9;
+}
+
+message RecordHuleXueZhanEnd {
+  repeated HuInfoXueZhanMid hules = 1;
+  repeated int32 old_scores = 2;
+  repeated int32 delta_scores = 3;
+  repeated int32 scores = 4;
+  uint32 wait_timeout = 5;
+  GameEnd gameend = 6;
+  repeated string doras = 7;
+  MuyuInfo muyu = 8;
+  repeated HuleInfo hules_history = 9;
+}
+
 message ActionLiuJu {
   uint32 type = 1;
   GameEnd gameend = 2;
@@ -3709,6 +3872,7 @@ message ActionLiuJu {
   LiQiSuccess liqi = 5;
   repeated string allplayertiles = 6;
   MuyuInfo muyu = 7;
+  repeated HuleInfo hules_history = 9;
 }
 
 message RecordLiuJu {
@@ -3719,12 +3883,14 @@ message RecordLiuJu {
   LiQiSuccess liqi = 5;
   repeated string allplayertiles = 6;
   MuyuInfo muyu = 7;
+  repeated HuleInfo hules_history = 9;
 }
 
 message NoTilePlayerInfo {
   bool tingpai = 3;
   repeated string hand = 4;
   repeated TingPaiInfo tings = 5;
+  bool already_hule = 6;
 }
 
 message NoTileScoreInfo {
@@ -3743,6 +3909,7 @@ message ActionNoTile {
   repeated NoTileScoreInfo scores = 3;
   bool gameend = 4;
   MuyuInfo muyu = 5;
+  repeated HuleInfo hules_history = 9;
 }
 
 message RecordNoTile {
@@ -3751,6 +3918,7 @@ message RecordNoTile {
   repeated NoTileScoreInfo scores = 3;
   bool gameend = 4;
   MuyuInfo muyu = 5;
+  repeated HuleInfo hules_history = 9;
 }
 
 message PlayerLeaving {
@@ -3828,6 +3996,8 @@ message ReqSelfOperation {
   bool moqie = 5;
   uint32 timeuse = 6;
   int32 tile_state = 7;
+  repeated string change_tiles = 8;
+  repeated int32 tile_states = 9;
 }
 
 message ReqChiPengGang {

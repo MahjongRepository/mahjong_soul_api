@@ -77,6 +77,7 @@ class Lobby(MSRPCService):
         'useBagItem': pb.ReqUseBagItem,
         'openManualItem': pb.ReqOpenManualItem,
         'openRandomRewardItem': pb.ReqOpenRandomRewardItem,
+        'openAllRewardItem': pb.ReqOpenAllRewardItem,
         'composeShard': pb.ReqComposeShard,
         'fetchAnnouncement': pb.ReqFetchAnnouncement,
         'readAnnouncement': pb.ReqReadAnnouncement,
@@ -224,6 +225,8 @@ class Lobby(MSRPCService):
         'richmanActivityChestInfo': pb.ReqRichmanChestInfo,
         'createGameObserveAuth': pb.ReqCreateGameObserveAuth,
         'refreshGameObserveAuth': pb.ReqRefreshGameObserveAuth,
+        'fetchActivityBuff': pb.ReqCommon,
+        'upgradeActivityBuff': pb.ReqUpgradeActivityBuff,
         'upgradeChallenge': pb.ReqCommon,
         'refreshChallenge': pb.ReqCommon,
         'fetchChallengeInfo': pb.ReqCommon,
@@ -236,6 +239,8 @@ class Lobby(MSRPCService):
         'quitABMatch': pb.ReqCommon,
         'startUnifiedMatch': pb.ReqStartUnifiedMatch,
         'cancelUnifiedMatch': pb.ReqCancelUnifiedMatch,
+        'fetchGamePointRank': pb.ReqGamePointRank,
+        'fetchSelfGamePointRank': pb.ReqGamePointRank,
     }
     _res = {
         'fetchConnectionInfo': pb.ResConnectionInfo,
@@ -306,6 +311,7 @@ class Lobby(MSRPCService):
         'useBagItem': pb.ResCommon,
         'openManualItem': pb.ResCommon,
         'openRandomRewardItem': pb.ResOpenRandomRewardItem,
+        'openAllRewardItem': pb.ResOpenAllRewardItem,
         'composeShard': pb.ResCommon,
         'fetchAnnouncement': pb.ResAnnouncement,
         'readAnnouncement': pb.ResCommon,
@@ -453,6 +459,8 @@ class Lobby(MSRPCService):
         'richmanActivityChestInfo': pb.ResRichmanChestInfo,
         'createGameObserveAuth': pb.ResCreateGameObserveAuth,
         'refreshGameObserveAuth': pb.ResRefreshGameObserveAuth,
+        'fetchActivityBuff': pb.ResActivityBuff,
+        'upgradeActivityBuff': pb.ResActivityBuff,
         'upgradeChallenge': pb.ResUpgradeChallenge,
         'refreshChallenge': pb.ResRefreshChallenge,
         'fetchChallengeInfo': pb.ResFetchChallengeInfo,
@@ -465,6 +473,8 @@ class Lobby(MSRPCService):
         'quitABMatch': pb.ResCommon,
         'startUnifiedMatch': pb.ResCommon,
         'cancelUnifiedMatch': pb.ResCommon,
+        'fetchGamePointRank': pb.ResGamePointRank,
+        'fetchSelfGamePointRank': pb.ResFetchSelfGamePointRank,
     }
 
     def get_package_name(self):
@@ -682,6 +692,9 @@ class Lobby(MSRPCService):
 
     async def open_random_reward_item(self, req):
         return await self.call_method('openRandomRewardItem', req)
+
+    async def open_all_reward_item(self, req):
+        return await self.call_method('openAllRewardItem', req)
 
     async def compose_shard(self, req):
         return await self.call_method('composeShard', req)
@@ -1124,6 +1137,12 @@ class Lobby(MSRPCService):
     async def refresh_game_observe_auth(self, req):
         return await self.call_method('refreshGameObserveAuth', req)
 
+    async def fetch_activity_buff(self, req):
+        return await self.call_method('fetchActivityBuff', req)
+
+    async def upgrade_activity_buff(self, req):
+        return await self.call_method('upgradeActivityBuff', req)
+
     async def upgrade_challenge(self, req):
         return await self.call_method('upgradeChallenge', req)
 
@@ -1159,6 +1178,12 @@ class Lobby(MSRPCService):
 
     async def cancel_unified_match(self, req):
         return await self.call_method('cancelUnifiedMatch', req)
+
+    async def fetch_game_point_rank(self, req):
+        return await self.call_method('fetchGamePointRank', req)
+
+    async def fetch_self_game_point_rank(self, req):
+        return await self.call_method('fetchSelfGamePointRank', req)
 
 
 class FastTest(MSRPCService):
