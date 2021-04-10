@@ -53,9 +53,6 @@ message NotifyRoomPlayerUpdate {
 message NotifyRoomKickOut {
 }
 
-message NotifyMatchTimeout {
-}
-
 message NotifyFriendStateChange {
   uint32 target_id = 1;
   AccountActiveState active_state = 2;
@@ -194,6 +191,10 @@ message NotifyCustomContestSystemMsg {
   string uuid = 3;
   CustomizedContestGameStart game_start = 4;
   CustomizedContestGameEnd game_end = 5;
+}
+
+message NotifyMatchTimeout {
+  string sid = 1;
 }
 
 message NotifyCustomContestState {
@@ -3206,6 +3207,7 @@ message ResAccountActivityData {
 
 message ReqExchangeActivityItem {
   uint32 exchange_id = 1;
+  uint32 count = 2;
 }
 
 message ResExchangeActivityItem {
