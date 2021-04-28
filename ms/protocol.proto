@@ -567,6 +567,7 @@ message GameDetailRule {
   uint32 open_hand = 47;
   uint32 xuezhandaodi = 48;
   uint32 huansanzhang = 49;
+  uint32 chuanma = 50;
   bool disable_leijiyiman = 60;
 }
 
@@ -3479,6 +3480,14 @@ message MuyuInfo {
   uint32 id = 4;
 }
 
+message ChuanmaGang {
+  repeated int32 old_scores = 1;
+  repeated int32 delta_scores = 2;
+  repeated int32 scores = 3;
+  GameEnd gameend = 4;
+  repeated HuleInfo hules_history = 5;
+}
+
 message ActionNewRound {
   uint32 chang = 1;
   uint32 ju = 2;
@@ -3496,6 +3505,7 @@ message ActionNewRound {
   repeated string doras = 14;
   repeated NewRoundOpenedTiles opens = 15;
   MuyuInfo muyu = 16;
+  uint32 ju_count = 17;
 }
 
 message RecordNewRound {
@@ -3518,6 +3528,7 @@ message RecordNewRound {
   repeated NewRoundOpenedTiles opens = 17;
   MuyuInfo muyu = 18;
   repeated OptionalOperationList operations = 19;
+  uint32 ju_count = 20;
   message TingPai {
     uint32 seat = 1;
     repeated TingPaiInfo tingpais1 = 2;
@@ -3567,6 +3578,7 @@ message OptionalOperation {
   repeated string combination = 2;
   repeated string change_tiles = 3;
   repeated int32 change_tile_states = 4;
+  uint32 gap_type = 5;
 }
 
 message OptionalOperationList {
@@ -3634,6 +3646,24 @@ message GameEnd {
   repeated int32 scores = 1;
 }
 
+message ActionSelectGap {
+  repeated uint32 gap_types = 1;
+  repeated TingPaiDiscardInfo tingpais0 = 2;
+  repeated TingPaiInfo tingpais1 = 3;
+  OptionalOperationList operation = 4;
+}
+
+message RecordSelectGap {
+  repeated uint32 gap_types = 1;
+  repeated TingPai tingpai = 2;
+  OptionalOperationList operation = 3;
+  message TingPai {
+    uint32 seat = 1;
+    repeated TingPaiInfo tingpais1 = 2;
+  }
+
+}
+
 message ActionChangeTile {
   repeated string in_tiles = 1;
   repeated int32 in_tile_states = 2;
@@ -3652,6 +3682,7 @@ message RecordChangeTile {
   repeated ChangeTile change_tile_infos = 3;
   OptionalOperationList operation = 4;
   uint32 change_type = 5;
+  repeated OptionalOperationList operations = 6;
   message TingPai {
     uint32 seat = 1;
     repeated TingPaiInfo tingpais1 = 2;
@@ -3744,6 +3775,22 @@ message RecordChiPengGang {
   MuyuInfo muyu = 10;
 }
 
+message ActionGangResult {
+  ChuanmaGang gang_infos = 1;
+}
+
+message RecordGangResult {
+  ChuanmaGang gang_infos = 1;
+}
+
+message ActionGangResultEnd {
+  ChuanmaGang gang_infos = 1;
+}
+
+message RecordGangResultEnd {
+  ChuanmaGang gang_infos = 1;
+}
+
 message ActionAnGangAddGang {
   uint32 seat = 1;
   uint32 type = 2;
@@ -3793,6 +3840,7 @@ message ActionHule {
   GameEnd gameend = 6;
   repeated string doras = 7;
   MuyuInfo muyu = 8;
+  int32 baopai = 9;
 }
 
 message RecordHule {
@@ -3804,6 +3852,7 @@ message RecordHule {
   GameEnd gameend = 6;
   repeated string doras = 7;
   MuyuInfo muyu = 8;
+  int32 baopai = 9;
 }
 
 message HuInfoXueZhanMid {
@@ -3903,6 +3952,8 @@ message NoTileScoreInfo {
   repeated string ming = 5;
   repeated string doras = 6;
   uint32 score = 7;
+  repeated int32 taxes = 8;
+  repeated string lines = 9;
 }
 
 message ActionNoTile {
@@ -4000,6 +4051,7 @@ message ReqSelfOperation {
   int32 tile_state = 7;
   repeated string change_tiles = 8;
   repeated int32 tile_states = 9;
+  uint32 gap_type = 10;
 }
 
 message ReqChiPengGang {

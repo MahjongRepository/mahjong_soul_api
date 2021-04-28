@@ -4,14 +4,14 @@ Python wrappers for Majsoul allow you to interact with their servers from Python
 
 ## For User
 
-1. Install python packages from `requerements.txt`
+1. Install python packages from `requirements.txt`
 2. `python example.py -u username -p password`
 
 This example is working only with **Python3.7+**.
 
-Also, you need to have a Chinese account to run this example, because only accounts from these servers has the ability to login with login and password.
+Also, you need to have an account fron CN server to run this example, because only accounts from CN server has the ability to login with login and password.
 
-If you want to login to EN or JP servers you need to write your code to authenticate via email code or social network. Protobuf wrapper from this repository contains all needed API objects.
+If you want to login to EN or JP servers you need to write your code to authenticate via email code or social network. Protobuf wrapper from this repository contains all needed API objects for that.
 
 ## For Developer
 
