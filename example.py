@@ -63,7 +63,7 @@ async def connect():
             config = await res.json()
             logging.info(f"Config: {config}")
 
-            url = config["ip"][0]["region_urls"][1]
+            url = config["ip"][0]["region_urls"][1]["url"]
 
         async with session.get(url + "?service=ws-gateway&protocol=ws&ssl=true") as res:
             servers = await res.json()
