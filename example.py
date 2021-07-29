@@ -95,6 +95,7 @@ async def login(lobby, username, password):
     req.device.is_browser = True
     req.random_key = uuid_key
     req.gen_access_token = True
+    req.client_version_string = 'web-0.9.205'
     req.currency_platforms.append(2)
 
     res = await lobby.login(req)

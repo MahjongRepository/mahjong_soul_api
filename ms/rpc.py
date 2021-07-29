@@ -191,6 +191,7 @@ class Lobby(MSRPCService):
         'updateIDCardInfo': pb.ReqUpdateIDCardInfo,
         'fetchVipReward': pb.ReqCommon,
         'gainVipReward': pb.ReqGainVipReward,
+        'fetchRefundOrder': pb.ReqCommon,
         'fetchCustomizedContestList': pb.ReqFetchCustomizedContestList,
         'fetchCustomizedContestExtendInfo': pb.ReqFetchCustomizedContestExtendInfo,
         'fetchCustomizedContestAuthInfo': pb.ReqFetchCustomizedContestAuthInfo,
@@ -241,6 +242,13 @@ class Lobby(MSRPCService):
         'cancelUnifiedMatch': pb.ReqCancelUnifiedMatch,
         'fetchGamePointRank': pb.ReqGamePointRank,
         'fetchSelfGamePointRank': pb.ReqGamePointRank,
+        'readSNS': pb.ReqReadSNS,
+        'replySNS': pb.ReqReplySNS,
+        'likeSNS': pb.ReqLikeSNS,
+        'digMine': pb.ReqDigMine,
+        'fetchLastPrivacy': pb.ReqFetchLastPrivacy,
+        'checkPrivacy': pb.ReqCheckPrivacy,
+        'responseCaptcha': pb.ReqResponseCaptcha,
     }
     _res = {
         'fetchConnectionInfo': pb.ResConnectionInfo,
@@ -425,6 +433,7 @@ class Lobby(MSRPCService):
         'updateIDCardInfo': pb.ResCommon,
         'fetchVipReward': pb.ResVipReward,
         'gainVipReward': pb.ResCommon,
+        'fetchRefundOrder': pb.ResFetchRefundOrder,
         'fetchCustomizedContestList': pb.ResFetchCustomizedContestList,
         'fetchCustomizedContestExtendInfo': pb.ResFetchCustomizedContestExtendInfo,
         'fetchCustomizedContestAuthInfo': pb.ResFetchCustomizedContestAuthInfo,
@@ -475,6 +484,13 @@ class Lobby(MSRPCService):
         'cancelUnifiedMatch': pb.ResCommon,
         'fetchGamePointRank': pb.ResGamePointRank,
         'fetchSelfGamePointRank': pb.ResFetchSelfGamePointRank,
+        'readSNS': pb.ResReadSNS,
+        'replySNS': pb.ResReplySNS,
+        'likeSNS': pb.ResLikeSNS,
+        'digMine': pb.ResDigMine,
+        'fetchLastPrivacy': pb.ResFetchLastPrivacy,
+        'checkPrivacy': pb.ResCommon,
+        'responseCaptcha': pb.ResCommon,
     }
 
     def get_package_name(self):
@@ -1035,6 +1051,9 @@ class Lobby(MSRPCService):
     async def gain_vip_reward(self, req):
         return await self.call_method('gainVipReward', req)
 
+    async def fetch_refund_order(self, req):
+        return await self.call_method('fetchRefundOrder', req)
+
     async def fetch_customized_contest_list(self, req):
         return await self.call_method('fetchCustomizedContestList', req)
 
@@ -1184,6 +1203,27 @@ class Lobby(MSRPCService):
 
     async def fetch_self_game_point_rank(self, req):
         return await self.call_method('fetchSelfGamePointRank', req)
+
+    async def read_sns(self, req):
+        return await self.call_method('readSNS', req)
+
+    async def reply_sns(self, req):
+        return await self.call_method('replySNS', req)
+
+    async def like_sns(self, req):
+        return await self.call_method('likeSNS', req)
+
+    async def dig_mine(self, req):
+        return await self.call_method('digMine', req)
+
+    async def fetch_last_privacy(self, req):
+        return await self.call_method('fetchLastPrivacy', req)
+
+    async def check_privacy(self, req):
+        return await self.call_method('checkPrivacy', req)
+
+    async def response_captcha(self, req):
+        return await self.call_method('responseCaptcha', req)
 
 
 class FastTest(MSRPCService):

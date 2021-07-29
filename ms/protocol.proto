@@ -2,6 +2,13 @@ syntax = "proto3";
 
 package lq;
 
+message NotifyCaptcha {
+  uint32 check_id = 1;
+  uint32 start_time = 2;
+  string random_str = 3;
+  uint32 type = 4;
+}
+
 message NotifyRoomGameStart {
   string game_url = 1;
   string connect_token = 2;
@@ -340,6 +347,7 @@ message Account {
   uint32 verified = 26;
   repeated ChallengeLevel challenge_levels = 27;
   repeated AchievementCount achievement_count = 28;
+  uint32 frozen_state = 29;
   message PlatformDiamond {
     uint32 id = 1;
     uint32 count = 2;
@@ -382,6 +390,7 @@ message AccountUpdate {
   TaskUpdate activity_random_task = 12;
   AccountChallengeUpdate challenge = 13;
   AccountABMatchUpdate ab_match = 14;
+  AccountActivityUpdate activity = 15;
   message NumericalUpdate {
     uint32 id = 1;
     uint32 final = 3;
@@ -435,6 +444,16 @@ message AccountUpdate {
     message MatchPoint {
       uint32 match_id = 1;
       uint32 point = 2;
+    }
+
+  }
+
+  message AccountActivityUpdate {
+    repeated MineActivityData mine_data = 1;
+    message MineActivityData {
+      repeated Point dig_point = 1;
+      repeated MineReward rewards = 2;
+      uint32 id = 3;
     }
 
   }
@@ -658,6 +677,11 @@ message ExecuteReward {
   uint32 replace_count = 3;
 }
 
+message I18nContext {
+  string lang = 1;
+  string context = 2;
+}
+
 message Mail {
   uint32 mail_id = 1;
   uint32 state = 2;
@@ -670,11 +694,6 @@ message Mail {
   uint32 reference_id = 9;
   repeated I18nContext title_i18n = 10;
   repeated I18nContext content_i18n = 11;
-  message I18nContext {
-    string lang = 1;
-    string context = 2;
-  }
-
 }
 
 message AchievementProgress {
@@ -840,6 +859,17 @@ message Friend {
   AccountActiveState state = 2;
 }
 
+message Point {
+  uint32 x = 1;
+  uint32 y = 2;
+}
+
+message MineReward {
+  Point point = 1;
+  uint32 reward_id = 2;
+  bool received = 3;
+}
+
 message GameLiveUnit {
   uint32 timestamp = 1;
   uint32 action_category = 2;
@@ -961,6 +991,12 @@ message ChangeNicknameRecord {
 message ServerSettings {
   PaymentSetting payment_setting = 3;
   PaymentSettingV2 payment_setting_v2 = 4;
+  NicknameSetting nickname_setting = 5;
+}
+
+message NicknameSetting {
+  uint32 enable = 1;
+  repeated string nicknames = 2;
 }
 
 message PaymentSettingV2 {
@@ -979,6 +1015,7 @@ message PaymentSettingV2 {
     uint32 goods_click_action = 3;
     string goods_click_text = 4;
     PaymentMaintain maintain = 5;
+    bool enable_for_frozen_account = 6;
   }
 
 }
@@ -1073,6 +1110,7 @@ message CustomizedContestDetail {
   string private_notice = 12;
   uint32 observer_switch = 13;
   uint32 emoji_switch = 14;
+  uint32 contest_type = 15;
 }
 
 message CustomizedContestPlayerReport {
@@ -1609,6 +1647,7 @@ service Lobby {
   rpc updateIDCardInfo (ReqUpdateIDCardInfo) returns (ResCommon);
   rpc fetchVipReward (ReqCommon) returns (ResVipReward);
   rpc gainVipReward (ReqGainVipReward) returns (ResCommon);
+  rpc fetchRefundOrder (ReqCommon) returns (ResFetchRefundOrder);
   rpc fetchCustomizedContestList (ReqFetchCustomizedContestList) returns (ResFetchCustomizedContestList);
   rpc fetchCustomizedContestExtendInfo (ReqFetchCustomizedContestExtendInfo) returns (ResFetchCustomizedContestExtendInfo);
   rpc fetchCustomizedContestAuthInfo (ReqFetchCustomizedContestAuthInfo) returns (ResFetchCustomizedContestAuthInfo);
@@ -1659,6 +1698,13 @@ service Lobby {
   rpc cancelUnifiedMatch (ReqCancelUnifiedMatch) returns (ResCommon);
   rpc fetchGamePointRank (ReqGamePointRank) returns (ResGamePointRank);
   rpc fetchSelfGamePointRank (ReqGamePointRank) returns (ResFetchSelfGamePointRank);
+  rpc readSNS (ReqReadSNS) returns (ResReadSNS);
+  rpc replySNS (ReqReplySNS) returns (ResReplySNS);
+  rpc likeSNS (ReqLikeSNS) returns (ResLikeSNS);
+  rpc digMine (ReqDigMine) returns (ResDigMine);
+  rpc fetchLastPrivacy (ReqFetchLastPrivacy) returns (ResFetchLastPrivacy);
+  rpc checkPrivacy (ReqCheckPrivacy) returns (ResCommon);
+  rpc responseCaptcha (ReqResponseCaptcha) returns (ResCommon);
 }
 
 message ResConnectionInfo {
@@ -1672,6 +1718,7 @@ message ReqSignupAccount {
   string code = 3;
   uint32 type = 4;
   ClientDeviceInfo device = 5;
+  string client_version_string = 6;
 }
 
 message ResSignupAccount {
@@ -1689,6 +1736,7 @@ message ReqLogin {
   repeated uint32 currency_platforms = 8;
   uint32 type = 9;
   uint32 version = 10;
+  string client_version_string = 11;
 }
 
 message ResLogin {
@@ -1779,6 +1827,7 @@ message ReqOauth2Auth {
   uint32 type = 1;
   string code = 2;
   string uid = 3;
+  string client_version_string = 4;
 }
 
 message ResOauth2Auth {
@@ -1803,6 +1852,7 @@ message ReqOauth2Signup {
   string advertise_str = 4;
   ClientDeviceInfo device = 5;
   ClientVersionInfo client_version = 6;
+  string client_version_string = 7;
 }
 
 message ResOauth2Signup {
@@ -1819,6 +1869,7 @@ message ReqOauth2Login {
   bool gen_access_token = 7;
   repeated uint32 currency_platforms = 8;
   uint32 version = 9;
+  string client_version_string = 10;
 }
 
 message ReqDMMPreLogin {
@@ -1826,6 +1877,7 @@ message ReqDMMPreLogin {
 }
 
 message ResDMMPreLogin {
+  Error error = 2;
   string parameter = 1;
 }
 
@@ -1846,6 +1898,7 @@ message ReqLoginBeat {
 
 message ReqJoinMatchQueue {
   uint32 match_mode = 1;
+  string client_version_string = 2;
 }
 
 message ReqCancelMatchQueue {
@@ -1885,6 +1938,7 @@ message ReqCreateRoom {
   uint32 player_count = 1;
   GameMode mode = 2;
   bool public_live = 3;
+  string client_version_string = 4;
 }
 
 message ResCreateRoom {
@@ -1894,6 +1948,7 @@ message ResCreateRoom {
 
 message ReqJoinRoom {
   uint32 room_id = 1;
+  string client_version_string = 2;
 }
 
 message ResJoinRoom {
@@ -1946,6 +2001,7 @@ message ResAccountChallengeRankInfo {
 }
 
 message ResAccountCharacterInfo {
+  Error error = 2;
   repeated uint32 unlock_list = 1;
 }
 
@@ -1961,6 +2017,7 @@ message ResShopPurchase {
 
 message ReqGameRecord {
   string game_uuid = 1;
+  string client_version_string = 2;
 }
 
 message ResGameRecord {
@@ -2224,6 +2281,7 @@ message ResReceiveAchievementReward {
 }
 
 message ResFetchAchievementRate {
+  Error error = 2;
   repeated AchievementRate rate = 1;
   message AchievementRate {
     uint32 id = 1;
@@ -2257,6 +2315,7 @@ message ReqUpdateClientValue {
 }
 
 message ResClientValue {
+  Error error = 3;
   repeated Value datas = 1;
   uint32 recharged_count = 2;
   message Value {
@@ -2709,6 +2768,7 @@ message ReqCreateIAPOrder {
   uint32 client_type = 2;
   uint32 account_id = 3;
   string access_token = 4;
+  string debt_order_id = 5;
 }
 
 message ResCreateIAPOrder {
@@ -2733,6 +2793,7 @@ message ReqCreateSteamOrder {
   uint32 client_type = 3;
   uint32 goods_id = 4;
   string steam_id = 5;
+  string debt_order_id = 6;
 }
 
 message ResCreateSteamOrder {
@@ -2750,6 +2811,7 @@ message ReqCreateMyCardOrder {
   uint32 goods_id = 1;
   uint32 client_type = 2;
   uint32 account_id = 3;
+  string debt_order_id = 4;
 }
 
 message ResCreateMyCardOrder {
@@ -2767,6 +2829,7 @@ message ReqCreatePaypalOrder {
   uint32 goods_id = 1;
   uint32 client_type = 2;
   uint32 account_id = 3;
+  string debt_order_id = 4;
 }
 
 message ResCreatePaypalOrder {
@@ -2780,6 +2843,7 @@ message ReqCreateXsollaOrder {
   uint32 client_type = 2;
   uint32 account_id = 3;
   uint32 payment_method = 4;
+  string debt_order_id = 5;
 }
 
 message ResCreateXsollaOrder {
@@ -2816,7 +2880,7 @@ message ResBuyFromChestShop {
   Error error = 1;
   uint32 chest_id = 2;
   uint32 consume_count = 3;
-  uint32 faith_count = 4;
+  int32 faith_count = 4;
 }
 
 message ResDailySignInInfo {
@@ -2921,6 +2985,7 @@ message ReqCommonViews {
 }
 
 message ResCommonViews {
+  Error error = 2;
   repeated ViewSlot views = 1;
 }
 
@@ -3001,6 +3066,7 @@ message ResRefreshZHPShop {
 }
 
 message ResMonthTicketInfo {
+  Error error = 2;
   repeated MonthTicketInfo month_ticket_info = 1;
 }
 
@@ -3010,6 +3076,7 @@ message ReqExchangeCurrency {
 }
 
 message ResServerSettings {
+  Error error = 2;
   ServerSettings settings = 1;
 }
 
@@ -3023,6 +3090,7 @@ message ReqUpdateAccountSettings {
 }
 
 message ResModNicknameTime {
+  Error error = 2;
   uint32 last_mod_time = 1;
 }
 
@@ -3032,7 +3100,7 @@ message ResMisc {
   repeated MiscFaithData faiths = 3;
   message MiscFaithData {
     uint32 faith_id = 1;
-    uint32 count = 2;
+    int32 count = 2;
   }
 
 }
@@ -3055,6 +3123,20 @@ message ReqUpdateIDCardInfo {
 message ResVipReward {
   Error error = 1;
   repeated uint32 gained_vip_levels = 2;
+}
+
+message ResFetchRefundOrder {
+  Error error = 1;
+  repeated OrderInfo orders = 2;
+  uint32 clear_deadline = 3;
+  repeated I18nContext message = 4;
+  message OrderInfo {
+    uint32 success_time = 1;
+    uint32 goods_id = 2;
+    uint32 cleared = 3;
+    string order_id = 4;
+  }
+
 }
 
 message ReqGainVipReward {
@@ -3121,6 +3203,7 @@ message ResFetchCustomizedContestByContestId {
 
 message ReqStartCustomizedContest {
   uint32 unique_id = 1;
+  string client_version_string = 2;
 }
 
 message ReqJoinCustomizedContestChatRoom {
@@ -3177,6 +3260,8 @@ message ResAccountActivityData {
   repeated TaskProgress period_task_progress_list = 9;
   repeated TaskProgress random_task_progress_list = 10;
   repeated ChestUpData chest_up_data = 11;
+  ActivitySNSData sns_data = 12;
+  repeated MineActivityData mine_data = 13;
   message ActivitySignInData {
     uint32 activity_id = 1;
     uint32 sign_in_count = 2;
@@ -3204,6 +3289,28 @@ message ResAccountActivityData {
     uint32 count = 2;
   }
 
+  message ActivitySNSData {
+    repeated SNSBlog blog = 1;
+    repeated uint32 liked_id = 2;
+    repeated SNSReply reply = 3;
+  }
+
+  message MineActivityData {
+    repeated Point dig_point = 1;
+    repeated MineReward map = 2;
+    uint32 id = 3;
+  }
+
+}
+
+message SNSBlog {
+  uint32 id = 1;
+  uint32 read_time = 2;
+}
+
+message SNSReply {
+  uint32 id = 1;
+  uint32 reply_time = 2;
 }
 
 message ReqExchangeActivityItem {
@@ -3410,6 +3517,7 @@ message ResFetchABMatch {
 
 message ReqStartUnifiedMatch {
   string match_sid = 1;
+  string client_version_string = 2;
 }
 
 message ReqCancelUnifiedMatch {
@@ -3417,6 +3525,7 @@ message ReqCancelUnifiedMatch {
 }
 
 message ResChallengeSeasonInfo {
+  Error error = 2;
   repeated ChallengeInfo challenge_season_list = 1;
   message ChallengeInfo {
     uint32 season_id = 1;
@@ -3432,6 +3541,7 @@ message ReqReceiveChallengeRankReward {
 }
 
 message ResReceiveChallengeRankReward {
+  Error error = 2;
   repeated Reward rewards = 1;
   message Reward {
     uint32 resource_id = 1;
@@ -3462,6 +3572,76 @@ message ResGamePointRank {
 message ResFetchSelfGamePointRank {
   Error error = 1;
   uint32 self_rate = 2;
+}
+
+message ReqReadSNS {
+  uint32 id = 1;
+}
+
+message ResReadSNS {
+  Error error = 1;
+  SNSBlog sns_content = 2;
+}
+
+message ReqReplySNS {
+  uint32 id = 1;
+}
+
+message ResReplySNS {
+  Error error = 1;
+  SNSReply sns_reply = 2;
+}
+
+message ReqLikeSNS {
+  uint32 id = 1;
+}
+
+message ResLikeSNS {
+  Error error = 1;
+  uint32 is_liked = 2;
+}
+
+message ReqDigMine {
+  uint32 activity_id = 1;
+  Point point = 2;
+}
+
+message ResDigMine {
+  Error error = 1;
+  repeated MineReward map = 2;
+  repeated lq.RewardSlot reward = 3;
+}
+
+message ReqFetchLastPrivacy {
+  repeated uint32 type = 1;
+}
+
+message ResFetchLastPrivacy {
+  Error error = 1;
+  repeated PrivacyInfo privacy = 2;
+  message PrivacyInfo {
+    uint32 type = 1;
+    string version = 2;
+  }
+
+}
+
+message ReqCheckPrivacy {
+  string device_type = 1;
+  repeated Versions versions = 2;
+  message Versions {
+    string version = 1;
+    uint32 type = 3;
+  }
+
+}
+
+message ReqResponseCaptcha {
+  uint32 check_id = 1;
+  uint32 check_time = 2;
+  string result = 3;
+  string client_version_string = 4;
+  uint32 type = 5;
 }
 
 message ActionMJStart {
@@ -3571,6 +3751,56 @@ message ActionPrototype {
 
 message GameDetailRecords {
   repeated bytes records = 1;
+  uint32 version = 2;
+  repeated GameAction actions = 3;
+  bytes bar = 4;
+}
+
+message GameSelfOperation {
+  uint32 type = 1;
+  uint32 index = 2;
+  string tile = 3;
+  bool cancel_operation = 4;
+  bool moqie = 5;
+  uint32 timeuse = 6;
+  int32 tile_state = 7;
+  repeated string change_tiles = 8;
+  repeated int32 tile_states = 9;
+  uint32 gap_type = 10;
+}
+
+message GameChiPengGang {
+  uint32 type = 1;
+  uint32 index = 2;
+  bool cancel_operation = 3;
+  uint32 timeuse = 6;
+}
+
+message GameVoteGameEnd {
+  bool yes = 1;
+}
+
+message GameUserInput {
+  uint32 seat = 1;
+  uint32 type = 2;
+  uint32 emo = 3;
+  GameSelfOperation operation = 10;
+  GameChiPengGang cpg = 11;
+  GameVoteGameEnd vote = 12;
+}
+
+message GameUserEvent {
+  uint32 seat = 1;
+  uint32 type = 2;
+}
+
+message GameAction {
+  uint32 passed = 1;
+  uint32 type = 2;
+  bytes result = 3;
+  GameUserInput user_input = 4;
+  GameUserEvent user_event = 5;
+  uint32 game_event = 6;
 }
 
 message OptionalOperation {
@@ -4002,6 +4232,9 @@ message ReqAuthGame {
   uint32 account_id = 1;
   string token = 2;
   string game_uuid = 3;
+  string session = 4;
+  string gift = 5;
+  uint32 vs = 6;
 }
 
 message ResAuthGame {
