@@ -450,6 +450,7 @@ message AccountUpdate {
 
   message AccountActivityUpdate {
     repeated MineActivityData mine_data = 1;
+    repeated lq.RPGActivity rpg_data = 2;
     message MineActivityData {
       repeated Point dig_point = 1;
       repeated MineReward rewards = 2;
@@ -844,6 +845,33 @@ message GameConfig {
   uint32 category = 1;
   GameMode mode = 2;
   GameMetaData meta = 3;
+}
+
+message RPGState {
+  uint32 player_damaged = 1;
+  uint32 monster_damaged = 2;
+  uint32 monster_seq = 3;
+}
+
+message RPGActivity {
+  uint32 activity_id = 1;
+  string last_show_uuid = 5;
+  string last_played_uuid = 6;
+  RPGState current_state = 7;
+  RPGState last_show_state = 8;
+  repeated uint32 received_rewards = 9;
+}
+
+message ActivityArenaData {
+  uint32 win_count = 1;
+  uint32 lose_count = 2;
+  uint32 activity_id = 3;
+  uint32 enter_time = 4;
+  uint32 daily_enter_count = 5;
+  uint32 daily_enter_time = 6;
+  uint32 max_win_count = 7;
+  uint32 total_win_count = 8;
+  repeated uint32 received_rewards = 9;
 }
 
 message AccountActiveState {
@@ -1705,6 +1733,11 @@ service Lobby {
   rpc fetchLastPrivacy (ReqFetchLastPrivacy) returns (ResFetchLastPrivacy);
   rpc checkPrivacy (ReqCheckPrivacy) returns (ResCommon);
   rpc responseCaptcha (ReqResponseCaptcha) returns (ResCommon);
+  rpc fetchRPGBattleHistory (ReqFetchRPGBattleHistory) returns (ResFetchRPGBattleHistory);
+  rpc receiveRPGRewards (ReqReceiveRPGRewards) returns (ResReceiveRPGRewards);
+  rpc buyArenaTicket (ReqBuyArenaTicket) returns (ResCommon);
+  rpc enterArena (ReqEnterArena) returns (ResCommon);
+  rpc receiveArenaReward (ReqArenaReward) returns (ResArenaReward);
 }
 
 message ResConnectionInfo {
@@ -3262,6 +3295,8 @@ message ResAccountActivityData {
   repeated ChestUpData chest_up_data = 11;
   ActivitySNSData sns_data = 12;
   repeated MineActivityData mine_data = 13;
+  repeated lq.RPGActivity rpg_data = 14;
+  repeated lq.ActivityArenaData arena_data = 15;
   message ActivitySignInData {
     uint32 activity_id = 1;
     uint32 sign_in_count = 2;
@@ -3642,6 +3677,72 @@ message ReqResponseCaptcha {
   string result = 3;
   string client_version_string = 4;
   uint32 type = 5;
+}
+
+message ReqFetchRPGBattleHistory {
+  uint32 activity_id = 1;
+}
+
+message ResFetchRPGBattleHistory {
+  Error error = 1;
+  repeated BattleResult battle_result = 2;
+  lq.RPGState start_state = 3;
+  lq.RPGState current_state = 4;
+  message BattleResult {
+    string uuid = 14;
+    uint32 chang = 1;
+    uint32 ju = 2;
+    uint32 ben = 3;
+    uint32 target = 4;
+    uint32 damage = 5;
+    uint32 heal = 6;
+    uint32 monster_seq = 7;
+    uint32 chain_atk = 8;
+    uint32 killed = 9;
+    uint32 is_luk = 10;
+    uint32 is_dex = 11;
+    uint32 is_extra = 12;
+    string reward = 13;
+    uint32 points = 15;
+    uint32 is_zimo = 16;
+  }
+
+}
+
+message ReqBuyArenaTicket {
+  uint32 activity_id = 1;
+}
+
+message ReqArenaReward {
+  uint32 activity_id = 1;
+}
+
+message ReqEnterArena {
+  uint32 activity_id = 1;
+}
+
+message ResArenaReward {
+  Error error = 1;
+  repeated RewardItem items = 2;
+  message RewardItem {
+    uint32 id = 1;
+    uint32 count = 2;
+  }
+
+}
+
+message ReqReceiveRPGRewards {
+  uint32 activity_id = 1;
+}
+
+message ResReceiveRPGRewards {
+  Error error = 1;
+  repeated RewardItem items = 2;
+  message RewardItem {
+    uint32 id = 1;
+    uint32 count = 2;
+  }
+
 }
 
 message ActionMJStart {

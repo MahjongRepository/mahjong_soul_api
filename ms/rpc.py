@@ -249,6 +249,11 @@ class Lobby(MSRPCService):
         'fetchLastPrivacy': pb.ReqFetchLastPrivacy,
         'checkPrivacy': pb.ReqCheckPrivacy,
         'responseCaptcha': pb.ReqResponseCaptcha,
+        'fetchRPGBattleHistory': pb.ReqFetchRPGBattleHistory,
+        'receiveRPGRewards': pb.ReqReceiveRPGRewards,
+        'buyArenaTicket': pb.ReqBuyArenaTicket,
+        'enterArena': pb.ReqEnterArena,
+        'receiveArenaReward': pb.ReqArenaReward,
     }
     _res = {
         'fetchConnectionInfo': pb.ResConnectionInfo,
@@ -491,6 +496,11 @@ class Lobby(MSRPCService):
         'fetchLastPrivacy': pb.ResFetchLastPrivacy,
         'checkPrivacy': pb.ResCommon,
         'responseCaptcha': pb.ResCommon,
+        'fetchRPGBattleHistory': pb.ResFetchRPGBattleHistory,
+        'receiveRPGRewards': pb.ResReceiveRPGRewards,
+        'buyArenaTicket': pb.ResCommon,
+        'enterArena': pb.ResCommon,
+        'receiveArenaReward': pb.ResArenaReward,
     }
 
     def get_package_name(self):
@@ -1224,6 +1234,21 @@ class Lobby(MSRPCService):
 
     async def response_captcha(self, req):
         return await self.call_method('responseCaptcha', req)
+
+    async def fetch_rpg_battle_history(self, req):
+        return await self.call_method('fetchRPGBattleHistory', req)
+
+    async def receive_rpg_rewards(self, req):
+        return await self.call_method('receiveRPGRewards', req)
+
+    async def buy_arena_ticket(self, req):
+        return await self.call_method('buyArenaTicket', req)
+
+    async def enter_arena(self, req):
+        return await self.call_method('enterArena', req)
+
+    async def receive_arena_reward(self, req):
+        return await self.call_method('receiveArenaReward', req)
 
 
 class FastTest(MSRPCService):
