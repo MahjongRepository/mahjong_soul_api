@@ -95,7 +95,7 @@ async def login(lobby, username, password):
     req.device.is_browser = True
     req.random_key = uuid_key
     req.gen_access_token = True
-    req.client_version_string = 'web-0.9.255'
+    req.client_version_string = 'web-0.9.303'
     req.currency_platforms.append(2)
 
     res = await lobby.login(req)
@@ -128,7 +128,7 @@ async def load_and_process_game_log(lobby, uuid):
 
     req = pb.ReqGameRecord()
     req.game_uuid = uuid
-    req.client_version_string = 'web-0.9.255'
+    req.client_version_string = 'web-0.9.303'
     res = await lobby.fetch_game_record(req)
 
     record_wrapper = pb.Wrapper()

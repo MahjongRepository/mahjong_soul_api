@@ -220,6 +220,68 @@ message NotifyAFKResult {
   string game_uuid = 3;
 }
 
+message NotifyGameFinishRewardV2 {
+  uint32 mode_id = 1;
+  LevelChange level_change = 2;
+  MatchChest match_chest = 3;
+  MainCharacter main_character = 4;
+  CharacterGift character_gift = 5;
+  message LevelChange {
+    AccountLevel origin = 1;
+    AccountLevel final = 2;
+    uint32 type = 3;
+  }
+
+  message MatchChest {
+    uint32 chest_id = 1;
+    uint32 origin = 2;
+    uint32 final = 3;
+    bool is_graded = 4;
+    repeated RewardSlot rewards = 5;
+  }
+
+  message MainCharacter {
+    uint32 level = 1;
+    uint32 exp = 2;
+    uint32 add = 3;
+  }
+
+  message CharacterGift {
+    uint32 origin = 1;
+    uint32 final = 2;
+    uint32 add = 3;
+    bool is_graded = 4;
+  }
+
+}
+
+message NotifyActivityRewardV2 {
+  repeated ActivityReward activity_reward = 1;
+  message ActivityReward {
+    uint32 activity_id = 1;
+    repeated RewardSlot rewards = 2;
+  }
+
+}
+
+message NotifyActivityPointV2 {
+  repeated ActivityPoint activity_points = 1;
+  message ActivityPoint {
+    uint32 activity_id = 1;
+    uint32 point = 2;
+  }
+
+}
+
+message NotifyLeaderboardPointV2 {
+  repeated LeaderboardPoint leaderboard_points = 1;
+  message LeaderboardPoint {
+    uint32 leaderboard_id = 1;
+    uint32 point = 2;
+  }
+
+}
+
 message Error {
   uint32 code = 1;
   repeated uint32 u32_params = 2;
@@ -871,7 +933,6 @@ message ActivityArenaData {
   uint32 daily_enter_time = 6;
   uint32 max_win_count = 7;
   uint32 total_win_count = 8;
-  repeated uint32 received_rewards = 9;
 }
 
 message AccountActiveState {
