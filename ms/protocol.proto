@@ -650,6 +650,7 @@ message GameDetailRule {
   uint32 xuezhandaodi = 48;
   uint32 huansanzhang = 49;
   uint32 chuanma = 50;
+  uint32 reveal_discard = 51;
   bool disable_leijiyiman = 60;
 }
 
@@ -3848,6 +3849,7 @@ message ActionNewRound {
   repeated NewRoundOpenedTiles opens = 15;
   MuyuInfo muyu = 16;
   uint32 ju_count = 17;
+  string new_tile = 18;
 }
 
 message RecordNewRound {
@@ -3871,6 +3873,7 @@ message RecordNewRound {
   MuyuInfo muyu = 18;
   repeated OptionalOperationList operations = 19;
   uint32 ju_count = 20;
+  string new_tile = 21;
   message TingPai {
     uint32 seat = 1;
     repeated TingPaiInfo tingpais1 = 2;
@@ -4089,6 +4092,70 @@ message RecordChangeTile {
 
 }
 
+message ActionRevealTile {
+  uint32 seat = 1;
+  bool is_liqi = 2;
+  bool is_wliqi = 3;
+  bool moqie = 4;
+  repeated int32 scores = 5;
+  uint32 liqibang = 6;
+  OptionalOperationList operation = 7;
+  repeated TingPaiInfo tingpais = 8;
+  string tile = 9;
+  bool zhenting = 10;
+}
+
+message RecordRevealTile {
+  uint32 seat = 1;
+  bool is_liqi = 2;
+  bool is_wliqi = 3;
+  bool moqie = 4;
+  repeated int32 scores = 5;
+  uint32 liqibang = 6;
+  repeated OptionalOperationList operations = 7;
+  repeated TingPaiInfo tingpais = 8;
+  string tile = 9;
+  repeated bool zhenting = 10;
+}
+
+message ActionUnveilTile {
+  int32 seat = 1;
+  repeated int32 scores = 2;
+  uint32 liqibang = 3;
+  OptionalOperationList operation = 4;
+}
+
+message RecordUnveilTile {
+  int32 seat = 1;
+  repeated int32 scores = 2;
+  uint32 liqibang = 3;
+  OptionalOperationList operation = 4;
+}
+
+message ActionLockTile {
+  uint32 seat = 1;
+  repeated int32 scores = 2;
+  uint32 liqibang = 3;
+  string tile = 4;
+  OptionalOperationList operation = 5;
+  bool zhenting = 6;
+  repeated TingPaiInfo tingpais = 7;
+  repeated string doras = 8;
+  int32 lock_state = 9;
+}
+
+message RecordLockTile {
+  uint32 seat = 1;
+  repeated int32 scores = 2;
+  uint32 liqibang = 3;
+  string tile = 4;
+  repeated OptionalOperationList operation = 5;
+  repeated bool zhentings = 6;
+  repeated TingPaiInfo tingpais = 7;
+  repeated string doras = 8;
+  int32 lock_state = 9;
+}
+
 message ActionDiscardTile {
   uint32 seat = 1;
   string tile = 2;
@@ -4101,6 +4168,9 @@ message ActionDiscardTile {
   bool is_wliqi = 9;
   uint32 tile_state = 10;
   MuyuInfo muyu = 11;
+  bool revealed = 12;
+  repeated int32 scores = 13;
+  uint32 liqibang = 14;
 }
 
 message RecordDiscardTile {

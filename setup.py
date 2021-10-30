@@ -10,7 +10,7 @@ setup(
     packages=[
         'ms',
     ],
-    version='0.9.271',
+    version='0.9.310',
     description='Python wrapper for the Mahjong Soul (Majsoul) Protobuf objects. It allows to use their API.',
     long_description='',
     author='Nihisil',
