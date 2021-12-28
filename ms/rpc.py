@@ -254,6 +254,8 @@ class Lobby(MSRPCService):
         'buyArenaTicket': pb.ReqBuyArenaTicket,
         'enterArena': pb.ReqEnterArena,
         'receiveArenaReward': pb.ReqArenaReward,
+        'fetchOBToken': pb.ReqFetchOBToken,
+        'receiveCharacterRewards': pb.ReqReceiveCharacterRewards,
     }
     _res = {
         'fetchConnectionInfo': pb.ResConnectionInfo,
@@ -501,6 +503,8 @@ class Lobby(MSRPCService):
         'buyArenaTicket': pb.ResCommon,
         'enterArena': pb.ResCommon,
         'receiveArenaReward': pb.ResArenaReward,
+        'fetchOBToken': pb.ResFetchOBToken,
+        'receiveCharacterRewards': pb.ResReceiveCharacterRewards,
     }
 
     def get_package_name(self):
@@ -1249,6 +1253,12 @@ class Lobby(MSRPCService):
 
     async def receive_arena_reward(self, req):
         return await self.call_method('receiveArenaReward', req)
+
+    async def fetch_ob_token(self, req):
+        return await self.call_method('fetchOBToken', req)
+
+    async def receive_character_rewards(self, req):
+        return await self.call_method('receiveCharacterRewards', req)
 
 
 class FastTest(MSRPCService):

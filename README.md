@@ -9,7 +9,7 @@ Python wrappers for Majsoul allow you to interact with their servers from Python
 
 This example is working only with **Python3.7+**.
 
-Also, you need to have an account fron CN server to run this example, because only accounts from CN server has the ability to login with login and password.
+Also, you need to have an account from CN server to run this example, because only accounts from CN server has the ability to login with login and password.
 
 If you want to login to EN or JP servers you need to write your code to authenticate via email code or social network. Protobuf wrapper from this repository contains all needed API objects for that.
 
@@ -24,7 +24,7 @@ If you want to login to EN or JP servers you need to write your code to authenti
 
 It was tested on Ubuntu.
 
-1. Download the new `liqi.json` file (find it in the network tab of your browser) and put it to `ms/liqi.json`
+1. Download the new `liqi.json` file from MS (find it in the network tab of your browser) and put it to `ms/liqi.json`
 1. `python generate_proto_file.py`
 1. `protoc --python_out=plugins=grpc:. protocol.proto`
 1. `chmod +x ms-plugin.py`

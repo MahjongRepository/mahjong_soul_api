@@ -38,8 +38,8 @@ async def main():
     if not username or not password:
         parser.error("Username or password cant be empty")
 
-    lobby, channel = await connect()
-    await login(lobby, username, password)
+    lobby, channel, version_to_force = await connect()
+    await login(lobby, username, password, version_to_force)
 
     if not log_uuid:
         game_logs = await load_game_logs(lobby)
@@ -56,8 +56,8 @@ async def connect():
         async with session.get("{}/1/version.json".format(MS_HOST)) as res:
             version = await res.json()
             logging.info(f"Version: {version}")
-
             version = version["version"]
+            version_to_force = version.replace(".w", "")
 
         async with session.get("{}/1/v{}/config.json".format(MS_HOST, version)) as res:
             config = await res.json()
@@ -81,10 +81,10 @@ async def connect():
     await channel.connect(MS_HOST)
     logging.info("Connection was established")
 
-    return lobby, channel
+    return lobby, channel, version_to_force
 
 
-async def login(lobby, username, password):
+async def login(lobby, username, password, version_to_force):
     logging.info("Login with username and password")
 
     uuid_key = str(uuid.uuid1())
@@ -95,7 +95,7 @@ async def login(lobby, username, password):
     req.device.is_browser = True
     req.random_key = uuid_key
     req.gen_access_token = True
-    req.client_version_string = 'web-0.9.333'
+    req.client_version_string = f"web-{version_to_force}"
     req.currency_platforms.append(2)
 
     res = await lobby.login(req)
