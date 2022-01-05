@@ -76,11 +76,11 @@ async def login(manager_api, access_token):
         logging.error(res)
         return False
     logging.info("Login succesfull!")
-    logging.info("#########################################")
+    logging.info("###################################################")
     logging.info(f"access token: {token}")
     logging.info(f"account_id: {account_id}")
     logging.info(f"nickname: {nickname}")
-    logging.info("#########################################")
+    logging.info("###################################################")
     logging.info("")
     return True
 
