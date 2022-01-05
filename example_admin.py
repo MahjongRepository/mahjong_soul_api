@@ -20,12 +20,19 @@ logging.basicConfig(
 
 MS_HOST = "https://mahjongsoul.tournament.yo-star.com"
 MS_MANAGER_API_URL = "https://mjusgs.mahjongsoul.com:7988"
-access_token = "<token>"
 
 async def main():
     """
     Login to the EN server with OAuth2 access token and get tournament list.
     """
+    parser = OptionParser()
+    parser.add_option("-t", "--token", type="string", help="Access token for connect.")
+
+    opts, _ = parser.parse_args()
+    access_token = opts.token
+
+    if not access_token:
+        parser.error("Access token cant be empty")
 
     manager_api, channel = await connect()
     await login(manager_api, access_token)
@@ -69,11 +76,11 @@ async def login(manager_api, access_token):
         logging.error(res)
         return False
     logging.info("Login succesfull!")
-    logging.info("#########################################".format(token))
+    logging.info("#########################################")
     logging.info(f"access token: {token}")
     logging.info(f"account_id: {account_id}")
     logging.info(f"nickname: {nickname}")
-    logging.info("#########################################".format(token))
+    logging.info("#########################################")
     logging.info("")
     return True
 
@@ -83,7 +90,7 @@ async def load_tournaments_list(manager_api):
     req = pb.ReqCommon()
     res = await manager_api.fetch_related_contest_list(req)
     tournaments_count = len(res.contests)
-    logging.info("found tournaments : {}".format(tournaments_count))
+    logging.info(f"found tournaments : {tournaments_count}")
 
     for i in range(0, tournaments_count):
         logging.info("") 
