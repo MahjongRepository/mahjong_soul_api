@@ -9,8 +9,9 @@ setup(
     name='ms_api',
     packages=[
         'ms',
+        'ms_tournament',
     ],
-    version='0.10.1.2',
+    version='0.10.1.3',
     description='Python wrapper for the Mahjong Soul (Majsoul) Protobuf objects. It allows to use their API.',
     long_description='',
     author='Nihisil',
