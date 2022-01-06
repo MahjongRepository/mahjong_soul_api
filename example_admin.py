@@ -11,7 +11,6 @@ import aiohttp
 from ms_tournament.base import MSRPCChannel
 from ms_tournament.rpc import CustomizedContestManagerApi
 import ms_tournament.protocol_admin_pb2 as pb
-from google.protobuf.json_format import MessageToJson
 
 
 logging.basicConfig(
