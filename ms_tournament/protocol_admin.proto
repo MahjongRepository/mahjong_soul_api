@@ -43,6 +43,7 @@ service CustomizedContestManagerApi {
   rpc addContestObserver (ReqAddContestObserver) returns (ResAddContestObserver);
   rpc removeContestObserver (ReqRemoveContestObserver) returns (ResCommon);
   rpc fetchContestChatHistory (ReqCommon) returns (ResFetchContestChatHistory);
+  rpc clearChatHistory (ReqClearChatHistory) returns (ResCommon);
 }
 
 message CustomizedContest {
@@ -426,6 +427,10 @@ message ResFetchContestChatHistory {
   repeated bytes chat_history = 2;
 }
 
+message ReqClearChatHistory {
+  uint32 unique_id = 1;
+}
+
 message NotifyContestMatchingPlayer {
   uint32 unique_id = 1;
   uint32 type = 2;
@@ -587,6 +592,7 @@ message Account {
   uint32 verified = 26;
   repeated ChallengeLevel challenge_levels = 27;
   repeated AchievementCount achievement_count = 28;
+  uint32 frozen_state = 29;
   message PlatformDiamond {
     uint32 id = 1;
     uint32 count = 2;
@@ -629,6 +635,8 @@ message AccountUpdate {
   TaskUpdate activity_random_task = 12;
   AccountChallengeUpdate challenge = 13;
   AccountABMatchUpdate ab_match = 14;
+  lq.AccountActivityUpdate activity = 15;
+  SegmentTaskUpdate activity_segment_task = 16;
   message NumericalUpdate {
     uint32 id = 1;
     uint32 final = 3;
@@ -684,6 +692,11 @@ message AccountUpdate {
       uint32 point = 2;
     }
 
+  }
+
+  message SegmentTaskUpdate {
+    repeated lq.SegmentTaskProgress progresses = 1;
+    repeated uint32 task_list = 2;
   }
 
 }
@@ -812,6 +825,10 @@ message GameDetailRule {
   uint32 jiuchao_mode = 45;
   uint32 muyu_mode = 46;
   uint32 open_hand = 47;
+  uint32 xuezhandaodi = 48;
+  uint32 huansanzhang = 49;
+  uint32 chuanma = 50;
+  uint32 reveal_discard = 51;
   bool disable_leijiyiman = 60;
 }
 
@@ -859,6 +876,13 @@ message ItemGainRecords {
   repeated ItemGainRecord records = 3;
 }
 
+message FakeRandomRecords {
+  uint32 item_id = 1;
+  uint32 special_item_id = 2;
+  uint32 gain_count = 3;
+  repeated uint32 gain_history = 4;
+}
+
 message Item {
   uint32 item_id = 1;
   uint32 stack = 2;
@@ -902,6 +926,11 @@ message ExecuteReward {
   uint32 replace_count = 3;
 }
 
+message I18nContext {
+  string lang = 1;
+  string context = 2;
+}
+
 message Mail {
   uint32 mail_id = 1;
   uint32 state = 2;
@@ -914,11 +943,6 @@ message Mail {
   uint32 reference_id = 9;
   repeated I18nContext title_i18n = 10;
   repeated I18nContext content_i18n = 11;
-  message I18nContext {
-    string lang = 1;
-    string context = 2;
-  }
-
 }
 
 message AchievementProgress {
@@ -986,6 +1010,8 @@ message AccountDetailStatisticV2 {
   CustomizedContestStatistic customized_contest_statistic = 3;
   AccountDetailStatistic leisure_match_statistic = 4;
   ChallengeStatistic challenge_match_statistic = 5;
+  AccountDetailStatistic activity_match_statistic = 6;
+  AccountDetailStatistic ab_match_statistic = 7;
   message RankStatistic {
     RankData total_statistic = 1;
     RankData month_statistic = 2;
@@ -1069,6 +1095,99 @@ message GameConfig {
   GameMetaData meta = 3;
 }
 
+message RPGState {
+  uint32 player_damaged = 1;
+  uint32 monster_damaged = 2;
+  uint32 monster_seq = 3;
+}
+
+message RPGActivity {
+  uint32 activity_id = 1;
+  string last_show_uuid = 5;
+  string last_played_uuid = 6;
+  RPGState current_state = 7;
+  RPGState last_show_state = 8;
+  repeated uint32 received_rewards = 9;
+}
+
+message ActivityArenaData {
+  uint32 win_count = 1;
+  uint32 lose_count = 2;
+  uint32 activity_id = 3;
+  uint32 enter_time = 4;
+  uint32 daily_enter_count = 5;
+  uint32 daily_enter_time = 6;
+  uint32 max_win_count = 7;
+  uint32 total_win_count = 8;
+}
+
+message FeedActivityData {
+  uint32 activity_id = 1;
+  uint32 feed_count = 2;
+  CountWithTimeData friend_receive_data = 3;
+  CountWithTimeData friend_send_data = 4;
+  repeated GiftBoxData gift_inbox = 5;
+  message CountWithTimeData {
+    uint32 count = 1;
+    uint32 last_update_time = 2;
+  }
+
+  message GiftBoxData {
+    uint32 id = 1;
+    uint32 item_id = 2;
+    uint32 count = 3;
+    uint32 from_account_id = 4;
+    uint32 time = 5;
+    uint32 received = 6;
+  }
+
+}
+
+message SegmentTaskProgress {
+  uint32 id = 1;
+  uint32 counter = 2;
+  bool achieved = 3;
+  bool rewarded = 4;
+  bool failed = 5;
+  uint32 reward_count = 6;
+  uint32 achieved_count = 7;
+}
+
+message MineActivityData {
+  repeated Point dig_point = 1;
+  repeated MineReward map = 2;
+  uint32 id = 3;
+}
+
+message AccountActivityUpdate {
+  repeated lq.MineActivityData mine_data = 1;
+  repeated lq.RPGActivity rpg_data = 2;
+  repeated ActivityFeedData feed_data = 3;
+}
+
+message ActivityFeedData {
+  uint32 activity_id = 1;
+  uint32 feed_count = 2;
+  CountWithTimeData friend_receive_data = 3;
+  CountWithTimeData friend_send_data = 4;
+  repeated GiftBoxData gift_inbox = 5;
+  uint32 max_inbox_id = 6;
+  message CountWithTimeData {
+    uint32 count = 1;
+    uint32 last_update_time = 2;
+  }
+
+  message GiftBoxData {
+    uint32 id = 1;
+    uint32 item_id = 2;
+    uint32 count = 3;
+    uint32 from_account_id = 4;
+    uint32 time = 5;
+    uint32 received = 6;
+  }
+
+}
+
 message AccountActiveState {
   uint32 account_id = 1;
   uint32 login_time = 2;
@@ -1080,6 +1199,17 @@ message AccountActiveState {
 message Friend {
   PlayerBaseView base = 1;
   AccountActiveState state = 2;
+}
+
+message Point {
+  uint32 x = 1;
+  uint32 y = 2;
+}
+
+message MineReward {
+  Point point = 1;
+  uint32 reward_id = 2;
+  bool received = 3;
 }
 
 message GameLiveUnit {
@@ -1163,6 +1293,7 @@ message Character {
   uint32 skin = 5;
   bool is_upgraded = 6;
   repeated uint32 extra_emoji = 7;
+  repeated uint32 rewarded_level = 8;
 }
 
 message BuyRecord {
@@ -1203,6 +1334,12 @@ message ChangeNicknameRecord {
 message ServerSettings {
   PaymentSetting payment_setting = 3;
   PaymentSettingV2 payment_setting_v2 = 4;
+  NicknameSetting nickname_setting = 5;
+}
+
+message NicknameSetting {
+  uint32 enable = 1;
+  repeated string nicknames = 2;
 }
 
 message PaymentSettingV2 {
@@ -1221,6 +1358,7 @@ message PaymentSettingV2 {
     uint32 goods_click_action = 3;
     string goods_click_text = 4;
     PaymentMaintain maintain = 5;
+    bool enable_for_frozen_account = 6;
   }
 
 }
@@ -1298,6 +1436,7 @@ message CustomizedContestAbstract {
   uint32 finish_time = 8;
   bool open = 9;
   string public_notice = 10;
+  uint32 contest_type = 11;
 }
 
 message CustomizedContestDetail {
@@ -1315,6 +1454,7 @@ message CustomizedContestDetail {
   string private_notice = 12;
   uint32 observer_switch = 13;
   uint32 emoji_switch = 14;
+  uint32 contest_type = 15;
 }
 
 message CustomizedContestPlayerReport {
@@ -1572,6 +1712,7 @@ message RecordNoTilePlayerInfo {
   bool tingpai = 3;
   repeated string hand = 4;
   repeated RecordTingPaiInfo tings = 5;
+  bool liuman = 6;
 }
 
 message RecordHuleInfo {
@@ -1667,6 +1808,13 @@ message RecordAnalysisedData {
   repeated RecordRoundInfo round_infos = 1;
 }
 
+message NotifyCaptcha {
+  uint32 check_id = 1;
+  uint32 start_time = 2;
+  string random_str = 3;
+  uint32 type = 4;
+}
+
 message NotifyRoomGameStart {
   string game_url = 1;
   string connect_token = 2;
@@ -1718,9 +1866,6 @@ message NotifyRoomPlayerUpdate {
 message NotifyRoomKickOut {
 }
 
-message NotifyMatchTimeout {
-}
-
 message NotifyFriendStateChange {
   uint32 target_id = 1;
   AccountActiveState active_state = 2;
@@ -1760,9 +1905,12 @@ message NotifyAccountLogout {
 }
 
 message NotifyAnnouncementUpdate {
-  repeated Announcement announcements = 1;
-  repeated uint32 sort = 2;
-  string lang = 3;
+  repeated AnnouncementUpdate update_list = 1;
+  message AnnouncementUpdate {
+    string lang = 1;
+    string platform = 2;
+  }
+
 }
 
 message NotifyNewMail {
@@ -1793,6 +1941,36 @@ message NotifyActivityPeriodTaskUpdate {
 
 message NotifyAccountRandomTaskUpdate {
   repeated TaskProgress progresses = 1;
+}
+
+message NotifyActivitySegmentTaskUpdate {
+  repeated lq.SegmentTaskProgress progresses = 1;
+}
+
+message NotifyActivityUpdate {
+  repeated FeedActivityData list = 1;
+  message FeedActivityData {
+    uint32 activity_id = 1;
+    uint32 feed_count = 2;
+    CountWithTimeData friend_receive_data = 3;
+    CountWithTimeData friend_send_data = 4;
+    repeated GiftBoxData gift_inbox = 5;
+    message CountWithTimeData {
+      uint32 count = 1;
+      uint32 last_update_time = 2;
+    }
+
+    message GiftBoxData {
+      uint32 id = 1;
+      uint32 item_id = 2;
+      uint32 count = 3;
+      uint32 from_account_id = 4;
+      uint32 time = 5;
+      uint32 received = 6;
+    }
+
+  }
+
 }
 
 message NotifyAccountChallengeTaskUpdate {
@@ -1861,6 +2039,10 @@ message NotifyCustomContestSystemMsg {
   CustomizedContestGameEnd game_end = 5;
 }
 
+message NotifyMatchTimeout {
+  string sid = 1;
+}
+
 message NotifyCustomContestState {
   uint32 unique_id = 1;
   uint32 state = 2;
@@ -1875,5 +2057,67 @@ message NotifyAFKResult {
   uint32 type = 1;
   uint32 ban_end_time = 2;
   string game_uuid = 3;
+}
+
+message NotifyGameFinishRewardV2 {
+  uint32 mode_id = 1;
+  LevelChange level_change = 2;
+  MatchChest match_chest = 3;
+  MainCharacter main_character = 4;
+  CharacterGift character_gift = 5;
+  message LevelChange {
+    AccountLevel origin = 1;
+    AccountLevel final = 2;
+    uint32 type = 3;
+  }
+
+  message MatchChest {
+    uint32 chest_id = 1;
+    uint32 origin = 2;
+    uint32 final = 3;
+    bool is_graded = 4;
+    repeated RewardSlot rewards = 5;
+  }
+
+  message MainCharacter {
+    uint32 level = 1;
+    uint32 exp = 2;
+    uint32 add = 3;
+  }
+
+  message CharacterGift {
+    uint32 origin = 1;
+    uint32 final = 2;
+    uint32 add = 3;
+    bool is_graded = 4;
+  }
+
+}
+
+message NotifyActivityRewardV2 {
+  repeated ActivityReward activity_reward = 1;
+  message ActivityReward {
+    uint32 activity_id = 1;
+    repeated RewardSlot rewards = 2;
+  }
+
+}
+
+message NotifyActivityPointV2 {
+  repeated ActivityPoint activity_points = 1;
+  message ActivityPoint {
+    uint32 activity_id = 1;
+    uint32 point = 2;
+  }
+
+}
+
+message NotifyLeaderboardPointV2 {
+  repeated LeaderboardPoint leaderboard_points = 1;
+  message LeaderboardPoint {
+    uint32 leaderboard_id = 1;
+    uint32 point = 2;
+  }
+
 }
 
