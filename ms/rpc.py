@@ -216,6 +216,7 @@ class Lobby(MSRPCService):
         'completePeriodActivityTask': pb.ReqCompleteActivityTask,
         'completeRandomActivityTask': pb.ReqCompleteActivityTask,
         'receiveActivityFlipTask': pb.ReqReceiveActivityFlipTask,
+        'completeSegmentTaskReward': pb.ReqCompleteSegmentTaskReward,
         'fetchActivityFlipInfo': pb.ReqFetchActivityFlipInfo,
         'gainAccumulatedPointActivityReward': pb.ReqGainAccumulatedPointActivityReward,
         'gainMultiPointActivityReward': pb.ReqGainMultiPointActivityReward,
@@ -256,6 +257,10 @@ class Lobby(MSRPCService):
         'receiveArenaReward': pb.ReqArenaReward,
         'fetchOBToken': pb.ReqFetchOBToken,
         'receiveCharacterRewards': pb.ReqReceiveCharacterRewards,
+        'feedActivityFeed': pb.ReqFeedActivityFeed,
+        'sendActivityGiftToFriend': pb.ReqSendActivityGiftToFriend,
+        'receiveActivityGift': pb.ReqReceiveActivityGift,
+        'fetchFriendFeedActivityData': pb.ReqFetchFriendFeedActivityData,
     }
     _res = {
         'fetchConnectionInfo': pb.ResConnectionInfo,
@@ -465,6 +470,7 @@ class Lobby(MSRPCService):
         'completePeriodActivityTask': pb.ResCommon,
         'completeRandomActivityTask': pb.ResCommon,
         'receiveActivityFlipTask': pb.ResReceiveActivityFlipTask,
+        'completeSegmentTaskReward': pb.ResCompleteSegmentTaskReward,
         'fetchActivityFlipInfo': pb.ResFetchActivityFlipInfo,
         'gainAccumulatedPointActivityReward': pb.ResCommon,
         'gainMultiPointActivityReward': pb.ResCommon,
@@ -505,6 +511,10 @@ class Lobby(MSRPCService):
         'receiveArenaReward': pb.ResArenaReward,
         'fetchOBToken': pb.ResFetchOBToken,
         'receiveCharacterRewards': pb.ResReceiveCharacterRewards,
+        'feedActivityFeed': pb.ResFeedActivityFeed,
+        'sendActivityGiftToFriend': pb.ResSendActivityGiftToFriend,
+        'receiveActivityGift': pb.ResCommon,
+        'fetchFriendFeedActivityData': pb.ResFetchFriendFeedActivityData,
     }
 
     def get_package_name(self):
@@ -1140,6 +1150,9 @@ class Lobby(MSRPCService):
     async def receive_activity_flip_task(self, req):
         return await self.call_method('receiveActivityFlipTask', req)
 
+    async def complete_segment_task_reward(self, req):
+        return await self.call_method('completeSegmentTaskReward', req)
+
     async def fetch_activity_flip_info(self, req):
         return await self.call_method('fetchActivityFlipInfo', req)
 
@@ -1259,6 +1272,18 @@ class Lobby(MSRPCService):
 
     async def receive_character_rewards(self, req):
         return await self.call_method('receiveCharacterRewards', req)
+
+    async def feed_activity_feed(self, req):
+        return await self.call_method('feedActivityFeed', req)
+
+    async def send_activity_gift_to_friend(self, req):
+        return await self.call_method('sendActivityGiftToFriend', req)
+
+    async def receive_activity_gift(self, req):
+        return await self.call_method('receiveActivityGift', req)
+
+    async def fetch_friend_feed_activity_data(self, req):
+        return await self.call_method('fetchFriendFeedActivityData', req)
 
 
 class FastTest(MSRPCService):

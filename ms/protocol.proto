@@ -137,6 +137,36 @@ message NotifyAccountRandomTaskUpdate {
   repeated TaskProgress progresses = 1;
 }
 
+message NotifyActivitySegmentTaskUpdate {
+  repeated lq.SegmentTaskProgress progresses = 1;
+}
+
+message NotifyActivityUpdate {
+  repeated FeedActivityData list = 1;
+  message FeedActivityData {
+    uint32 activity_id = 1;
+    uint32 feed_count = 2;
+    CountWithTimeData friend_receive_data = 3;
+    CountWithTimeData friend_send_data = 4;
+    repeated GiftBoxData gift_inbox = 5;
+    message CountWithTimeData {
+      uint32 count = 1;
+      uint32 last_update_time = 2;
+    }
+
+    message GiftBoxData {
+      uint32 id = 1;
+      uint32 item_id = 2;
+      uint32 count = 3;
+      uint32 from_account_id = 4;
+      uint32 time = 5;
+      uint32 received = 6;
+    }
+
+  }
+
+}
+
 message NotifyAccountChallengeTaskUpdate {
   repeated TaskProgress progresses = 1;
   uint32 level = 2;
@@ -455,7 +485,8 @@ message AccountUpdate {
   TaskUpdate activity_random_task = 12;
   AccountChallengeUpdate challenge = 13;
   AccountABMatchUpdate ab_match = 14;
-  AccountActivityUpdate activity = 15;
+  lq.AccountActivityUpdate activity = 15;
+  SegmentTaskUpdate activity_segment_task = 16;
   message NumericalUpdate {
     uint32 id = 1;
     uint32 final = 3;
@@ -513,15 +544,9 @@ message AccountUpdate {
 
   }
 
-  message AccountActivityUpdate {
-    repeated MineActivityData mine_data = 1;
-    repeated lq.RPGActivity rpg_data = 2;
-    message MineActivityData {
-      repeated Point dig_point = 1;
-      repeated MineReward rewards = 2;
-      uint32 id = 3;
-    }
-
+  message SegmentTaskUpdate {
+    repeated lq.SegmentTaskProgress progresses = 1;
+    repeated uint32 task_list = 2;
   }
 
 }
@@ -699,6 +724,13 @@ message ItemGainRecords {
   uint32 record_time = 1;
   uint32 limit_source_id = 2;
   repeated ItemGainRecord records = 3;
+}
+
+message FakeRandomRecords {
+  uint32 item_id = 1;
+  uint32 special_item_id = 2;
+  uint32 gain_count = 3;
+  repeated uint32 gain_history = 4;
 }
 
 message Item {
@@ -937,6 +969,73 @@ message ActivityArenaData {
   uint32 daily_enter_time = 6;
   uint32 max_win_count = 7;
   uint32 total_win_count = 8;
+}
+
+message FeedActivityData {
+  uint32 activity_id = 1;
+  uint32 feed_count = 2;
+  CountWithTimeData friend_receive_data = 3;
+  CountWithTimeData friend_send_data = 4;
+  repeated GiftBoxData gift_inbox = 5;
+  message CountWithTimeData {
+    uint32 count = 1;
+    uint32 last_update_time = 2;
+  }
+
+  message GiftBoxData {
+    uint32 id = 1;
+    uint32 item_id = 2;
+    uint32 count = 3;
+    uint32 from_account_id = 4;
+    uint32 time = 5;
+    uint32 received = 6;
+  }
+
+}
+
+message SegmentTaskProgress {
+  uint32 id = 1;
+  uint32 counter = 2;
+  bool achieved = 3;
+  bool rewarded = 4;
+  bool failed = 5;
+  uint32 reward_count = 6;
+  uint32 achieved_count = 7;
+}
+
+message MineActivityData {
+  repeated Point dig_point = 1;
+  repeated MineReward map = 2;
+  uint32 id = 3;
+}
+
+message AccountActivityUpdate {
+  repeated lq.MineActivityData mine_data = 1;
+  repeated lq.RPGActivity rpg_data = 2;
+  repeated ActivityFeedData feed_data = 3;
+}
+
+message ActivityFeedData {
+  uint32 activity_id = 1;
+  uint32 feed_count = 2;
+  CountWithTimeData friend_receive_data = 3;
+  CountWithTimeData friend_send_data = 4;
+  repeated GiftBoxData gift_inbox = 5;
+  uint32 max_inbox_id = 6;
+  message CountWithTimeData {
+    uint32 count = 1;
+    uint32 last_update_time = 2;
+  }
+
+  message GiftBoxData {
+    uint32 id = 1;
+    uint32 item_id = 2;
+    uint32 count = 3;
+    uint32 from_account_id = 4;
+    uint32 time = 5;
+    uint32 received = 6;
+  }
+
 }
 
 message AccountActiveState {
@@ -1187,6 +1286,7 @@ message CustomizedContestAbstract {
   uint32 finish_time = 8;
   bool open = 9;
   string public_notice = 10;
+  uint32 contest_type = 11;
 }
 
 message CustomizedContestDetail {
@@ -1766,6 +1866,7 @@ service Lobby {
   rpc completePeriodActivityTask (ReqCompleteActivityTask) returns (ResCommon);
   rpc completeRandomActivityTask (ReqCompleteActivityTask) returns (ResCommon);
   rpc receiveActivityFlipTask (ReqReceiveActivityFlipTask) returns (ResReceiveActivityFlipTask);
+  rpc completeSegmentTaskReward (ReqCompleteSegmentTaskReward) returns (ResCompleteSegmentTaskReward);
   rpc fetchActivityFlipInfo (ReqFetchActivityFlipInfo) returns (ResFetchActivityFlipInfo);
   rpc gainAccumulatedPointActivityReward (ReqGainAccumulatedPointActivityReward) returns (ResCommon);
   rpc gainMultiPointActivityReward (ReqGainMultiPointActivityReward) returns (ResCommon);
@@ -1806,6 +1907,10 @@ service Lobby {
   rpc receiveArenaReward (ReqArenaReward) returns (ResArenaReward);
   rpc fetchOBToken (ReqFetchOBToken) returns (ResFetchOBToken);
   rpc receiveCharacterRewards (ReqReceiveCharacterRewards) returns (ResReceiveCharacterRewards);
+  rpc feedActivityFeed (ReqFeedActivityFeed) returns (ResFeedActivityFeed);
+  rpc sendActivityGiftToFriend (ReqSendActivityGiftToFriend) returns (ResSendActivityGiftToFriend);
+  rpc receiveActivityGift (ReqReceiveActivityGift) returns (ResCommon);
+  rpc fetchFriendFeedActivityData (ReqFetchFriendFeedActivityData) returns (ResFetchFriendFeedActivityData);
 }
 
 message ResConnectionInfo {
@@ -3363,9 +3468,11 @@ message ResAccountActivityData {
   repeated TaskProgress random_task_progress_list = 10;
   repeated ChestUpData chest_up_data = 11;
   ActivitySNSData sns_data = 12;
-  repeated MineActivityData mine_data = 13;
+  repeated lq.MineActivityData mine_data = 13;
   repeated lq.RPGActivity rpg_data = 14;
   repeated lq.ActivityArenaData arena_data = 15;
+  repeated lq.FeedActivityData feed_data = 16;
+  repeated lq.SegmentTaskProgress segment_task_progress_list = 17;
   message ActivitySignInData {
     uint32 activity_id = 1;
     uint32 sign_in_count = 2;
@@ -3397,12 +3504,6 @@ message ResAccountActivityData {
     repeated SNSBlog blog = 1;
     repeated uint32 liked_id = 2;
     repeated SNSReply reply = 3;
-  }
-
-  message MineActivityData {
-    repeated Point dig_point = 1;
-    repeated MineReward map = 2;
-    uint32 id = 3;
   }
 
 }
@@ -3438,6 +3539,16 @@ message ReqReceiveActivityFlipTask {
 message ResReceiveActivityFlipTask {
   uint32 count = 1;
   Error error = 2;
+}
+
+message ReqCompleteSegmentTaskReward {
+  uint32 task_id = 1;
+  uint32 count = 2;
+}
+
+message ResCompleteSegmentTaskReward {
+  Error error = 1;
+  repeated ExecuteReward rewards = 2;
 }
 
 message ReqFetchActivityFlipInfo {
@@ -3837,6 +3948,59 @@ message ResReceiveCharacterRewards {
   message RewardItem {
     uint32 id = 1;
     uint32 count = 2;
+  }
+
+}
+
+message ReqFeedActivityFeed {
+  uint32 activity_id = 1;
+  uint32 count = 2;
+}
+
+message ResFeedActivityFeed {
+  Error error = 1;
+  repeated RewardItem items = 2;
+  uint32 feed_count = 3;
+  message RewardItem {
+    uint32 id = 1;
+    uint32 count = 2;
+  }
+
+}
+
+message ReqSendActivityGiftToFriend {
+  uint32 activity_id = 1;
+  uint32 item_id = 2;
+  uint32 target_id = 3;
+}
+
+message ResSendActivityGiftToFriend {
+  Error error = 1;
+  uint32 send_gift_count = 2;
+}
+
+message ReqReceiveActivityGift {
+  uint32 activity_id = 1;
+  uint32 id = 2;
+}
+
+message ReqFetchFriendFeedActivityData {
+  uint32 activity_id = 1;
+  repeated uint32 account_list = 2;
+}
+
+message ResFetchFriendFeedActivityData {
+  Error error = 1;
+  repeated FriendData list = 2;
+  message ItemCountData {
+    uint32 item = 1;
+    uint32 count = 2;
+  }
+
+  message FriendData {
+    uint32 account_id = 1;
+    repeated ItemCountData items = 2;
+    uint32 receive_count = 3;
   }
 
 }
