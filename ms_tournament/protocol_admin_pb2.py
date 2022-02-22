@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x14protocol_admin.proto\x12\x02lq\"\xa4\x03\n\x11\x43ustomizedContest\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x12\n\ncreator_id\x18\x02 \x01(\r\x12\x12\n\ncontest_id\x18\x03 \x01(\r\x12\x14\n\x0c\x63ontest_name\x18\x04 \x01(\t\x12\r\n\x05state\x18\x05 \x01(\r\x12\x13\n\x0b\x63reate_time\x18\x06 \x01(\r\x12\x12\n\nstart_time\x18\x07 \x01(\r\x12\x13\n\x0b\x66inish_time\x18\x08 \x01(\r\x12\x0c\n\x04open\x18\t \x01(\x08\x12\x11\n\trank_rule\x18\n \x01(\r\x12\x10\n\x08\x64\x65\x61\x64line\x18\x0b \x01(\r\x12\x12\n\nauto_match\x18\x0c \x01(\x08\x12\x1d\n\x15\x61uto_disable_end_chat\x18\r \x01(\x08\x12\x14\n\x0c\x63ontest_type\x18\x0e \x01(\r\x12\x14\n\x0chidden_zones\x18\x0f \x03(\r\x12\x14\n\x0c\x62\x61nned_zones\x18\x10 \x03(\r\x12\x17\n\x0fobserver_switch\x18\x11 \x01(\r\x12\x14\n\x0c\x65moji_switch\x18\x12 \x01(\r\x12\x1a\n\x12player_roster_type\x18\x13 \x01(\r\"\xa7\x01\n\x0f\x43ontestGameInfo\x12\x11\n\tgame_uuid\x18\x01 \x01(\t\x12+\n\x07players\x18\x02 \x03(\x0b\x32\x1a.lq.ContestGameInfo.Player\x12\x12\n\nstart_time\x18\x03 \x01(\r\x12\x10\n\x08\x65nd_time\x18\x04 \x01(\r\x1a.\n\x06Player\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\"9\n\x11\x43ontestPlayerInfo\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\"\xab\x01\n\x15\x43ontestMatchingPlayer\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\x12\x38\n\ncontroller\x18\x03 \x01(\x0b\x32$.lq.ContestMatchingPlayer.Controller\x1a\x32\n\nController\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\"b\n\x15ReqContestManageLogin\x12\x0f\n\x07\x61\x63\x63ount\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x18\n\x10gen_access_token\x18\x03 \x01(\x08\x12\x0c\n\x04type\x18\x04 \x01(\r\"\x98\x01\n\x15ResContestManageLogin\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x12\n\naccount_id\x18\x02 \x01(\r\x12\x10\n\x08nickname\x18\x03 \x01(\t\x12\x14\n\x0c\x61\x63\x63\x65ss_token\x18\x04 \x01(\t\x12\x0f\n\x07\x64iamond\x18\x05 \x01(\r\x12\x18\n\x10last_create_time\x18\x06 \x01(\r\"E\n\x1aReqContestManageOauth2Auth\x12\x0c\n\x04type\x18\x01 \x01(\r\x12\x0c\n\x04\x63ode\x18\x02 \x01(\t\x12\x0b\n\x03uid\x18\x03 \x01(\t\"L\n\x1aResContestManageOauth2Auth\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x14\n\x0c\x61\x63\x63\x65ss_token\x18\x02 \x01(\t\"T\n\x1bReqContestManageOauth2Login\x12\x0c\n\x04type\x18\x01 \x01(\r\x12\x14\n\x0c\x61\x63\x63\x65ss_token\x18\x02 \x01(\t\x12\x11\n\treconnect\x18\x03 \x01(\x08\"\x9e\x01\n\x1bResContestManageOauth2Login\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x12\n\naccount_id\x18\x02 \x01(\r\x12\x10\n\x08nickname\x18\x03 \x01(\t\x12\x14\n\x0c\x61\x63\x63\x65ss_token\x18\x04 \x01(\t\x12\x0f\n\x07\x64iamond\x18\x05 \x01(\r\x12\x18\n\x10last_create_time\x18\x06 \x01(\r\"_\n\x1aResFetchRelatedContestList\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\'\n\x08\x63ontests\x18\x02 \x03(\x0b\x32\x15.lq.CustomizedContest\"\xac\x01\n\x1aReqCreateCustomizedContest\x12\x14\n\x0c\x63ontest_name\x18\x01 \x01(\t\x12\x12\n\nstart_time\x18\x02 \x01(\r\x12\x13\n\x0b\x66inish_time\x18\x03 \x01(\r\x12\x0c\n\x04open\x18\x04 \x01(\x08\x12\x11\n\trank_rule\x18\x05 \x01(\r\x12.\n\x11game_rule_setting\x18\x06 \x01(\x0b\x32\x13.lq.GameRuleSetting\"o\n\x1aResCreateCustomizedContest\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12&\n\x07\x63ontest\x18\x02 \x01(\x0b\x32\x15.lq.CustomizedContest\x12\x0f\n\x07\x64iamond\x18\x03 \x01(\r\"/\n\x1aReqDeleteCustomizedContest\x12\x11\n\tunique_id\x18\x01 \x01(\r\"&\n\x11ReqProlongContest\x12\x11\n\tunique_id\x18\x01 \x01(\r\"?\n\x11ResProlongContest\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x10\n\x08\x64\x65\x61\x64line\x18\x02 \x01(\r\"%\n\x10ReqManageContest\x12\x11\n\tunique_id\x18\x01 \x01(\r\"T\n\x10ResManageContest\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12&\n\x07\x63ontest\x18\x02 \x01(\x0b\x32\x15.lq.CustomizedContest\"c\n\x17ResFetchContestGameRule\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12.\n\x11game_rule_setting\x18\x02 \x01(\x0b\x32\x13.lq.GameRuleSetting\"\xd1\x02\n\x18ReqUpdateContestGameRule\x12\x14\n\x0c\x63ontest_name\x18\x01 \x01(\t\x12\x12\n\nstart_time\x18\x02 \x01(\r\x12\x13\n\x0b\x66inish_time\x18\x03 \x01(\r\x12\x0c\n\x04open\x18\x04 \x01(\x08\x12\x11\n\trank_rule\x18\x05 \x01(\r\x12.\n\x11game_rule_setting\x18\x06 \x01(\x0b\x32\x13.lq.GameRuleSetting\x12\x12\n\nauto_match\x18\x07 \x01(\x08\x12\x1d\n\x15\x61uto_disable_end_chat\x18\x08 \x01(\x08\x12\x14\n\x0c\x63ontest_type\x18\t \x01(\r\x12\x14\n\x0c\x62\x61nned_zones\x18\n \x01(\t\x12\x14\n\x0chidden_zones\x18\x0b \x01(\t\x12\x14\n\x0c\x65moji_switch\x18\x0c \x01(\x08\x12\x1a\n\x12player_roster_type\x18\r \x01(\r\"5\n\x1aReqSearchAccountByNickname\x12\x17\n\x0fquery_nicknames\x18\x01 \x03(\t\"\xa0\x01\n\x1aResSearchAccountByNickname\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12:\n\rsearch_result\x18\x03 \x03(\x0b\x32#.lq.ResSearchAccountByNickname.Item\x1a,\n\x04Item\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\"%\n\x15ReqSearchAccountByEid\x12\x0c\n\x04\x65ids\x18\x01 \x03(\r\"\x96\x01\n\x15ResSearchAccountByEid\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x35\n\rsearch_result\x18\x03 \x03(\x0b\x32\x1e.lq.ResSearchAccountByEid.Item\x1a,\n\x04Item\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\"c\n\x1fResFetchCustomizedContestPlayer\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12&\n\x07players\x18\x02 \x03(\x0b\x32\x15.lq.ContestPlayerInfo\"`\n ReqUpdateCustomizedContestPlayer\x12\x14\n\x0csetting_type\x18\x01 \x01(\r\x12\x11\n\tnicknames\x18\x02 \x03(\t\x12\x13\n\x0b\x61\x63\x63ount_ids\x18\x03 \x03(\r\"R\n ResUpdateCustomizedContestPlayer\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x14\n\x0c\x66\x61iled_index\x18\x02 \x03(\r\"~\n\x12ResStartManageGame\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12*\n\x07players\x18\x02 \x03(\x0b\x32\x19.lq.ContestMatchingPlayer\x12\"\n\x05games\x18\x03 \x03(\x0b\x32\x13.lq.ContestGameInfo\"\'\n\x11ReqLockGamePlayer\x12\x12\n\naccount_id\x18\x01 \x01(\r\")\n\x13ReqUnlockGamePlayer\x12\x12\n\naccount_id\x18\x01 \x01(\r\"\xee\x01\n\x14ReqCreateContestGame\x12,\n\x05slots\x18\x01 \x03(\x0b\x32\x1d.lq.ReqCreateContestGame.Slot\x12\x0b\n\x03tag\x18\x02 \x01(\t\x12\x17\n\x0frandom_position\x18\x03 \x01(\x08\x12\x11\n\topen_live\x18\x04 \x01(\x08\x12\x1e\n\x16\x63hat_broadcast_for_end\x18\x05 \x01(\x08\x12\x10\n\x08\x61i_level\x18\x06 \x01(\r\x1a=\n\x04Slot\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x13\n\x0bstart_point\x18\x02 \x01(\r\x12\x0c\n\x04seat\x18\x03 \x01(\r\"C\n\x14ResCreateContestGame\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x11\n\tgame_uuid\x18\x02 \x01(\t\"=\n\'ReqFetchCustomizedContestGameRecordList\x12\x12\n\nlast_index\x18\x02 \x01(\r\"\xd3\x01\n\'ResFetchCustomizedContestGameRecordList\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x12\n\nnext_index\x18\x02 \x01(\r\x12\x45\n\x0brecord_list\x18\x03 \x03(\x0b\x32\x30.lq.ResFetchCustomizedContestGameRecordList.Item\x1a\x33\n\x04Item\x12\x1e\n\x06record\x18\x01 \x01(\x0b\x32\x0e.lq.RecordGame\x12\x0b\n\x03tag\x18\x02 \x01(\t\"*\n\x1aReqRemoveContestGameRecord\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"-\n\x15ReqFetchContestNotice\x12\x14\n\x0cnotice_types\x18\x01 \x03(\r\"B\n\x15ResFetchContestNotice\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x0f\n\x07notices\x18\x02 \x03(\t\"H\n ReqUpdateCustomizedContestNotice\x12\x13\n\x0bnotice_type\x18\x01 \x01(\r\x12\x0f\n\x07\x63ontent\x18\x02 \x01(\t\"d\n ResFetchCustomizedContestManager\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12&\n\x07players\x18\x02 \x03(\x0b\x32\x15.lq.ContestPlayerInfo\"a\n!ReqUpdateCustomizedContestManager\x12\x14\n\x0csetting_type\x18\x01 \x01(\r\x12\x11\n\tnicknames\x18\x02 \x03(\t\x12\x13\n\x0b\x61\x63\x63ount_ids\x18\x03 \x03(\r\"\xc1\x01\n\x1cResCustomizedContestChatInfo\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x17\n\x0f\x63hat_limit_type\x18\x02 \x01(\r\x12@\n\x11\x63hat_limit_roster\x18\x03 \x03(\x0b\x32%.lq.ResCustomizedContestChatInfo.Item\x1a,\n\x04Item\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\"~\n%ReqUpdateCustomizedContestChatSetting\x12\x14\n\x0csetting_type\x18\x01 \x01(\r\x12\x11\n\tnicknames\x18\x02 \x03(\t\x12\x13\n\x0b\x61\x63\x63ount_ids\x18\x03 \x03(\r\x12\x17\n\x0f\x63hat_limit_type\x18\x04 \x01(\r\"W\n%ResUpdateCustomizedContestChatSetting\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x14\n\x0c\x66\x61iled_index\x18\x02 \x03(\r\"-\n\x10ReqUpdateGameTag\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0b\n\x03tag\x18\x02 \x01(\t\"\'\n\x17ReqTerminateContestGame\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"#\n\x13ReqPauseContestGame\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"$\n\x14ReqResumeContestGame\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"\xe9\x01\n\x17ResFetchCurrentRankList\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12>\n\trank_list\x18\x02 \x03(\x0b\x32+.lq.ResFetchCurrentRankList.AccountRankData\x12\x11\n\trank_rule\x18\x03 \x01(\r\x1a\x61\n\x0f\x41\x63\x63ountRankData\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\x12\x13\n\x0btotal_point\x18\x03 \x01(\x05\x12\x13\n\x0btotal_count\x18\x04 \x01(\r\"\xf2\x01\n\x19ResFetchContestLastModify\x12?\n\x06modify\x18\x01 \x01(\x0b\x32/.lq.ResFetchContestLastModify.ContestLastModify\x1a\x93\x01\n\x11\x43ontestLastModify\x12\x14\n\x0c\x63ontest_name\x18\x01 \x01(\t\x12\x17\n\x0f\x65xternal_notice\x18\x02 \x01(\t\x12\x17\n\x0finternal_notice\x18\x03 \x01(\t\x12\x16\n\x0emanager_notice\x18\x04 \x01(\t\x12\x0e\n\x06reason\x18\x05 \x01(\t\x12\x0e\n\x06status\x18\x06 \x01(\r\"\x9e\x01\n\x17ResFetchContestObserver\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x37\n\tobservers\x18\x02 \x03(\x0b\x32$.lq.ResFetchContestObserver.Observer\x1a\x30\n\x08Observer\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\"\x80\x01\n\x15ReqAddContestObserver\x12\x35\n\tobservers\x18\x01 \x03(\x0b\x32\".lq.ReqAddContestObserver.Observer\x1a\x30\n\x08Observer\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\"\x98\x01\n\x15ResAddContestObserver\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x33\n\x07success\x18\x02 \x03(\x0b\x32\".lq.ResAddContestObserver.Observer\x1a\x30\n\x08Observer\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\"-\n\x18ReqRemoveContestObserver\x12\x11\n\tobservers\x18\x01 \x03(\r\"L\n\x1aResFetchContestChatHistory\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x14\n\x0c\x63hat_history\x18\x02 \x03(\x0c\"d\n\x1bNotifyContestMatchingPlayer\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x0c\n\x04type\x18\x02 \x01(\r\x12\x12\n\naccount_id\x18\x03 \x01(\r\x12\x10\n\x08nickname\x18\x04 \x01(\t\"j\n\x1fNotifyContestMatchingPlayerLock\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x0c\n\x04type\x18\x02 \x01(\r\x12\x12\n\naccount_id\x18\x03 \x01(\r\x12\x12\n\nmanager_id\x18\x04 \x01(\r\"S\n\x16NotifyContestGameStart\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12&\n\tgame_info\x18\x02 \x01(\x0b\x32\x13.lq.ContestGameInfo\"<\n\x14NotifyContestGameEnd\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x11\n\tgame_uuid\x18\x02 \x01(\t\"T\n\x19NotifyContestNoticeUpdate\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x13\n\x0bnotice_type\x18\x02 \x01(\r\x12\x0f\n\x07\x63ontent\x18\x03 \x01(\t\"*\n\x18NotifyContestManagerKick\x12\x0e\n\x06reason\x18\x01 \x01(\r\"Q\n\x05\x45rror\x12\x0c\n\x04\x63ode\x18\x01 \x01(\r\x12\x12\n\nu32_params\x18\x02 \x03(\r\x12\x12\n\nstr_params\x18\x03 \x03(\t\x12\x12\n\njson_param\x18\x04 \x01(\t\"%\n\x07Wrapper\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\"@\n\x0fNetworkEndpoint\x12\x0e\n\x06\x66\x61mily\x18\x01 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\t\x12\x0c\n\x04port\x18\x03 \x01(\r\"\x0b\n\tReqCommon\"%\n\tResCommon\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\"O\n\x10ResAccountUpdate\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12!\n\x06update\x18\x02 \x01(\x0b\x32\x11.lq.AccountUpdate\"(\n\rAntiAddiction\x12\x17\n\x0fonline_duration\x18\x01 \x01(\r\"\xcf\x07\n\x17\x41\x63\x63ountMahjongStatistic\x12\x1d\n\x15\x66inal_position_counts\x18\x01 \x03(\r\x12>\n\x0crecent_round\x18\x02 \x01(\x0b\x32(.lq.AccountMahjongStatistic.RoundSummary\x12\x38\n\trecent_hu\x18\x03 \x01(\x0b\x32%.lq.AccountMahjongStatistic.HuSummary\x12?\n\nhighest_hu\x18\x04 \x01(\x0b\x32+.lq.AccountMahjongStatistic.HighestHuRecord\x12G\n\x14recent_20_hu_summary\x18\x06 \x01(\x0b\x32).lq.AccountMahjongStatistic.Liqi20Summary\x12G\n\x14recent_10_hu_summary\x18\x07 \x01(\x0b\x32).lq.AccountMahjongStatistic.LiQi10Summary\x12\x45\n\x15recent_10_game_result\x18\x08 \x03(\x0b\x32&.lq.AccountMahjongStatistic.GameResult\x1a\x64\n\x0cRoundSummary\x12\x13\n\x0btotal_count\x18\x01 \x01(\r\x12\x12\n\nrong_count\x18\x02 \x01(\r\x12\x12\n\nzimo_count\x18\x03 \x01(\r\x12\x17\n\x0f\x66\x61ngchong_count\x18\x04 \x01(\r\x1aM\n\tHuSummary\x12\x13\n\x0btotal_count\x18\x01 \x01(\r\x12\x18\n\x10\x64ora_round_count\x18\x02 \x01(\r\x12\x11\n\ttotal_fan\x18\x03 \x01(\r\x1a\x7f\n\x0fHighestHuRecord\x12\x0e\n\x06\x66\x61nshu\x18\x01 \x01(\r\x12\x0f\n\x07\x64oranum\x18\x02 \x01(\r\x12\r\n\x05title\x18\x03 \x01(\t\x12\r\n\x05hands\x18\x04 \x03(\t\x12\x0c\n\x04ming\x18\x05 \x03(\t\x12\r\n\x05hupai\x18\x06 \x01(\t\x12\x10\n\x08title_id\x18\x07 \x01(\r\x1aZ\n\rLiqi20Summary\x12\x13\n\x0btotal_count\x18\x01 \x01(\r\x12\x1a\n\x12total_lidora_count\x18\x02 \x01(\r\x12\x18\n\x10\x61verage_hu_point\x18\x03 \x01(\r\x1a>\n\rLiQi10Summary\x12\x17\n\x0ftotal_xuanshang\x18\x01 \x01(\r\x12\x14\n\x0ctotal_fanshu\x18\x02 \x01(\r\x1a/\n\nGameResult\x12\x0c\n\x04rank\x18\x01 \x01(\r\x12\x13\n\x0b\x66inal_point\x18\x02 \x01(\x05\"\x8a\x01\n\x14\x41\x63\x63ountStatisticData\x12\x18\n\x10mahjong_category\x18\x01 \x01(\r\x12\x15\n\rgame_category\x18\x02 \x01(\r\x12.\n\tstatistic\x18\x03 \x01(\x0b\x32\x1b.lq.AccountMahjongStatistic\x12\x11\n\tgame_type\x18\x04 \x01(\r\")\n\x0c\x41\x63\x63ountLevel\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05score\x18\x02 \x01(\r\")\n\x08ViewSlot\x12\x0c\n\x04slot\x18\x01 \x01(\r\x12\x0f\n\x07item_id\x18\x02 \x01(\r\"\x84\x07\n\x07\x41\x63\x63ount\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\x12\x12\n\nlogin_time\x18\x03 \x01(\r\x12\x13\n\x0blogout_time\x18\x04 \x01(\r\x12\x0f\n\x07room_id\x18\x05 \x01(\r\x12)\n\x0e\x61nti_addiction\x18\x06 \x01(\x0b\x32\x11.lq.AntiAddiction\x12\r\n\x05title\x18\x07 \x01(\r\x12\x11\n\tsignature\x18\x08 \x01(\t\x12\r\n\x05\x65mail\x18\t \x01(\t\x12\x14\n\x0c\x65mail_verify\x18\n \x01(\r\x12\x0c\n\x04gold\x18\x0b \x01(\r\x12\x0f\n\x07\x64iamond\x18\x0c \x01(\r\x12\x11\n\tavatar_id\x18\r \x01(\r\x12\x0b\n\x03vip\x18\x0e \x01(\r\x12\x10\n\x08\x62irthday\x18\x0f \x01(\x05\x12\r\n\x05phone\x18\x10 \x01(\t\x12\x14\n\x0cphone_verify\x18\x11 \x01(\r\x12\x35\n\x10platform_diamond\x18\x12 \x03(\x0b\x32\x1b.lq.Account.PlatformDiamond\x12\x1f\n\x05level\x18\x15 \x01(\x0b\x32\x10.lq.AccountLevel\x12 \n\x06level3\x18\x16 \x01(\x0b\x32\x10.lq.AccountLevel\x12\x14\n\x0c\x61vatar_frame\x18\x17 \x01(\r\x12\x13\n\x0bskin_ticket\x18\x18 \x01(\r\x12<\n\x14platform_skin_ticket\x18\x19 \x03(\x0b\x32\x1e.lq.Account.PlatformSkinTicket\x12\x10\n\x08verified\x18\x1a \x01(\r\x12\x34\n\x10\x63hallenge_levels\x18\x1b \x03(\x0b\x32\x1a.lq.Account.ChallengeLevel\x12\x37\n\x11\x61\x63hievement_count\x18\x1c \x03(\x0b\x32\x1c.lq.Account.AchievementCount\x1a,\n\x0fPlatformDiamond\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\x1a/\n\x12PlatformSkinTicket\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\x1a=\n\x0e\x43hallengeLevel\x12\x0e\n\x06season\x18\x01 \x01(\r\x12\r\n\x05level\x18\x02 \x01(\r\x12\x0c\n\x04rank\x18\x03 \x01(\r\x1a/\n\x10\x41\x63hievementCount\x12\x0c\n\x04rare\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\"-\n\x10\x41\x63\x63ountOwnerData\x12\x19\n\x11unlock_characters\x18\x01 \x03(\r\"\xde\x0c\n\rAccountUpdate\x12\x34\n\tnumerical\x18\x01 \x03(\x0b\x32!.lq.AccountUpdate.NumericalUpdate\x12\x34\n\tcharacter\x18\x02 \x01(\x0b\x32!.lq.AccountUpdate.CharacterUpdate\x12\x1a\n\x03\x62\x61g\x18\x03 \x01(\x0b\x32\r.lq.BagUpdate\x12\x38\n\x0b\x61\x63hievement\x18\x04 \x01(\x0b\x32#.lq.AccountUpdate.AchievementUpdate\x12#\n\x07shilian\x18\x05 \x01(\x0b\x32\x12.lq.AccountShiLian\x12\x35\n\ndaily_task\x18\x06 \x01(\x0b\x32!.lq.AccountUpdate.DailyTaskUpdate\x12,\n\x05title\x18\x07 \x01(\x0b\x32\x1d.lq.AccountUpdate.TitleUpdate\x12\x1a\n\x12new_recharged_list\x18\x08 \x03(\r\x12\x33\n\ractivity_task\x18\t \x01(\x0b\x32\x1c.lq.AccountUpdate.TaskUpdate\x12\x38\n\x12\x61\x63tivity_flip_task\x18\n \x01(\x0b\x32\x1c.lq.AccountUpdate.TaskUpdate\x12:\n\x14\x61\x63tivity_period_task\x18\x0b \x01(\x0b\x32\x1c.lq.AccountUpdate.TaskUpdate\x12:\n\x14\x61\x63tivity_random_task\x18\x0c \x01(\x0b\x32\x1c.lq.AccountUpdate.TaskUpdate\x12;\n\tchallenge\x18\r \x01(\x0b\x32(.lq.AccountUpdate.AccountChallengeUpdate\x12\x38\n\x08\x61\x62_match\x18\x0e \x01(\x0b\x32&.lq.AccountUpdate.AccountABMatchUpdate\x1a,\n\x0fNumericalUpdate\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05\x66inal\x18\x03 \x01(\r\x1aw\n\x0f\x43haracterUpdate\x12!\n\ncharacters\x18\x02 \x03(\x0b\x32\r.lq.Character\x12\r\n\x05skins\x18\x03 \x03(\r\x12\x18\n\x10\x66inished_endings\x18\x04 \x03(\r\x12\x18\n\x10rewarded_endings\x18\x05 \x03(\r\x1aX\n\x11\x41\x63hievementUpdate\x12+\n\nprogresses\x18\x01 \x03(\x0b\x32\x17.lq.AchievementProgress\x12\x16\n\x0erewarded_group\x18\x02 \x03(\r\x1aJ\n\x0f\x44\x61ilyTaskUpdate\x12$\n\nprogresses\x18\x01 \x03(\x0b\x32\x10.lq.TaskProgress\x12\x11\n\ttask_list\x18\x02 \x03(\r\x1a\x38\n\x0bTitleUpdate\x12\x12\n\nnew_titles\x18\x01 \x03(\r\x12\x15\n\rremove_titles\x18\x02 \x03(\r\x1a\x45\n\nTaskUpdate\x12$\n\nprogresses\x18\x01 \x03(\x0b\x32\x10.lq.TaskProgress\x12\x11\n\ttask_list\x18\x02 \x03(\r\x1a\xb8\x01\n\x16\x41\x63\x63ountChallengeUpdate\x12$\n\nprogresses\x18\x01 \x03(\x0b\x32\x10.lq.TaskProgress\x12\r\n\x05level\x18\x02 \x01(\r\x12\x15\n\rrefresh_count\x18\x03 \x01(\r\x12\x13\n\x0bmatch_count\x18\x04 \x01(\r\x12\x11\n\tticket_id\x18\x05 \x01(\r\x12\x11\n\ttask_list\x18\x06 \x03(\r\x12\x17\n\x0frewarded_season\x18\x07 \x03(\r\x1a\xfd\x01\n\x14\x41\x63\x63ountABMatchUpdate\x12\x10\n\x08match_id\x18\x01 \x01(\r\x12\x13\n\x0bmatch_count\x18\x02 \x01(\r\x12\x14\n\x0c\x62uy_in_count\x18\x03 \x01(\r\x12\r\n\x05point\x18\x04 \x01(\r\x12\x10\n\x08rewarded\x18\x05 \x01(\x08\x12J\n\x0fmatch_max_point\x18\x06 \x03(\x0b\x32\x31.lq.AccountUpdate.AccountABMatchUpdate.MatchPoint\x12\x0c\n\x04quit\x18\x07 \x01(\x08\x1a-\n\nMatchPoint\x12\x10\n\x08match_id\x18\x01 \x01(\r\x12\r\n\x05point\x18\x02 \x01(\r\"E\n\x0cGameMetaData\x12\x0f\n\x07room_id\x18\x01 \x01(\r\x12\x0f\n\x07mode_id\x18\x02 \x01(\r\x12\x13\n\x0b\x63ontest_uid\x18\x03 \x01(\r\"Y\n\x12\x41\x63\x63ountPlayingGame\x12\x11\n\tgame_uuid\x18\x01 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x02 \x01(\r\x12\x1e\n\x04meta\x18\x03 \x01(\x0b\x32\x10.lq.GameMetaData\"\xa2\x03\n\x10\x41\x63\x63ountCacheView\x12\x15\n\rcache_version\x18\x01 \x01(\r\x12\x12\n\naccount_id\x18\x02 \x01(\r\x12\x10\n\x08nickname\x18\x03 \x01(\t\x12\x12\n\nlogin_time\x18\x04 \x01(\r\x12\x13\n\x0blogout_time\x18\x05 \x01(\r\x12\x11\n\tis_online\x18\x06 \x01(\x08\x12\x0f\n\x07room_id\x18\x07 \x01(\r\x12\r\n\x05title\x18\x08 \x01(\r\x12\x11\n\tavatar_id\x18\t \x01(\r\x12\x0b\n\x03vip\x18\n \x01(\r\x12\x1f\n\x05level\x18\x0b \x01(\x0b\x32\x10.lq.AccountLevel\x12,\n\x0cplaying_game\x18\x0c \x01(\x0b\x32\x16.lq.AccountPlayingGame\x12 \n\x06level3\x18\r \x01(\x0b\x32\x10.lq.AccountLevel\x12\x14\n\x0c\x61vatar_frame\x18\x0e \x01(\r\x12\x10\n\x08verified\x18\x0f \x01(\r\x12\x14\n\x0c\x62\x61n_deadline\x18\x10 \x01(\r\x12\x13\n\x0b\x63omment_ban\x18\x11 \x01(\r\x12\x11\n\tban_state\x18\x12 \x01(\r\"\xd6\x01\n\x0ePlayerBaseView\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x11\n\tavatar_id\x18\x02 \x01(\r\x12\r\n\x05title\x18\x03 \x01(\r\x12\x10\n\x08nickname\x18\x04 \x01(\t\x12\x1f\n\x05level\x18\x05 \x01(\x0b\x32\x10.lq.AccountLevel\x12 \n\x06level3\x18\x06 \x01(\x0b\x32\x10.lq.AccountLevel\x12\x14\n\x0c\x61vatar_frame\x18\x07 \x01(\r\x12\x10\n\x08verified\x18\x08 \x01(\r\x12\x11\n\tis_banned\x18\t \x01(\r\"\x82\x02\n\x0ePlayerGameView\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x11\n\tavatar_id\x18\x02 \x01(\r\x12\r\n\x05title\x18\x03 \x01(\r\x12\x10\n\x08nickname\x18\x04 \x01(\t\x12\x1f\n\x05level\x18\x05 \x01(\x0b\x32\x10.lq.AccountLevel\x12 \n\tcharacter\x18\x06 \x01(\x0b\x32\r.lq.Character\x12 \n\x06level3\x18\x07 \x01(\x0b\x32\x10.lq.AccountLevel\x12\x14\n\x0c\x61vatar_frame\x18\x08 \x01(\r\x12\x10\n\x08verified\x18\t \x01(\r\x12\x1b\n\x05views\x18\n \x03(\x0b\x32\x0c.lq.ViewSlot\"#\n\x0bGameSetting\x12\x14\n\x0c\x65moji_switch\x18\x01 \x01(\r\"\xc4\x01\n\x08GameMode\x12\x0c\n\x04mode\x18\x01 \x01(\r\x12\n\n\x02\x61i\x18\x04 \x01(\x08\x12\x12\n\nextendinfo\x18\x05 \x01(\t\x12\'\n\x0b\x64\x65tail_rule\x18\x06 \x01(\x0b\x32\x12.lq.GameDetailRule\x12:\n\x13testing_environment\x18\x07 \x01(\x0b\x32\x1d.lq.GameTestingEnvironmentSet\x12%\n\x0cgame_setting\x18\x08 \x01(\x0b\x32\x0f.lq.GameSetting\"@\n\x19GameTestingEnvironmentSet\x12\x0f\n\x07paixing\x18\x01 \x01(\r\x12\x12\n\nleft_count\x18\x02 \x01(\r\"\xfa\x08\n\x0eGameDetailRule\x12\x12\n\ntime_fixed\x18\x01 \x01(\r\x12\x10\n\x08time_add\x18\x02 \x01(\r\x12\x12\n\ndora_count\x18\x03 \x01(\r\x12\x0f\n\x07shiduan\x18\x04 \x01(\r\x12\x12\n\ninit_point\x18\x05 \x01(\r\x12\x0f\n\x07\x66\x61ndian\x18\x06 \x01(\r\x12\x11\n\tcan_jifei\x18\x07 \x01(\x08\x12\x16\n\x0etianbian_value\x18\x08 \x01(\r\x12\x16\n\x0eliqibang_value\x18\t \x01(\r\x12\x17\n\x0f\x63hangbang_value\x18\n \x01(\r\x12\x15\n\rnoting_fafu_1\x18\x0b \x01(\r\x12\x15\n\rnoting_fafu_2\x18\x0c \x01(\r\x12\x15\n\rnoting_fafu_3\x18\r \x01(\r\x12\x19\n\x11have_liujumanguan\x18\x0e \x01(\x08\x12\x1c\n\x14have_qieshangmanguan\x18\x0f \x01(\x08\x12\x16\n\x0ehave_biao_dora\x18\x10 \x01(\x08\x12\x1b\n\x13have_gang_biao_dora\x18\x11 \x01(\x08\x12\"\n\x1aming_dora_immediately_open\x18\x12 \x01(\x08\x12\x14\n\x0chave_li_dora\x18\x13 \x01(\x08\x12\x19\n\x11have_gang_li_dora\x18\x14 \x01(\x08\x12\x19\n\x11have_sifenglianda\x18\x15 \x01(\x08\x12\x18\n\x10have_sigangsanle\x18\x16 \x01(\x08\x12\x17\n\x0fhave_sijializhi\x18\x17 \x01(\x08\x12\x1b\n\x13have_jiuzhongjiupai\x18\x18 \x01(\x08\x12\x17\n\x0fhave_sanjiahele\x18\x19 \x01(\x08\x12\x14\n\x0chave_toutiao\x18\x1a \x01(\x08\x12\x1b\n\x13have_helelianzhuang\x18\x1b \x01(\x08\x12\x18\n\x10have_helezhongju\x18\x1c \x01(\x08\x12\x1e\n\x16have_tingpailianzhuang\x18\x1d \x01(\x08\x12\x1b\n\x13have_tingpaizhongju\x18\x1e \x01(\x08\x12\x11\n\thave_yifa\x18\x1f \x01(\x08\x12\x16\n\x0ehave_nanruxiru\x18  \x01(\x08\x12\x18\n\x10jingsuanyuandian\x18! \x01(\r\x12\x13\n\x0bshunweima_2\x18\" \x01(\x05\x12\x13\n\x0bshunweima_3\x18# \x01(\x05\x12\x13\n\x0bshunweima_4\x18$ \x01(\x05\x12\x14\n\x0c\x62ianjietishi\x18% \x01(\x08\x12\x10\n\x08\x61i_level\x18& \x01(\r\x12\x14\n\x0chave_zimosun\x18\' \x01(\x08\x12\x1d\n\x15\x64isable_multi_yukaman\x18( \x01(\x08\x12\r\n\x05\x66\x61nfu\x18) \x01(\r\x12\x11\n\tguyi_mode\x18* \x01(\r\x12\x12\n\ndora3_mode\x18+ \x01(\r\x12\x17\n\x0f\x62\x65gin_open_mode\x18, \x01(\r\x12\x14\n\x0cjiuchao_mode\x18- \x01(\r\x12\x11\n\tmuyu_mode\x18. \x01(\r\x12\x11\n\topen_hand\x18/ \x01(\r\x12\x1a\n\x12\x64isable_leijiyiman\x18< \x01(\x08\"\xfa\x01\n\x04Room\x12\x0f\n\x07room_id\x18\x01 \x01(\r\x12\x10\n\x08owner_id\x18\x02 \x01(\r\x12\x1a\n\x04mode\x18\x03 \x01(\x0b\x32\x0c.lq.GameMode\x12\x18\n\x10max_player_count\x18\x04 \x01(\r\x12#\n\x07persons\x18\x05 \x03(\x0b\x32\x12.lq.PlayerGameView\x12\x12\n\nready_list\x18\x06 \x03(\r\x12\x12\n\nis_playing\x18\x07 \x01(\x08\x12\x13\n\x0bpublic_live\x18\x08 \x01(\x08\x12\x13\n\x0brobot_count\x18\t \x01(\r\x12\x15\n\rtournament_id\x18\n \x01(\r\x12\x0b\n\x03seq\x18\x0b \x01(\r\"\xc1\x01\n\rGameEndResult\x12-\n\x07players\x18\x01 \x03(\x0b\x32\x1c.lq.GameEndResult.PlayerItem\x1a\x80\x01\n\nPlayerItem\x12\x0c\n\x04seat\x18\x01 \x01(\r\x12\x13\n\x0btotal_point\x18\x02 \x01(\x05\x12\x14\n\x0cpart_point_1\x18\x03 \x01(\x05\x12\x14\n\x0cpart_point_2\x18\x04 \x01(\x05\x12\x15\n\rgrading_score\x18\x05 \x01(\x05\x12\x0c\n\x04gold\x18\x06 \x01(\x05\"M\n\x0fGameConnectInfo\x12\x15\n\rconnect_token\x18\x02 \x01(\t\x12\x11\n\tgame_uuid\x18\x03 \x01(\t\x12\x10\n\x08location\x18\x04 \x01(\t\"0\n\x0eItemGainRecord\x12\x0f\n\x07item_id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\"d\n\x0fItemGainRecords\x12\x13\n\x0brecord_time\x18\x01 \x01(\r\x12\x17\n\x0flimit_source_id\x18\x02 \x01(\r\x12#\n\x07records\x18\x03 \x03(\x0b\x32\x12.lq.ItemGainRecord\"&\n\x04Item\x12\x0f\n\x07item_id\x18\x01 \x01(\r\x12\r\n\x05stack\x18\x02 \x01(\r\"N\n\x03\x42\x61g\x12\x17\n\x05items\x18\x01 \x03(\x0b\x32\x08.lq.Item\x12.\n\x11\x64\x61ily_gain_record\x18\x02 \x03(\x0b\x32\x13.lq.ItemGainRecords\"b\n\tBagUpdate\x12\x1e\n\x0cupdate_items\x18\x01 \x03(\x0b\x32\x08.lq.Item\x12\x35\n\x18update_daily_gain_record\x18\x02 \x03(\x0b\x32\x13.lq.ItemGainRecords\"\'\n\nRewardSlot\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\"M\n\nOpenResult\x12\x1e\n\x06reward\x18\x01 \x01(\x0b\x32\x0e.lq.RewardSlot\x12\x1f\n\x07replace\x18\x02 \x01(\x0b\x32\x0e.lq.RewardSlot\"\x97\x01\n\x10RewardPlusResult\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\x12/\n\x08\x65xchange\x18\x03 \x01(\x0b\x32\x1d.lq.RewardPlusResult.Exchange\x1a\x37\n\x08\x45xchange\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\x12\x10\n\x08\x65xchange\x18\x03 \x01(\r\"g\n\rExecuteReward\x12\x1e\n\x06reward\x18\x01 \x01(\x0b\x32\x0e.lq.RewardSlot\x12\x1f\n\x07replace\x18\x02 \x01(\x0b\x32\x0e.lq.RewardSlot\x12\x15\n\rreplace_count\x18\x03 \x01(\r\"\xc8\x02\n\x04Mail\x12\x0f\n\x07mail_id\x18\x01 \x01(\r\x12\r\n\x05state\x18\x02 \x01(\r\x12\x17\n\x0ftake_attachment\x18\x03 \x01(\x08\x12\r\n\x05title\x18\x04 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x05 \x01(\t\x12#\n\x0b\x61ttachments\x18\x06 \x03(\x0b\x32\x0e.lq.RewardSlot\x12\x13\n\x0b\x63reate_time\x18\x07 \x01(\r\x12\x13\n\x0b\x65xpire_time\x18\x08 \x01(\r\x12\x14\n\x0creference_id\x18\t \x01(\r\x12(\n\ntitle_i18n\x18\n \x03(\x0b\x32\x14.lq.Mail.I18nContext\x12*\n\x0c\x63ontent_i18n\x18\x0b \x03(\x0b\x32\x14.lq.Mail.I18nContext\x1a,\n\x0bI18nContext\x12\x0c\n\x04lang\x18\x01 \x01(\t\x12\x0f\n\x07\x63ontext\x18\x02 \x01(\t\"m\n\x13\x41\x63hievementProgress\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0f\n\x07\x63ounter\x18\x02 \x01(\r\x12\x10\n\x08\x61\x63hieved\x18\x03 \x01(\x08\x12\x10\n\x08rewarded\x18\x04 \x01(\x08\x12\x15\n\rachieved_time\x18\x05 \x01(\r\"\x97\x04\n\x1a\x41\x63\x63ountStatisticByGameMode\x12\x0c\n\x04mode\x18\x01 \x01(\r\x12\x16\n\x0egame_count_sum\x18\x02 \x01(\r\x12\x1b\n\x13game_final_position\x18\x03 \x03(\r\x12\x11\n\tfly_count\x18\x04 \x01(\r\x12\x15\n\rgold_earn_sum\x18\x05 \x01(\x02\x12\x17\n\x0fround_count_sum\x18\x06 \x01(\r\x12\x12\n\ndadian_sum\x18\x07 \x01(\x02\x12>\n\tround_end\x18\x08 \x03(\x0b\x32+.lq.AccountStatisticByGameMode.RoundEndData\x12\x16\n\x0eming_count_sum\x18\t \x01(\r\x12\x16\n\x0eliqi_count_sum\x18\n \x01(\r\x12\x15\n\rxun_count_sum\x18\x0b \x01(\r\x12\x1a\n\x12highest_lianzhuang\x18\x0c \x01(\r\x12\x16\n\x0escore_earn_sum\x18\r \x01(\r\x12<\n\nrank_score\x18\x0e \x03(\x0b\x32(.lq.AccountStatisticByGameMode.RankScore\x1a)\n\x0cRoundEndData\x12\x0c\n\x04type\x18\x01 \x01(\r\x12\x0b\n\x03sum\x18\x02 \x01(\r\x1a;\n\tRankScore\x12\x0c\n\x04rank\x18\x01 \x01(\r\x12\x11\n\tscore_sum\x18\x02 \x01(\x05\x12\r\n\x05\x63ount\x18\x03 \x01(\r\"4\n\x15\x41\x63\x63ountStatisticByFan\x12\x0e\n\x06\x66\x61n_id\x18\x01 \x01(\r\x12\x0b\n\x03sum\x18\x02 \x01(\r\"l\n\x12\x41\x63\x63ountFanAchieved\x12\x18\n\x10mahjong_category\x18\x01 \x01(\r\x12&\n\x03\x66\x61n\x18\x02 \x03(\x0b\x32\x19.lq.AccountStatisticByFan\x12\x14\n\x0cliujumanguan\x18\x03 \x01(\r\"\xb7\x01\n\x16\x41\x63\x63ountDetailStatistic\x12\x31\n\tgame_mode\x18\x01 \x03(\x0b\x32\x1e.lq.AccountStatisticByGameMode\x12&\n\x03\x66\x61n\x18\x02 \x03(\x0b\x32\x19.lq.AccountStatisticByFan\x12\x14\n\x0cliujumanguan\x18\x03 \x01(\r\x12,\n\x0c\x66\x61n_achieved\x18\x04 \x03(\x0b\x32\x16.lq.AccountFanAchieved\"j\n AccountDetailStatisticByCategory\x12\x10\n\x08\x63\x61tegory\x18\x01 \x01(\r\x12\x34\n\x10\x64\x65tail_statistic\x18\x02 \x01(\x0b\x32\x1a.lq.AccountDetailStatistic\"\xdb\t\n\x18\x41\x63\x63ountDetailStatisticV2\x12\x39\n\x15\x66riend_room_statistic\x18\x01 \x01(\x0b\x32\x1a.lq.AccountDetailStatistic\x12\x42\n\x0erank_statistic\x18\x02 \x01(\x0b\x32*.lq.AccountDetailStatisticV2.RankStatistic\x12]\n\x1c\x63ustomized_contest_statistic\x18\x03 \x01(\x0b\x32\x37.lq.AccountDetailStatisticV2.CustomizedContestStatistic\x12;\n\x17leisure_match_statistic\x18\x04 \x01(\x0b\x32\x1a.lq.AccountDetailStatistic\x12R\n\x19\x63hallenge_match_statistic\x18\x05 \x01(\x0b\x32/.lq.AccountDetailStatisticV2.ChallengeStatistic\x1a\xbd\x03\n\rRankStatistic\x12L\n\x0ftotal_statistic\x18\x01 \x01(\x0b\x32\x33.lq.AccountDetailStatisticV2.RankStatistic.RankData\x12L\n\x0fmonth_statistic\x18\x02 \x01(\x0b\x32\x33.lq.AccountDetailStatisticV2.RankStatistic.RankData\x12\x1a\n\x12month_refresh_time\x18\x03 \x01(\r\x1a\xf3\x01\n\x08RankData\x12\x37\n\x13\x61ll_level_statistic\x18\x01 \x01(\x0b\x32\x1a.lq.AccountDetailStatistic\x12Z\n\x0flevel_data_list\x18\x02 \x03(\x0b\x32\x41.lq.AccountDetailStatisticV2.RankStatistic.RankData.RankLevelData\x1aR\n\rRankLevelData\x12\x12\n\nrank_level\x18\x01 \x01(\r\x12-\n\tstatistic\x18\x02 \x01(\x0b\x32\x1a.lq.AccountDetailStatistic\x1a\xa2\x01\n\x1a\x43ustomizedContestStatistic\x12\x33\n\x0ftotal_statistic\x18\x01 \x01(\x0b\x32\x1a.lq.AccountDetailStatistic\x12\x33\n\x0fmonth_statistic\x18\x02 \x01(\x0b\x32\x1a.lq.AccountDetailStatistic\x12\x1a\n\x12month_refresh_time\x18\x03 \x01(\r\x1a\xea\x01\n\x12\x43hallengeStatistic\x12.\n\nall_season\x18\x01 \x01(\x0b\x32\x1a.lq.AccountDetailStatistic\x12T\n\x10season_data_list\x18\x02 \x03(\x0b\x32:.lq.AccountDetailStatisticV2.ChallengeStatistic.SeasonData\x1aN\n\nSeasonData\x12\x11\n\tseason_id\x18\x01 \x01(\r\x12-\n\tstatistic\x18\x02 \x01(\x0b\x32\x1a.lq.AccountDetailStatistic\"-\n\x0e\x41\x63\x63ountShiLian\x12\x0c\n\x04step\x18\x01 \x01(\r\x12\r\n\x05state\x18\x02 \x01(\r\"\xc2\x01\n\x10\x43lientDeviceInfo\x12\x10\n\x08platform\x18\x01 \x01(\t\x12\x10\n\x08hardware\x18\x02 \x01(\t\x12\n\n\x02os\x18\x03 \x01(\t\x12\x12\n\nos_version\x18\x04 \x01(\t\x12\x12\n\nis_browser\x18\x05 \x01(\x08\x12\x10\n\x08software\x18\x06 \x01(\t\x12\x15\n\rsale_platform\x18\x07 \x01(\t\x12\x17\n\x0fhardware_vendor\x18\x08 \x01(\t\x12\x14\n\x0cmodel_number\x18\t \x01(\t\"6\n\x11\x43lientVersionInfo\x12\x10\n\x08resource\x18\x01 \x01(\t\x12\x0f\n\x07package\x18\x02 \x01(\t\":\n\x0c\x41nnouncement\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x03 \x01(\t\"_\n\x0cTaskProgress\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0f\n\x07\x63ounter\x18\x02 \x01(\r\x12\x10\n\x08\x61\x63hieved\x18\x03 \x01(\x08\x12\x10\n\x08rewarded\x18\x04 \x01(\x08\x12\x0e\n\x06\x66\x61iled\x18\x05 \x01(\x08\"Z\n\nGameConfig\x12\x10\n\x08\x63\x61tegory\x18\x01 \x01(\r\x12\x1a\n\x04mode\x18\x02 \x01(\x0b\x32\x0c.lq.GameMode\x12\x1e\n\x04meta\x18\x03 \x01(\x0b\x32\x10.lq.GameMetaData\"\x8d\x01\n\x12\x41\x63\x63ountActiveState\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x12\n\nlogin_time\x18\x02 \x01(\r\x12\x13\n\x0blogout_time\x18\x03 \x01(\r\x12\x11\n\tis_online\x18\x04 \x01(\x08\x12\'\n\x07playing\x18\x05 \x01(\x0b\x32\x16.lq.AccountPlayingGame\"Q\n\x06\x46riend\x12 \n\x04\x62\x61se\x18\x01 \x01(\x0b\x32\x12.lq.PlayerBaseView\x12%\n\x05state\x18\x02 \x01(\x0b\x32\x16.lq.AccountActiveState\"O\n\x0cGameLiveUnit\x12\x11\n\ttimestamp\x18\x01 \x01(\r\x12\x17\n\x0f\x61\x63tion_category\x18\x02 \x01(\r\x12\x13\n\x0b\x61\x63tion_data\x18\x03 \x01(\x0c\"4\n\x0fGameLiveSegment\x12!\n\x07\x61\x63tions\x18\x01 \x03(\x0b\x32\x10.lq.GameLiveUnit\"=\n\x12GameLiveSegmentUri\x12\x12\n\nsegment_id\x18\x01 \x01(\r\x12\x13\n\x0bsegment_uri\x18\x02 \x01(\t\"\x8d\x01\n\x0cGameLiveHead\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x12\n\nstart_time\x18\x02 \x01(\r\x12#\n\x0bgame_config\x18\x03 \x01(\x0b\x32\x0e.lq.GameConfig\x12#\n\x07players\x18\x04 \x03(\x0b\x32\x12.lq.PlayerGameView\x12\x11\n\tseat_list\x18\x05 \x03(\r\"(\n\x11GameNewRoundState\x12\x13\n\x0bseat_states\x18\x01 \x03(\r\"\x1e\n\rGameEndAction\x12\r\n\x05state\x18\x01 \x01(\r\"\x10\n\x0eGameNoopAction\"\x7f\n\x0b\x43ommentItem\x12\x12\n\ncomment_id\x18\x01 \x01(\r\x12\x11\n\ttimestamp\x18\x02 \x01(\r\x12%\n\tcommenter\x18\x03 \x01(\x0b\x32\x12.lq.PlayerBaseView\x12\x0f\n\x07\x63ontent\x18\x04 \x01(\t\x12\x11\n\tis_banned\x18\x05 \x01(\r\"y\n\rRollingNotice\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0f\n\x07\x63ontent\x18\x02 \x01(\t\x12\x12\n\nstart_time\x18\x03 \x01(\r\x12\x10\n\x08\x65nd_time\x18\x04 \x01(\r\x12\x17\n\x0frepeat_interval\x18\x05 \x01(\r\x12\x0c\n\x04lang\x18\x06 \x01(\t\"q\n\x0c\x42illingGoods\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04\x64\x65sc\x18\x03 \x01(\t\x12\x0c\n\x04icon\x18\x04 \x01(\t\x12\x13\n\x0bresource_id\x18\x05 \x01(\r\x12\x16\n\x0eresource_count\x18\x06 \x01(\r\"<\n\x0c\x42illShortcut\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\x12\x11\n\tdealPrice\x18\x03 \x01(\r\"u\n\x0e\x42illingProduct\x12\x1f\n\x05goods\x18\x01 \x01(\x0b\x32\x10.lq.BillingGoods\x12\x15\n\rcurrency_code\x18\x02 \x01(\t\x12\x16\n\x0e\x63urrency_price\x18\x03 \x01(\r\x12\x13\n\x0bsort_weight\x18\x04 \x01(\r\"\x8c\x01\n\tCharacter\x12\x0e\n\x06\x63harid\x18\x01 \x01(\r\x12\r\n\x05level\x18\x02 \x01(\r\x12\x0b\n\x03\x65xp\x18\x03 \x01(\r\x12\x1b\n\x05views\x18\x04 \x03(\x0b\x32\x0c.lq.ViewSlot\x12\x0c\n\x04skin\x18\x05 \x01(\r\x12\x13\n\x0bis_upgraded\x18\x06 \x01(\x08\x12\x13\n\x0b\x65xtra_emoji\x18\x07 \x03(\r\"&\n\tBuyRecord\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\"\xca\x01\n\x07ZHPShop\x12\r\n\x05goods\x18\x01 \x03(\r\x12\"\n\x0b\x62uy_records\x18\x02 \x03(\x0b\x32\r.lq.BuyRecord\x12.\n\x0c\x66ree_refresh\x18\x03 \x01(\x0b\x32\x18.lq.ZHPShop.RefreshCount\x12.\n\x0c\x63ost_refresh\x18\x04 \x01(\x0b\x32\x18.lq.ZHPShop.RefreshCount\x1a,\n\x0cRefreshCount\x12\r\n\x05\x63ount\x18\x01 \x01(\r\x12\r\n\x05limit\x18\x02 \x01(\r\"F\n\x0fMonthTicketInfo\x12\n\n\x02id\x18\x01 \x01(\r\x12\x10\n\x08\x65nd_time\x18\x02 \x01(\r\x12\x15\n\rlast_pay_time\x18\x03 \x01(\r\"c\n\x08ShopInfo\x12\x18\n\x03zhp\x18\x01 \x01(\x0b\x32\x0b.lq.ZHPShop\x12\"\n\x0b\x62uy_records\x18\x02 \x03(\x0b\x32\r.lq.BuyRecord\x12\x19\n\x11last_refresh_time\x18\x03 \x01(\r\">\n\x14\x43hangeNicknameRecord\x12\x0c\n\x04\x66rom\x18\x01 \x01(\t\x12\n\n\x02to\x18\x02 \x01(\t\x12\x0c\n\x04time\x18\x03 \x01(\r\"o\n\x0eServerSettings\x12+\n\x0fpayment_setting\x18\x03 \x01(\x0b\x32\x12.lq.PaymentSetting\x12\x30\n\x12payment_setting_v2\x18\x04 \x01(\x0b\x32\x14.lq.PaymentSettingV2\"\x83\x03\n\x10PaymentSettingV2\x12\x14\n\x0copen_payment\x18\x01 \x01(\r\x12\x42\n\x11payment_platforms\x18\x02 \x03(\x0b\x32\'.lq.PaymentSettingV2.PaymentSettingUnit\x1am\n\x0fPaymentMaintain\x12\x12\n\nstart_time\x18\x01 \x01(\r\x12\x10\n\x08\x65nd_time\x18\x02 \x01(\r\x12\x1a\n\x12goods_click_action\x18\x03 \x01(\r\x12\x18\n\x10goods_click_text\x18\x04 \x01(\t\x1a\xa5\x01\n\x12PaymentSettingUnit\x12\x10\n\x08platform\x18\x01 \x01(\t\x12\x0f\n\x07is_show\x18\x02 \x01(\x08\x12\x1a\n\x12goods_click_action\x18\x03 \x01(\r\x12\x18\n\x10goods_click_text\x18\x04 \x01(\t\x12\x36\n\x08maintain\x18\x05 \x01(\x0b\x32$.lq.PaymentSettingV2.PaymentMaintain\"\xdf\x02\n\x0ePaymentSetting\x12\x14\n\x0copen_payment\x18\x01 \x01(\r\x12\x1e\n\x16payment_info_show_type\x18\x02 \x01(\r\x12\x14\n\x0cpayment_info\x18\x03 \x01(\t\x12-\n\x06wechat\x18\x04 \x01(\x0b\x32\x1d.lq.PaymentSetting.WechatData\x12-\n\x06\x61lipay\x18\x05 \x01(\x0b\x32\x1d.lq.PaymentSetting.AlipayData\x1a\\\n\nWechatData\x12\x16\n\x0e\x64isable_create\x18\x01 \x01(\x08\x12\x1f\n\x17payment_source_platform\x18\x02 \x01(\r\x12\x15\n\renable_credit\x18\x03 \x01(\x08\x1a\x45\n\nAlipayData\x12\x16\n\x0e\x64isable_create\x18\x01 \x01(\x08\x12\x1f\n\x17payment_source_platform\x18\x02 \x01(\r\",\n\x0e\x41\x63\x63ountSetting\x12\x0b\n\x03key\x18\x01 \x01(\r\x12\r\n\x05value\x18\x02 \x01(\r\"h\n\tChestData\x12\x10\n\x08\x63hest_id\x18\x01 \x01(\r\x12\x18\n\x10total_open_count\x18\x02 \x01(\r\x12\x15\n\rconsume_count\x18\x03 \x01(\r\x12\x18\n\x10\x66\x61\x63\x65_black_count\x18\x04 \x01(\r\"S\n\x0b\x43hestDataV2\x12\x10\n\x08\x63hest_id\x18\x01 \x01(\r\x12\x18\n\x10total_open_count\x18\x02 \x01(\r\x12\x18\n\x10\x66\x61\x63\x65_black_count\x18\x03 \x01(\r\"d\n\tFaithData\x12\x10\n\x08\x66\x61ith_id\x18\x01 \x01(\r\x12\x18\n\x10total_open_count\x18\x02 \x01(\r\x12\x15\n\rconsume_count\x18\x03 \x01(\r\x12\x14\n\x0cmodify_count\x18\x04 \x01(\x05\"\xd9\x01\n\x15\x43ustomizedContestBase\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x12\n\ncontest_id\x18\x02 \x01(\r\x12\x14\n\x0c\x63ontest_name\x18\x03 \x01(\t\x12\r\n\x05state\x18\x04 \x01(\r\x12\x12\n\ncreator_id\x18\x05 \x01(\r\x12\x13\n\x0b\x63reate_time\x18\x06 \x01(\r\x12\x12\n\nstart_time\x18\x07 \x01(\r\x12\x13\n\x0b\x66inish_time\x18\x08 \x01(\r\x12\x0c\n\x04open\x18\t \x01(\x08\x12\x14\n\x0c\x63ontest_type\x18\n \x01(\r\"C\n\x17\x43ustomizedContestExtend\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x15\n\rpublic_notice\x18\x02 \x01(\t\"\xde\x01\n\x19\x43ustomizedContestAbstract\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x12\n\ncontest_id\x18\x02 \x01(\r\x12\x14\n\x0c\x63ontest_name\x18\x03 \x01(\t\x12\r\n\x05state\x18\x04 \x01(\r\x12\x12\n\ncreator_id\x18\x05 \x01(\r\x12\x13\n\x0b\x63reate_time\x18\x06 \x01(\r\x12\x12\n\nstart_time\x18\x07 \x01(\r\x12\x13\n\x0b\x66inish_time\x18\x08 \x01(\r\x12\x0c\n\x04open\x18\t \x01(\x08\x12\x15\n\rpublic_notice\x18\n \x01(\t\"\xc0\x02\n\x17\x43ustomizedContestDetail\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x12\n\ncontest_id\x18\x02 \x01(\r\x12\x14\n\x0c\x63ontest_name\x18\x03 \x01(\t\x12\r\n\x05state\x18\x04 \x01(\r\x12\x12\n\ncreator_id\x18\x05 \x01(\r\x12\x13\n\x0b\x63reate_time\x18\x06 \x01(\r\x12\x12\n\nstart_time\x18\x07 \x01(\r\x12\x13\n\x0b\x66inish_time\x18\x08 \x01(\r\x12\x0c\n\x04open\x18\t \x01(\x08\x12\x11\n\trank_rule\x18\n \x01(\r\x12\x1f\n\tgame_mode\x18\x0b \x01(\x0b\x32\x0c.lq.GameMode\x12\x16\n\x0eprivate_notice\x18\x0c \x01(\t\x12\x17\n\x0fobserver_switch\x18\r \x01(\r\x12\x14\n\x0c\x65moji_switch\x18\x0e \x01(\r\"}\n\x1d\x43ustomizedContestPlayerReport\x12\x11\n\trank_rule\x18\x01 \x01(\r\x12\x0c\n\x04rank\x18\x02 \x01(\r\x12\r\n\x05point\x18\x03 \x01(\x05\x12\x12\n\ngame_ranks\x18\x04 \x03(\r\x12\x18\n\x10total_game_count\x18\x05 \x01(\r\"\xc1\x03\n\nRecordGame\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x12\n\nstart_time\x18\x02 \x01(\r\x12\x10\n\x08\x65nd_time\x18\x03 \x01(\r\x12\x1e\n\x06\x63onfig\x18\x05 \x01(\x0b\x32\x0e.lq.GameConfig\x12,\n\x08\x61\x63\x63ounts\x18\x0b \x03(\x0b\x32\x1a.lq.RecordGame.AccountInfo\x12!\n\x06result\x18\x0c \x01(\x0b\x32\x11.lq.GameEndResult\x1a\x8d\x02\n\x0b\x41\x63\x63ountInfo\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x0c\n\x04seat\x18\x02 \x01(\r\x12\x10\n\x08nickname\x18\x03 \x01(\t\x12\x11\n\tavatar_id\x18\x04 \x01(\r\x12 \n\tcharacter\x18\x05 \x01(\x0b\x32\r.lq.Character\x12\r\n\x05title\x18\x06 \x01(\r\x12\x1f\n\x05level\x18\x07 \x01(\x0b\x32\x10.lq.AccountLevel\x12 \n\x06level3\x18\x08 \x01(\x0b\x32\x10.lq.AccountLevel\x12\x14\n\x0c\x61vatar_frame\x18\t \x01(\r\x12\x10\n\x08verified\x18\n \x01(\r\x12\x1b\n\x05views\x18\x0b \x03(\x0b\x32\x0c.lq.ViewSlot\"\x80\x01\n\x1a\x43ustomizedContestGameStart\x12\x34\n\x07players\x18\x01 \x03(\x0b\x32#.lq.CustomizedContestGameStart.Item\x1a,\n\x04Item\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\"\x91\x01\n\x18\x43ustomizedContestGameEnd\x12\x32\n\x07players\x18\x01 \x03(\x0b\x32!.lq.CustomizedContestGameEnd.Item\x1a\x41\n\x04Item\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\x12\x13\n\x0btotal_point\x18\x03 \x01(\x05\"S\n\x08\x41\x63tivity\x12\x13\n\x0b\x61\x63tivity_id\x18\x01 \x01(\r\x12\x12\n\nstart_time\x18\x02 \x01(\r\x12\x10\n\x08\x65nd_time\x18\x03 \x01(\r\x12\x0c\n\x04type\x18\x04 \x01(\t\"4\n\x0e\x45xchangeRecord\x12\x13\n\x0b\x65xchange_id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\"^\n\x1c\x41\x63tivityAccumulatedPointData\x12\x13\n\x0b\x61\x63tivity_id\x18\x01 \x01(\r\x12\r\n\x05point\x18\x02 \x01(\x05\x12\x1a\n\x12gained_reward_list\x18\x03 \x03(\r\"l\n\x15\x41\x63tivityRankPointData\x12\x16\n\x0eleaderboard_id\x18\x01 \x01(\r\x12\r\n\x05point\x18\x02 \x01(\x05\x12\x15\n\rgained_reward\x18\x03 \x01(\x08\x12\x15\n\rgainable_time\x18\x04 \x01(\r\"\xa1\x03\n\x0fGameRoundHuData\x12(\n\x05hupai\x18\x01 \x01(\x0b\x32\x19.lq.GameRoundHuData.HuPai\x12%\n\x04\x66\x61ns\x18\x02 \x03(\x0b\x32\x17.lq.GameRoundHuData.Fan\x12\r\n\x05score\x18\x03 \x01(\r\x12\x0b\n\x03xun\x18\x04 \x01(\r\x12\x10\n\x08title_id\x18\x05 \x01(\r\x12\x0f\n\x07\x66\x61n_sum\x18\x06 \x01(\r\x12\x0e\n\x06\x66u_sum\x18\x07 \x01(\r\x12\x15\n\ryakuman_count\x18\x08 \x01(\r\x12\x17\n\x0f\x62iao_dora_count\x18\t \x01(\r\x12\x16\n\x0ered_dora_count\x18\n \x01(\r\x12\x15\n\rli_dora_count\x18\x0b \x01(\r\x12\x13\n\x0b\x62\x61\x62\x65i_count\x18\x0c \x01(\r\x12\x18\n\x10xuan_shang_count\x18\r \x01(\r\x1a\x31\n\x05HuPai\x12\x0c\n\x04tile\x18\x01 \x01(\t\x12\x0c\n\x04seat\x18\x02 \x01(\r\x12\x0c\n\x04liqi\x18\x03 \x01(\r\x1a-\n\x03\x46\x61n\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\x12\x0b\n\x03\x66\x61n\x18\x03 \x01(\r\"\xb5\x01\n\x15GameRoundPlayerResult\x12\x0c\n\x04type\x18\x01 \x01(\r\x12\r\n\x05hands\x18\x02 \x03(\t\x12\x0c\n\x04ming\x18\x03 \x03(\t\x12\x11\n\tliqi_type\x18\x04 \x01(\r\x12\x0f\n\x07is_fulu\x18\x05 \x01(\x08\x12\x17\n\x0fis_liujumanguan\x18\x06 \x01(\x08\x12\x13\n\x0blian_zhuang\x18\x07 \x01(\r\x12\x1f\n\x02hu\x18\x08 \x01(\x0b\x32\x13.lq.GameRoundHuData\"Y\n\x0fGameRoundPlayer\x12\r\n\x05score\x18\x01 \x01(\x05\x12\x0c\n\x04rank\x18\x02 \x01(\r\x12)\n\x06result\x18\x03 \x01(\x0b\x32\x19.lq.GameRoundPlayerResult\"R\n\x11GameRoundSnapshot\x12\n\n\x02ju\x18\x01 \x01(\r\x12\x0b\n\x03\x62\x65n\x18\x02 \x01(\r\x12$\n\x07players\x18\x03 \x03(\x0b\x32\x13.lq.GameRoundPlayer\"\x92\x07\n\x11GameFinalSnapshot\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\r\n\x05state\x18\x02 \x01(\r\x12\x10\n\x08\x63\x61tegory\x18\x03 \x01(\r\x12\x1a\n\x04mode\x18\x04 \x01(\x0b\x32\x0c.lq.GameMode\x12\x1e\n\x04meta\x18\x05 \x01(\x0b\x32\x10.lq.GameMetaData\x12=\n\x0f\x63\x61lculate_param\x18\x06 \x01(\x0b\x32$.lq.GameFinalSnapshot.CalculateParam\x12\x13\n\x0b\x63reate_time\x18\x07 \x01(\r\x12\x12\n\nstart_time\x18\x08 \x01(\r\x12\x13\n\x0b\x66inish_time\x18\t \x01(\r\x12-\n\x05seats\x18\n \x03(\x0b\x32\x1e.lq.GameFinalSnapshot.GameSeat\x12%\n\x06rounds\x18\x0b \x03(\x0b\x32\x15.lq.GameRoundSnapshot\x12)\n\raccount_views\x18\x0c \x03(\x0b\x32\x12.lq.PlayerGameView\x12\x38\n\rfinal_players\x18\r \x03(\x0b\x32!.lq.GameFinalSnapshot.FinalPlayer\x12/\n\x08\x61\x66k_info\x18\x0e \x03(\x0b\x32\x1d.lq.GameFinalSnapshot.AFKInfo\x1aS\n\x0e\x43\x61lculateParam\x12\x12\n\ninit_point\x18\x01 \x01(\r\x12\x18\n\x10jingsuanyuandian\x18\x02 \x01(\r\x12\x13\n\x0brank_points\x18\x03 \x03(\x05\x1a\x88\x01\n\x08GameSeat\x12\x0c\n\x04type\x18\x01 \x01(\r\x12\x12\n\naccount_id\x18\x02 \x01(\r\x12,\n\x0fnotify_endpoint\x18\x03 \x01(\x0b\x32\x13.lq.NetworkEndpoint\x12\x16\n\x0e\x63lient_address\x18\x04 \x01(\t\x12\x14\n\x0cis_connected\x18\x05 \x01(\x08\x1a\x81\x01\n\x0b\x46inalPlayer\x12\x0c\n\x04seat\x18\x01 \x01(\r\x12\x13\n\x0btotal_point\x18\x02 \x01(\x05\x12\x14\n\x0cpart_point_1\x18\x03 \x01(\x05\x12\x14\n\x0cpart_point_2\x18\x04 \x01(\x05\x12\x15\n\rgrading_score\x18\x05 \x01(\x05\x12\x0c\n\x04gold\x18\x06 \x01(\x05\x1a\x45\n\x07\x41\x46KInfo\x12\x17\n\x0f\x64\x65\x61l_tile_count\x18\x01 \x01(\r\x12\x13\n\x0bmoqie_count\x18\x02 \x01(\r\x12\x0c\n\x04seat\x18\x03 \x01(\r\"Z\n\x13RecordCollectedData\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0f\n\x07remarks\x18\x02 \x01(\t\x12\x12\n\nstart_time\x18\x03 \x01(\r\x12\x10\n\x08\x65nd_time\x18\x04 \x01(\r\"\xba\x07\n\x11\x43ontestDetailRule\x12\x12\n\ninit_point\x18\x05 \x01(\r\x12\x0f\n\x07\x66\x61ndian\x18\x06 \x01(\r\x12\x11\n\tcan_jifei\x18\x07 \x01(\x08\x12\x16\n\x0etianbian_value\x18\x08 \x01(\r\x12\x16\n\x0eliqibang_value\x18\t \x01(\r\x12\x17\n\x0f\x63hangbang_value\x18\n \x01(\r\x12\x15\n\rnoting_fafu_1\x18\x0b \x01(\r\x12\x15\n\rnoting_fafu_2\x18\x0c \x01(\r\x12\x15\n\rnoting_fafu_3\x18\r \x01(\r\x12\x19\n\x11have_liujumanguan\x18\x0e \x01(\x08\x12\x1c\n\x14have_qieshangmanguan\x18\x0f \x01(\x08\x12\x16\n\x0ehave_biao_dora\x18\x10 \x01(\x08\x12\x1b\n\x13have_gang_biao_dora\x18\x11 \x01(\x08\x12\"\n\x1aming_dora_immediately_open\x18\x12 \x01(\x08\x12\x14\n\x0chave_li_dora\x18\x13 \x01(\x08\x12\x19\n\x11have_gang_li_dora\x18\x14 \x01(\x08\x12\x19\n\x11have_sifenglianda\x18\x15 \x01(\x08\x12\x18\n\x10have_sigangsanle\x18\x16 \x01(\x08\x12\x17\n\x0fhave_sijializhi\x18\x17 \x01(\x08\x12\x1b\n\x13have_jiuzhongjiupai\x18\x18 \x01(\x08\x12\x17\n\x0fhave_sanjiahele\x18\x19 \x01(\x08\x12\x14\n\x0chave_toutiao\x18\x1a \x01(\x08\x12\x1b\n\x13have_helelianzhuang\x18\x1b \x01(\x08\x12\x18\n\x10have_helezhongju\x18\x1c \x01(\x08\x12\x1e\n\x16have_tingpailianzhuang\x18\x1d \x01(\x08\x12\x1b\n\x13have_tingpaizhongju\x18\x1e \x01(\x08\x12\x11\n\thave_yifa\x18\x1f \x01(\x08\x12\x16\n\x0ehave_nanruxiru\x18  \x01(\x08\x12\x18\n\x10jingsuanyuandian\x18! \x01(\r\x12\x13\n\x0bshunweima_2\x18\" \x01(\x05\x12\x13\n\x0bshunweima_3\x18# \x01(\x05\x12\x13\n\x0bshunweima_4\x18$ \x01(\x05\x12\x14\n\x0c\x62ianjietishi\x18% \x01(\x08\x12\x10\n\x08\x61i_level\x18& \x01(\r\x12\x14\n\x0chave_zimosun\x18\' \x01(\x08\x12\x1d\n\x15\x64isable_multi_yukaman\x18( \x01(\x08\x12\x11\n\tguyi_mode\x18) \x01(\r\x12\x1a\n\x12\x64isable_leijiyiman\x18* \x01(\x08\"\xb3\x01\n\x13\x43ontestDetailRuleV2\x12(\n\tgame_rule\x18\x01 \x01(\x0b\x32\x15.lq.ContestDetailRule\x12\x35\n\nextra_rule\x18\x02 \x01(\x0b\x32!.lq.ContestDetailRuleV2.ExtraRule\x1a;\n\tExtraRule\x12\x16\n\x0erequired_level\x18\x01 \x01(\r\x12\x16\n\x0emax_game_count\x18\x02 \x01(\r\"\xab\x01\n\x0fGameRuleSetting\x12\x12\n\nround_type\x18\x01 \x01(\r\x12\x0f\n\x07shiduan\x18\x02 \x01(\x08\x12\x12\n\ndora_count\x18\x03 \x01(\r\x12\x15\n\rthinking_type\x18\x04 \x01(\r\x12\x17\n\x0fuse_detail_rule\x18\x05 \x01(\x08\x12/\n\x0e\x64\x65tail_rule_v2\x18\x06 \x01(\x0b\x32\x17.lq.ContestDetailRuleV2\"\xad\x01\n\x11RecordTingPaiInfo\x12\x0c\n\x04tile\x18\x01 \x01(\t\x12\x0e\n\x06haveyi\x18\x02 \x01(\x08\x12\r\n\x05yiman\x18\x03 \x01(\x08\x12\r\n\x05\x63ount\x18\x04 \x01(\r\x12\n\n\x02\x66u\x18\x05 \x01(\r\x12\x17\n\x0f\x62iao_dora_count\x18\x06 \x01(\r\x12\x12\n\nyiman_zimo\x18\x07 \x01(\x08\x12\x12\n\ncount_zimo\x18\x08 \x01(\r\x12\x0f\n\x07\x66u_zimo\x18\t \x01(\r\"]\n\x16RecordNoTilePlayerInfo\x12\x0f\n\x07tingpai\x18\x03 \x01(\x08\x12\x0c\n\x04hand\x18\x04 \x03(\t\x12$\n\x05tings\x18\x05 \x03(\x0b\x32\x15.lq.RecordTingPaiInfo\"\xb8\x03\n\x0eRecordHuleInfo\x12\x0c\n\x04hand\x18\x01 \x03(\t\x12\x0c\n\x04ming\x18\x02 \x03(\t\x12\x0f\n\x07hu_tile\x18\x03 \x01(\t\x12\x0c\n\x04seat\x18\x04 \x01(\r\x12\x0c\n\x04zimo\x18\x05 \x01(\x08\x12\x0e\n\x06qinjia\x18\x06 \x01(\x08\x12\x0c\n\x04liqi\x18\x07 \x01(\x08\x12\r\n\x05\x64oras\x18\x08 \x03(\t\x12\x10\n\x08li_doras\x18\t \x03(\t\x12\r\n\x05yiman\x18\n \x01(\x08\x12\r\n\x05\x63ount\x18\x0b \x01(\r\x12.\n\x04\x66\x61ns\x18\x0c \x03(\x0b\x32 .lq.RecordHuleInfo.RecordFanInfo\x12\n\n\x02\x66u\x18\r \x01(\r\x12\x16\n\x0epoint_zimo_qin\x18\x0e \x01(\r\x12\x17\n\x0fpoint_zimo_xian\x18\x0f \x01(\r\x12\x10\n\x08title_id\x18\x10 \x01(\r\x12\x11\n\tpoint_sum\x18\x11 \x01(\r\x12\x0e\n\x06\x64\x61\x64ian\x18\x12 \x01(\r\x12\x14\n\x0cis_jue_zhang\x18\x13 \x01(\x08\x12\x0b\n\x03xun\x18\x14 \x01(\r\x12\x11\n\tting_type\x18\x15 \x01(\r\x1a(\n\rRecordFanInfo\x12\x0b\n\x03val\x18\x01 \x01(\r\x12\n\n\x02id\x18\x02 \x01(\r\"B\n\x0fRecordHulesInfo\x12\x0c\n\x04seat\x18\x01 \x01(\x05\x12!\n\x05hules\x18\x02 \x03(\x0b\x32\x12.lq.RecordHuleInfo\"-\n\x0fRecordLiujuInfo\x12\x0c\n\x04seat\x18\x01 \x01(\r\x12\x0c\n\x04type\x18\x02 \x01(\r\"U\n\x10RecordNoTileInfo\x12\x14\n\x0cliujumanguan\x18\x01 \x01(\x08\x12+\n\x07players\x18\x02 \x03(\x0b\x32\x1a.lq.RecordNoTilePlayerInfo\"r\n\x0eRecordLiqiInfo\x12\x0c\n\x04seat\x18\x01 \x01(\r\x12\r\n\x05score\x18\x02 \x01(\r\x12\x0c\n\x04is_w\x18\x03 \x01(\x08\x12\x14\n\x0cis_zhen_ting\x18\x04 \x01(\x08\x12\x0b\n\x03xun\x18\x05 \x01(\r\x12\x12\n\nis_success\x18\x06 \x01(\x08\"W\n\x0eRecordGangInfo\x12\x0c\n\x04seat\x18\x01 \x01(\r\x12\x0c\n\x04type\x18\x02 \x01(\r\x12\x0b\n\x03pai\x18\x03 \x01(\t\x12\x0f\n\x07is_dora\x18\x04 \x01(\x08\x12\x0b\n\x03xun\x18\x05 \x01(\r\"S\n\x0fRecordBaBeiInfo\x12\x0c\n\x04seat\x18\x01 \x01(\r\x12\x10\n\x08is_zi_mo\x18\x02 \x01(\x08\x12\x10\n\x08is_chong\x18\x03 \x01(\x08\x12\x0e\n\x06is_bei\x18\x04 \x01(\x08\"O\n\x10RecordPeiPaiInfo\x12\x12\n\ndora_count\x18\x01 \x01(\r\x12\x14\n\x0cr_dora_count\x18\x02 \x01(\r\x12\x11\n\tbei_count\x18\x03 \x01(\r\"\xfb\x02\n\x0fRecordRoundInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x63hang\x18\x02 \x01(\r\x12\n\n\x02ju\x18\x03 \x01(\r\x12\x0b\n\x03\x62\x65n\x18\x04 \x01(\r\x12\x0e\n\x06scores\x18\x05 \x03(\r\x12&\n\nliqi_infos\x18\x07 \x03(\x0b\x32\x12.lq.RecordLiqiInfo\x12&\n\ngang_infos\x18\x08 \x03(\x0b\x32\x12.lq.RecordGangInfo\x12*\n\x0cpeipai_infos\x18\t \x03(\x0b\x32\x14.lq.RecordPeiPaiInfo\x12(\n\x0b\x62\x61\x62\x61i_infos\x18\n \x03(\x0b\x32\x13.lq.RecordBaBeiInfo\x12\'\n\nhules_info\x18\x0b \x01(\x0b\x32\x13.lq.RecordHulesInfo\x12\'\n\nliuju_info\x18\x0c \x01(\x0b\x32\x13.lq.RecordLiujuInfo\x12*\n\x0cno_tile_info\x18\r \x01(\x0b\x32\x14.lq.RecordNoTileInfo\"@\n\x14RecordAnalysisedData\x12(\n\x0bround_infos\x18\x01 \x03(\x0b\x32\x13.lq.RecordRoundInfo\"c\n\x13NotifyRoomGameStart\x12\x10\n\x08game_url\x18\x01 \x01(\t\x12\x15\n\rconnect_token\x18\x02 \x01(\t\x12\x11\n\tgame_uuid\x18\x03 \x01(\t\x12\x10\n\x08location\x18\x04 \x01(\t\"{\n\x14NotifyMatchGameStart\x12\x10\n\x08game_url\x18\x01 \x01(\t\x12\x15\n\rconnect_token\x18\x02 \x01(\t\x12\x11\n\tgame_uuid\x18\x03 \x01(\t\x12\x15\n\rmatch_mode_id\x18\x04 \x01(\r\x12\x10\n\x08location\x18\x05 \x01(\t\"\xc2\x01\n\x15NotifyRoomPlayerReady\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\r\n\x05ready\x18\x02 \x01(\x08\x12\x41\n\x0c\x61\x63\x63ount_list\x18\x03 \x01(\x0b\x32+.lq.NotifyRoomPlayerReady.AccountReadyState\x12\x0b\n\x03seq\x18\x04 \x01(\r\x1a\x36\n\x11\x41\x63\x63ountReadyState\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\r\n\x05ready\x18\x02 \x01(\x08\"\xd4\x01\n\x18NotifyRoomPlayerDressing\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08\x64ressing\x18\x02 \x01(\x08\x12G\n\x0c\x61\x63\x63ount_list\x18\x03 \x01(\x0b\x32\x31.lq.NotifyRoomPlayerDressing.AccountDressingState\x12\x0b\n\x03seq\x18\x04 \x01(\r\x1a<\n\x14\x41\x63\x63ountDressingState\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08\x64ressing\x18\x02 \x01(\x08\"\xb3\x01\n\x16NotifyRoomPlayerUpdate\x12\'\n\x0bupdate_list\x18\x01 \x03(\x0b\x32\x12.lq.PlayerBaseView\x12\x13\n\x0bremove_list\x18\x02 \x03(\r\x12\x10\n\x08owner_id\x18\x03 \x01(\r\x12\x13\n\x0brobot_count\x18\x04 \x01(\r\x12\'\n\x0bplayer_list\x18\x05 \x03(\x0b\x32\x12.lq.PlayerBaseView\x12\x0b\n\x03seq\x18\x06 \x01(\r\"\x13\n\x11NotifyRoomKickOut\"\x14\n\x12NotifyMatchTimeout\"Z\n\x17NotifyFriendStateChange\x12\x11\n\ttarget_id\x18\x01 \x01(\r\x12,\n\x0c\x61\x63tive_state\x18\x02 \x01(\x0b\x32\x16.lq.AccountActiveState\"M\n\x16NotifyFriendViewChange\x12\x11\n\ttarget_id\x18\x01 \x01(\r\x12 \n\x04\x62\x61se\x18\x02 \x01(\x0b\x32\x12.lq.PlayerBaseView\"R\n\x12NotifyFriendChange\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x0c\n\x04type\x18\x02 \x01(\r\x12\x1a\n\x06\x66riend\x18\x03 \x01(\x0b\x32\n.lq.Friend\"R\n\x14NotifyNewFriendApply\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x12\n\napply_time\x18\x02 \x01(\r\x12\x12\n\nremoved_id\x18\x03 \x01(\r\"X\n\x13NotifyClientMessage\x12\"\n\x06sender\x18\x01 \x01(\x0b\x32\x12.lq.PlayerBaseView\x12\x0c\n\x04type\x18\x02 \x01(\r\x12\x0f\n\x07\x63ontent\x18\x03 \x01(\t\"8\n\x13NotifyAccountUpdate\x12!\n\x06update\x18\x01 \x01(\x0b\x32\x11.lq.AccountUpdate\"\x14\n\x12NotifyAnotherLogin\"\x15\n\x13NotifyAccountLogout\"_\n\x18NotifyAnnouncementUpdate\x12\'\n\rannouncements\x18\x01 \x03(\x0b\x32\x10.lq.Announcement\x12\x0c\n\x04sort\x18\x02 \x03(\r\x12\x0c\n\x04lang\x18\x03 \x01(\t\"\'\n\rNotifyNewMail\x12\x16\n\x04mail\x18\x01 \x01(\x0b\x32\x08.lq.Mail\"(\n\x10NotifyDeleteMail\x12\x14\n\x0cmail_id_list\x18\x01 \x03(\r\",\n\x16NotifyReviveCoinUpdate\x12\x12\n\nhas_gained\x18\x01 \x01(\x08\"r\n\x15NotifyDailyTaskUpdate\x12$\n\nprogresses\x18\x01 \x03(\x0b\x32\x10.lq.TaskProgress\x12\x1c\n\x14max_daily_task_count\x18\x02 \x01(\r\x12\x15\n\rrefresh_count\x18\x03 \x01(\r\"@\n\x18NotifyActivityTaskUpdate\x12$\n\nprogresses\x18\x01 \x03(\x0b\x32\x10.lq.TaskProgress\"F\n\x1eNotifyActivityPeriodTaskUpdate\x12$\n\nprogresses\x18\x01 \x03(\x0b\x32\x10.lq.TaskProgress\"E\n\x1dNotifyAccountRandomTaskUpdate\x12$\n\nprogresses\x18\x01 \x03(\x0b\x32\x10.lq.TaskProgress\"\xaf\x01\n NotifyAccountChallengeTaskUpdate\x12$\n\nprogresses\x18\x01 \x03(\x0b\x32\x10.lq.TaskProgress\x12\r\n\x05level\x18\x02 \x01(\r\x12\x15\n\rrefresh_count\x18\x03 \x01(\r\x12\x13\n\x0bmatch_count\x18\x04 \x01(\r\x12\x11\n\tticket_id\x18\x05 \x01(\r\x12\x17\n\x0frewarded_season\x18\x06 \x03(\r\"\x12\n\x10NotifyNewComment\"8\n\x13NotifyRollingNotice\x12!\n\x06notice\x18\x01 \x01(\x0b\x32\x11.lq.RollingNotice\"\x17\n\x15NotifyGiftSendRefresh\"3\n\x10NotifyShopUpdate\x12\x1f\n\tshop_info\x18\x01 \x01(\x0b\x32\x0c.lq.ShopInfo\"\xb7\x01\n\x14NotifyVipLevelChange\x12\x12\n\ngift_limit\x18\x01 \x01(\r\x12\x18\n\x10\x66riend_max_count\x18\x02 \x01(\r\x12\x1e\n\x16zhp_free_refresh_limit\x18\x03 \x01(\r\x12\x1e\n\x16zhp_cost_refresh_limit\x18\x04 \x01(\r\x12\x13\n\x0b\x62uddy_bonus\x18\x05 \x01(\x02\x12\x1c\n\x14record_collect_limit\x18\x06 \x01(\r\";\n\x13NotifyServerSetting\x12$\n\x08settings\x18\x01 \x01(\x0b\x32\x12.lq.ServerSettings\"\xdc\x01\n\x0fNotifyPayResult\x12\x12\n\npay_result\x18\x01 \x01(\r\x12\x10\n\x08order_id\x18\x02 \x01(\t\x12\x10\n\x08goods_id\x18\x03 \x01(\r\x12\x18\n\x10new_month_ticket\x18\x04 \x01(\r\x12;\n\x0fresource_modify\x18\x05 \x03(\x0b\x32\".lq.NotifyPayResult.ResourceModify\x1a:\n\x0eResourceModify\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\x12\r\n\x05\x66inal\x18\x03 \x01(\r\"y\n\x1dNotifyCustomContestAccountMsg\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x12\n\naccount_id\x18\x02 \x01(\r\x12\x0e\n\x06sender\x18\x03 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x04 \x01(\t\x12\x10\n\x08verified\x18\x05 \x01(\r\"\xb1\x01\n\x1cNotifyCustomContestSystemMsg\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x0c\n\x04type\x18\x02 \x01(\r\x12\x0c\n\x04uuid\x18\x03 \x01(\t\x12\x32\n\ngame_start\x18\x04 \x01(\x0b\x32\x1e.lq.CustomizedContestGameStart\x12.\n\x08game_end\x18\x05 \x01(\x0b\x32\x1c.lq.CustomizedContestGameEnd\"<\n\x18NotifyCustomContestState\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\r\n\x05state\x18\x02 \x01(\r\"T\n\x14NotifyActivityChange\x12$\n\x0enew_activities\x18\x01 \x03(\x0b\x32\x0c.lq.Activity\x12\x16\n\x0e\x65nd_activities\x18\x02 \x03(\r\"H\n\x0fNotifyAFKResult\x12\x0c\n\x04type\x18\x01 \x01(\r\x12\x14\n\x0c\x62\x61n_end_time\x18\x02 \x01(\r\x12\x11\n\tgame_uuid\x18\x03 \x01(\t*=\n\x0fGamePlayerState\x12\x08\n\x04NULL\x10\x00\x12\x08\n\x04\x41UTH\x10\x01\x12\x0b\n\x07SYNCING\x10\x02\x12\t\n\x05READY\x10\x03\x32\xb9\x16\n\x1b\x43ustomizedContestManagerApi\x12K\n\x13loginContestManager\x12\x19.lq.ReqContestManageLogin\x1a\x19.lq.ResContestManageLogin\x12Z\n\x18oauth2AuthContestManager\x12\x1e.lq.ReqContestManageOauth2Auth\x1a\x1e.lq.ResContestManageOauth2Auth\x12]\n\x19oauth2LoginContestManager\x12\x1f.lq.ReqContestManageOauth2Login\x1a\x1f.lq.ResContestManageOauth2Login\x12\x34\n\x14logoutContestManager\x12\r.lq.ReqCommon\x1a\r.lq.ResCommon\x12H\n\x17\x66\x65tchRelatedContestList\x12\r.lq.ReqCommon\x1a\x1e.lq.ResFetchRelatedContestList\x12O\n\rcreateContest\x12\x1e.lq.ReqCreateCustomizedContest\x1a\x1e.lq.ResCreateCustomizedContest\x12>\n\rdeleteContest\x12\x1e.lq.ReqDeleteCustomizedContest\x1a\r.lq.ResCommon\x12>\n\x0eprolongContest\x12\x15.lq.ReqProlongContest\x1a\x15.lq.ResProlongContest\x12;\n\rmanageContest\x12\x14.lq.ReqManageContest\x1a\x14.lq.ResManageContest\x12\x37\n\x10\x66\x65tchContestInfo\x12\r.lq.ReqCommon\x1a\x14.lq.ResManageContest\x12\x31\n\x11\x65xitManageContest\x12\r.lq.ReqCommon\x1a\r.lq.ResCommon\x12\x42\n\x14\x66\x65tchContestGameRule\x12\r.lq.ReqCommon\x1a\x1b.lq.ResFetchContestGameRule\x12\x44\n\x15updateContestGameRule\x12\x1c.lq.ReqUpdateContestGameRule\x1a\r.lq.ResCommon\x12Y\n\x17searchAccountByNickname\x12\x1e.lq.ReqSearchAccountByNickname\x1a\x1e.lq.ResSearchAccountByNickname\x12J\n\x12searchAccountByEid\x12\x19.lq.ReqSearchAccountByEid\x1a\x19.lq.ResSearchAccountByEid\x12H\n\x12\x66\x65tchContestPlayer\x12\r.lq.ReqCommon\x1a#.lq.ResFetchCustomizedContestPlayer\x12J\n\x13updateContestPlayer\x12$.lq.ReqUpdateCustomizedContestPlayer\x1a\r.lq.ResCommon\x12\x38\n\x0fstartManageGame\x12\r.lq.ReqCommon\x1a\x16.lq.ResStartManageGame\x12.\n\x0estopManageGame\x12\r.lq.ReqCommon\x1a\r.lq.ResCommon\x12\x36\n\x0elockGamePlayer\x12\x15.lq.ReqLockGamePlayer\x1a\r.lq.ResCommon\x12:\n\x10unlockGamePlayer\x12\x17.lq.ReqUnlockGamePlayer\x1a\r.lq.ResCommon\x12G\n\x11\x63reateContestGame\x12\x18.lq.ReqCreateContestGame\x1a\x18.lq.ResCreateContestGame\x12s\n\x17\x66\x65tchContestGameRecords\x12+.lq.ReqFetchCustomizedContestGameRecordList\x1a+.lq.ResFetchCustomizedContestGameRecordList\x12H\n\x17removeContestGameRecord\x12\x1e.lq.ReqRemoveContestGameRecord\x1a\r.lq.ResCommon\x12J\n\x12\x66\x65tchContestNotice\x12\x19.lq.ReqFetchContestNotice\x1a\x19.lq.ResFetchContestNotice\x12J\n\x13updateContestNotice\x12$.lq.ReqUpdateCustomizedContestNotice\x1a\r.lq.ResCommon\x12J\n\x13\x66\x65tchContestManager\x12\r.lq.ReqCommon\x1a$.lq.ResFetchCustomizedContestManager\x12L\n\x14updateContestManager\x12%.lq.ReqUpdateCustomizedContestManager\x1a\r.lq.ResCommon\x12\x43\n\x10\x66\x65tchChatSetting\x12\r.lq.ReqCommon\x1a .lq.ResCustomizedContestChatInfo\x12i\n\x11updateChatSetting\x12).lq.ReqUpdateCustomizedContestChatSetting\x1a).lq.ResUpdateCustomizedContestChatSetting\x12\x34\n\rupdateGameTag\x12\x14.lq.ReqUpdateGameTag\x1a\r.lq.ResCommon\x12;\n\rterminateGame\x12\x1b.lq.ReqTerminateContestGame\x1a\r.lq.ResCommon\x12\x33\n\tpauseGame\x12\x17.lq.ReqPauseContestGame\x1a\r.lq.ResCommon\x12\x35\n\nresumeGame\x12\x18.lq.ReqResumeContestGame\x1a\r.lq.ResCommon\x12\x42\n\x14\x66\x65tchCurrentRankList\x12\r.lq.ReqCommon\x1a\x1b.lq.ResFetchCurrentRankList\x12\x46\n\x16\x66\x65tchContestLastModify\x12\r.lq.ReqCommon\x1a\x1d.lq.ResFetchContestLastModify\x12\x42\n\x14\x66\x65tchContestObserver\x12\r.lq.ReqCommon\x1a\x1b.lq.ResFetchContestObserver\x12J\n\x12\x61\x64\x64\x43ontestObserver\x12\x19.lq.ReqAddContestObserver\x1a\x19.lq.ResAddContestObserver\x12\x44\n\x15removeContestObserver\x12\x1c.lq.ReqRemoveContestObserver\x1a\r.lq.ResCommon\x12H\n\x17\x66\x65tchContestChatHistory\x12\r.lq.ReqCommon\x1a\x1e.lq.ResFetchContestChatHistoryb\x06proto3'
+  serialized_pb=b'\n\x14protocol_admin.proto\x12\x02lq\"\xa4\x03\n\x11\x43ustomizedContest\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x12\n\ncreator_id\x18\x02 \x01(\r\x12\x12\n\ncontest_id\x18\x03 \x01(\r\x12\x14\n\x0c\x63ontest_name\x18\x04 \x01(\t\x12\r\n\x05state\x18\x05 \x01(\r\x12\x13\n\x0b\x63reate_time\x18\x06 \x01(\r\x12\x12\n\nstart_time\x18\x07 \x01(\r\x12\x13\n\x0b\x66inish_time\x18\x08 \x01(\r\x12\x0c\n\x04open\x18\t \x01(\x08\x12\x11\n\trank_rule\x18\n \x01(\r\x12\x10\n\x08\x64\x65\x61\x64line\x18\x0b \x01(\r\x12\x12\n\nauto_match\x18\x0c \x01(\x08\x12\x1d\n\x15\x61uto_disable_end_chat\x18\r \x01(\x08\x12\x14\n\x0c\x63ontest_type\x18\x0e \x01(\r\x12\x14\n\x0chidden_zones\x18\x0f \x03(\r\x12\x14\n\x0c\x62\x61nned_zones\x18\x10 \x03(\r\x12\x17\n\x0fobserver_switch\x18\x11 \x01(\r\x12\x14\n\x0c\x65moji_switch\x18\x12 \x01(\r\x12\x1a\n\x12player_roster_type\x18\x13 \x01(\r\"\xa7\x01\n\x0f\x43ontestGameInfo\x12\x11\n\tgame_uuid\x18\x01 \x01(\t\x12+\n\x07players\x18\x02 \x03(\x0b\x32\x1a.lq.ContestGameInfo.Player\x12\x12\n\nstart_time\x18\x03 \x01(\r\x12\x10\n\x08\x65nd_time\x18\x04 \x01(\r\x1a.\n\x06Player\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\"9\n\x11\x43ontestPlayerInfo\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\"\xab\x01\n\x15\x43ontestMatchingPlayer\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\x12\x38\n\ncontroller\x18\x03 \x01(\x0b\x32$.lq.ContestMatchingPlayer.Controller\x1a\x32\n\nController\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\"b\n\x15ReqContestManageLogin\x12\x0f\n\x07\x61\x63\x63ount\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x18\n\x10gen_access_token\x18\x03 \x01(\x08\x12\x0c\n\x04type\x18\x04 \x01(\r\"\x98\x01\n\x15ResContestManageLogin\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x12\n\naccount_id\x18\x02 \x01(\r\x12\x10\n\x08nickname\x18\x03 \x01(\t\x12\x14\n\x0c\x61\x63\x63\x65ss_token\x18\x04 \x01(\t\x12\x0f\n\x07\x64iamond\x18\x05 \x01(\r\x12\x18\n\x10last_create_time\x18\x06 \x01(\r\"E\n\x1aReqContestManageOauth2Auth\x12\x0c\n\x04type\x18\x01 \x01(\r\x12\x0c\n\x04\x63ode\x18\x02 \x01(\t\x12\x0b\n\x03uid\x18\x03 \x01(\t\"L\n\x1aResContestManageOauth2Auth\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x14\n\x0c\x61\x63\x63\x65ss_token\x18\x02 \x01(\t\"T\n\x1bReqContestManageOauth2Login\x12\x0c\n\x04type\x18\x01 \x01(\r\x12\x14\n\x0c\x61\x63\x63\x65ss_token\x18\x02 \x01(\t\x12\x11\n\treconnect\x18\x03 \x01(\x08\"\x9e\x01\n\x1bResContestManageOauth2Login\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x12\n\naccount_id\x18\x02 \x01(\r\x12\x10\n\x08nickname\x18\x03 \x01(\t\x12\x14\n\x0c\x61\x63\x63\x65ss_token\x18\x04 \x01(\t\x12\x0f\n\x07\x64iamond\x18\x05 \x01(\r\x12\x18\n\x10last_create_time\x18\x06 \x01(\r\"_\n\x1aResFetchRelatedContestList\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\'\n\x08\x63ontests\x18\x02 \x03(\x0b\x32\x15.lq.CustomizedContest\"\xac\x01\n\x1aReqCreateCustomizedContest\x12\x14\n\x0c\x63ontest_name\x18\x01 \x01(\t\x12\x12\n\nstart_time\x18\x02 \x01(\r\x12\x13\n\x0b\x66inish_time\x18\x03 \x01(\r\x12\x0c\n\x04open\x18\x04 \x01(\x08\x12\x11\n\trank_rule\x18\x05 \x01(\r\x12.\n\x11game_rule_setting\x18\x06 \x01(\x0b\x32\x13.lq.GameRuleSetting\"o\n\x1aResCreateCustomizedContest\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12&\n\x07\x63ontest\x18\x02 \x01(\x0b\x32\x15.lq.CustomizedContest\x12\x0f\n\x07\x64iamond\x18\x03 \x01(\r\"/\n\x1aReqDeleteCustomizedContest\x12\x11\n\tunique_id\x18\x01 \x01(\r\"&\n\x11ReqProlongContest\x12\x11\n\tunique_id\x18\x01 \x01(\r\"?\n\x11ResProlongContest\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x10\n\x08\x64\x65\x61\x64line\x18\x02 \x01(\r\"%\n\x10ReqManageContest\x12\x11\n\tunique_id\x18\x01 \x01(\r\"T\n\x10ResManageContest\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12&\n\x07\x63ontest\x18\x02 \x01(\x0b\x32\x15.lq.CustomizedContest\"c\n\x17ResFetchContestGameRule\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12.\n\x11game_rule_setting\x18\x02 \x01(\x0b\x32\x13.lq.GameRuleSetting\"\xd1\x02\n\x18ReqUpdateContestGameRule\x12\x14\n\x0c\x63ontest_name\x18\x01 \x01(\t\x12\x12\n\nstart_time\x18\x02 \x01(\r\x12\x13\n\x0b\x66inish_time\x18\x03 \x01(\r\x12\x0c\n\x04open\x18\x04 \x01(\x08\x12\x11\n\trank_rule\x18\x05 \x01(\r\x12.\n\x11game_rule_setting\x18\x06 \x01(\x0b\x32\x13.lq.GameRuleSetting\x12\x12\n\nauto_match\x18\x07 \x01(\x08\x12\x1d\n\x15\x61uto_disable_end_chat\x18\x08 \x01(\x08\x12\x14\n\x0c\x63ontest_type\x18\t \x01(\r\x12\x14\n\x0c\x62\x61nned_zones\x18\n \x01(\t\x12\x14\n\x0chidden_zones\x18\x0b \x01(\t\x12\x14\n\x0c\x65moji_switch\x18\x0c \x01(\x08\x12\x1a\n\x12player_roster_type\x18\r \x01(\r\"5\n\x1aReqSearchAccountByNickname\x12\x17\n\x0fquery_nicknames\x18\x01 \x03(\t\"\xa0\x01\n\x1aResSearchAccountByNickname\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12:\n\rsearch_result\x18\x03 \x03(\x0b\x32#.lq.ResSearchAccountByNickname.Item\x1a,\n\x04Item\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\"%\n\x15ReqSearchAccountByEid\x12\x0c\n\x04\x65ids\x18\x01 \x03(\r\"\x96\x01\n\x15ResSearchAccountByEid\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x35\n\rsearch_result\x18\x03 \x03(\x0b\x32\x1e.lq.ResSearchAccountByEid.Item\x1a,\n\x04Item\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\"c\n\x1fResFetchCustomizedContestPlayer\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12&\n\x07players\x18\x02 \x03(\x0b\x32\x15.lq.ContestPlayerInfo\"`\n ReqUpdateCustomizedContestPlayer\x12\x14\n\x0csetting_type\x18\x01 \x01(\r\x12\x11\n\tnicknames\x18\x02 \x03(\t\x12\x13\n\x0b\x61\x63\x63ount_ids\x18\x03 \x03(\r\"R\n ResUpdateCustomizedContestPlayer\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x14\n\x0c\x66\x61iled_index\x18\x02 \x03(\r\"~\n\x12ResStartManageGame\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12*\n\x07players\x18\x02 \x03(\x0b\x32\x19.lq.ContestMatchingPlayer\x12\"\n\x05games\x18\x03 \x03(\x0b\x32\x13.lq.ContestGameInfo\"\'\n\x11ReqLockGamePlayer\x12\x12\n\naccount_id\x18\x01 \x01(\r\")\n\x13ReqUnlockGamePlayer\x12\x12\n\naccount_id\x18\x01 \x01(\r\"\xee\x01\n\x14ReqCreateContestGame\x12,\n\x05slots\x18\x01 \x03(\x0b\x32\x1d.lq.ReqCreateContestGame.Slot\x12\x0b\n\x03tag\x18\x02 \x01(\t\x12\x17\n\x0frandom_position\x18\x03 \x01(\x08\x12\x11\n\topen_live\x18\x04 \x01(\x08\x12\x1e\n\x16\x63hat_broadcast_for_end\x18\x05 \x01(\x08\x12\x10\n\x08\x61i_level\x18\x06 \x01(\r\x1a=\n\x04Slot\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x13\n\x0bstart_point\x18\x02 \x01(\r\x12\x0c\n\x04seat\x18\x03 \x01(\r\"C\n\x14ResCreateContestGame\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x11\n\tgame_uuid\x18\x02 \x01(\t\"=\n\'ReqFetchCustomizedContestGameRecordList\x12\x12\n\nlast_index\x18\x02 \x01(\r\"\xd3\x01\n\'ResFetchCustomizedContestGameRecordList\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x12\n\nnext_index\x18\x02 \x01(\r\x12\x45\n\x0brecord_list\x18\x03 \x03(\x0b\x32\x30.lq.ResFetchCustomizedContestGameRecordList.Item\x1a\x33\n\x04Item\x12\x1e\n\x06record\x18\x01 \x01(\x0b\x32\x0e.lq.RecordGame\x12\x0b\n\x03tag\x18\x02 \x01(\t\"*\n\x1aReqRemoveContestGameRecord\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"-\n\x15ReqFetchContestNotice\x12\x14\n\x0cnotice_types\x18\x01 \x03(\r\"B\n\x15ResFetchContestNotice\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x0f\n\x07notices\x18\x02 \x03(\t\"H\n ReqUpdateCustomizedContestNotice\x12\x13\n\x0bnotice_type\x18\x01 \x01(\r\x12\x0f\n\x07\x63ontent\x18\x02 \x01(\t\"d\n ResFetchCustomizedContestManager\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12&\n\x07players\x18\x02 \x03(\x0b\x32\x15.lq.ContestPlayerInfo\"a\n!ReqUpdateCustomizedContestManager\x12\x14\n\x0csetting_type\x18\x01 \x01(\r\x12\x11\n\tnicknames\x18\x02 \x03(\t\x12\x13\n\x0b\x61\x63\x63ount_ids\x18\x03 \x03(\r\"\xc1\x01\n\x1cResCustomizedContestChatInfo\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x17\n\x0f\x63hat_limit_type\x18\x02 \x01(\r\x12@\n\x11\x63hat_limit_roster\x18\x03 \x03(\x0b\x32%.lq.ResCustomizedContestChatInfo.Item\x1a,\n\x04Item\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\"~\n%ReqUpdateCustomizedContestChatSetting\x12\x14\n\x0csetting_type\x18\x01 \x01(\r\x12\x11\n\tnicknames\x18\x02 \x03(\t\x12\x13\n\x0b\x61\x63\x63ount_ids\x18\x03 \x03(\r\x12\x17\n\x0f\x63hat_limit_type\x18\x04 \x01(\r\"W\n%ResUpdateCustomizedContestChatSetting\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x14\n\x0c\x66\x61iled_index\x18\x02 \x03(\r\"-\n\x10ReqUpdateGameTag\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0b\n\x03tag\x18\x02 \x01(\t\"\'\n\x17ReqTerminateContestGame\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"#\n\x13ReqPauseContestGame\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"$\n\x14ReqResumeContestGame\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"\xe9\x01\n\x17ResFetchCurrentRankList\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12>\n\trank_list\x18\x02 \x03(\x0b\x32+.lq.ResFetchCurrentRankList.AccountRankData\x12\x11\n\trank_rule\x18\x03 \x01(\r\x1a\x61\n\x0f\x41\x63\x63ountRankData\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\x12\x13\n\x0btotal_point\x18\x03 \x01(\x05\x12\x13\n\x0btotal_count\x18\x04 \x01(\r\"\xf2\x01\n\x19ResFetchContestLastModify\x12?\n\x06modify\x18\x01 \x01(\x0b\x32/.lq.ResFetchContestLastModify.ContestLastModify\x1a\x93\x01\n\x11\x43ontestLastModify\x12\x14\n\x0c\x63ontest_name\x18\x01 \x01(\t\x12\x17\n\x0f\x65xternal_notice\x18\x02 \x01(\t\x12\x17\n\x0finternal_notice\x18\x03 \x01(\t\x12\x16\n\x0emanager_notice\x18\x04 \x01(\t\x12\x0e\n\x06reason\x18\x05 \x01(\t\x12\x0e\n\x06status\x18\x06 \x01(\r\"\x9e\x01\n\x17ResFetchContestObserver\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x37\n\tobservers\x18\x02 \x03(\x0b\x32$.lq.ResFetchContestObserver.Observer\x1a\x30\n\x08Observer\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\"\x80\x01\n\x15ReqAddContestObserver\x12\x35\n\tobservers\x18\x01 \x03(\x0b\x32\".lq.ReqAddContestObserver.Observer\x1a\x30\n\x08Observer\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\"\x98\x01\n\x15ResAddContestObserver\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x33\n\x07success\x18\x02 \x03(\x0b\x32\".lq.ResAddContestObserver.Observer\x1a\x30\n\x08Observer\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\"-\n\x18ReqRemoveContestObserver\x12\x11\n\tobservers\x18\x01 \x03(\r\"L\n\x1aResFetchContestChatHistory\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12\x14\n\x0c\x63hat_history\x18\x02 \x03(\x0c\"(\n\x13ReqClearChatHistory\x12\x11\n\tunique_id\x18\x01 \x01(\r\"d\n\x1bNotifyContestMatchingPlayer\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x0c\n\x04type\x18\x02 \x01(\r\x12\x12\n\naccount_id\x18\x03 \x01(\r\x12\x10\n\x08nickname\x18\x04 \x01(\t\"j\n\x1fNotifyContestMatchingPlayerLock\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x0c\n\x04type\x18\x02 \x01(\r\x12\x12\n\naccount_id\x18\x03 \x01(\r\x12\x12\n\nmanager_id\x18\x04 \x01(\r\"S\n\x16NotifyContestGameStart\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12&\n\tgame_info\x18\x02 \x01(\x0b\x32\x13.lq.ContestGameInfo\"<\n\x14NotifyContestGameEnd\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x11\n\tgame_uuid\x18\x02 \x01(\t\"T\n\x19NotifyContestNoticeUpdate\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x13\n\x0bnotice_type\x18\x02 \x01(\r\x12\x0f\n\x07\x63ontent\x18\x03 \x01(\t\"*\n\x18NotifyContestManagerKick\x12\x0e\n\x06reason\x18\x01 \x01(\r\"Q\n\x05\x45rror\x12\x0c\n\x04\x63ode\x18\x01 \x01(\r\x12\x12\n\nu32_params\x18\x02 \x03(\r\x12\x12\n\nstr_params\x18\x03 \x03(\t\x12\x12\n\njson_param\x18\x04 \x01(\t\"%\n\x07Wrapper\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\"@\n\x0fNetworkEndpoint\x12\x0e\n\x06\x66\x61mily\x18\x01 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\t\x12\x0c\n\x04port\x18\x03 \x01(\r\"\x0b\n\tReqCommon\"%\n\tResCommon\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\"O\n\x10ResAccountUpdate\x12\x18\n\x05\x65rror\x18\x01 \x01(\x0b\x32\t.lq.Error\x12!\n\x06update\x18\x02 \x01(\x0b\x32\x11.lq.AccountUpdate\"(\n\rAntiAddiction\x12\x17\n\x0fonline_duration\x18\x01 \x01(\r\"\xcf\x07\n\x17\x41\x63\x63ountMahjongStatistic\x12\x1d\n\x15\x66inal_position_counts\x18\x01 \x03(\r\x12>\n\x0crecent_round\x18\x02 \x01(\x0b\x32(.lq.AccountMahjongStatistic.RoundSummary\x12\x38\n\trecent_hu\x18\x03 \x01(\x0b\x32%.lq.AccountMahjongStatistic.HuSummary\x12?\n\nhighest_hu\x18\x04 \x01(\x0b\x32+.lq.AccountMahjongStatistic.HighestHuRecord\x12G\n\x14recent_20_hu_summary\x18\x06 \x01(\x0b\x32).lq.AccountMahjongStatistic.Liqi20Summary\x12G\n\x14recent_10_hu_summary\x18\x07 \x01(\x0b\x32).lq.AccountMahjongStatistic.LiQi10Summary\x12\x45\n\x15recent_10_game_result\x18\x08 \x03(\x0b\x32&.lq.AccountMahjongStatistic.GameResult\x1a\x64\n\x0cRoundSummary\x12\x13\n\x0btotal_count\x18\x01 \x01(\r\x12\x12\n\nrong_count\x18\x02 \x01(\r\x12\x12\n\nzimo_count\x18\x03 \x01(\r\x12\x17\n\x0f\x66\x61ngchong_count\x18\x04 \x01(\r\x1aM\n\tHuSummary\x12\x13\n\x0btotal_count\x18\x01 \x01(\r\x12\x18\n\x10\x64ora_round_count\x18\x02 \x01(\r\x12\x11\n\ttotal_fan\x18\x03 \x01(\r\x1a\x7f\n\x0fHighestHuRecord\x12\x0e\n\x06\x66\x61nshu\x18\x01 \x01(\r\x12\x0f\n\x07\x64oranum\x18\x02 \x01(\r\x12\r\n\x05title\x18\x03 \x01(\t\x12\r\n\x05hands\x18\x04 \x03(\t\x12\x0c\n\x04ming\x18\x05 \x03(\t\x12\r\n\x05hupai\x18\x06 \x01(\t\x12\x10\n\x08title_id\x18\x07 \x01(\r\x1aZ\n\rLiqi20Summary\x12\x13\n\x0btotal_count\x18\x01 \x01(\r\x12\x1a\n\x12total_lidora_count\x18\x02 \x01(\r\x12\x18\n\x10\x61verage_hu_point\x18\x03 \x01(\r\x1a>\n\rLiQi10Summary\x12\x17\n\x0ftotal_xuanshang\x18\x01 \x01(\r\x12\x14\n\x0ctotal_fanshu\x18\x02 \x01(\r\x1a/\n\nGameResult\x12\x0c\n\x04rank\x18\x01 \x01(\r\x12\x13\n\x0b\x66inal_point\x18\x02 \x01(\x05\"\x8a\x01\n\x14\x41\x63\x63ountStatisticData\x12\x18\n\x10mahjong_category\x18\x01 \x01(\r\x12\x15\n\rgame_category\x18\x02 \x01(\r\x12.\n\tstatistic\x18\x03 \x01(\x0b\x32\x1b.lq.AccountMahjongStatistic\x12\x11\n\tgame_type\x18\x04 \x01(\r\")\n\x0c\x41\x63\x63ountLevel\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05score\x18\x02 \x01(\r\")\n\x08ViewSlot\x12\x0c\n\x04slot\x18\x01 \x01(\r\x12\x0f\n\x07item_id\x18\x02 \x01(\r\"\x9a\x07\n\x07\x41\x63\x63ount\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\x12\x12\n\nlogin_time\x18\x03 \x01(\r\x12\x13\n\x0blogout_time\x18\x04 \x01(\r\x12\x0f\n\x07room_id\x18\x05 \x01(\r\x12)\n\x0e\x61nti_addiction\x18\x06 \x01(\x0b\x32\x11.lq.AntiAddiction\x12\r\n\x05title\x18\x07 \x01(\r\x12\x11\n\tsignature\x18\x08 \x01(\t\x12\r\n\x05\x65mail\x18\t \x01(\t\x12\x14\n\x0c\x65mail_verify\x18\n \x01(\r\x12\x0c\n\x04gold\x18\x0b \x01(\r\x12\x0f\n\x07\x64iamond\x18\x0c \x01(\r\x12\x11\n\tavatar_id\x18\r \x01(\r\x12\x0b\n\x03vip\x18\x0e \x01(\r\x12\x10\n\x08\x62irthday\x18\x0f \x01(\x05\x12\r\n\x05phone\x18\x10 \x01(\t\x12\x14\n\x0cphone_verify\x18\x11 \x01(\r\x12\x35\n\x10platform_diamond\x18\x12 \x03(\x0b\x32\x1b.lq.Account.PlatformDiamond\x12\x1f\n\x05level\x18\x15 \x01(\x0b\x32\x10.lq.AccountLevel\x12 \n\x06level3\x18\x16 \x01(\x0b\x32\x10.lq.AccountLevel\x12\x14\n\x0c\x61vatar_frame\x18\x17 \x01(\r\x12\x13\n\x0bskin_ticket\x18\x18 \x01(\r\x12<\n\x14platform_skin_ticket\x18\x19 \x03(\x0b\x32\x1e.lq.Account.PlatformSkinTicket\x12\x10\n\x08verified\x18\x1a \x01(\r\x12\x34\n\x10\x63hallenge_levels\x18\x1b \x03(\x0b\x32\x1a.lq.Account.ChallengeLevel\x12\x37\n\x11\x61\x63hievement_count\x18\x1c \x03(\x0b\x32\x1c.lq.Account.AchievementCount\x12\x14\n\x0c\x66rozen_state\x18\x1d \x01(\r\x1a,\n\x0fPlatformDiamond\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\x1a/\n\x12PlatformSkinTicket\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\x1a=\n\x0e\x43hallengeLevel\x12\x0e\n\x06season\x18\x01 \x01(\r\x12\r\n\x05level\x18\x02 \x01(\r\x12\x0c\n\x04rank\x18\x03 \x01(\r\x1a/\n\x10\x41\x63hievementCount\x12\x0c\n\x04rare\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\"-\n\x10\x41\x63\x63ountOwnerData\x12\x19\n\x11unlock_characters\x18\x01 \x03(\r\"\xa4\x0e\n\rAccountUpdate\x12\x34\n\tnumerical\x18\x01 \x03(\x0b\x32!.lq.AccountUpdate.NumericalUpdate\x12\x34\n\tcharacter\x18\x02 \x01(\x0b\x32!.lq.AccountUpdate.CharacterUpdate\x12\x1a\n\x03\x62\x61g\x18\x03 \x01(\x0b\x32\r.lq.BagUpdate\x12\x38\n\x0b\x61\x63hievement\x18\x04 \x01(\x0b\x32#.lq.AccountUpdate.AchievementUpdate\x12#\n\x07shilian\x18\x05 \x01(\x0b\x32\x12.lq.AccountShiLian\x12\x35\n\ndaily_task\x18\x06 \x01(\x0b\x32!.lq.AccountUpdate.DailyTaskUpdate\x12,\n\x05title\x18\x07 \x01(\x0b\x32\x1d.lq.AccountUpdate.TitleUpdate\x12\x1a\n\x12new_recharged_list\x18\x08 \x03(\r\x12\x33\n\ractivity_task\x18\t \x01(\x0b\x32\x1c.lq.AccountUpdate.TaskUpdate\x12\x38\n\x12\x61\x63tivity_flip_task\x18\n \x01(\x0b\x32\x1c.lq.AccountUpdate.TaskUpdate\x12:\n\x14\x61\x63tivity_period_task\x18\x0b \x01(\x0b\x32\x1c.lq.AccountUpdate.TaskUpdate\x12:\n\x14\x61\x63tivity_random_task\x18\x0c \x01(\x0b\x32\x1c.lq.AccountUpdate.TaskUpdate\x12;\n\tchallenge\x18\r \x01(\x0b\x32(.lq.AccountUpdate.AccountChallengeUpdate\x12\x38\n\x08\x61\x62_match\x18\x0e \x01(\x0b\x32&.lq.AccountUpdate.AccountABMatchUpdate\x12+\n\x08\x61\x63tivity\x18\x0f \x01(\x0b\x32\x19.lq.AccountActivityUpdate\x12\x42\n\x15\x61\x63tivity_segment_task\x18\x10 \x01(\x0b\x32#.lq.AccountUpdate.SegmentTaskUpdate\x1a,\n\x0fNumericalUpdate\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05\x66inal\x18\x03 \x01(\r\x1aw\n\x0f\x43haracterUpdate\x12!\n\ncharacters\x18\x02 \x03(\x0b\x32\r.lq.Character\x12\r\n\x05skins\x18\x03 \x03(\r\x12\x18\n\x10\x66inished_endings\x18\x04 \x03(\r\x12\x18\n\x10rewarded_endings\x18\x05 \x03(\r\x1aX\n\x11\x41\x63hievementUpdate\x12+\n\nprogresses\x18\x01 \x03(\x0b\x32\x17.lq.AchievementProgress\x12\x16\n\x0erewarded_group\x18\x02 \x03(\r\x1aJ\n\x0f\x44\x61ilyTaskUpdate\x12$\n\nprogresses\x18\x01 \x03(\x0b\x32\x10.lq.TaskProgress\x12\x11\n\ttask_list\x18\x02 \x03(\r\x1a\x38\n\x0bTitleUpdate\x12\x12\n\nnew_titles\x18\x01 \x03(\r\x12\x15\n\rremove_titles\x18\x02 \x03(\r\x1a\x45\n\nTaskUpdate\x12$\n\nprogresses\x18\x01 \x03(\x0b\x32\x10.lq.TaskProgress\x12\x11\n\ttask_list\x18\x02 \x03(\r\x1a\xb8\x01\n\x16\x41\x63\x63ountChallengeUpdate\x12$\n\nprogresses\x18\x01 \x03(\x0b\x32\x10.lq.TaskProgress\x12\r\n\x05level\x18\x02 \x01(\r\x12\x15\n\rrefresh_count\x18\x03 \x01(\r\x12\x13\n\x0bmatch_count\x18\x04 \x01(\r\x12\x11\n\tticket_id\x18\x05 \x01(\r\x12\x11\n\ttask_list\x18\x06 \x03(\r\x12\x17\n\x0frewarded_season\x18\x07 \x03(\r\x1a\xfd\x01\n\x14\x41\x63\x63ountABMatchUpdate\x12\x10\n\x08match_id\x18\x01 \x01(\r\x12\x13\n\x0bmatch_count\x18\x02 \x01(\r\x12\x14\n\x0c\x62uy_in_count\x18\x03 \x01(\r\x12\r\n\x05point\x18\x04 \x01(\r\x12\x10\n\x08rewarded\x18\x05 \x01(\x08\x12J\n\x0fmatch_max_point\x18\x06 \x03(\x0b\x32\x31.lq.AccountUpdate.AccountABMatchUpdate.MatchPoint\x12\x0c\n\x04quit\x18\x07 \x01(\x08\x1a-\n\nMatchPoint\x12\x10\n\x08match_id\x18\x01 \x01(\r\x12\r\n\x05point\x18\x02 \x01(\r\x1aS\n\x11SegmentTaskUpdate\x12+\n\nprogresses\x18\x01 \x03(\x0b\x32\x17.lq.SegmentTaskProgress\x12\x11\n\ttask_list\x18\x02 \x03(\r\"E\n\x0cGameMetaData\x12\x0f\n\x07room_id\x18\x01 \x01(\r\x12\x0f\n\x07mode_id\x18\x02 \x01(\r\x12\x13\n\x0b\x63ontest_uid\x18\x03 \x01(\r\"Y\n\x12\x41\x63\x63ountPlayingGame\x12\x11\n\tgame_uuid\x18\x01 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x02 \x01(\r\x12\x1e\n\x04meta\x18\x03 \x01(\x0b\x32\x10.lq.GameMetaData\"\xa2\x03\n\x10\x41\x63\x63ountCacheView\x12\x15\n\rcache_version\x18\x01 \x01(\r\x12\x12\n\naccount_id\x18\x02 \x01(\r\x12\x10\n\x08nickname\x18\x03 \x01(\t\x12\x12\n\nlogin_time\x18\x04 \x01(\r\x12\x13\n\x0blogout_time\x18\x05 \x01(\r\x12\x11\n\tis_online\x18\x06 \x01(\x08\x12\x0f\n\x07room_id\x18\x07 \x01(\r\x12\r\n\x05title\x18\x08 \x01(\r\x12\x11\n\tavatar_id\x18\t \x01(\r\x12\x0b\n\x03vip\x18\n \x01(\r\x12\x1f\n\x05level\x18\x0b \x01(\x0b\x32\x10.lq.AccountLevel\x12,\n\x0cplaying_game\x18\x0c \x01(\x0b\x32\x16.lq.AccountPlayingGame\x12 \n\x06level3\x18\r \x01(\x0b\x32\x10.lq.AccountLevel\x12\x14\n\x0c\x61vatar_frame\x18\x0e \x01(\r\x12\x10\n\x08verified\x18\x0f \x01(\r\x12\x14\n\x0c\x62\x61n_deadline\x18\x10 \x01(\r\x12\x13\n\x0b\x63omment_ban\x18\x11 \x01(\r\x12\x11\n\tban_state\x18\x12 \x01(\r\"\xd6\x01\n\x0ePlayerBaseView\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x11\n\tavatar_id\x18\x02 \x01(\r\x12\r\n\x05title\x18\x03 \x01(\r\x12\x10\n\x08nickname\x18\x04 \x01(\t\x12\x1f\n\x05level\x18\x05 \x01(\x0b\x32\x10.lq.AccountLevel\x12 \n\x06level3\x18\x06 \x01(\x0b\x32\x10.lq.AccountLevel\x12\x14\n\x0c\x61vatar_frame\x18\x07 \x01(\r\x12\x10\n\x08verified\x18\x08 \x01(\r\x12\x11\n\tis_banned\x18\t \x01(\r\"\x82\x02\n\x0ePlayerGameView\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x11\n\tavatar_id\x18\x02 \x01(\r\x12\r\n\x05title\x18\x03 \x01(\r\x12\x10\n\x08nickname\x18\x04 \x01(\t\x12\x1f\n\x05level\x18\x05 \x01(\x0b\x32\x10.lq.AccountLevel\x12 \n\tcharacter\x18\x06 \x01(\x0b\x32\r.lq.Character\x12 \n\x06level3\x18\x07 \x01(\x0b\x32\x10.lq.AccountLevel\x12\x14\n\x0c\x61vatar_frame\x18\x08 \x01(\r\x12\x10\n\x08verified\x18\t \x01(\r\x12\x1b\n\x05views\x18\n \x03(\x0b\x32\x0c.lq.ViewSlot\"#\n\x0bGameSetting\x12\x14\n\x0c\x65moji_switch\x18\x01 \x01(\r\"\xc4\x01\n\x08GameMode\x12\x0c\n\x04mode\x18\x01 \x01(\r\x12\n\n\x02\x61i\x18\x04 \x01(\x08\x12\x12\n\nextendinfo\x18\x05 \x01(\t\x12\'\n\x0b\x64\x65tail_rule\x18\x06 \x01(\x0b\x32\x12.lq.GameDetailRule\x12:\n\x13testing_environment\x18\x07 \x01(\x0b\x32\x1d.lq.GameTestingEnvironmentSet\x12%\n\x0cgame_setting\x18\x08 \x01(\x0b\x32\x0f.lq.GameSetting\"@\n\x19GameTestingEnvironmentSet\x12\x0f\n\x07paixing\x18\x01 \x01(\r\x12\x12\n\nleft_count\x18\x02 \x01(\r\"\xcf\t\n\x0eGameDetailRule\x12\x12\n\ntime_fixed\x18\x01 \x01(\r\x12\x10\n\x08time_add\x18\x02 \x01(\r\x12\x12\n\ndora_count\x18\x03 \x01(\r\x12\x0f\n\x07shiduan\x18\x04 \x01(\r\x12\x12\n\ninit_point\x18\x05 \x01(\r\x12\x0f\n\x07\x66\x61ndian\x18\x06 \x01(\r\x12\x11\n\tcan_jifei\x18\x07 \x01(\x08\x12\x16\n\x0etianbian_value\x18\x08 \x01(\r\x12\x16\n\x0eliqibang_value\x18\t \x01(\r\x12\x17\n\x0f\x63hangbang_value\x18\n \x01(\r\x12\x15\n\rnoting_fafu_1\x18\x0b \x01(\r\x12\x15\n\rnoting_fafu_2\x18\x0c \x01(\r\x12\x15\n\rnoting_fafu_3\x18\r \x01(\r\x12\x19\n\x11have_liujumanguan\x18\x0e \x01(\x08\x12\x1c\n\x14have_qieshangmanguan\x18\x0f \x01(\x08\x12\x16\n\x0ehave_biao_dora\x18\x10 \x01(\x08\x12\x1b\n\x13have_gang_biao_dora\x18\x11 \x01(\x08\x12\"\n\x1aming_dora_immediately_open\x18\x12 \x01(\x08\x12\x14\n\x0chave_li_dora\x18\x13 \x01(\x08\x12\x19\n\x11have_gang_li_dora\x18\x14 \x01(\x08\x12\x19\n\x11have_sifenglianda\x18\x15 \x01(\x08\x12\x18\n\x10have_sigangsanle\x18\x16 \x01(\x08\x12\x17\n\x0fhave_sijializhi\x18\x17 \x01(\x08\x12\x1b\n\x13have_jiuzhongjiupai\x18\x18 \x01(\x08\x12\x17\n\x0fhave_sanjiahele\x18\x19 \x01(\x08\x12\x14\n\x0chave_toutiao\x18\x1a \x01(\x08\x12\x1b\n\x13have_helelianzhuang\x18\x1b \x01(\x08\x12\x18\n\x10have_helezhongju\x18\x1c \x01(\x08\x12\x1e\n\x16have_tingpailianzhuang\x18\x1d \x01(\x08\x12\x1b\n\x13have_tingpaizhongju\x18\x1e \x01(\x08\x12\x11\n\thave_yifa\x18\x1f \x01(\x08\x12\x16\n\x0ehave_nanruxiru\x18  \x01(\x08\x12\x18\n\x10jingsuanyuandian\x18! \x01(\r\x12\x13\n\x0bshunweima_2\x18\" \x01(\x05\x12\x13\n\x0bshunweima_3\x18# \x01(\x05\x12\x13\n\x0bshunweima_4\x18$ \x01(\x05\x12\x14\n\x0c\x62ianjietishi\x18% \x01(\x08\x12\x10\n\x08\x61i_level\x18& \x01(\r\x12\x14\n\x0chave_zimosun\x18\' \x01(\x08\x12\x1d\n\x15\x64isable_multi_yukaman\x18( \x01(\x08\x12\r\n\x05\x66\x61nfu\x18) \x01(\r\x12\x11\n\tguyi_mode\x18* \x01(\r\x12\x12\n\ndora3_mode\x18+ \x01(\r\x12\x17\n\x0f\x62\x65gin_open_mode\x18, \x01(\r\x12\x14\n\x0cjiuchao_mode\x18- \x01(\r\x12\x11\n\tmuyu_mode\x18. \x01(\r\x12\x11\n\topen_hand\x18/ \x01(\r\x12\x14\n\x0cxuezhandaodi\x18\x30 \x01(\r\x12\x14\n\x0chuansanzhang\x18\x31 \x01(\r\x12\x0f\n\x07\x63huanma\x18\x32 \x01(\r\x12\x16\n\x0ereveal_discard\x18\x33 \x01(\r\x12\x1a\n\x12\x64isable_leijiyiman\x18< \x01(\x08\"\xfa\x01\n\x04Room\x12\x0f\n\x07room_id\x18\x01 \x01(\r\x12\x10\n\x08owner_id\x18\x02 \x01(\r\x12\x1a\n\x04mode\x18\x03 \x01(\x0b\x32\x0c.lq.GameMode\x12\x18\n\x10max_player_count\x18\x04 \x01(\r\x12#\n\x07persons\x18\x05 \x03(\x0b\x32\x12.lq.PlayerGameView\x12\x12\n\nready_list\x18\x06 \x03(\r\x12\x12\n\nis_playing\x18\x07 \x01(\x08\x12\x13\n\x0bpublic_live\x18\x08 \x01(\x08\x12\x13\n\x0brobot_count\x18\t \x01(\r\x12\x15\n\rtournament_id\x18\n \x01(\r\x12\x0b\n\x03seq\x18\x0b \x01(\r\"\xc1\x01\n\rGameEndResult\x12-\n\x07players\x18\x01 \x03(\x0b\x32\x1c.lq.GameEndResult.PlayerItem\x1a\x80\x01\n\nPlayerItem\x12\x0c\n\x04seat\x18\x01 \x01(\r\x12\x13\n\x0btotal_point\x18\x02 \x01(\x05\x12\x14\n\x0cpart_point_1\x18\x03 \x01(\x05\x12\x14\n\x0cpart_point_2\x18\x04 \x01(\x05\x12\x15\n\rgrading_score\x18\x05 \x01(\x05\x12\x0c\n\x04gold\x18\x06 \x01(\x05\"M\n\x0fGameConnectInfo\x12\x15\n\rconnect_token\x18\x02 \x01(\t\x12\x11\n\tgame_uuid\x18\x03 \x01(\t\x12\x10\n\x08location\x18\x04 \x01(\t\"0\n\x0eItemGainRecord\x12\x0f\n\x07item_id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\"d\n\x0fItemGainRecords\x12\x13\n\x0brecord_time\x18\x01 \x01(\r\x12\x17\n\x0flimit_source_id\x18\x02 \x01(\r\x12#\n\x07records\x18\x03 \x03(\x0b\x32\x12.lq.ItemGainRecord\"g\n\x11\x46\x61keRandomRecords\x12\x0f\n\x07item_id\x18\x01 \x01(\r\x12\x17\n\x0fspecial_item_id\x18\x02 \x01(\r\x12\x12\n\ngain_count\x18\x03 \x01(\r\x12\x14\n\x0cgain_history\x18\x04 \x03(\r\"&\n\x04Item\x12\x0f\n\x07item_id\x18\x01 \x01(\r\x12\r\n\x05stack\x18\x02 \x01(\r\"N\n\x03\x42\x61g\x12\x17\n\x05items\x18\x01 \x03(\x0b\x32\x08.lq.Item\x12.\n\x11\x64\x61ily_gain_record\x18\x02 \x03(\x0b\x32\x13.lq.ItemGainRecords\"b\n\tBagUpdate\x12\x1e\n\x0cupdate_items\x18\x01 \x03(\x0b\x32\x08.lq.Item\x12\x35\n\x18update_daily_gain_record\x18\x02 \x03(\x0b\x32\x13.lq.ItemGainRecords\"\'\n\nRewardSlot\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\"M\n\nOpenResult\x12\x1e\n\x06reward\x18\x01 \x01(\x0b\x32\x0e.lq.RewardSlot\x12\x1f\n\x07replace\x18\x02 \x01(\x0b\x32\x0e.lq.RewardSlot\"\x97\x01\n\x10RewardPlusResult\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\x12/\n\x08\x65xchange\x18\x03 \x01(\x0b\x32\x1d.lq.RewardPlusResult.Exchange\x1a\x37\n\x08\x45xchange\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\x12\x10\n\x08\x65xchange\x18\x03 \x01(\r\"g\n\rExecuteReward\x12\x1e\n\x06reward\x18\x01 \x01(\x0b\x32\x0e.lq.RewardSlot\x12\x1f\n\x07replace\x18\x02 \x01(\x0b\x32\x0e.lq.RewardSlot\x12\x15\n\rreplace_count\x18\x03 \x01(\r\",\n\x0bI18nContext\x12\x0c\n\x04lang\x18\x01 \x01(\t\x12\x0f\n\x07\x63ontext\x18\x02 \x01(\t\"\x90\x02\n\x04Mail\x12\x0f\n\x07mail_id\x18\x01 \x01(\r\x12\r\n\x05state\x18\x02 \x01(\r\x12\x17\n\x0ftake_attachment\x18\x03 \x01(\x08\x12\r\n\x05title\x18\x04 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x05 \x01(\t\x12#\n\x0b\x61ttachments\x18\x06 \x03(\x0b\x32\x0e.lq.RewardSlot\x12\x13\n\x0b\x63reate_time\x18\x07 \x01(\r\x12\x13\n\x0b\x65xpire_time\x18\x08 \x01(\r\x12\x14\n\x0creference_id\x18\t \x01(\r\x12#\n\ntitle_i18n\x18\n \x03(\x0b\x32\x0f.lq.I18nContext\x12%\n\x0c\x63ontent_i18n\x18\x0b \x03(\x0b\x32\x0f.lq.I18nContext\"m\n\x13\x41\x63hievementProgress\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0f\n\x07\x63ounter\x18\x02 \x01(\r\x12\x10\n\x08\x61\x63hieved\x18\x03 \x01(\x08\x12\x10\n\x08rewarded\x18\x04 \x01(\x08\x12\x15\n\rachieved_time\x18\x05 \x01(\r\"\x97\x04\n\x1a\x41\x63\x63ountStatisticByGameMode\x12\x0c\n\x04mode\x18\x01 \x01(\r\x12\x16\n\x0egame_count_sum\x18\x02 \x01(\r\x12\x1b\n\x13game_final_position\x18\x03 \x03(\r\x12\x11\n\tfly_count\x18\x04 \x01(\r\x12\x15\n\rgold_earn_sum\x18\x05 \x01(\x02\x12\x17\n\x0fround_count_sum\x18\x06 \x01(\r\x12\x12\n\ndadian_sum\x18\x07 \x01(\x02\x12>\n\tround_end\x18\x08 \x03(\x0b\x32+.lq.AccountStatisticByGameMode.RoundEndData\x12\x16\n\x0eming_count_sum\x18\t \x01(\r\x12\x16\n\x0eliqi_count_sum\x18\n \x01(\r\x12\x15\n\rxun_count_sum\x18\x0b \x01(\r\x12\x1a\n\x12highest_lianzhuang\x18\x0c \x01(\r\x12\x16\n\x0escore_earn_sum\x18\r \x01(\r\x12<\n\nrank_score\x18\x0e \x03(\x0b\x32(.lq.AccountStatisticByGameMode.RankScore\x1a)\n\x0cRoundEndData\x12\x0c\n\x04type\x18\x01 \x01(\r\x12\x0b\n\x03sum\x18\x02 \x01(\r\x1a;\n\tRankScore\x12\x0c\n\x04rank\x18\x01 \x01(\r\x12\x11\n\tscore_sum\x18\x02 \x01(\x05\x12\r\n\x05\x63ount\x18\x03 \x01(\r\"4\n\x15\x41\x63\x63ountStatisticByFan\x12\x0e\n\x06\x66\x61n_id\x18\x01 \x01(\r\x12\x0b\n\x03sum\x18\x02 \x01(\r\"l\n\x12\x41\x63\x63ountFanAchieved\x12\x18\n\x10mahjong_category\x18\x01 \x01(\r\x12&\n\x03\x66\x61n\x18\x02 \x03(\x0b\x32\x19.lq.AccountStatisticByFan\x12\x14\n\x0cliujumanguan\x18\x03 \x01(\r\"\xb7\x01\n\x16\x41\x63\x63ountDetailStatistic\x12\x31\n\tgame_mode\x18\x01 \x03(\x0b\x32\x1e.lq.AccountStatisticByGameMode\x12&\n\x03\x66\x61n\x18\x02 \x03(\x0b\x32\x19.lq.AccountStatisticByFan\x12\x14\n\x0cliujumanguan\x18\x03 \x01(\r\x12,\n\x0c\x66\x61n_achieved\x18\x04 \x03(\x0b\x32\x16.lq.AccountFanAchieved\"j\n AccountDetailStatisticByCategory\x12\x10\n\x08\x63\x61tegory\x18\x01 \x01(\r\x12\x34\n\x10\x64\x65tail_statistic\x18\x02 \x01(\x0b\x32\x1a.lq.AccountDetailStatistic\"\xd1\n\n\x18\x41\x63\x63ountDetailStatisticV2\x12\x39\n\x15\x66riend_room_statistic\x18\x01 \x01(\x0b\x32\x1a.lq.AccountDetailStatistic\x12\x42\n\x0erank_statistic\x18\x02 \x01(\x0b\x32*.lq.AccountDetailStatisticV2.RankStatistic\x12]\n\x1c\x63ustomized_contest_statistic\x18\x03 \x01(\x0b\x32\x37.lq.AccountDetailStatisticV2.CustomizedContestStatistic\x12;\n\x17leisure_match_statistic\x18\x04 \x01(\x0b\x32\x1a.lq.AccountDetailStatistic\x12R\n\x19\x63hallenge_match_statistic\x18\x05 \x01(\x0b\x32/.lq.AccountDetailStatisticV2.ChallengeStatistic\x12<\n\x18\x61\x63tivity_match_statistic\x18\x06 \x01(\x0b\x32\x1a.lq.AccountDetailStatistic\x12\x36\n\x12\x61\x62_match_statistic\x18\x07 \x01(\x0b\x32\x1a.lq.AccountDetailStatistic\x1a\xbd\x03\n\rRankStatistic\x12L\n\x0ftotal_statistic\x18\x01 \x01(\x0b\x32\x33.lq.AccountDetailStatisticV2.RankStatistic.RankData\x12L\n\x0fmonth_statistic\x18\x02 \x01(\x0b\x32\x33.lq.AccountDetailStatisticV2.RankStatistic.RankData\x12\x1a\n\x12month_refresh_time\x18\x03 \x01(\r\x1a\xf3\x01\n\x08RankData\x12\x37\n\x13\x61ll_level_statistic\x18\x01 \x01(\x0b\x32\x1a.lq.AccountDetailStatistic\x12Z\n\x0flevel_data_list\x18\x02 \x03(\x0b\x32\x41.lq.AccountDetailStatisticV2.RankStatistic.RankData.RankLevelData\x1aR\n\rRankLevelData\x12\x12\n\nrank_level\x18\x01 \x01(\r\x12-\n\tstatistic\x18\x02 \x01(\x0b\x32\x1a.lq.AccountDetailStatistic\x1a\xa2\x01\n\x1a\x43ustomizedContestStatistic\x12\x33\n\x0ftotal_statistic\x18\x01 \x01(\x0b\x32\x1a.lq.AccountDetailStatistic\x12\x33\n\x0fmonth_statistic\x18\x02 \x01(\x0b\x32\x1a.lq.AccountDetailStatistic\x12\x1a\n\x12month_refresh_time\x18\x03 \x01(\r\x1a\xea\x01\n\x12\x43hallengeStatistic\x12.\n\nall_season\x18\x01 \x01(\x0b\x32\x1a.lq.AccountDetailStatistic\x12T\n\x10season_data_list\x18\x02 \x03(\x0b\x32:.lq.AccountDetailStatisticV2.ChallengeStatistic.SeasonData\x1aN\n\nSeasonData\x12\x11\n\tseason_id\x18\x01 \x01(\r\x12-\n\tstatistic\x18\x02 \x01(\x0b\x32\x1a.lq.AccountDetailStatistic\"-\n\x0e\x41\x63\x63ountShiLian\x12\x0c\n\x04step\x18\x01 \x01(\r\x12\r\n\x05state\x18\x02 \x01(\r\"\xc2\x01\n\x10\x43lientDeviceInfo\x12\x10\n\x08platform\x18\x01 \x01(\t\x12\x10\n\x08hardware\x18\x02 \x01(\t\x12\n\n\x02os\x18\x03 \x01(\t\x12\x12\n\nos_version\x18\x04 \x01(\t\x12\x12\n\nis_browser\x18\x05 \x01(\x08\x12\x10\n\x08software\x18\x06 \x01(\t\x12\x15\n\rsale_platform\x18\x07 \x01(\t\x12\x17\n\x0fhardware_vendor\x18\x08 \x01(\t\x12\x14\n\x0cmodel_number\x18\t \x01(\t\"6\n\x11\x43lientVersionInfo\x12\x10\n\x08resource\x18\x01 \x01(\t\x12\x0f\n\x07package\x18\x02 \x01(\t\":\n\x0c\x41nnouncement\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x03 \x01(\t\"_\n\x0cTaskProgress\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0f\n\x07\x63ounter\x18\x02 \x01(\r\x12\x10\n\x08\x61\x63hieved\x18\x03 \x01(\x08\x12\x10\n\x08rewarded\x18\x04 \x01(\x08\x12\x0e\n\x06\x66\x61iled\x18\x05 \x01(\x08\"Z\n\nGameConfig\x12\x10\n\x08\x63\x61tegory\x18\x01 \x01(\r\x12\x1a\n\x04mode\x18\x02 \x01(\x0b\x32\x0c.lq.GameMode\x12\x1e\n\x04meta\x18\x03 \x01(\x0b\x32\x10.lq.GameMetaData\"P\n\x08RPGState\x12\x16\n\x0eplayer_damaged\x18\x01 \x01(\r\x12\x17\n\x0fmonster_damaged\x18\x02 \x01(\r\x12\x13\n\x0bmonster_seq\x18\x03 \x01(\r\"\xba\x01\n\x0bRPGActivity\x12\x13\n\x0b\x61\x63tivity_id\x18\x01 \x01(\r\x12\x16\n\x0elast_show_uuid\x18\x05 \x01(\t\x12\x18\n\x10last_played_uuid\x18\x06 \x01(\t\x12#\n\rcurrent_state\x18\x07 \x01(\x0b\x32\x0c.lq.RPGState\x12%\n\x0flast_show_state\x18\x08 \x01(\x0b\x32\x0c.lq.RPGState\x12\x18\n\x10received_rewards\x18\t \x03(\r\"\xc8\x01\n\x11\x41\x63tivityArenaData\x12\x11\n\twin_count\x18\x01 \x01(\r\x12\x12\n\nlose_count\x18\x02 \x01(\r\x12\x13\n\x0b\x61\x63tivity_id\x18\x03 \x01(\r\x12\x12\n\nenter_time\x18\x04 \x01(\r\x12\x19\n\x11\x64\x61ily_enter_count\x18\x05 \x01(\r\x12\x18\n\x10\x64\x61ily_enter_time\x18\x06 \x01(\r\x12\x15\n\rmax_win_count\x18\x07 \x01(\r\x12\x17\n\x0ftotal_win_count\x18\x08 \x01(\r\"\xaa\x03\n\x10\x46\x65\x65\x64\x41\x63tivityData\x12\x13\n\x0b\x61\x63tivity_id\x18\x01 \x01(\r\x12\x12\n\nfeed_count\x18\x02 \x01(\r\x12\x43\n\x13\x66riend_receive_data\x18\x03 \x01(\x0b\x32&.lq.FeedActivityData.CountWithTimeData\x12@\n\x10\x66riend_send_data\x18\x04 \x01(\x0b\x32&.lq.FeedActivityData.CountWithTimeData\x12\x34\n\ngift_inbox\x18\x05 \x03(\x0b\x32 .lq.FeedActivityData.GiftBoxData\x1a<\n\x11\x43ountWithTimeData\x12\r\n\x05\x63ount\x18\x01 \x01(\r\x12\x18\n\x10last_update_time\x18\x02 \x01(\r\x1ar\n\x0bGiftBoxData\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0f\n\x07item_id\x18\x02 \x01(\r\x12\r\n\x05\x63ount\x18\x03 \x01(\r\x12\x17\n\x0f\x66rom_account_id\x18\x04 \x01(\r\x12\x0c\n\x04time\x18\x05 \x01(\r\x12\x10\n\x08received\x18\x06 \x01(\r\"\x94\x01\n\x13SegmentTaskProgress\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0f\n\x07\x63ounter\x18\x02 \x01(\r\x12\x10\n\x08\x61\x63hieved\x18\x03 \x01(\x08\x12\x10\n\x08rewarded\x18\x04 \x01(\x08\x12\x0e\n\x06\x66\x61iled\x18\x05 \x01(\x08\x12\x14\n\x0creward_count\x18\x06 \x01(\r\x12\x16\n\x0e\x61\x63hieved_count\x18\x07 \x01(\r\"Y\n\x10MineActivityData\x12\x1c\n\tdig_point\x18\x01 \x03(\x0b\x32\t.lq.Point\x12\x1b\n\x03map\x18\x02 \x03(\x0b\x32\x0e.lq.MineReward\x12\n\n\x02id\x18\x03 \x01(\r\"\x8c\x01\n\x15\x41\x63\x63ountActivityUpdate\x12\'\n\tmine_data\x18\x01 \x03(\x0b\x32\x14.lq.MineActivityData\x12!\n\x08rpg_data\x18\x02 \x03(\x0b\x32\x0f.lq.RPGActivity\x12\'\n\tfeed_data\x18\x03 \x03(\x0b\x32\x14.lq.ActivityFeedData\"\xc0\x03\n\x10\x41\x63tivityFeedData\x12\x13\n\x0b\x61\x63tivity_id\x18\x01 \x01(\r\x12\x12\n\nfeed_count\x18\x02 \x01(\r\x12\x43\n\x13\x66riend_receive_data\x18\x03 \x01(\x0b\x32&.lq.ActivityFeedData.CountWithTimeData\x12@\n\x10\x66riend_send_data\x18\x04 \x01(\x0b\x32&.lq.ActivityFeedData.CountWithTimeData\x12\x34\n\ngift_inbox\x18\x05 \x03(\x0b\x32 .lq.ActivityFeedData.GiftBoxData\x12\x14\n\x0cmax_inbox_id\x18\x06 \x01(\r\x1a<\n\x11\x43ountWithTimeData\x12\r\n\x05\x63ount\x18\x01 \x01(\r\x12\x18\n\x10last_update_time\x18\x02 \x01(\r\x1ar\n\x0bGiftBoxData\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0f\n\x07item_id\x18\x02 \x01(\r\x12\r\n\x05\x63ount\x18\x03 \x01(\r\x12\x17\n\x0f\x66rom_account_id\x18\x04 \x01(\r\x12\x0c\n\x04time\x18\x05 \x01(\r\x12\x10\n\x08received\x18\x06 \x01(\r\"\x8d\x01\n\x12\x41\x63\x63ountActiveState\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x12\n\nlogin_time\x18\x02 \x01(\r\x12\x13\n\x0blogout_time\x18\x03 \x01(\r\x12\x11\n\tis_online\x18\x04 \x01(\x08\x12\'\n\x07playing\x18\x05 \x01(\x0b\x32\x16.lq.AccountPlayingGame\"Q\n\x06\x46riend\x12 \n\x04\x62\x61se\x18\x01 \x01(\x0b\x32\x12.lq.PlayerBaseView\x12%\n\x05state\x18\x02 \x01(\x0b\x32\x16.lq.AccountActiveState\"\x1d\n\x05Point\x12\t\n\x01x\x18\x01 \x01(\r\x12\t\n\x01y\x18\x02 \x01(\r\"K\n\nMineReward\x12\x18\n\x05point\x18\x01 \x01(\x0b\x32\t.lq.Point\x12\x11\n\treward_id\x18\x02 \x01(\r\x12\x10\n\x08received\x18\x03 \x01(\x08\"O\n\x0cGameLiveUnit\x12\x11\n\ttimestamp\x18\x01 \x01(\r\x12\x17\n\x0f\x61\x63tion_category\x18\x02 \x01(\r\x12\x13\n\x0b\x61\x63tion_data\x18\x03 \x01(\x0c\"4\n\x0fGameLiveSegment\x12!\n\x07\x61\x63tions\x18\x01 \x03(\x0b\x32\x10.lq.GameLiveUnit\"=\n\x12GameLiveSegmentUri\x12\x12\n\nsegment_id\x18\x01 \x01(\r\x12\x13\n\x0bsegment_uri\x18\x02 \x01(\t\"\x8d\x01\n\x0cGameLiveHead\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x12\n\nstart_time\x18\x02 \x01(\r\x12#\n\x0bgame_config\x18\x03 \x01(\x0b\x32\x0e.lq.GameConfig\x12#\n\x07players\x18\x04 \x03(\x0b\x32\x12.lq.PlayerGameView\x12\x11\n\tseat_list\x18\x05 \x03(\r\"(\n\x11GameNewRoundState\x12\x13\n\x0bseat_states\x18\x01 \x03(\r\"\x1e\n\rGameEndAction\x12\r\n\x05state\x18\x01 \x01(\r\"\x10\n\x0eGameNoopAction\"\x7f\n\x0b\x43ommentItem\x12\x12\n\ncomment_id\x18\x01 \x01(\r\x12\x11\n\ttimestamp\x18\x02 \x01(\r\x12%\n\tcommenter\x18\x03 \x01(\x0b\x32\x12.lq.PlayerBaseView\x12\x0f\n\x07\x63ontent\x18\x04 \x01(\t\x12\x11\n\tis_banned\x18\x05 \x01(\r\"y\n\rRollingNotice\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0f\n\x07\x63ontent\x18\x02 \x01(\t\x12\x12\n\nstart_time\x18\x03 \x01(\r\x12\x10\n\x08\x65nd_time\x18\x04 \x01(\r\x12\x17\n\x0frepeat_interval\x18\x05 \x01(\r\x12\x0c\n\x04lang\x18\x06 \x01(\t\"q\n\x0c\x42illingGoods\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04\x64\x65sc\x18\x03 \x01(\t\x12\x0c\n\x04icon\x18\x04 \x01(\t\x12\x13\n\x0bresource_id\x18\x05 \x01(\r\x12\x16\n\x0eresource_count\x18\x06 \x01(\r\"<\n\x0c\x42illShortcut\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\x12\x11\n\tdealPrice\x18\x03 \x01(\r\"u\n\x0e\x42illingProduct\x12\x1f\n\x05goods\x18\x01 \x01(\x0b\x32\x10.lq.BillingGoods\x12\x15\n\rcurrency_code\x18\x02 \x01(\t\x12\x16\n\x0e\x63urrency_price\x18\x03 \x01(\r\x12\x13\n\x0bsort_weight\x18\x04 \x01(\r\"\xa4\x01\n\tCharacter\x12\x0e\n\x06\x63harid\x18\x01 \x01(\r\x12\r\n\x05level\x18\x02 \x01(\r\x12\x0b\n\x03\x65xp\x18\x03 \x01(\r\x12\x1b\n\x05views\x18\x04 \x03(\x0b\x32\x0c.lq.ViewSlot\x12\x0c\n\x04skin\x18\x05 \x01(\r\x12\x13\n\x0bis_upgraded\x18\x06 \x01(\x08\x12\x13\n\x0b\x65xtra_emoji\x18\x07 \x03(\r\x12\x16\n\x0erewarded_level\x18\x08 \x03(\r\"&\n\tBuyRecord\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\"\xca\x01\n\x07ZHPShop\x12\r\n\x05goods\x18\x01 \x03(\r\x12\"\n\x0b\x62uy_records\x18\x02 \x03(\x0b\x32\r.lq.BuyRecord\x12.\n\x0c\x66ree_refresh\x18\x03 \x01(\x0b\x32\x18.lq.ZHPShop.RefreshCount\x12.\n\x0c\x63ost_refresh\x18\x04 \x01(\x0b\x32\x18.lq.ZHPShop.RefreshCount\x1a,\n\x0cRefreshCount\x12\r\n\x05\x63ount\x18\x01 \x01(\r\x12\r\n\x05limit\x18\x02 \x01(\r\"F\n\x0fMonthTicketInfo\x12\n\n\x02id\x18\x01 \x01(\r\x12\x10\n\x08\x65nd_time\x18\x02 \x01(\r\x12\x15\n\rlast_pay_time\x18\x03 \x01(\r\"c\n\x08ShopInfo\x12\x18\n\x03zhp\x18\x01 \x01(\x0b\x32\x0b.lq.ZHPShop\x12\"\n\x0b\x62uy_records\x18\x02 \x03(\x0b\x32\r.lq.BuyRecord\x12\x19\n\x11last_refresh_time\x18\x03 \x01(\r\">\n\x14\x43hangeNicknameRecord\x12\x0c\n\x04\x66rom\x18\x01 \x01(\t\x12\n\n\x02to\x18\x02 \x01(\t\x12\x0c\n\x04time\x18\x03 \x01(\r\"\x9e\x01\n\x0eServerSettings\x12+\n\x0fpayment_setting\x18\x03 \x01(\x0b\x32\x12.lq.PaymentSetting\x12\x30\n\x12payment_setting_v2\x18\x04 \x01(\x0b\x32\x14.lq.PaymentSettingV2\x12-\n\x10nickname_setting\x18\x05 \x01(\x0b\x32\x13.lq.NicknameSetting\"4\n\x0fNicknameSetting\x12\x0e\n\x06\x65nable\x18\x01 \x01(\r\x12\x11\n\tnicknames\x18\x02 \x03(\t\"\xa6\x03\n\x10PaymentSettingV2\x12\x14\n\x0copen_payment\x18\x01 \x01(\r\x12\x42\n\x11payment_platforms\x18\x02 \x03(\x0b\x32\'.lq.PaymentSettingV2.PaymentSettingUnit\x1am\n\x0fPaymentMaintain\x12\x12\n\nstart_time\x18\x01 \x01(\r\x12\x10\n\x08\x65nd_time\x18\x02 \x01(\r\x12\x1a\n\x12goods_click_action\x18\x03 \x01(\r\x12\x18\n\x10goods_click_text\x18\x04 \x01(\t\x1a\xc8\x01\n\x12PaymentSettingUnit\x12\x10\n\x08platform\x18\x01 \x01(\t\x12\x0f\n\x07is_show\x18\x02 \x01(\x08\x12\x1a\n\x12goods_click_action\x18\x03 \x01(\r\x12\x18\n\x10goods_click_text\x18\x04 \x01(\t\x12\x36\n\x08maintain\x18\x05 \x01(\x0b\x32$.lq.PaymentSettingV2.PaymentMaintain\x12!\n\x19\x65nable_for_frozen_account\x18\x06 \x01(\x08\"\xdf\x02\n\x0ePaymentSetting\x12\x14\n\x0copen_payment\x18\x01 \x01(\r\x12\x1e\n\x16payment_info_show_type\x18\x02 \x01(\r\x12\x14\n\x0cpayment_info\x18\x03 \x01(\t\x12-\n\x06wechat\x18\x04 \x01(\x0b\x32\x1d.lq.PaymentSetting.WechatData\x12-\n\x06\x61lipay\x18\x05 \x01(\x0b\x32\x1d.lq.PaymentSetting.AlipayData\x1a\\\n\nWechatData\x12\x16\n\x0e\x64isable_create\x18\x01 \x01(\x08\x12\x1f\n\x17payment_source_platform\x18\x02 \x01(\r\x12\x15\n\renable_credit\x18\x03 \x01(\x08\x1a\x45\n\nAlipayData\x12\x16\n\x0e\x64isable_create\x18\x01 \x01(\x08\x12\x1f\n\x17payment_source_platform\x18\x02 \x01(\r\",\n\x0e\x41\x63\x63ountSetting\x12\x0b\n\x03key\x18\x01 \x01(\r\x12\r\n\x05value\x18\x02 \x01(\r\"h\n\tChestData\x12\x10\n\x08\x63hest_id\x18\x01 \x01(\r\x12\x18\n\x10total_open_count\x18\x02 \x01(\r\x12\x15\n\rconsume_count\x18\x03 \x01(\r\x12\x18\n\x10\x66\x61\x63\x65_black_count\x18\x04 \x01(\r\"S\n\x0b\x43hestDataV2\x12\x10\n\x08\x63hest_id\x18\x01 \x01(\r\x12\x18\n\x10total_open_count\x18\x02 \x01(\r\x12\x18\n\x10\x66\x61\x63\x65_black_count\x18\x03 \x01(\r\"d\n\tFaithData\x12\x10\n\x08\x66\x61ith_id\x18\x01 \x01(\r\x12\x18\n\x10total_open_count\x18\x02 \x01(\r\x12\x15\n\rconsume_count\x18\x03 \x01(\r\x12\x14\n\x0cmodify_count\x18\x04 \x01(\x05\"\xd9\x01\n\x15\x43ustomizedContestBase\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x12\n\ncontest_id\x18\x02 \x01(\r\x12\x14\n\x0c\x63ontest_name\x18\x03 \x01(\t\x12\r\n\x05state\x18\x04 \x01(\r\x12\x12\n\ncreator_id\x18\x05 \x01(\r\x12\x13\n\x0b\x63reate_time\x18\x06 \x01(\r\x12\x12\n\nstart_time\x18\x07 \x01(\r\x12\x13\n\x0b\x66inish_time\x18\x08 \x01(\r\x12\x0c\n\x04open\x18\t \x01(\x08\x12\x14\n\x0c\x63ontest_type\x18\n \x01(\r\"C\n\x17\x43ustomizedContestExtend\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x15\n\rpublic_notice\x18\x02 \x01(\t\"\xf4\x01\n\x19\x43ustomizedContestAbstract\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x12\n\ncontest_id\x18\x02 \x01(\r\x12\x14\n\x0c\x63ontest_name\x18\x03 \x01(\t\x12\r\n\x05state\x18\x04 \x01(\r\x12\x12\n\ncreator_id\x18\x05 \x01(\r\x12\x13\n\x0b\x63reate_time\x18\x06 \x01(\r\x12\x12\n\nstart_time\x18\x07 \x01(\r\x12\x13\n\x0b\x66inish_time\x18\x08 \x01(\r\x12\x0c\n\x04open\x18\t \x01(\x08\x12\x15\n\rpublic_notice\x18\n \x01(\t\x12\x14\n\x0c\x63ontest_type\x18\x0b \x01(\r\"\xd6\x02\n\x17\x43ustomizedContestDetail\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x12\n\ncontest_id\x18\x02 \x01(\r\x12\x14\n\x0c\x63ontest_name\x18\x03 \x01(\t\x12\r\n\x05state\x18\x04 \x01(\r\x12\x12\n\ncreator_id\x18\x05 \x01(\r\x12\x13\n\x0b\x63reate_time\x18\x06 \x01(\r\x12\x12\n\nstart_time\x18\x07 \x01(\r\x12\x13\n\x0b\x66inish_time\x18\x08 \x01(\r\x12\x0c\n\x04open\x18\t \x01(\x08\x12\x11\n\trank_rule\x18\n \x01(\r\x12\x1f\n\tgame_mode\x18\x0b \x01(\x0b\x32\x0c.lq.GameMode\x12\x16\n\x0eprivate_notice\x18\x0c \x01(\t\x12\x17\n\x0fobserver_switch\x18\r \x01(\r\x12\x14\n\x0c\x65moji_switch\x18\x0e \x01(\r\x12\x14\n\x0c\x63ontest_type\x18\x0f \x01(\r\"}\n\x1d\x43ustomizedContestPlayerReport\x12\x11\n\trank_rule\x18\x01 \x01(\r\x12\x0c\n\x04rank\x18\x02 \x01(\r\x12\r\n\x05point\x18\x03 \x01(\x05\x12\x12\n\ngame_ranks\x18\x04 \x03(\r\x12\x18\n\x10total_game_count\x18\x05 \x01(\r\"\xc1\x03\n\nRecordGame\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x12\n\nstart_time\x18\x02 \x01(\r\x12\x10\n\x08\x65nd_time\x18\x03 \x01(\r\x12\x1e\n\x06\x63onfig\x18\x05 \x01(\x0b\x32\x0e.lq.GameConfig\x12,\n\x08\x61\x63\x63ounts\x18\x0b \x03(\x0b\x32\x1a.lq.RecordGame.AccountInfo\x12!\n\x06result\x18\x0c \x01(\x0b\x32\x11.lq.GameEndResult\x1a\x8d\x02\n\x0b\x41\x63\x63ountInfo\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x0c\n\x04seat\x18\x02 \x01(\r\x12\x10\n\x08nickname\x18\x03 \x01(\t\x12\x11\n\tavatar_id\x18\x04 \x01(\r\x12 \n\tcharacter\x18\x05 \x01(\x0b\x32\r.lq.Character\x12\r\n\x05title\x18\x06 \x01(\r\x12\x1f\n\x05level\x18\x07 \x01(\x0b\x32\x10.lq.AccountLevel\x12 \n\x06level3\x18\x08 \x01(\x0b\x32\x10.lq.AccountLevel\x12\x14\n\x0c\x61vatar_frame\x18\t \x01(\r\x12\x10\n\x08verified\x18\n \x01(\r\x12\x1b\n\x05views\x18\x0b \x03(\x0b\x32\x0c.lq.ViewSlot\"\x80\x01\n\x1a\x43ustomizedContestGameStart\x12\x34\n\x07players\x18\x01 \x03(\x0b\x32#.lq.CustomizedContestGameStart.Item\x1a,\n\x04Item\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\"\x91\x01\n\x18\x43ustomizedContestGameEnd\x12\x32\n\x07players\x18\x01 \x03(\x0b\x32!.lq.CustomizedContestGameEnd.Item\x1a\x41\n\x04Item\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08nickname\x18\x02 \x01(\t\x12\x13\n\x0btotal_point\x18\x03 \x01(\x05\"S\n\x08\x41\x63tivity\x12\x13\n\x0b\x61\x63tivity_id\x18\x01 \x01(\r\x12\x12\n\nstart_time\x18\x02 \x01(\r\x12\x10\n\x08\x65nd_time\x18\x03 \x01(\r\x12\x0c\n\x04type\x18\x04 \x01(\t\"4\n\x0e\x45xchangeRecord\x12\x13\n\x0b\x65xchange_id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\"^\n\x1c\x41\x63tivityAccumulatedPointData\x12\x13\n\x0b\x61\x63tivity_id\x18\x01 \x01(\r\x12\r\n\x05point\x18\x02 \x01(\x05\x12\x1a\n\x12gained_reward_list\x18\x03 \x03(\r\"l\n\x15\x41\x63tivityRankPointData\x12\x16\n\x0eleaderboard_id\x18\x01 \x01(\r\x12\r\n\x05point\x18\x02 \x01(\x05\x12\x15\n\rgained_reward\x18\x03 \x01(\x08\x12\x15\n\rgainable_time\x18\x04 \x01(\r\"\xa1\x03\n\x0fGameRoundHuData\x12(\n\x05hupai\x18\x01 \x01(\x0b\x32\x19.lq.GameRoundHuData.HuPai\x12%\n\x04\x66\x61ns\x18\x02 \x03(\x0b\x32\x17.lq.GameRoundHuData.Fan\x12\r\n\x05score\x18\x03 \x01(\r\x12\x0b\n\x03xun\x18\x04 \x01(\r\x12\x10\n\x08title_id\x18\x05 \x01(\r\x12\x0f\n\x07\x66\x61n_sum\x18\x06 \x01(\r\x12\x0e\n\x06\x66u_sum\x18\x07 \x01(\r\x12\x15\n\ryakuman_count\x18\x08 \x01(\r\x12\x17\n\x0f\x62iao_dora_count\x18\t \x01(\r\x12\x16\n\x0ered_dora_count\x18\n \x01(\r\x12\x15\n\rli_dora_count\x18\x0b \x01(\r\x12\x13\n\x0b\x62\x61\x62\x65i_count\x18\x0c \x01(\r\x12\x18\n\x10xuan_shang_count\x18\r \x01(\r\x1a\x31\n\x05HuPai\x12\x0c\n\x04tile\x18\x01 \x01(\t\x12\x0c\n\x04seat\x18\x02 \x01(\r\x12\x0c\n\x04liqi\x18\x03 \x01(\r\x1a-\n\x03\x46\x61n\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\x12\x0b\n\x03\x66\x61n\x18\x03 \x01(\r\"\xb5\x01\n\x15GameRoundPlayerResult\x12\x0c\n\x04type\x18\x01 \x01(\r\x12\r\n\x05hands\x18\x02 \x03(\t\x12\x0c\n\x04ming\x18\x03 \x03(\t\x12\x11\n\tliqi_type\x18\x04 \x01(\r\x12\x0f\n\x07is_fulu\x18\x05 \x01(\x08\x12\x17\n\x0fis_liujumanguan\x18\x06 \x01(\x08\x12\x13\n\x0blian_zhuang\x18\x07 \x01(\r\x12\x1f\n\x02hu\x18\x08 \x01(\x0b\x32\x13.lq.GameRoundHuData\"Y\n\x0fGameRoundPlayer\x12\r\n\x05score\x18\x01 \x01(\x05\x12\x0c\n\x04rank\x18\x02 \x01(\r\x12)\n\x06result\x18\x03 \x01(\x0b\x32\x19.lq.GameRoundPlayerResult\"R\n\x11GameRoundSnapshot\x12\n\n\x02ju\x18\x01 \x01(\r\x12\x0b\n\x03\x62\x65n\x18\x02 \x01(\r\x12$\n\x07players\x18\x03 \x03(\x0b\x32\x13.lq.GameRoundPlayer\"\x92\x07\n\x11GameFinalSnapshot\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\r\n\x05state\x18\x02 \x01(\r\x12\x10\n\x08\x63\x61tegory\x18\x03 \x01(\r\x12\x1a\n\x04mode\x18\x04 \x01(\x0b\x32\x0c.lq.GameMode\x12\x1e\n\x04meta\x18\x05 \x01(\x0b\x32\x10.lq.GameMetaData\x12=\n\x0f\x63\x61lculate_param\x18\x06 \x01(\x0b\x32$.lq.GameFinalSnapshot.CalculateParam\x12\x13\n\x0b\x63reate_time\x18\x07 \x01(\r\x12\x12\n\nstart_time\x18\x08 \x01(\r\x12\x13\n\x0b\x66inish_time\x18\t \x01(\r\x12-\n\x05seats\x18\n \x03(\x0b\x32\x1e.lq.GameFinalSnapshot.GameSeat\x12%\n\x06rounds\x18\x0b \x03(\x0b\x32\x15.lq.GameRoundSnapshot\x12)\n\raccount_views\x18\x0c \x03(\x0b\x32\x12.lq.PlayerGameView\x12\x38\n\rfinal_players\x18\r \x03(\x0b\x32!.lq.GameFinalSnapshot.FinalPlayer\x12/\n\x08\x61\x66k_info\x18\x0e \x03(\x0b\x32\x1d.lq.GameFinalSnapshot.AFKInfo\x1aS\n\x0e\x43\x61lculateParam\x12\x12\n\ninit_point\x18\x01 \x01(\r\x12\x18\n\x10jingsuanyuandian\x18\x02 \x01(\r\x12\x13\n\x0brank_points\x18\x03 \x03(\x05\x1a\x88\x01\n\x08GameSeat\x12\x0c\n\x04type\x18\x01 \x01(\r\x12\x12\n\naccount_id\x18\x02 \x01(\r\x12,\n\x0fnotify_endpoint\x18\x03 \x01(\x0b\x32\x13.lq.NetworkEndpoint\x12\x16\n\x0e\x63lient_address\x18\x04 \x01(\t\x12\x14\n\x0cis_connected\x18\x05 \x01(\x08\x1a\x81\x01\n\x0b\x46inalPlayer\x12\x0c\n\x04seat\x18\x01 \x01(\r\x12\x13\n\x0btotal_point\x18\x02 \x01(\x05\x12\x14\n\x0cpart_point_1\x18\x03 \x01(\x05\x12\x14\n\x0cpart_point_2\x18\x04 \x01(\x05\x12\x15\n\rgrading_score\x18\x05 \x01(\x05\x12\x0c\n\x04gold\x18\x06 \x01(\x05\x1a\x45\n\x07\x41\x46KInfo\x12\x17\n\x0f\x64\x65\x61l_tile_count\x18\x01 \x01(\r\x12\x13\n\x0bmoqie_count\x18\x02 \x01(\r\x12\x0c\n\x04seat\x18\x03 \x01(\r\"Z\n\x13RecordCollectedData\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0f\n\x07remarks\x18\x02 \x01(\t\x12\x12\n\nstart_time\x18\x03 \x01(\r\x12\x10\n\x08\x65nd_time\x18\x04 \x01(\r\"\xba\x07\n\x11\x43ontestDetailRule\x12\x12\n\ninit_point\x18\x05 \x01(\r\x12\x0f\n\x07\x66\x61ndian\x18\x06 \x01(\r\x12\x11\n\tcan_jifei\x18\x07 \x01(\x08\x12\x16\n\x0etianbian_value\x18\x08 \x01(\r\x12\x16\n\x0eliqibang_value\x18\t \x01(\r\x12\x17\n\x0f\x63hangbang_value\x18\n \x01(\r\x12\x15\n\rnoting_fafu_1\x18\x0b \x01(\r\x12\x15\n\rnoting_fafu_2\x18\x0c \x01(\r\x12\x15\n\rnoting_fafu_3\x18\r \x01(\r\x12\x19\n\x11have_liujumanguan\x18\x0e \x01(\x08\x12\x1c\n\x14have_qieshangmanguan\x18\x0f \x01(\x08\x12\x16\n\x0ehave_biao_dora\x18\x10 \x01(\x08\x12\x1b\n\x13have_gang_biao_dora\x18\x11 \x01(\x08\x12\"\n\x1aming_dora_immediately_open\x18\x12 \x01(\x08\x12\x14\n\x0chave_li_dora\x18\x13 \x01(\x08\x12\x19\n\x11have_gang_li_dora\x18\x14 \x01(\x08\x12\x19\n\x11have_sifenglianda\x18\x15 \x01(\x08\x12\x18\n\x10have_sigangsanle\x18\x16 \x01(\x08\x12\x17\n\x0fhave_sijializhi\x18\x17 \x01(\x08\x12\x1b\n\x13have_jiuzhongjiupai\x18\x18 \x01(\x08\x12\x17\n\x0fhave_sanjiahele\x18\x19 \x01(\x08\x12\x14\n\x0chave_toutiao\x18\x1a \x01(\x08\x12\x1b\n\x13have_helelianzhuang\x18\x1b \x01(\x08\x12\x18\n\x10have_helezhongju\x18\x1c \x01(\x08\x12\x1e\n\x16have_tingpailianzhuang\x18\x1d \x01(\x08\x12\x1b\n\x13have_tingpaizhongju\x18\x1e \x01(\x08\x12\x11\n\thave_yifa\x18\x1f \x01(\x08\x12\x16\n\x0ehave_nanruxiru\x18  \x01(\x08\x12\x18\n\x10jingsuanyuandian\x18! \x01(\r\x12\x13\n\x0bshunweima_2\x18\" \x01(\x05\x12\x13\n\x0bshunweima_3\x18# \x01(\x05\x12\x13\n\x0bshunweima_4\x18$ \x01(\x05\x12\x14\n\x0c\x62ianjietishi\x18% \x01(\x08\x12\x10\n\x08\x61i_level\x18& \x01(\r\x12\x14\n\x0chave_zimosun\x18\' \x01(\x08\x12\x1d\n\x15\x64isable_multi_yukaman\x18( \x01(\x08\x12\x11\n\tguyi_mode\x18) \x01(\r\x12\x1a\n\x12\x64isable_leijiyiman\x18* \x01(\x08\"\xb3\x01\n\x13\x43ontestDetailRuleV2\x12(\n\tgame_rule\x18\x01 \x01(\x0b\x32\x15.lq.ContestDetailRule\x12\x35\n\nextra_rule\x18\x02 \x01(\x0b\x32!.lq.ContestDetailRuleV2.ExtraRule\x1a;\n\tExtraRule\x12\x16\n\x0erequired_level\x18\x01 \x01(\r\x12\x16\n\x0emax_game_count\x18\x02 \x01(\r\"\xab\x01\n\x0fGameRuleSetting\x12\x12\n\nround_type\x18\x01 \x01(\r\x12\x0f\n\x07shiduan\x18\x02 \x01(\x08\x12\x12\n\ndora_count\x18\x03 \x01(\r\x12\x15\n\rthinking_type\x18\x04 \x01(\r\x12\x17\n\x0fuse_detail_rule\x18\x05 \x01(\x08\x12/\n\x0e\x64\x65tail_rule_v2\x18\x06 \x01(\x0b\x32\x17.lq.ContestDetailRuleV2\"\xad\x01\n\x11RecordTingPaiInfo\x12\x0c\n\x04tile\x18\x01 \x01(\t\x12\x0e\n\x06haveyi\x18\x02 \x01(\x08\x12\r\n\x05yiman\x18\x03 \x01(\x08\x12\r\n\x05\x63ount\x18\x04 \x01(\r\x12\n\n\x02\x66u\x18\x05 \x01(\r\x12\x17\n\x0f\x62iao_dora_count\x18\x06 \x01(\r\x12\x12\n\nyiman_zimo\x18\x07 \x01(\x08\x12\x12\n\ncount_zimo\x18\x08 \x01(\r\x12\x0f\n\x07\x66u_zimo\x18\t \x01(\r\"m\n\x16RecordNoTilePlayerInfo\x12\x0f\n\x07tingpai\x18\x03 \x01(\x08\x12\x0c\n\x04hand\x18\x04 \x03(\t\x12$\n\x05tings\x18\x05 \x03(\x0b\x32\x15.lq.RecordTingPaiInfo\x12\x0e\n\x06liuman\x18\x06 \x01(\x08\"\xb8\x03\n\x0eRecordHuleInfo\x12\x0c\n\x04hand\x18\x01 \x03(\t\x12\x0c\n\x04ming\x18\x02 \x03(\t\x12\x0f\n\x07hu_tile\x18\x03 \x01(\t\x12\x0c\n\x04seat\x18\x04 \x01(\r\x12\x0c\n\x04zimo\x18\x05 \x01(\x08\x12\x0e\n\x06qinjia\x18\x06 \x01(\x08\x12\x0c\n\x04liqi\x18\x07 \x01(\x08\x12\r\n\x05\x64oras\x18\x08 \x03(\t\x12\x10\n\x08li_doras\x18\t \x03(\t\x12\r\n\x05yiman\x18\n \x01(\x08\x12\r\n\x05\x63ount\x18\x0b \x01(\r\x12.\n\x04\x66\x61ns\x18\x0c \x03(\x0b\x32 .lq.RecordHuleInfo.RecordFanInfo\x12\n\n\x02\x66u\x18\r \x01(\r\x12\x16\n\x0epoint_zimo_qin\x18\x0e \x01(\r\x12\x17\n\x0fpoint_zimo_xian\x18\x0f \x01(\r\x12\x10\n\x08title_id\x18\x10 \x01(\r\x12\x11\n\tpoint_sum\x18\x11 \x01(\r\x12\x0e\n\x06\x64\x61\x64ian\x18\x12 \x01(\r\x12\x14\n\x0cis_jue_zhang\x18\x13 \x01(\x08\x12\x0b\n\x03xun\x18\x14 \x01(\r\x12\x11\n\tting_type\x18\x15 \x01(\r\x1a(\n\rRecordFanInfo\x12\x0b\n\x03val\x18\x01 \x01(\r\x12\n\n\x02id\x18\x02 \x01(\r\"B\n\x0fRecordHulesInfo\x12\x0c\n\x04seat\x18\x01 \x01(\x05\x12!\n\x05hules\x18\x02 \x03(\x0b\x32\x12.lq.RecordHuleInfo\"-\n\x0fRecordLiujuInfo\x12\x0c\n\x04seat\x18\x01 \x01(\r\x12\x0c\n\x04type\x18\x02 \x01(\r\"U\n\x10RecordNoTileInfo\x12\x14\n\x0cliujumanguan\x18\x01 \x01(\x08\x12+\n\x07players\x18\x02 \x03(\x0b\x32\x1a.lq.RecordNoTilePlayerInfo\"r\n\x0eRecordLiqiInfo\x12\x0c\n\x04seat\x18\x01 \x01(\r\x12\r\n\x05score\x18\x02 \x01(\r\x12\x0c\n\x04is_w\x18\x03 \x01(\x08\x12\x14\n\x0cis_zhen_ting\x18\x04 \x01(\x08\x12\x0b\n\x03xun\x18\x05 \x01(\r\x12\x12\n\nis_success\x18\x06 \x01(\x08\"W\n\x0eRecordGangInfo\x12\x0c\n\x04seat\x18\x01 \x01(\r\x12\x0c\n\x04type\x18\x02 \x01(\r\x12\x0b\n\x03pai\x18\x03 \x01(\t\x12\x0f\n\x07is_dora\x18\x04 \x01(\x08\x12\x0b\n\x03xun\x18\x05 \x01(\r\"S\n\x0fRecordBaBeiInfo\x12\x0c\n\x04seat\x18\x01 \x01(\r\x12\x10\n\x08is_zi_mo\x18\x02 \x01(\x08\x12\x10\n\x08is_chong\x18\x03 \x01(\x08\x12\x0e\n\x06is_bei\x18\x04 \x01(\x08\"O\n\x10RecordPeiPaiInfo\x12\x12\n\ndora_count\x18\x01 \x01(\r\x12\x14\n\x0cr_dora_count\x18\x02 \x01(\r\x12\x11\n\tbei_count\x18\x03 \x01(\r\"\xfb\x02\n\x0fRecordRoundInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x63hang\x18\x02 \x01(\r\x12\n\n\x02ju\x18\x03 \x01(\r\x12\x0b\n\x03\x62\x65n\x18\x04 \x01(\r\x12\x0e\n\x06scores\x18\x05 \x03(\r\x12&\n\nliqi_infos\x18\x07 \x03(\x0b\x32\x12.lq.RecordLiqiInfo\x12&\n\ngang_infos\x18\x08 \x03(\x0b\x32\x12.lq.RecordGangInfo\x12*\n\x0cpeipai_infos\x18\t \x03(\x0b\x32\x14.lq.RecordPeiPaiInfo\x12(\n\x0b\x62\x61\x62\x61i_infos\x18\n \x03(\x0b\x32\x13.lq.RecordBaBeiInfo\x12\'\n\nhules_info\x18\x0b \x01(\x0b\x32\x13.lq.RecordHulesInfo\x12\'\n\nliuju_info\x18\x0c \x01(\x0b\x32\x13.lq.RecordLiujuInfo\x12*\n\x0cno_tile_info\x18\r \x01(\x0b\x32\x14.lq.RecordNoTileInfo\"@\n\x14RecordAnalysisedData\x12(\n\x0bround_infos\x18\x01 \x03(\x0b\x32\x13.lq.RecordRoundInfo\"W\n\rNotifyCaptcha\x12\x10\n\x08\x63heck_id\x18\x01 \x01(\r\x12\x12\n\nstart_time\x18\x02 \x01(\r\x12\x12\n\nrandom_str\x18\x03 \x01(\t\x12\x0c\n\x04type\x18\x04 \x01(\r\"c\n\x13NotifyRoomGameStart\x12\x10\n\x08game_url\x18\x01 \x01(\t\x12\x15\n\rconnect_token\x18\x02 \x01(\t\x12\x11\n\tgame_uuid\x18\x03 \x01(\t\x12\x10\n\x08location\x18\x04 \x01(\t\"{\n\x14NotifyMatchGameStart\x12\x10\n\x08game_url\x18\x01 \x01(\t\x12\x15\n\rconnect_token\x18\x02 \x01(\t\x12\x11\n\tgame_uuid\x18\x03 \x01(\t\x12\x15\n\rmatch_mode_id\x18\x04 \x01(\r\x12\x10\n\x08location\x18\x05 \x01(\t\"\xc2\x01\n\x15NotifyRoomPlayerReady\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\r\n\x05ready\x18\x02 \x01(\x08\x12\x41\n\x0c\x61\x63\x63ount_list\x18\x03 \x01(\x0b\x32+.lq.NotifyRoomPlayerReady.AccountReadyState\x12\x0b\n\x03seq\x18\x04 \x01(\r\x1a\x36\n\x11\x41\x63\x63ountReadyState\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\r\n\x05ready\x18\x02 \x01(\x08\"\xd4\x01\n\x18NotifyRoomPlayerDressing\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08\x64ressing\x18\x02 \x01(\x08\x12G\n\x0c\x61\x63\x63ount_list\x18\x03 \x01(\x0b\x32\x31.lq.NotifyRoomPlayerDressing.AccountDressingState\x12\x0b\n\x03seq\x18\x04 \x01(\r\x1a<\n\x14\x41\x63\x63ountDressingState\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x10\n\x08\x64ressing\x18\x02 \x01(\x08\"\xb3\x01\n\x16NotifyRoomPlayerUpdate\x12\'\n\x0bupdate_list\x18\x01 \x03(\x0b\x32\x12.lq.PlayerBaseView\x12\x13\n\x0bremove_list\x18\x02 \x03(\r\x12\x10\n\x08owner_id\x18\x03 \x01(\r\x12\x13\n\x0brobot_count\x18\x04 \x01(\r\x12\'\n\x0bplayer_list\x18\x05 \x03(\x0b\x32\x12.lq.PlayerBaseView\x12\x0b\n\x03seq\x18\x06 \x01(\r\"\x13\n\x11NotifyRoomKickOut\"Z\n\x17NotifyFriendStateChange\x12\x11\n\ttarget_id\x18\x01 \x01(\r\x12,\n\x0c\x61\x63tive_state\x18\x02 \x01(\x0b\x32\x16.lq.AccountActiveState\"M\n\x16NotifyFriendViewChange\x12\x11\n\ttarget_id\x18\x01 \x01(\r\x12 \n\x04\x62\x61se\x18\x02 \x01(\x0b\x32\x12.lq.PlayerBaseView\"R\n\x12NotifyFriendChange\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x0c\n\x04type\x18\x02 \x01(\r\x12\x1a\n\x06\x66riend\x18\x03 \x01(\x0b\x32\n.lq.Friend\"R\n\x14NotifyNewFriendApply\x12\x12\n\naccount_id\x18\x01 \x01(\r\x12\x12\n\napply_time\x18\x02 \x01(\r\x12\x12\n\nremoved_id\x18\x03 \x01(\r\"X\n\x13NotifyClientMessage\x12\"\n\x06sender\x18\x01 \x01(\x0b\x32\x12.lq.PlayerBaseView\x12\x0c\n\x04type\x18\x02 \x01(\r\x12\x0f\n\x07\x63ontent\x18\x03 \x01(\t\"8\n\x13NotifyAccountUpdate\x12!\n\x06update\x18\x01 \x01(\x0b\x32\x11.lq.AccountUpdate\"\x14\n\x12NotifyAnotherLogin\"\x15\n\x13NotifyAccountLogout\"\x96\x01\n\x18NotifyAnnouncementUpdate\x12\x44\n\x0bupdate_list\x18\x01 \x03(\x0b\x32/.lq.NotifyAnnouncementUpdate.AnnouncementUpdate\x1a\x34\n\x12\x41nnouncementUpdate\x12\x0c\n\x04lang\x18\x01 \x01(\t\x12\x10\n\x08platform\x18\x02 \x01(\t\"\'\n\rNotifyNewMail\x12\x16\n\x04mail\x18\x01 \x01(\x0b\x32\x08.lq.Mail\"(\n\x10NotifyDeleteMail\x12\x14\n\x0cmail_id_list\x18\x01 \x03(\r\",\n\x16NotifyReviveCoinUpdate\x12\x12\n\nhas_gained\x18\x01 \x01(\x08\"r\n\x15NotifyDailyTaskUpdate\x12$\n\nprogresses\x18\x01 \x03(\x0b\x32\x10.lq.TaskProgress\x12\x1c\n\x14max_daily_task_count\x18\x02 \x01(\r\x12\x15\n\rrefresh_count\x18\x03 \x01(\r\"@\n\x18NotifyActivityTaskUpdate\x12$\n\nprogresses\x18\x01 \x03(\x0b\x32\x10.lq.TaskProgress\"F\n\x1eNotifyActivityPeriodTaskUpdate\x12$\n\nprogresses\x18\x01 \x03(\x0b\x32\x10.lq.TaskProgress\"E\n\x1dNotifyAccountRandomTaskUpdate\x12$\n\nprogresses\x18\x01 \x03(\x0b\x32\x10.lq.TaskProgress\"N\n\x1fNotifyActivitySegmentTaskUpdate\x12+\n\nprogresses\x18\x01 \x03(\x0b\x32\x17.lq.SegmentTaskProgress\"\xbb\x04\n\x14NotifyActivityUpdate\x12\x37\n\x04list\x18\x01 \x03(\x0b\x32).lq.NotifyActivityUpdate.FeedActivityData\x1a\xe9\x03\n\x10\x46\x65\x65\x64\x41\x63tivityData\x12\x13\n\x0b\x61\x63tivity_id\x18\x01 \x01(\r\x12\x12\n\nfeed_count\x18\x02 \x01(\r\x12X\n\x13\x66riend_receive_data\x18\x03 \x01(\x0b\x32;.lq.NotifyActivityUpdate.FeedActivityData.CountWithTimeData\x12U\n\x10\x66riend_send_data\x18\x04 \x01(\x0b\x32;.lq.NotifyActivityUpdate.FeedActivityData.CountWithTimeData\x12I\n\ngift_inbox\x18\x05 \x03(\x0b\x32\x35.lq.NotifyActivityUpdate.FeedActivityData.GiftBoxData\x1a<\n\x11\x43ountWithTimeData\x12\r\n\x05\x63ount\x18\x01 \x01(\r\x12\x18\n\x10last_update_time\x18\x02 \x01(\r\x1ar\n\x0bGiftBoxData\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0f\n\x07item_id\x18\x02 \x01(\r\x12\r\n\x05\x63ount\x18\x03 \x01(\r\x12\x17\n\x0f\x66rom_account_id\x18\x04 \x01(\r\x12\x0c\n\x04time\x18\x05 \x01(\r\x12\x10\n\x08received\x18\x06 \x01(\r\"\xaf\x01\n NotifyAccountChallengeTaskUpdate\x12$\n\nprogresses\x18\x01 \x03(\x0b\x32\x10.lq.TaskProgress\x12\r\n\x05level\x18\x02 \x01(\r\x12\x15\n\rrefresh_count\x18\x03 \x01(\r\x12\x13\n\x0bmatch_count\x18\x04 \x01(\r\x12\x11\n\tticket_id\x18\x05 \x01(\r\x12\x17\n\x0frewarded_season\x18\x06 \x03(\r\"\x12\n\x10NotifyNewComment\"8\n\x13NotifyRollingNotice\x12!\n\x06notice\x18\x01 \x01(\x0b\x32\x11.lq.RollingNotice\"\x17\n\x15NotifyGiftSendRefresh\"3\n\x10NotifyShopUpdate\x12\x1f\n\tshop_info\x18\x01 \x01(\x0b\x32\x0c.lq.ShopInfo\"\xb7\x01\n\x14NotifyVipLevelChange\x12\x12\n\ngift_limit\x18\x01 \x01(\r\x12\x18\n\x10\x66riend_max_count\x18\x02 \x01(\r\x12\x1e\n\x16zhp_free_refresh_limit\x18\x03 \x01(\r\x12\x1e\n\x16zhp_cost_refresh_limit\x18\x04 \x01(\r\x12\x13\n\x0b\x62uddy_bonus\x18\x05 \x01(\x02\x12\x1c\n\x14record_collect_limit\x18\x06 \x01(\r\";\n\x13NotifyServerSetting\x12$\n\x08settings\x18\x01 \x01(\x0b\x32\x12.lq.ServerSettings\"\xdc\x01\n\x0fNotifyPayResult\x12\x12\n\npay_result\x18\x01 \x01(\r\x12\x10\n\x08order_id\x18\x02 \x01(\t\x12\x10\n\x08goods_id\x18\x03 \x01(\r\x12\x18\n\x10new_month_ticket\x18\x04 \x01(\r\x12;\n\x0fresource_modify\x18\x05 \x03(\x0b\x32\".lq.NotifyPayResult.ResourceModify\x1a:\n\x0eResourceModify\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\x12\r\n\x05\x66inal\x18\x03 \x01(\r\"y\n\x1dNotifyCustomContestAccountMsg\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x12\n\naccount_id\x18\x02 \x01(\r\x12\x0e\n\x06sender\x18\x03 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x04 \x01(\t\x12\x10\n\x08verified\x18\x05 \x01(\r\"\xb1\x01\n\x1cNotifyCustomContestSystemMsg\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\x0c\n\x04type\x18\x02 \x01(\r\x12\x0c\n\x04uuid\x18\x03 \x01(\t\x12\x32\n\ngame_start\x18\x04 \x01(\x0b\x32\x1e.lq.CustomizedContestGameStart\x12.\n\x08game_end\x18\x05 \x01(\x0b\x32\x1c.lq.CustomizedContestGameEnd\"!\n\x12NotifyMatchTimeout\x12\x0b\n\x03sid\x18\x01 \x01(\t\"<\n\x18NotifyCustomContestState\x12\x11\n\tunique_id\x18\x01 \x01(\r\x12\r\n\x05state\x18\x02 \x01(\r\"T\n\x14NotifyActivityChange\x12$\n\x0enew_activities\x18\x01 \x03(\x0b\x32\x0c.lq.Activity\x12\x16\n\x0e\x65nd_activities\x18\x02 \x03(\r\"H\n\x0fNotifyAFKResult\x12\x0c\n\x04type\x18\x01 \x01(\r\x12\x14\n\x0c\x62\x61n_end_time\x18\x02 \x01(\r\x12\x11\n\tgame_uuid\x18\x03 \x01(\t\"\x8e\x05\n\x18NotifyGameFinishRewardV2\x12\x0f\n\x07mode_id\x18\x01 \x01(\r\x12>\n\x0clevel_change\x18\x02 \x01(\x0b\x32(.lq.NotifyGameFinishRewardV2.LevelChange\x12<\n\x0bmatch_chest\x18\x03 \x01(\x0b\x32\'.lq.NotifyGameFinishRewardV2.MatchChest\x12\x42\n\x0emain_character\x18\x04 \x01(\x0b\x32*.lq.NotifyGameFinishRewardV2.MainCharacter\x12\x42\n\x0e\x63haracter_gift\x18\x05 \x01(\x0b\x32*.lq.NotifyGameFinishRewardV2.CharacterGift\x1a^\n\x0bLevelChange\x12 \n\x06origin\x18\x01 \x01(\x0b\x32\x10.lq.AccountLevel\x12\x1f\n\x05\x66inal\x18\x02 \x01(\x0b\x32\x10.lq.AccountLevel\x12\x0c\n\x04type\x18\x03 \x01(\r\x1aq\n\nMatchChest\x12\x10\n\x08\x63hest_id\x18\x01 \x01(\r\x12\x0e\n\x06origin\x18\x02 \x01(\r\x12\r\n\x05\x66inal\x18\x03 \x01(\r\x12\x11\n\tis_graded\x18\x04 \x01(\x08\x12\x1f\n\x07rewards\x18\x05 \x03(\x0b\x32\x0e.lq.RewardSlot\x1a\x38\n\rMainCharacter\x12\r\n\x05level\x18\x01 \x01(\r\x12\x0b\n\x03\x65xp\x18\x02 \x01(\r\x12\x0b\n\x03\x61\x64\x64\x18\x03 \x01(\r\x1aN\n\rCharacterGift\x12\x0e\n\x06origin\x18\x01 \x01(\r\x12\r\n\x05\x66inal\x18\x02 \x01(\r\x12\x0b\n\x03\x61\x64\x64\x18\x03 \x01(\r\x12\x11\n\tis_graded\x18\x04 \x01(\x08\"\xa4\x01\n\x16NotifyActivityRewardV2\x12\x42\n\x0f\x61\x63tivity_reward\x18\x01 \x03(\x0b\x32).lq.NotifyActivityRewardV2.ActivityReward\x1a\x46\n\x0e\x41\x63tivityReward\x12\x13\n\x0b\x61\x63tivity_id\x18\x01 \x01(\r\x12\x1f\n\x07rewards\x18\x02 \x03(\x0b\x32\x0e.lq.RewardSlot\"\x8e\x01\n\x15NotifyActivityPointV2\x12@\n\x0f\x61\x63tivity_points\x18\x01 \x03(\x0b\x32\'.lq.NotifyActivityPointV2.ActivityPoint\x1a\x33\n\rActivityPoint\x12\x13\n\x0b\x61\x63tivity_id\x18\x01 \x01(\r\x12\r\n\x05point\x18\x02 \x01(\r\"\xa0\x01\n\x18NotifyLeaderboardPointV2\x12I\n\x12leaderboard_points\x18\x01 \x03(\x0b\x32-.lq.NotifyLeaderboardPointV2.LeaderboardPoint\x1a\x39\n\x10LeaderboardPoint\x12\x16\n\x0eleaderboard_id\x18\x01 \x01(\r\x12\r\n\x05point\x18\x02 \x01(\r*=\n\x0fGamePlayerState\x12\x08\n\x04NULL\x10\x00\x12\x08\n\x04\x41UTH\x10\x01\x12\x0b\n\x07SYNCING\x10\x02\x12\t\n\x05READY\x10\x03\x32\xf5\x16\n\x1b\x43ustomizedContestManagerApi\x12K\n\x13loginContestManager\x12\x19.lq.ReqContestManageLogin\x1a\x19.lq.ResContestManageLogin\x12Z\n\x18oauth2AuthContestManager\x12\x1e.lq.ReqContestManageOauth2Auth\x1a\x1e.lq.ResContestManageOauth2Auth\x12]\n\x19oauth2LoginContestManager\x12\x1f.lq.ReqContestManageOauth2Login\x1a\x1f.lq.ResContestManageOauth2Login\x12\x34\n\x14logoutContestManager\x12\r.lq.ReqCommon\x1a\r.lq.ResCommon\x12H\n\x17\x66\x65tchRelatedContestList\x12\r.lq.ReqCommon\x1a\x1e.lq.ResFetchRelatedContestList\x12O\n\rcreateContest\x12\x1e.lq.ReqCreateCustomizedContest\x1a\x1e.lq.ResCreateCustomizedContest\x12>\n\rdeleteContest\x12\x1e.lq.ReqDeleteCustomizedContest\x1a\r.lq.ResCommon\x12>\n\x0eprolongContest\x12\x15.lq.ReqProlongContest\x1a\x15.lq.ResProlongContest\x12;\n\rmanageContest\x12\x14.lq.ReqManageContest\x1a\x14.lq.ResManageContest\x12\x37\n\x10\x66\x65tchContestInfo\x12\r.lq.ReqCommon\x1a\x14.lq.ResManageContest\x12\x31\n\x11\x65xitManageContest\x12\r.lq.ReqCommon\x1a\r.lq.ResCommon\x12\x42\n\x14\x66\x65tchContestGameRule\x12\r.lq.ReqCommon\x1a\x1b.lq.ResFetchContestGameRule\x12\x44\n\x15updateContestGameRule\x12\x1c.lq.ReqUpdateContestGameRule\x1a\r.lq.ResCommon\x12Y\n\x17searchAccountByNickname\x12\x1e.lq.ReqSearchAccountByNickname\x1a\x1e.lq.ResSearchAccountByNickname\x12J\n\x12searchAccountByEid\x12\x19.lq.ReqSearchAccountByEid\x1a\x19.lq.ResSearchAccountByEid\x12H\n\x12\x66\x65tchContestPlayer\x12\r.lq.ReqCommon\x1a#.lq.ResFetchCustomizedContestPlayer\x12J\n\x13updateContestPlayer\x12$.lq.ReqUpdateCustomizedContestPlayer\x1a\r.lq.ResCommon\x12\x38\n\x0fstartManageGame\x12\r.lq.ReqCommon\x1a\x16.lq.ResStartManageGame\x12.\n\x0estopManageGame\x12\r.lq.ReqCommon\x1a\r.lq.ResCommon\x12\x36\n\x0elockGamePlayer\x12\x15.lq.ReqLockGamePlayer\x1a\r.lq.ResCommon\x12:\n\x10unlockGamePlayer\x12\x17.lq.ReqUnlockGamePlayer\x1a\r.lq.ResCommon\x12G\n\x11\x63reateContestGame\x12\x18.lq.ReqCreateContestGame\x1a\x18.lq.ResCreateContestGame\x12s\n\x17\x66\x65tchContestGameRecords\x12+.lq.ReqFetchCustomizedContestGameRecordList\x1a+.lq.ResFetchCustomizedContestGameRecordList\x12H\n\x17removeContestGameRecord\x12\x1e.lq.ReqRemoveContestGameRecord\x1a\r.lq.ResCommon\x12J\n\x12\x66\x65tchContestNotice\x12\x19.lq.ReqFetchContestNotice\x1a\x19.lq.ResFetchContestNotice\x12J\n\x13updateContestNotice\x12$.lq.ReqUpdateCustomizedContestNotice\x1a\r.lq.ResCommon\x12J\n\x13\x66\x65tchContestManager\x12\r.lq.ReqCommon\x1a$.lq.ResFetchCustomizedContestManager\x12L\n\x14updateContestManager\x12%.lq.ReqUpdateCustomizedContestManager\x1a\r.lq.ResCommon\x12\x43\n\x10\x66\x65tchChatSetting\x12\r.lq.ReqCommon\x1a .lq.ResCustomizedContestChatInfo\x12i\n\x11updateChatSetting\x12).lq.ReqUpdateCustomizedContestChatSetting\x1a).lq.ResUpdateCustomizedContestChatSetting\x12\x34\n\rupdateGameTag\x12\x14.lq.ReqUpdateGameTag\x1a\r.lq.ResCommon\x12;\n\rterminateGame\x12\x1b.lq.ReqTerminateContestGame\x1a\r.lq.ResCommon\x12\x33\n\tpauseGame\x12\x17.lq.ReqPauseContestGame\x1a\r.lq.ResCommon\x12\x35\n\nresumeGame\x12\x18.lq.ReqResumeContestGame\x1a\r.lq.ResCommon\x12\x42\n\x14\x66\x65tchCurrentRankList\x12\r.lq.ReqCommon\x1a\x1b.lq.ResFetchCurrentRankList\x12\x46\n\x16\x66\x65tchContestLastModify\x12\r.lq.ReqCommon\x1a\x1d.lq.ResFetchContestLastModify\x12\x42\n\x14\x66\x65tchContestObserver\x12\r.lq.ReqCommon\x1a\x1b.lq.ResFetchContestObserver\x12J\n\x12\x61\x64\x64\x43ontestObserver\x12\x19.lq.ReqAddContestObserver\x1a\x19.lq.ResAddContestObserver\x12\x44\n\x15removeContestObserver\x12\x1c.lq.ReqRemoveContestObserver\x1a\r.lq.ResCommon\x12H\n\x17\x66\x65tchContestChatHistory\x12\r.lq.ReqCommon\x1a\x1e.lq.ResFetchContestChatHistory\x12:\n\x10\x63learChatHistory\x12\x17.lq.ReqClearChatHistory\x1a\r.lq.ResCommonb\x06proto3'
 )
 
 _GAMEPLAYERSTATE = _descriptor.EnumDescriptor(
@@ -53,8 +53,8 @@ _GAMEPLAYERSTATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=31008,
-  serialized_end=31069,
+  serialized_start=35580,
+  serialized_end=35641,
 )
 _sym_db.RegisterEnumDescriptor(_GAMEPLAYERSTATE)
 
@@ -2985,6 +2985,38 @@ _RESFETCHCONTESTCHATHISTORY = _descriptor.Descriptor(
 )
 
 
+_REQCLEARCHATHISTORY = _descriptor.Descriptor(
+  name='ReqClearChatHistory',
+  full_name='lq.ReqClearChatHistory',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='unique_id', full_name='lq.ReqClearChatHistory.unique_id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6165,
+  serialized_end=6205,
+)
+
+
 _NOTIFYCONTESTMATCHINGPLAYER = _descriptor.Descriptor(
   name='NotifyContestMatchingPlayer',
   full_name='lq.NotifyContestMatchingPlayer',
@@ -3033,8 +3065,8 @@ _NOTIFYCONTESTMATCHINGPLAYER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6165,
-  serialized_end=6265,
+  serialized_start=6207,
+  serialized_end=6307,
 )
 
 
@@ -3086,8 +3118,8 @@ _NOTIFYCONTESTMATCHINGPLAYERLOCK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6267,
-  serialized_end=6373,
+  serialized_start=6309,
+  serialized_end=6415,
 )
 
 
@@ -3125,8 +3157,8 @@ _NOTIFYCONTESTGAMESTART = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6375,
-  serialized_end=6458,
+  serialized_start=6417,
+  serialized_end=6500,
 )
 
 
@@ -3164,8 +3196,8 @@ _NOTIFYCONTESTGAMEEND = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6460,
-  serialized_end=6520,
+  serialized_start=6502,
+  serialized_end=6562,
 )
 
 
@@ -3210,8 +3242,8 @@ _NOTIFYCONTESTNOTICEUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6522,
-  serialized_end=6606,
+  serialized_start=6564,
+  serialized_end=6648,
 )
 
 
@@ -3242,8 +3274,8 @@ _NOTIFYCONTESTMANAGERKICK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6608,
-  serialized_end=6650,
+  serialized_start=6650,
+  serialized_end=6692,
 )
 
 
@@ -3295,8 +3327,8 @@ _ERROR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6652,
-  serialized_end=6733,
+  serialized_start=6694,
+  serialized_end=6775,
 )
 
 
@@ -3334,8 +3366,8 @@ _WRAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6735,
-  serialized_end=6772,
+  serialized_start=6777,
+  serialized_end=6814,
 )
 
 
@@ -3380,8 +3412,8 @@ _NETWORKENDPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6774,
-  serialized_end=6838,
+  serialized_start=6816,
+  serialized_end=6880,
 )
 
 
@@ -3405,8 +3437,8 @@ _REQCOMMON = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6840,
-  serialized_end=6851,
+  serialized_start=6882,
+  serialized_end=6893,
 )
 
 
@@ -3437,8 +3469,8 @@ _RESCOMMON = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6853,
-  serialized_end=6890,
+  serialized_start=6895,
+  serialized_end=6932,
 )
 
 
@@ -3476,8 +3508,8 @@ _RESACCOUNTUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6892,
-  serialized_end=6971,
+  serialized_start=6934,
+  serialized_end=7013,
 )
 
 
@@ -3508,8 +3540,8 @@ _ANTIADDICTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6973,
-  serialized_end=7013,
+  serialized_start=7015,
+  serialized_end=7055,
 )
 
 
@@ -3561,8 +3593,8 @@ _ACCOUNTMAHJONGSTATISTIC_ROUNDSUMMARY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7478,
-  serialized_end=7578,
+  serialized_start=7520,
+  serialized_end=7620,
 )
 
 _ACCOUNTMAHJONGSTATISTIC_HUSUMMARY = _descriptor.Descriptor(
@@ -3606,8 +3638,8 @@ _ACCOUNTMAHJONGSTATISTIC_HUSUMMARY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7580,
-  serialized_end=7657,
+  serialized_start=7622,
+  serialized_end=7699,
 )
 
 _ACCOUNTMAHJONGSTATISTIC_HIGHESTHURECORD = _descriptor.Descriptor(
@@ -3679,8 +3711,8 @@ _ACCOUNTMAHJONGSTATISTIC_HIGHESTHURECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7659,
-  serialized_end=7786,
+  serialized_start=7701,
+  serialized_end=7828,
 )
 
 _ACCOUNTMAHJONGSTATISTIC_LIQI20SUMMARY = _descriptor.Descriptor(
@@ -3724,8 +3756,8 @@ _ACCOUNTMAHJONGSTATISTIC_LIQI20SUMMARY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7788,
-  serialized_end=7878,
+  serialized_start=7830,
+  serialized_end=7920,
 )
 
 _ACCOUNTMAHJONGSTATISTIC_LIQI10SUMMARY = _descriptor.Descriptor(
@@ -3762,8 +3794,8 @@ _ACCOUNTMAHJONGSTATISTIC_LIQI10SUMMARY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7880,
-  serialized_end=7942,
+  serialized_start=7922,
+  serialized_end=7984,
 )
 
 _ACCOUNTMAHJONGSTATISTIC_GAMERESULT = _descriptor.Descriptor(
@@ -3800,8 +3832,8 @@ _ACCOUNTMAHJONGSTATISTIC_GAMERESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7944,
-  serialized_end=7991,
+  serialized_start=7986,
+  serialized_end=8033,
 )
 
 _ACCOUNTMAHJONGSTATISTIC = _descriptor.Descriptor(
@@ -3873,8 +3905,8 @@ _ACCOUNTMAHJONGSTATISTIC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7016,
-  serialized_end=7991,
+  serialized_start=7058,
+  serialized_end=8033,
 )
 
 
@@ -3926,8 +3958,8 @@ _ACCOUNTSTATISTICDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7994,
-  serialized_end=8132,
+  serialized_start=8036,
+  serialized_end=8174,
 )
 
 
@@ -3965,8 +3997,8 @@ _ACCOUNTLEVEL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8134,
-  serialized_end=8175,
+  serialized_start=8176,
+  serialized_end=8217,
 )
 
 
@@ -4004,8 +4036,8 @@ _VIEWSLOT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8177,
-  serialized_end=8218,
+  serialized_start=8219,
+  serialized_end=8260,
 )
 
 
@@ -4043,8 +4075,8 @@ _ACCOUNT_PLATFORMDIAMOND = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8916,
-  serialized_end=8960,
+  serialized_start=8980,
+  serialized_end=9024,
 )
 
 _ACCOUNT_PLATFORMSKINTICKET = _descriptor.Descriptor(
@@ -4081,8 +4113,8 @@ _ACCOUNT_PLATFORMSKINTICKET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8962,
-  serialized_end=9009,
+  serialized_start=9026,
+  serialized_end=9073,
 )
 
 _ACCOUNT_CHALLENGELEVEL = _descriptor.Descriptor(
@@ -4126,8 +4158,8 @@ _ACCOUNT_CHALLENGELEVEL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9011,
-  serialized_end=9072,
+  serialized_start=9075,
+  serialized_end=9136,
 )
 
 _ACCOUNT_ACHIEVEMENTCOUNT = _descriptor.Descriptor(
@@ -4164,8 +4196,8 @@ _ACCOUNT_ACHIEVEMENTCOUNT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9074,
-  serialized_end=9121,
+  serialized_start=9138,
+  serialized_end=9185,
 )
 
 _ACCOUNT = _descriptor.Descriptor(
@@ -4358,6 +4390,13 @@ _ACCOUNT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='frozen_state', full_name='lq.Account.frozen_state', index=26,
+      number=29, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -4370,8 +4409,8 @@ _ACCOUNT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8221,
-  serialized_end=9121,
+  serialized_start=8263,
+  serialized_end=9185,
 )
 
 
@@ -4402,8 +4441,8 @@ _ACCOUNTOWNERDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9123,
-  serialized_end=9168,
+  serialized_start=9187,
+  serialized_end=9232,
 )
 
 
@@ -4441,8 +4480,8 @@ _ACCOUNTUPDATE_NUMERICALUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9898,
-  serialized_end=9942,
+  serialized_start=10075,
+  serialized_end=10119,
 )
 
 _ACCOUNTUPDATE_CHARACTERUPDATE = _descriptor.Descriptor(
@@ -4493,8 +4532,8 @@ _ACCOUNTUPDATE_CHARACTERUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9944,
-  serialized_end=10063,
+  serialized_start=10121,
+  serialized_end=10240,
 )
 
 _ACCOUNTUPDATE_ACHIEVEMENTUPDATE = _descriptor.Descriptor(
@@ -4531,8 +4570,8 @@ _ACCOUNTUPDATE_ACHIEVEMENTUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10065,
-  serialized_end=10153,
+  serialized_start=10242,
+  serialized_end=10330,
 )
 
 _ACCOUNTUPDATE_DAILYTASKUPDATE = _descriptor.Descriptor(
@@ -4569,8 +4608,8 @@ _ACCOUNTUPDATE_DAILYTASKUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10155,
-  serialized_end=10229,
+  serialized_start=10332,
+  serialized_end=10406,
 )
 
 _ACCOUNTUPDATE_TITLEUPDATE = _descriptor.Descriptor(
@@ -4607,8 +4646,8 @@ _ACCOUNTUPDATE_TITLEUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10231,
-  serialized_end=10287,
+  serialized_start=10408,
+  serialized_end=10464,
 )
 
 _ACCOUNTUPDATE_TASKUPDATE = _descriptor.Descriptor(
@@ -4645,8 +4684,8 @@ _ACCOUNTUPDATE_TASKUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10289,
-  serialized_end=10358,
+  serialized_start=10466,
+  serialized_end=10535,
 )
 
 _ACCOUNTUPDATE_ACCOUNTCHALLENGEUPDATE = _descriptor.Descriptor(
@@ -4718,8 +4757,8 @@ _ACCOUNTUPDATE_ACCOUNTCHALLENGEUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10361,
-  serialized_end=10545,
+  serialized_start=10538,
+  serialized_end=10722,
 )
 
 _ACCOUNTUPDATE_ACCOUNTABMATCHUPDATE_MATCHPOINT = _descriptor.Descriptor(
@@ -4756,8 +4795,8 @@ _ACCOUNTUPDATE_ACCOUNTABMATCHUPDATE_MATCHPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10756,
-  serialized_end=10801,
+  serialized_start=10933,
+  serialized_end=10978,
 )
 
 _ACCOUNTUPDATE_ACCOUNTABMATCHUPDATE = _descriptor.Descriptor(
@@ -4829,8 +4868,46 @@ _ACCOUNTUPDATE_ACCOUNTABMATCHUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10548,
-  serialized_end=10801,
+  serialized_start=10725,
+  serialized_end=10978,
+)
+
+_ACCOUNTUPDATE_SEGMENTTASKUPDATE = _descriptor.Descriptor(
+  name='SegmentTaskUpdate',
+  full_name='lq.AccountUpdate.SegmentTaskUpdate',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='progresses', full_name='lq.AccountUpdate.SegmentTaskUpdate.progresses', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='task_list', full_name='lq.AccountUpdate.SegmentTaskUpdate.task_list', index=1,
+      number=2, type=13, cpp_type=3, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=10980,
+  serialized_end=11063,
 )
 
 _ACCOUNTUPDATE = _descriptor.Descriptor(
@@ -4939,10 +5016,24 @@ _ACCOUNTUPDATE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='activity', full_name='lq.AccountUpdate.activity', index=14,
+      number=15, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='activity_segment_task', full_name='lq.AccountUpdate.activity_segment_task', index=15,
+      number=16, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_ACCOUNTUPDATE_NUMERICALUPDATE, _ACCOUNTUPDATE_CHARACTERUPDATE, _ACCOUNTUPDATE_ACHIEVEMENTUPDATE, _ACCOUNTUPDATE_DAILYTASKUPDATE, _ACCOUNTUPDATE_TITLEUPDATE, _ACCOUNTUPDATE_TASKUPDATE, _ACCOUNTUPDATE_ACCOUNTCHALLENGEUPDATE, _ACCOUNTUPDATE_ACCOUNTABMATCHUPDATE, ],
+  nested_types=[_ACCOUNTUPDATE_NUMERICALUPDATE, _ACCOUNTUPDATE_CHARACTERUPDATE, _ACCOUNTUPDATE_ACHIEVEMENTUPDATE, _ACCOUNTUPDATE_DAILYTASKUPDATE, _ACCOUNTUPDATE_TITLEUPDATE, _ACCOUNTUPDATE_TASKUPDATE, _ACCOUNTUPDATE_ACCOUNTCHALLENGEUPDATE, _ACCOUNTUPDATE_ACCOUNTABMATCHUPDATE, _ACCOUNTUPDATE_SEGMENTTASKUPDATE, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -4951,8 +5042,8 @@ _ACCOUNTUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9171,
-  serialized_end=10801,
+  serialized_start=9235,
+  serialized_end=11063,
 )
 
 
@@ -4997,8 +5088,8 @@ _GAMEMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10803,
-  serialized_end=10872,
+  serialized_start=11065,
+  serialized_end=11134,
 )
 
 
@@ -5043,8 +5134,8 @@ _ACCOUNTPLAYINGGAME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10874,
-  serialized_end=10963,
+  serialized_start=11136,
+  serialized_end=11225,
 )
 
 
@@ -5194,8 +5285,8 @@ _ACCOUNTCACHEVIEW = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10966,
-  serialized_end=11384,
+  serialized_start=11228,
+  serialized_end=11646,
 )
 
 
@@ -5282,8 +5373,8 @@ _PLAYERBASEVIEW = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11387,
-  serialized_end=11601,
+  serialized_start=11649,
+  serialized_end=11863,
 )
 
 
@@ -5377,8 +5468,8 @@ _PLAYERGAMEVIEW = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11604,
-  serialized_end=11862,
+  serialized_start=11866,
+  serialized_end=12124,
 )
 
 
@@ -5409,8 +5500,8 @@ _GAMESETTING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11864,
-  serialized_end=11899,
+  serialized_start=12126,
+  serialized_end=12161,
 )
 
 
@@ -5476,8 +5567,8 @@ _GAMEMODE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11902,
-  serialized_end=12098,
+  serialized_start=12164,
+  serialized_end=12360,
 )
 
 
@@ -5515,8 +5606,8 @@ _GAMETESTINGENVIRONMENTSET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=12100,
-  serialized_end=12164,
+  serialized_start=12362,
+  serialized_end=12426,
 )
 
 
@@ -5858,7 +5949,35 @@ _GAMEDETAILRULE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='disable_leijiyiman', full_name='lq.GameDetailRule.disable_leijiyiman', index=47,
+      name='xuezhandaodi', full_name='lq.GameDetailRule.xuezhandaodi', index=47,
+      number=48, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='huansanzhang', full_name='lq.GameDetailRule.huansanzhang', index=48,
+      number=49, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='chuanma', full_name='lq.GameDetailRule.chuanma', index=49,
+      number=50, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='reveal_discard', full_name='lq.GameDetailRule.reveal_discard', index=50,
+      number=51, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='disable_leijiyiman', full_name='lq.GameDetailRule.disable_leijiyiman', index=51,
       number=60, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -5876,8 +5995,8 @@ _GAMEDETAILRULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=12167,
-  serialized_end=13313,
+  serialized_start=12429,
+  serialized_end=13660,
 )
 
 
@@ -5978,8 +6097,8 @@ _ROOM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=13316,
-  serialized_end=13566,
+  serialized_start=13663,
+  serialized_end=13913,
 )
 
 
@@ -6045,8 +6164,8 @@ _GAMEENDRESULT_PLAYERITEM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=13634,
-  serialized_end=13762,
+  serialized_start=13981,
+  serialized_end=14109,
 )
 
 _GAMEENDRESULT = _descriptor.Descriptor(
@@ -6076,8 +6195,8 @@ _GAMEENDRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=13569,
-  serialized_end=13762,
+  serialized_start=13916,
+  serialized_end=14109,
 )
 
 
@@ -6122,8 +6241,8 @@ _GAMECONNECTINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=13764,
-  serialized_end=13841,
+  serialized_start=14111,
+  serialized_end=14188,
 )
 
 
@@ -6161,8 +6280,8 @@ _ITEMGAINRECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=13843,
-  serialized_end=13891,
+  serialized_start=14190,
+  serialized_end=14238,
 )
 
 
@@ -6207,8 +6326,61 @@ _ITEMGAINRECORDS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=13893,
-  serialized_end=13993,
+  serialized_start=14240,
+  serialized_end=14340,
+)
+
+
+_FAKERANDOMRECORDS = _descriptor.Descriptor(
+  name='FakeRandomRecords',
+  full_name='lq.FakeRandomRecords',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='item_id', full_name='lq.FakeRandomRecords.item_id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='special_item_id', full_name='lq.FakeRandomRecords.special_item_id', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='gain_count', full_name='lq.FakeRandomRecords.gain_count', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='gain_history', full_name='lq.FakeRandomRecords.gain_history', index=3,
+      number=4, type=13, cpp_type=3, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=14342,
+  serialized_end=14445,
 )
 
 
@@ -6246,8 +6418,8 @@ _ITEM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=13995,
-  serialized_end=14033,
+  serialized_start=14447,
+  serialized_end=14485,
 )
 
 
@@ -6285,8 +6457,8 @@ _BAG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14035,
-  serialized_end=14113,
+  serialized_start=14487,
+  serialized_end=14565,
 )
 
 
@@ -6324,8 +6496,8 @@ _BAGUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14115,
-  serialized_end=14213,
+  serialized_start=14567,
+  serialized_end=14665,
 )
 
 
@@ -6363,8 +6535,8 @@ _REWARDSLOT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14215,
-  serialized_end=14254,
+  serialized_start=14667,
+  serialized_end=14706,
 )
 
 
@@ -6402,8 +6574,8 @@ _OPENRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14256,
-  serialized_end=14333,
+  serialized_start=14708,
+  serialized_end=14785,
 )
 
 
@@ -6448,8 +6620,8 @@ _REWARDPLUSRESULT_EXCHANGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14432,
-  serialized_end=14487,
+  serialized_start=14884,
+  serialized_end=14939,
 )
 
 _REWARDPLUSRESULT = _descriptor.Descriptor(
@@ -6493,8 +6665,8 @@ _REWARDPLUSRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14336,
-  serialized_end=14487,
+  serialized_start=14788,
+  serialized_end=14939,
 )
 
 
@@ -6539,28 +6711,28 @@ _EXECUTEREWARD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14489,
-  serialized_end=14592,
+  serialized_start=14941,
+  serialized_end=15044,
 )
 
 
-_MAIL_I18NCONTEXT = _descriptor.Descriptor(
+_I18NCONTEXT = _descriptor.Descriptor(
   name='I18nContext',
-  full_name='lq.Mail.I18nContext',
+  full_name='lq.I18nContext',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='lang', full_name='lq.Mail.I18nContext.lang', index=0,
+      name='lang', full_name='lq.I18nContext.lang', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='context', full_name='lq.Mail.I18nContext.context', index=1,
+      name='context', full_name='lq.I18nContext.context', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -6578,9 +6750,10 @@ _MAIL_I18NCONTEXT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14879,
-  serialized_end=14923,
+  serialized_start=15046,
+  serialized_end=15090,
 )
+
 
 _MAIL = _descriptor.Descriptor(
   name='Mail',
@@ -6670,7 +6843,7 @@ _MAIL = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_MAIL_I18NCONTEXT, ],
+  nested_types=[],
   enum_types=[
   ],
   serialized_options=None,
@@ -6679,8 +6852,8 @@ _MAIL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14595,
-  serialized_end=14923,
+  serialized_start=15093,
+  serialized_end=15365,
 )
 
 
@@ -6739,8 +6912,8 @@ _ACHIEVEMENTPROGRESS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14925,
-  serialized_end=15034,
+  serialized_start=15367,
+  serialized_end=15476,
 )
 
 
@@ -6778,8 +6951,8 @@ _ACCOUNTSTATISTICBYGAMEMODE_ROUNDENDDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=15470,
-  serialized_end=15511,
+  serialized_start=15912,
+  serialized_end=15953,
 )
 
 _ACCOUNTSTATISTICBYGAMEMODE_RANKSCORE = _descriptor.Descriptor(
@@ -6823,8 +6996,8 @@ _ACCOUNTSTATISTICBYGAMEMODE_RANKSCORE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=15513,
-  serialized_end=15572,
+  serialized_start=15955,
+  serialized_end=16014,
 )
 
 _ACCOUNTSTATISTICBYGAMEMODE = _descriptor.Descriptor(
@@ -6945,8 +7118,8 @@ _ACCOUNTSTATISTICBYGAMEMODE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=15037,
-  serialized_end=15572,
+  serialized_start=15479,
+  serialized_end=16014,
 )
 
 
@@ -6984,8 +7157,8 @@ _ACCOUNTSTATISTICBYFAN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=15574,
-  serialized_end=15626,
+  serialized_start=16016,
+  serialized_end=16068,
 )
 
 
@@ -7030,8 +7203,8 @@ _ACCOUNTFANACHIEVED = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=15628,
-  serialized_end=15736,
+  serialized_start=16070,
+  serialized_end=16178,
 )
 
 
@@ -7083,8 +7256,8 @@ _ACCOUNTDETAILSTATISTIC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=15739,
-  serialized_end=15922,
+  serialized_start=16181,
+  serialized_end=16364,
 )
 
 
@@ -7122,8 +7295,8 @@ _ACCOUNTDETAILSTATISTICBYCATEGORY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=15924,
-  serialized_end=16030,
+  serialized_start=16366,
+  serialized_end=16472,
 )
 
 
@@ -7161,8 +7334,8 @@ _ACCOUNTDETAILSTATISTICV2_RANKSTATISTIC_RANKDATA_RANKLEVELDATA = _descriptor.Des
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=16792,
-  serialized_end=16874,
+  serialized_start=17352,
+  serialized_end=17434,
 )
 
 _ACCOUNTDETAILSTATISTICV2_RANKSTATISTIC_RANKDATA = _descriptor.Descriptor(
@@ -7199,8 +7372,8 @@ _ACCOUNTDETAILSTATISTICV2_RANKSTATISTIC_RANKDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=16631,
-  serialized_end=16874,
+  serialized_start=17191,
+  serialized_end=17434,
 )
 
 _ACCOUNTDETAILSTATISTICV2_RANKSTATISTIC = _descriptor.Descriptor(
@@ -7244,8 +7417,8 @@ _ACCOUNTDETAILSTATISTICV2_RANKSTATISTIC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=16429,
-  serialized_end=16874,
+  serialized_start=16989,
+  serialized_end=17434,
 )
 
 _ACCOUNTDETAILSTATISTICV2_CUSTOMIZEDCONTESTSTATISTIC = _descriptor.Descriptor(
@@ -7289,8 +7462,8 @@ _ACCOUNTDETAILSTATISTICV2_CUSTOMIZEDCONTESTSTATISTIC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=16877,
-  serialized_end=17039,
+  serialized_start=17437,
+  serialized_end=17599,
 )
 
 _ACCOUNTDETAILSTATISTICV2_CHALLENGESTATISTIC_SEASONDATA = _descriptor.Descriptor(
@@ -7327,8 +7500,8 @@ _ACCOUNTDETAILSTATISTICV2_CHALLENGESTATISTIC_SEASONDATA = _descriptor.Descriptor
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=17198,
-  serialized_end=17276,
+  serialized_start=17758,
+  serialized_end=17836,
 )
 
 _ACCOUNTDETAILSTATISTICV2_CHALLENGESTATISTIC = _descriptor.Descriptor(
@@ -7365,8 +7538,8 @@ _ACCOUNTDETAILSTATISTICV2_CHALLENGESTATISTIC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=17042,
-  serialized_end=17276,
+  serialized_start=17602,
+  serialized_end=17836,
 )
 
 _ACCOUNTDETAILSTATISTICV2 = _descriptor.Descriptor(
@@ -7412,6 +7585,20 @@ _ACCOUNTDETAILSTATISTICV2 = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='activity_match_statistic', full_name='lq.AccountDetailStatisticV2.activity_match_statistic', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='ab_match_statistic', full_name='lq.AccountDetailStatisticV2.ab_match_statistic', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -7424,8 +7611,8 @@ _ACCOUNTDETAILSTATISTICV2 = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=16033,
-  serialized_end=17276,
+  serialized_start=16475,
+  serialized_end=17836,
 )
 
 
@@ -7463,8 +7650,8 @@ _ACCOUNTSHILIAN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=17278,
-  serialized_end=17323,
+  serialized_start=17838,
+  serialized_end=17883,
 )
 
 
@@ -7551,8 +7738,8 @@ _CLIENTDEVICEINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=17326,
-  serialized_end=17520,
+  serialized_start=17886,
+  serialized_end=18080,
 )
 
 
@@ -7590,8 +7777,8 @@ _CLIENTVERSIONINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=17522,
-  serialized_end=17576,
+  serialized_start=18082,
+  serialized_end=18136,
 )
 
 
@@ -7636,8 +7823,8 @@ _ANNOUNCEMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=17578,
-  serialized_end=17636,
+  serialized_start=18138,
+  serialized_end=18196,
 )
 
 
@@ -7696,8 +7883,8 @@ _TASKPROGRESS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=17638,
-  serialized_end=17733,
+  serialized_start=18198,
+  serialized_end=18293,
 )
 
 
@@ -7742,8 +7929,703 @@ _GAMECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=17735,
-  serialized_end=17825,
+  serialized_start=18295,
+  serialized_end=18385,
+)
+
+
+_RPGSTATE = _descriptor.Descriptor(
+  name='RPGState',
+  full_name='lq.RPGState',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='player_damaged', full_name='lq.RPGState.player_damaged', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='monster_damaged', full_name='lq.RPGState.monster_damaged', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='monster_seq', full_name='lq.RPGState.monster_seq', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=18387,
+  serialized_end=18467,
+)
+
+
+_RPGACTIVITY = _descriptor.Descriptor(
+  name='RPGActivity',
+  full_name='lq.RPGActivity',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='activity_id', full_name='lq.RPGActivity.activity_id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='last_show_uuid', full_name='lq.RPGActivity.last_show_uuid', index=1,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='last_played_uuid', full_name='lq.RPGActivity.last_played_uuid', index=2,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='current_state', full_name='lq.RPGActivity.current_state', index=3,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='last_show_state', full_name='lq.RPGActivity.last_show_state', index=4,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='received_rewards', full_name='lq.RPGActivity.received_rewards', index=5,
+      number=9, type=13, cpp_type=3, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=18470,
+  serialized_end=18656,
+)
+
+
+_ACTIVITYARENADATA = _descriptor.Descriptor(
+  name='ActivityArenaData',
+  full_name='lq.ActivityArenaData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='win_count', full_name='lq.ActivityArenaData.win_count', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='lose_count', full_name='lq.ActivityArenaData.lose_count', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='activity_id', full_name='lq.ActivityArenaData.activity_id', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='enter_time', full_name='lq.ActivityArenaData.enter_time', index=3,
+      number=4, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='daily_enter_count', full_name='lq.ActivityArenaData.daily_enter_count', index=4,
+      number=5, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='daily_enter_time', full_name='lq.ActivityArenaData.daily_enter_time', index=5,
+      number=6, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='max_win_count', full_name='lq.ActivityArenaData.max_win_count', index=6,
+      number=7, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='total_win_count', full_name='lq.ActivityArenaData.total_win_count', index=7,
+      number=8, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=18659,
+  serialized_end=18859,
+)
+
+
+_FEEDACTIVITYDATA_COUNTWITHTIMEDATA = _descriptor.Descriptor(
+  name='CountWithTimeData',
+  full_name='lq.FeedActivityData.CountWithTimeData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='count', full_name='lq.FeedActivityData.CountWithTimeData.count', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='last_update_time', full_name='lq.FeedActivityData.CountWithTimeData.last_update_time', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=19112,
+  serialized_end=19172,
+)
+
+_FEEDACTIVITYDATA_GIFTBOXDATA = _descriptor.Descriptor(
+  name='GiftBoxData',
+  full_name='lq.FeedActivityData.GiftBoxData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='lq.FeedActivityData.GiftBoxData.id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='item_id', full_name='lq.FeedActivityData.GiftBoxData.item_id', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='count', full_name='lq.FeedActivityData.GiftBoxData.count', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='from_account_id', full_name='lq.FeedActivityData.GiftBoxData.from_account_id', index=3,
+      number=4, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='lq.FeedActivityData.GiftBoxData.time', index=4,
+      number=5, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='received', full_name='lq.FeedActivityData.GiftBoxData.received', index=5,
+      number=6, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=19174,
+  serialized_end=19288,
+)
+
+_FEEDACTIVITYDATA = _descriptor.Descriptor(
+  name='FeedActivityData',
+  full_name='lq.FeedActivityData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='activity_id', full_name='lq.FeedActivityData.activity_id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='feed_count', full_name='lq.FeedActivityData.feed_count', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='friend_receive_data', full_name='lq.FeedActivityData.friend_receive_data', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='friend_send_data', full_name='lq.FeedActivityData.friend_send_data', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='gift_inbox', full_name='lq.FeedActivityData.gift_inbox', index=4,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_FEEDACTIVITYDATA_COUNTWITHTIMEDATA, _FEEDACTIVITYDATA_GIFTBOXDATA, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=18862,
+  serialized_end=19288,
+)
+
+
+_SEGMENTTASKPROGRESS = _descriptor.Descriptor(
+  name='SegmentTaskProgress',
+  full_name='lq.SegmentTaskProgress',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='lq.SegmentTaskProgress.id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='counter', full_name='lq.SegmentTaskProgress.counter', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='achieved', full_name='lq.SegmentTaskProgress.achieved', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='rewarded', full_name='lq.SegmentTaskProgress.rewarded', index=3,
+      number=4, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='failed', full_name='lq.SegmentTaskProgress.failed', index=4,
+      number=5, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='reward_count', full_name='lq.SegmentTaskProgress.reward_count', index=5,
+      number=6, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='achieved_count', full_name='lq.SegmentTaskProgress.achieved_count', index=6,
+      number=7, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=19291,
+  serialized_end=19439,
+)
+
+
+_MINEACTIVITYDATA = _descriptor.Descriptor(
+  name='MineActivityData',
+  full_name='lq.MineActivityData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='dig_point', full_name='lq.MineActivityData.dig_point', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='map', full_name='lq.MineActivityData.map', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='id', full_name='lq.MineActivityData.id', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=19441,
+  serialized_end=19530,
+)
+
+
+_ACCOUNTACTIVITYUPDATE = _descriptor.Descriptor(
+  name='AccountActivityUpdate',
+  full_name='lq.AccountActivityUpdate',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='mine_data', full_name='lq.AccountActivityUpdate.mine_data', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='rpg_data', full_name='lq.AccountActivityUpdate.rpg_data', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='feed_data', full_name='lq.AccountActivityUpdate.feed_data', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=19533,
+  serialized_end=19673,
+)
+
+
+_ACTIVITYFEEDDATA_COUNTWITHTIMEDATA = _descriptor.Descriptor(
+  name='CountWithTimeData',
+  full_name='lq.ActivityFeedData.CountWithTimeData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='count', full_name='lq.ActivityFeedData.CountWithTimeData.count', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='last_update_time', full_name='lq.ActivityFeedData.CountWithTimeData.last_update_time', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=19112,
+  serialized_end=19172,
+)
+
+_ACTIVITYFEEDDATA_GIFTBOXDATA = _descriptor.Descriptor(
+  name='GiftBoxData',
+  full_name='lq.ActivityFeedData.GiftBoxData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='lq.ActivityFeedData.GiftBoxData.id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='item_id', full_name='lq.ActivityFeedData.GiftBoxData.item_id', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='count', full_name='lq.ActivityFeedData.GiftBoxData.count', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='from_account_id', full_name='lq.ActivityFeedData.GiftBoxData.from_account_id', index=3,
+      number=4, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='lq.ActivityFeedData.GiftBoxData.time', index=4,
+      number=5, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='received', full_name='lq.ActivityFeedData.GiftBoxData.received', index=5,
+      number=6, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=19174,
+  serialized_end=19288,
+)
+
+_ACTIVITYFEEDDATA = _descriptor.Descriptor(
+  name='ActivityFeedData',
+  full_name='lq.ActivityFeedData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='activity_id', full_name='lq.ActivityFeedData.activity_id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='feed_count', full_name='lq.ActivityFeedData.feed_count', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='friend_receive_data', full_name='lq.ActivityFeedData.friend_receive_data', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='friend_send_data', full_name='lq.ActivityFeedData.friend_send_data', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='gift_inbox', full_name='lq.ActivityFeedData.gift_inbox', index=4,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='max_inbox_id', full_name='lq.ActivityFeedData.max_inbox_id', index=5,
+      number=6, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_ACTIVITYFEEDDATA_COUNTWITHTIMEDATA, _ACTIVITYFEEDDATA_GIFTBOXDATA, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=19676,
+  serialized_end=20124,
 )
 
 
@@ -7802,8 +8684,8 @@ _ACCOUNTACTIVESTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=17828,
-  serialized_end=17969,
+  serialized_start=20127,
+  serialized_end=20268,
 )
 
 
@@ -7841,8 +8723,93 @@ _FRIEND = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=17971,
-  serialized_end=18052,
+  serialized_start=20270,
+  serialized_end=20351,
+)
+
+
+_POINT = _descriptor.Descriptor(
+  name='Point',
+  full_name='lq.Point',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='x', full_name='lq.Point.x', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='y', full_name='lq.Point.y', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=20353,
+  serialized_end=20382,
+)
+
+
+_MINEREWARD = _descriptor.Descriptor(
+  name='MineReward',
+  full_name='lq.MineReward',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='point', full_name='lq.MineReward.point', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='reward_id', full_name='lq.MineReward.reward_id', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='received', full_name='lq.MineReward.received', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=20384,
+  serialized_end=20459,
 )
 
 
@@ -7887,8 +8854,8 @@ _GAMELIVEUNIT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=18054,
-  serialized_end=18133,
+  serialized_start=20461,
+  serialized_end=20540,
 )
 
 
@@ -7919,8 +8886,8 @@ _GAMELIVESEGMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=18135,
-  serialized_end=18187,
+  serialized_start=20542,
+  serialized_end=20594,
 )
 
 
@@ -7958,8 +8925,8 @@ _GAMELIVESEGMENTURI = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=18189,
-  serialized_end=18250,
+  serialized_start=20596,
+  serialized_end=20657,
 )
 
 
@@ -8018,8 +8985,8 @@ _GAMELIVEHEAD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=18253,
-  serialized_end=18394,
+  serialized_start=20660,
+  serialized_end=20801,
 )
 
 
@@ -8050,8 +9017,8 @@ _GAMENEWROUNDSTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=18396,
-  serialized_end=18436,
+  serialized_start=20803,
+  serialized_end=20843,
 )
 
 
@@ -8082,8 +9049,8 @@ _GAMEENDACTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=18438,
-  serialized_end=18468,
+  serialized_start=20845,
+  serialized_end=20875,
 )
 
 
@@ -8107,8 +9074,8 @@ _GAMENOOPACTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=18470,
-  serialized_end=18486,
+  serialized_start=20877,
+  serialized_end=20893,
 )
 
 
@@ -8167,8 +9134,8 @@ _COMMENTITEM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=18488,
-  serialized_end=18615,
+  serialized_start=20895,
+  serialized_end=21022,
 )
 
 
@@ -8234,8 +9201,8 @@ _ROLLINGNOTICE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=18617,
-  serialized_end=18738,
+  serialized_start=21024,
+  serialized_end=21145,
 )
 
 
@@ -8301,8 +9268,8 @@ _BILLINGGOODS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=18740,
-  serialized_end=18853,
+  serialized_start=21147,
+  serialized_end=21260,
 )
 
 
@@ -8347,8 +9314,8 @@ _BILLSHORTCUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=18855,
-  serialized_end=18915,
+  serialized_start=21262,
+  serialized_end=21322,
 )
 
 
@@ -8400,8 +9367,8 @@ _BILLINGPRODUCT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=18917,
-  serialized_end=19034,
+  serialized_start=21324,
+  serialized_end=21441,
 )
 
 
@@ -8462,6 +9429,13 @@ _CHARACTER = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='rewarded_level', full_name='lq.Character.rewarded_level', index=7,
+      number=8, type=13, cpp_type=3, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -8474,8 +9448,8 @@ _CHARACTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=19037,
-  serialized_end=19177,
+  serialized_start=21444,
+  serialized_end=21608,
 )
 
 
@@ -8513,8 +9487,8 @@ _BUYRECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=19179,
-  serialized_end=19217,
+  serialized_start=21610,
+  serialized_end=21648,
 )
 
 
@@ -8552,8 +9526,8 @@ _ZHPSHOP_REFRESHCOUNT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=19378,
-  serialized_end=19422,
+  serialized_start=21809,
+  serialized_end=21853,
 )
 
 _ZHPSHOP = _descriptor.Descriptor(
@@ -8604,8 +9578,8 @@ _ZHPSHOP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=19220,
-  serialized_end=19422,
+  serialized_start=21651,
+  serialized_end=21853,
 )
 
 
@@ -8650,8 +9624,8 @@ _MONTHTICKETINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=19424,
-  serialized_end=19494,
+  serialized_start=21855,
+  serialized_end=21925,
 )
 
 
@@ -8696,8 +9670,8 @@ _SHOPINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=19496,
-  serialized_end=19595,
+  serialized_start=21927,
+  serialized_end=22026,
 )
 
 
@@ -8742,8 +9716,8 @@ _CHANGENICKNAMERECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=19597,
-  serialized_end=19659,
+  serialized_start=22028,
+  serialized_end=22090,
 )
 
 
@@ -8769,6 +9743,13 @@ _SERVERSETTINGS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='nickname_setting', full_name='lq.ServerSettings.nickname_setting', index=2,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -8781,8 +9762,47 @@ _SERVERSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=19661,
-  serialized_end=19772,
+  serialized_start=22093,
+  serialized_end=22251,
+)
+
+
+_NICKNAMESETTING = _descriptor.Descriptor(
+  name='NicknameSetting',
+  full_name='lq.NicknameSetting',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='enable', full_name='lq.NicknameSetting.enable', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='nicknames', full_name='lq.NicknameSetting.nicknames', index=1,
+      number=2, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=22253,
+  serialized_end=22305,
 )
 
 
@@ -8834,8 +9854,8 @@ _PAYMENTSETTINGV2_PAYMENTMAINTAIN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=19885,
-  serialized_end=19994,
+  serialized_start=22418,
+  serialized_end=22527,
 )
 
 _PAYMENTSETTINGV2_PAYMENTSETTINGUNIT = _descriptor.Descriptor(
@@ -8881,6 +9901,13 @@ _PAYMENTSETTINGV2_PAYMENTSETTINGUNIT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='enable_for_frozen_account', full_name='lq.PaymentSettingV2.PaymentSettingUnit.enable_for_frozen_account', index=5,
+      number=6, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -8893,8 +9920,8 @@ _PAYMENTSETTINGV2_PAYMENTSETTINGUNIT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=19997,
-  serialized_end=20162,
+  serialized_start=22530,
+  serialized_end=22730,
 )
 
 _PAYMENTSETTINGV2 = _descriptor.Descriptor(
@@ -8931,8 +9958,8 @@ _PAYMENTSETTINGV2 = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=19775,
-  serialized_end=20162,
+  serialized_start=22308,
+  serialized_end=22730,
 )
 
 
@@ -8977,8 +10004,8 @@ _PAYMENTSETTING_WECHATDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=20353,
-  serialized_end=20445,
+  serialized_start=22921,
+  serialized_end=23013,
 )
 
 _PAYMENTSETTING_ALIPAYDATA = _descriptor.Descriptor(
@@ -9015,8 +10042,8 @@ _PAYMENTSETTING_ALIPAYDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=20447,
-  serialized_end=20516,
+  serialized_start=23015,
+  serialized_end=23084,
 )
 
 _PAYMENTSETTING = _descriptor.Descriptor(
@@ -9074,8 +10101,8 @@ _PAYMENTSETTING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=20165,
-  serialized_end=20516,
+  serialized_start=22733,
+  serialized_end=23084,
 )
 
 
@@ -9113,8 +10140,8 @@ _ACCOUNTSETTING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=20518,
-  serialized_end=20562,
+  serialized_start=23086,
+  serialized_end=23130,
 )
 
 
@@ -9166,8 +10193,8 @@ _CHESTDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=20564,
-  serialized_end=20668,
+  serialized_start=23132,
+  serialized_end=23236,
 )
 
 
@@ -9212,8 +10239,8 @@ _CHESTDATAV2 = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=20670,
-  serialized_end=20753,
+  serialized_start=23238,
+  serialized_end=23321,
 )
 
 
@@ -9265,8 +10292,8 @@ _FAITHDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=20755,
-  serialized_end=20855,
+  serialized_start=23323,
+  serialized_end=23423,
 )
 
 
@@ -9360,8 +10387,8 @@ _CUSTOMIZEDCONTESTBASE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=20858,
-  serialized_end=21075,
+  serialized_start=23426,
+  serialized_end=23643,
 )
 
 
@@ -9399,8 +10426,8 @@ _CUSTOMIZEDCONTESTEXTEND = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=21077,
-  serialized_end=21144,
+  serialized_start=23645,
+  serialized_end=23712,
 )
 
 
@@ -9482,6 +10509,13 @@ _CUSTOMIZEDCONTESTABSTRACT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='contest_type', full_name='lq.CustomizedContestAbstract.contest_type', index=10,
+      number=11, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -9494,8 +10528,8 @@ _CUSTOMIZEDCONTESTABSTRACT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=21147,
-  serialized_end=21369,
+  serialized_start=23715,
+  serialized_end=23959,
 )
 
 
@@ -9605,6 +10639,13 @@ _CUSTOMIZEDCONTESTDETAIL = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='contest_type', full_name='lq.CustomizedContestDetail.contest_type', index=14,
+      number=15, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -9617,8 +10658,8 @@ _CUSTOMIZEDCONTESTDETAIL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=21372,
-  serialized_end=21692,
+  serialized_start=23962,
+  serialized_end=24304,
 )
 
 
@@ -9677,8 +10718,8 @@ _CUSTOMIZEDCONTESTPLAYERREPORT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=21694,
-  serialized_end=21819,
+  serialized_start=24306,
+  serialized_end=24431,
 )
 
 
@@ -9779,8 +10820,8 @@ _RECORDGAME_ACCOUNTINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=22002,
-  serialized_end=22271,
+  serialized_start=24614,
+  serialized_end=24883,
 )
 
 _RECORDGAME = _descriptor.Descriptor(
@@ -9845,8 +10886,8 @@ _RECORDGAME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=21822,
-  serialized_end=22271,
+  serialized_start=24434,
+  serialized_end=24883,
 )
 
 
@@ -9915,8 +10956,8 @@ _CUSTOMIZEDCONTESTGAMESTART = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=22274,
-  serialized_end=22402,
+  serialized_start=24886,
+  serialized_end=25014,
 )
 
 
@@ -9961,8 +11002,8 @@ _CUSTOMIZEDCONTESTGAMEEND_ITEM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=22485,
-  serialized_end=22550,
+  serialized_start=25097,
+  serialized_end=25162,
 )
 
 _CUSTOMIZEDCONTESTGAMEEND = _descriptor.Descriptor(
@@ -9992,8 +11033,8 @@ _CUSTOMIZEDCONTESTGAMEEND = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=22405,
-  serialized_end=22550,
+  serialized_start=25017,
+  serialized_end=25162,
 )
 
 
@@ -10045,8 +11086,8 @@ _ACTIVITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=22552,
-  serialized_end=22635,
+  serialized_start=25164,
+  serialized_end=25247,
 )
 
 
@@ -10084,8 +11125,8 @@ _EXCHANGERECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=22637,
-  serialized_end=22689,
+  serialized_start=25249,
+  serialized_end=25301,
 )
 
 
@@ -10130,8 +11171,8 @@ _ACTIVITYACCUMULATEDPOINTDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=22691,
-  serialized_end=22785,
+  serialized_start=25303,
+  serialized_end=25397,
 )
 
 
@@ -10183,8 +11224,8 @@ _ACTIVITYRANKPOINTDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=22787,
-  serialized_end=22895,
+  serialized_start=25399,
+  serialized_end=25507,
 )
 
 
@@ -10229,8 +11270,8 @@ _GAMEROUNDHUDATA_HUPAI = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=23219,
-  serialized_end=23268,
+  serialized_start=25831,
+  serialized_end=25880,
 )
 
 _GAMEROUNDHUDATA_FAN = _descriptor.Descriptor(
@@ -10274,8 +11315,8 @@ _GAMEROUNDHUDATA_FAN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=23270,
-  serialized_end=23315,
+  serialized_start=25882,
+  serialized_end=25927,
 )
 
 _GAMEROUNDHUDATA = _descriptor.Descriptor(
@@ -10389,8 +11430,8 @@ _GAMEROUNDHUDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=22898,
-  serialized_end=23315,
+  serialized_start=25510,
+  serialized_end=25927,
 )
 
 
@@ -10470,8 +11511,8 @@ _GAMEROUNDPLAYERRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=23318,
-  serialized_end=23499,
+  serialized_start=25930,
+  serialized_end=26111,
 )
 
 
@@ -10516,8 +11557,8 @@ _GAMEROUNDPLAYER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=23501,
-  serialized_end=23590,
+  serialized_start=26113,
+  serialized_end=26202,
 )
 
 
@@ -10562,8 +11603,8 @@ _GAMEROUNDSNAPSHOT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=23592,
-  serialized_end=23674,
+  serialized_start=26204,
+  serialized_end=26286,
 )
 
 
@@ -10608,8 +11649,8 @@ _GAMEFINALSNAPSHOT_CALCULATEPARAM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=24166,
-  serialized_end=24249,
+  serialized_start=26778,
+  serialized_end=26861,
 )
 
 _GAMEFINALSNAPSHOT_GAMESEAT = _descriptor.Descriptor(
@@ -10667,8 +11708,8 @@ _GAMEFINALSNAPSHOT_GAMESEAT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=24252,
-  serialized_end=24388,
+  serialized_start=26864,
+  serialized_end=27000,
 )
 
 _GAMEFINALSNAPSHOT_FINALPLAYER = _descriptor.Descriptor(
@@ -10733,8 +11774,8 @@ _GAMEFINALSNAPSHOT_FINALPLAYER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=24391,
-  serialized_end=24520,
+  serialized_start=27003,
+  serialized_end=27132,
 )
 
 _GAMEFINALSNAPSHOT_AFKINFO = _descriptor.Descriptor(
@@ -10778,8 +11819,8 @@ _GAMEFINALSNAPSHOT_AFKINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=24522,
-  serialized_end=24591,
+  serialized_start=27134,
+  serialized_end=27203,
 )
 
 _GAMEFINALSNAPSHOT = _descriptor.Descriptor(
@@ -10900,8 +11941,8 @@ _GAMEFINALSNAPSHOT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=23677,
-  serialized_end=24591,
+  serialized_start=26289,
+  serialized_end=27203,
 )
 
 
@@ -10953,8 +11994,8 @@ _RECORDCOLLECTEDDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=24593,
-  serialized_end=24683,
+  serialized_start=27205,
+  serialized_end=27295,
 )
 
 
@@ -11244,8 +12285,8 @@ _CONTESTDETAILRULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=24686,
-  serialized_end=25640,
+  serialized_start=27298,
+  serialized_end=28252,
 )
 
 
@@ -11283,8 +12324,8 @@ _CONTESTDETAILRULEV2_EXTRARULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=25763,
-  serialized_end=25822,
+  serialized_start=28375,
+  serialized_end=28434,
 )
 
 _CONTESTDETAILRULEV2 = _descriptor.Descriptor(
@@ -11321,8 +12362,8 @@ _CONTESTDETAILRULEV2 = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=25643,
-  serialized_end=25822,
+  serialized_start=28255,
+  serialized_end=28434,
 )
 
 
@@ -11388,8 +12429,8 @@ _GAMERULESETTING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=25825,
-  serialized_end=25996,
+  serialized_start=28437,
+  serialized_end=28608,
 )
 
 
@@ -11476,8 +12517,8 @@ _RECORDTINGPAIINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=25999,
-  serialized_end=26172,
+  serialized_start=28611,
+  serialized_end=28784,
 )
 
 
@@ -11510,6 +12551,13 @@ _RECORDNOTILEPLAYERINFO = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='liuman', full_name='lq.RecordNoTilePlayerInfo.liuman', index=3,
+      number=6, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -11522,8 +12570,8 @@ _RECORDNOTILEPLAYERINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=26174,
-  serialized_end=26267,
+  serialized_start=28786,
+  serialized_end=28895,
 )
 
 
@@ -11561,8 +12609,8 @@ _RECORDHULEINFO_RECORDFANINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=26670,
-  serialized_end=26710,
+  serialized_start=29298,
+  serialized_end=29338,
 )
 
 _RECORDHULEINFO = _descriptor.Descriptor(
@@ -11732,8 +12780,8 @@ _RECORDHULEINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=26270,
-  serialized_end=26710,
+  serialized_start=28898,
+  serialized_end=29338,
 )
 
 
@@ -11771,8 +12819,8 @@ _RECORDHULESINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=26712,
-  serialized_end=26778,
+  serialized_start=29340,
+  serialized_end=29406,
 )
 
 
@@ -11810,8 +12858,8 @@ _RECORDLIUJUINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=26780,
-  serialized_end=26825,
+  serialized_start=29408,
+  serialized_end=29453,
 )
 
 
@@ -11849,8 +12897,8 @@ _RECORDNOTILEINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=26827,
-  serialized_end=26912,
+  serialized_start=29455,
+  serialized_end=29540,
 )
 
 
@@ -11916,8 +12964,8 @@ _RECORDLIQIINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=26914,
-  serialized_end=27028,
+  serialized_start=29542,
+  serialized_end=29656,
 )
 
 
@@ -11976,8 +13024,8 @@ _RECORDGANGINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=27030,
-  serialized_end=27117,
+  serialized_start=29658,
+  serialized_end=29745,
 )
 
 
@@ -12029,8 +13077,8 @@ _RECORDBABEIINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=27119,
-  serialized_end=27202,
+  serialized_start=29747,
+  serialized_end=29830,
 )
 
 
@@ -12075,8 +13123,8 @@ _RECORDPEIPAIINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=27204,
-  serialized_end=27283,
+  serialized_start=29832,
+  serialized_end=29911,
 )
 
 
@@ -12184,8 +13232,8 @@ _RECORDROUNDINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=27286,
-  serialized_end=27665,
+  serialized_start=29914,
+  serialized_end=30293,
 )
 
 
@@ -12216,8 +13264,61 @@ _RECORDANALYSISEDDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=27667,
-  serialized_end=27731,
+  serialized_start=30295,
+  serialized_end=30359,
+)
+
+
+_NOTIFYCAPTCHA = _descriptor.Descriptor(
+  name='NotifyCaptcha',
+  full_name='lq.NotifyCaptcha',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='check_id', full_name='lq.NotifyCaptcha.check_id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='start_time', full_name='lq.NotifyCaptcha.start_time', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='random_str', full_name='lq.NotifyCaptcha.random_str', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='lq.NotifyCaptcha.type', index=3,
+      number=4, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=30361,
+  serialized_end=30448,
 )
 
 
@@ -12269,8 +13370,8 @@ _NOTIFYROOMGAMESTART = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=27733,
-  serialized_end=27832,
+  serialized_start=30450,
+  serialized_end=30549,
 )
 
 
@@ -12329,8 +13430,8 @@ _NOTIFYMATCHGAMESTART = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=27834,
-  serialized_end=27957,
+  serialized_start=30551,
+  serialized_end=30674,
 )
 
 
@@ -12368,8 +13469,8 @@ _NOTIFYROOMPLAYERREADY_ACCOUNTREADYSTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=28100,
-  serialized_end=28154,
+  serialized_start=30817,
+  serialized_end=30871,
 )
 
 _NOTIFYROOMPLAYERREADY = _descriptor.Descriptor(
@@ -12420,8 +13521,8 @@ _NOTIFYROOMPLAYERREADY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=27960,
-  serialized_end=28154,
+  serialized_start=30677,
+  serialized_end=30871,
 )
 
 
@@ -12459,8 +13560,8 @@ _NOTIFYROOMPLAYERDRESSING_ACCOUNTDRESSINGSTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=28309,
-  serialized_end=28369,
+  serialized_start=31026,
+  serialized_end=31086,
 )
 
 _NOTIFYROOMPLAYERDRESSING = _descriptor.Descriptor(
@@ -12511,8 +13612,8 @@ _NOTIFYROOMPLAYERDRESSING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=28157,
-  serialized_end=28369,
+  serialized_start=30874,
+  serialized_end=31086,
 )
 
 
@@ -12578,8 +13679,8 @@ _NOTIFYROOMPLAYERUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=28372,
-  serialized_end=28551,
+  serialized_start=31089,
+  serialized_end=31268,
 )
 
 
@@ -12603,33 +13704,8 @@ _NOTIFYROOMKICKOUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=28553,
-  serialized_end=28572,
-)
-
-
-_NOTIFYMATCHTIMEOUT = _descriptor.Descriptor(
-  name='NotifyMatchTimeout',
-  full_name='lq.NotifyMatchTimeout',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=28574,
-  serialized_end=28594,
+  serialized_start=31270,
+  serialized_end=31289,
 )
 
 
@@ -12667,8 +13743,8 @@ _NOTIFYFRIENDSTATECHANGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=28596,
-  serialized_end=28686,
+  serialized_start=31291,
+  serialized_end=31381,
 )
 
 
@@ -12706,8 +13782,8 @@ _NOTIFYFRIENDVIEWCHANGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=28688,
-  serialized_end=28765,
+  serialized_start=31383,
+  serialized_end=31460,
 )
 
 
@@ -12752,8 +13828,8 @@ _NOTIFYFRIENDCHANGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=28767,
-  serialized_end=28849,
+  serialized_start=31462,
+  serialized_end=31544,
 )
 
 
@@ -12798,8 +13874,8 @@ _NOTIFYNEWFRIENDAPPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=28851,
-  serialized_end=28933,
+  serialized_start=31546,
+  serialized_end=31628,
 )
 
 
@@ -12844,8 +13920,8 @@ _NOTIFYCLIENTMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=28935,
-  serialized_end=29023,
+  serialized_start=31630,
+  serialized_end=31718,
 )
 
 
@@ -12876,8 +13952,8 @@ _NOTIFYACCOUNTUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=29025,
-  serialized_end=29081,
+  serialized_start=31720,
+  serialized_end=31776,
 )
 
 
@@ -12901,8 +13977,8 @@ _NOTIFYANOTHERLOGIN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=29083,
-  serialized_end=29103,
+  serialized_start=31778,
+  serialized_end=31798,
 )
 
 
@@ -12926,36 +14002,29 @@ _NOTIFYACCOUNTLOGOUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=29105,
-  serialized_end=29126,
+  serialized_start=31800,
+  serialized_end=31821,
 )
 
 
-_NOTIFYANNOUNCEMENTUPDATE = _descriptor.Descriptor(
-  name='NotifyAnnouncementUpdate',
-  full_name='lq.NotifyAnnouncementUpdate',
+_NOTIFYANNOUNCEMENTUPDATE_ANNOUNCEMENTUPDATE = _descriptor.Descriptor(
+  name='AnnouncementUpdate',
+  full_name='lq.NotifyAnnouncementUpdate.AnnouncementUpdate',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='announcements', full_name='lq.NotifyAnnouncementUpdate.announcements', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
+      name='lang', full_name='lq.NotifyAnnouncementUpdate.AnnouncementUpdate.lang', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='sort', full_name='lq.NotifyAnnouncementUpdate.sort', index=1,
-      number=2, type=13, cpp_type=3, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='lang', full_name='lq.NotifyAnnouncementUpdate.lang', index=2,
-      number=3, type=9, cpp_type=9, label=1,
+      name='platform', full_name='lq.NotifyAnnouncementUpdate.AnnouncementUpdate.platform', index=1,
+      number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -12972,8 +14041,39 @@ _NOTIFYANNOUNCEMENTUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=29128,
-  serialized_end=29223,
+  serialized_start=31922,
+  serialized_end=31974,
+)
+
+_NOTIFYANNOUNCEMENTUPDATE = _descriptor.Descriptor(
+  name='NotifyAnnouncementUpdate',
+  full_name='lq.NotifyAnnouncementUpdate',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='update_list', full_name='lq.NotifyAnnouncementUpdate.update_list', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_NOTIFYANNOUNCEMENTUPDATE_ANNOUNCEMENTUPDATE, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=31824,
+  serialized_end=31974,
 )
 
 
@@ -13004,8 +14104,8 @@ _NOTIFYNEWMAIL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=29225,
-  serialized_end=29264,
+  serialized_start=31976,
+  serialized_end=32015,
 )
 
 
@@ -13036,8 +14136,8 @@ _NOTIFYDELETEMAIL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=29266,
-  serialized_end=29306,
+  serialized_start=32017,
+  serialized_end=32057,
 )
 
 
@@ -13068,8 +14168,8 @@ _NOTIFYREVIVECOINUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=29308,
-  serialized_end=29352,
+  serialized_start=32059,
+  serialized_end=32103,
 )
 
 
@@ -13114,8 +14214,8 @@ _NOTIFYDAILYTASKUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=29354,
-  serialized_end=29468,
+  serialized_start=32105,
+  serialized_end=32219,
 )
 
 
@@ -13146,8 +14246,8 @@ _NOTIFYACTIVITYTASKUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=29470,
-  serialized_end=29534,
+  serialized_start=32221,
+  serialized_end=32285,
 )
 
 
@@ -13178,8 +14278,8 @@ _NOTIFYACTIVITYPERIODTASKUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=29536,
-  serialized_end=29606,
+  serialized_start=32287,
+  serialized_end=32357,
 )
 
 
@@ -13210,8 +14310,235 @@ _NOTIFYACCOUNTRANDOMTASKUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=29608,
-  serialized_end=29677,
+  serialized_start=32359,
+  serialized_end=32428,
+)
+
+
+_NOTIFYACTIVITYSEGMENTTASKUPDATE = _descriptor.Descriptor(
+  name='NotifyActivitySegmentTaskUpdate',
+  full_name='lq.NotifyActivitySegmentTaskUpdate',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='progresses', full_name='lq.NotifyActivitySegmentTaskUpdate.progresses', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=32430,
+  serialized_end=32508,
+)
+
+
+_NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA_COUNTWITHTIMEDATA = _descriptor.Descriptor(
+  name='CountWithTimeData',
+  full_name='lq.NotifyActivityUpdate.FeedActivityData.CountWithTimeData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='count', full_name='lq.NotifyActivityUpdate.FeedActivityData.CountWithTimeData.count', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='last_update_time', full_name='lq.NotifyActivityUpdate.FeedActivityData.CountWithTimeData.last_update_time', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=19112,
+  serialized_end=19172,
+)
+
+_NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA_GIFTBOXDATA = _descriptor.Descriptor(
+  name='GiftBoxData',
+  full_name='lq.NotifyActivityUpdate.FeedActivityData.GiftBoxData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='lq.NotifyActivityUpdate.FeedActivityData.GiftBoxData.id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='item_id', full_name='lq.NotifyActivityUpdate.FeedActivityData.GiftBoxData.item_id', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='count', full_name='lq.NotifyActivityUpdate.FeedActivityData.GiftBoxData.count', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='from_account_id', full_name='lq.NotifyActivityUpdate.FeedActivityData.GiftBoxData.from_account_id', index=3,
+      number=4, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='lq.NotifyActivityUpdate.FeedActivityData.GiftBoxData.time', index=4,
+      number=5, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='received', full_name='lq.NotifyActivityUpdate.FeedActivityData.GiftBoxData.received', index=5,
+      number=6, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=19174,
+  serialized_end=19288,
+)
+
+_NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA = _descriptor.Descriptor(
+  name='FeedActivityData',
+  full_name='lq.NotifyActivityUpdate.FeedActivityData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='activity_id', full_name='lq.NotifyActivityUpdate.FeedActivityData.activity_id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='feed_count', full_name='lq.NotifyActivityUpdate.FeedActivityData.feed_count', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='friend_receive_data', full_name='lq.NotifyActivityUpdate.FeedActivityData.friend_receive_data', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='friend_send_data', full_name='lq.NotifyActivityUpdate.FeedActivityData.friend_send_data', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='gift_inbox', full_name='lq.NotifyActivityUpdate.FeedActivityData.gift_inbox', index=4,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA_COUNTWITHTIMEDATA, _NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA_GIFTBOXDATA, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=32593,
+  serialized_end=33082,
+)
+
+_NOTIFYACTIVITYUPDATE = _descriptor.Descriptor(
+  name='NotifyActivityUpdate',
+  full_name='lq.NotifyActivityUpdate',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='list', full_name='lq.NotifyActivityUpdate.list', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=32511,
+  serialized_end=33082,
 )
 
 
@@ -13277,8 +14604,8 @@ _NOTIFYACCOUNTCHALLENGETASKUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=29680,
-  serialized_end=29855,
+  serialized_start=33085,
+  serialized_end=33260,
 )
 
 
@@ -13302,8 +14629,8 @@ _NOTIFYNEWCOMMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=29857,
-  serialized_end=29875,
+  serialized_start=33262,
+  serialized_end=33280,
 )
 
 
@@ -13334,8 +14661,8 @@ _NOTIFYROLLINGNOTICE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=29877,
-  serialized_end=29933,
+  serialized_start=33282,
+  serialized_end=33338,
 )
 
 
@@ -13359,8 +14686,8 @@ _NOTIFYGIFTSENDREFRESH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=29935,
-  serialized_end=29958,
+  serialized_start=33340,
+  serialized_end=33363,
 )
 
 
@@ -13391,8 +14718,8 @@ _NOTIFYSHOPUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=29960,
-  serialized_end=30011,
+  serialized_start=33365,
+  serialized_end=33416,
 )
 
 
@@ -13458,8 +14785,8 @@ _NOTIFYVIPLEVELCHANGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=30014,
-  serialized_end=30197,
+  serialized_start=33419,
+  serialized_end=33602,
 )
 
 
@@ -13490,8 +14817,8 @@ _NOTIFYSERVERSETTING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=30199,
-  serialized_end=30258,
+  serialized_start=33604,
+  serialized_end=33663,
 )
 
 
@@ -13536,8 +14863,8 @@ _NOTIFYPAYRESULT_RESOURCEMODIFY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=30423,
-  serialized_end=30481,
+  serialized_start=33828,
+  serialized_end=33886,
 )
 
 _NOTIFYPAYRESULT = _descriptor.Descriptor(
@@ -13595,8 +14922,8 @@ _NOTIFYPAYRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=30261,
-  serialized_end=30481,
+  serialized_start=33666,
+  serialized_end=33886,
 )
 
 
@@ -13655,8 +14982,8 @@ _NOTIFYCUSTOMCONTESTACCOUNTMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=30483,
-  serialized_end=30604,
+  serialized_start=33888,
+  serialized_end=34009,
 )
 
 
@@ -13715,8 +15042,40 @@ _NOTIFYCUSTOMCONTESTSYSTEMMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=30607,
-  serialized_end=30784,
+  serialized_start=34012,
+  serialized_end=34189,
+)
+
+
+_NOTIFYMATCHTIMEOUT = _descriptor.Descriptor(
+  name='NotifyMatchTimeout',
+  full_name='lq.NotifyMatchTimeout',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sid', full_name='lq.NotifyMatchTimeout.sid', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=34191,
+  serialized_end=34224,
 )
 
 
@@ -13754,8 +15113,8 @@ _NOTIFYCUSTOMCONTESTSTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=30786,
-  serialized_end=30846,
+  serialized_start=34226,
+  serialized_end=34286,
 )
 
 
@@ -13793,8 +15152,8 @@ _NOTIFYACTIVITYCHANGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=30848,
-  serialized_end=30932,
+  serialized_start=34288,
+  serialized_end=34372,
 )
 
 
@@ -13839,8 +15198,479 @@ _NOTIFYAFKRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=30934,
-  serialized_end=31006,
+  serialized_start=34374,
+  serialized_end=34446,
+)
+
+
+_NOTIFYGAMEFINISHREWARDV2_LEVELCHANGE = _descriptor.Descriptor(
+  name='LevelChange',
+  full_name='lq.NotifyGameFinishRewardV2.LevelChange',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='origin', full_name='lq.NotifyGameFinishRewardV2.LevelChange.origin', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='final', full_name='lq.NotifyGameFinishRewardV2.LevelChange.final', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='lq.NotifyGameFinishRewardV2.LevelChange.type', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=34756,
+  serialized_end=34850,
+)
+
+_NOTIFYGAMEFINISHREWARDV2_MATCHCHEST = _descriptor.Descriptor(
+  name='MatchChest',
+  full_name='lq.NotifyGameFinishRewardV2.MatchChest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='chest_id', full_name='lq.NotifyGameFinishRewardV2.MatchChest.chest_id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='origin', full_name='lq.NotifyGameFinishRewardV2.MatchChest.origin', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='final', full_name='lq.NotifyGameFinishRewardV2.MatchChest.final', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='is_graded', full_name='lq.NotifyGameFinishRewardV2.MatchChest.is_graded', index=3,
+      number=4, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='rewards', full_name='lq.NotifyGameFinishRewardV2.MatchChest.rewards', index=4,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=34852,
+  serialized_end=34965,
+)
+
+_NOTIFYGAMEFINISHREWARDV2_MAINCHARACTER = _descriptor.Descriptor(
+  name='MainCharacter',
+  full_name='lq.NotifyGameFinishRewardV2.MainCharacter',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='level', full_name='lq.NotifyGameFinishRewardV2.MainCharacter.level', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='exp', full_name='lq.NotifyGameFinishRewardV2.MainCharacter.exp', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='add', full_name='lq.NotifyGameFinishRewardV2.MainCharacter.add', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=34967,
+  serialized_end=35023,
+)
+
+_NOTIFYGAMEFINISHREWARDV2_CHARACTERGIFT = _descriptor.Descriptor(
+  name='CharacterGift',
+  full_name='lq.NotifyGameFinishRewardV2.CharacterGift',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='origin', full_name='lq.NotifyGameFinishRewardV2.CharacterGift.origin', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='final', full_name='lq.NotifyGameFinishRewardV2.CharacterGift.final', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='add', full_name='lq.NotifyGameFinishRewardV2.CharacterGift.add', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='is_graded', full_name='lq.NotifyGameFinishRewardV2.CharacterGift.is_graded', index=3,
+      number=4, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=35025,
+  serialized_end=35103,
+)
+
+_NOTIFYGAMEFINISHREWARDV2 = _descriptor.Descriptor(
+  name='NotifyGameFinishRewardV2',
+  full_name='lq.NotifyGameFinishRewardV2',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='mode_id', full_name='lq.NotifyGameFinishRewardV2.mode_id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='level_change', full_name='lq.NotifyGameFinishRewardV2.level_change', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='match_chest', full_name='lq.NotifyGameFinishRewardV2.match_chest', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='main_character', full_name='lq.NotifyGameFinishRewardV2.main_character', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='character_gift', full_name='lq.NotifyGameFinishRewardV2.character_gift', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_NOTIFYGAMEFINISHREWARDV2_LEVELCHANGE, _NOTIFYGAMEFINISHREWARDV2_MATCHCHEST, _NOTIFYGAMEFINISHREWARDV2_MAINCHARACTER, _NOTIFYGAMEFINISHREWARDV2_CHARACTERGIFT, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=34449,
+  serialized_end=35103,
+)
+
+
+_NOTIFYACTIVITYREWARDV2_ACTIVITYREWARD = _descriptor.Descriptor(
+  name='ActivityReward',
+  full_name='lq.NotifyActivityRewardV2.ActivityReward',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='activity_id', full_name='lq.NotifyActivityRewardV2.ActivityReward.activity_id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='rewards', full_name='lq.NotifyActivityRewardV2.ActivityReward.rewards', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=35200,
+  serialized_end=35270,
+)
+
+_NOTIFYACTIVITYREWARDV2 = _descriptor.Descriptor(
+  name='NotifyActivityRewardV2',
+  full_name='lq.NotifyActivityRewardV2',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='activity_reward', full_name='lq.NotifyActivityRewardV2.activity_reward', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_NOTIFYACTIVITYREWARDV2_ACTIVITYREWARD, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=35106,
+  serialized_end=35270,
+)
+
+
+_NOTIFYACTIVITYPOINTV2_ACTIVITYPOINT = _descriptor.Descriptor(
+  name='ActivityPoint',
+  full_name='lq.NotifyActivityPointV2.ActivityPoint',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='activity_id', full_name='lq.NotifyActivityPointV2.ActivityPoint.activity_id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='point', full_name='lq.NotifyActivityPointV2.ActivityPoint.point', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=35364,
+  serialized_end=35415,
+)
+
+_NOTIFYACTIVITYPOINTV2 = _descriptor.Descriptor(
+  name='NotifyActivityPointV2',
+  full_name='lq.NotifyActivityPointV2',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='activity_points', full_name='lq.NotifyActivityPointV2.activity_points', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_NOTIFYACTIVITYPOINTV2_ACTIVITYPOINT, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=35273,
+  serialized_end=35415,
+)
+
+
+_NOTIFYLEADERBOARDPOINTV2_LEADERBOARDPOINT = _descriptor.Descriptor(
+  name='LeaderboardPoint',
+  full_name='lq.NotifyLeaderboardPointV2.LeaderboardPoint',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='leaderboard_id', full_name='lq.NotifyLeaderboardPointV2.LeaderboardPoint.leaderboard_id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='point', full_name='lq.NotifyLeaderboardPointV2.LeaderboardPoint.point', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=35521,
+  serialized_end=35578,
+)
+
+_NOTIFYLEADERBOARDPOINTV2 = _descriptor.Descriptor(
+  name='NotifyLeaderboardPointV2',
+  full_name='lq.NotifyLeaderboardPointV2',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='leaderboard_points', full_name='lq.NotifyLeaderboardPointV2.leaderboard_points', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_NOTIFYLEADERBOARDPOINTV2_LEADERBOARDPOINT, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=35418,
+  serialized_end=35578,
 )
 
 _CONTESTGAMEINFO_PLAYER.containing_type = _CONTESTGAMEINFO
@@ -13944,6 +15774,8 @@ _ACCOUNTUPDATE_ACCOUNTCHALLENGEUPDATE.containing_type = _ACCOUNTUPDATE
 _ACCOUNTUPDATE_ACCOUNTABMATCHUPDATE_MATCHPOINT.containing_type = _ACCOUNTUPDATE_ACCOUNTABMATCHUPDATE
 _ACCOUNTUPDATE_ACCOUNTABMATCHUPDATE.fields_by_name['match_max_point'].message_type = _ACCOUNTUPDATE_ACCOUNTABMATCHUPDATE_MATCHPOINT
 _ACCOUNTUPDATE_ACCOUNTABMATCHUPDATE.containing_type = _ACCOUNTUPDATE
+_ACCOUNTUPDATE_SEGMENTTASKUPDATE.fields_by_name['progresses'].message_type = _SEGMENTTASKPROGRESS
+_ACCOUNTUPDATE_SEGMENTTASKUPDATE.containing_type = _ACCOUNTUPDATE
 _ACCOUNTUPDATE.fields_by_name['numerical'].message_type = _ACCOUNTUPDATE_NUMERICALUPDATE
 _ACCOUNTUPDATE.fields_by_name['character'].message_type = _ACCOUNTUPDATE_CHARACTERUPDATE
 _ACCOUNTUPDATE.fields_by_name['bag'].message_type = _BAGUPDATE
@@ -13957,6 +15789,8 @@ _ACCOUNTUPDATE.fields_by_name['activity_period_task'].message_type = _ACCOUNTUPD
 _ACCOUNTUPDATE.fields_by_name['activity_random_task'].message_type = _ACCOUNTUPDATE_TASKUPDATE
 _ACCOUNTUPDATE.fields_by_name['challenge'].message_type = _ACCOUNTUPDATE_ACCOUNTCHALLENGEUPDATE
 _ACCOUNTUPDATE.fields_by_name['ab_match'].message_type = _ACCOUNTUPDATE_ACCOUNTABMATCHUPDATE
+_ACCOUNTUPDATE.fields_by_name['activity'].message_type = _ACCOUNTACTIVITYUPDATE
+_ACCOUNTUPDATE.fields_by_name['activity_segment_task'].message_type = _ACCOUNTUPDATE_SEGMENTTASKUPDATE
 _ACCOUNTPLAYINGGAME.fields_by_name['meta'].message_type = _GAMEMETADATA
 _ACCOUNTCACHEVIEW.fields_by_name['level'].message_type = _ACCOUNTLEVEL
 _ACCOUNTCACHEVIEW.fields_by_name['playing_game'].message_type = _ACCOUNTPLAYINGGAME
@@ -13985,10 +15819,9 @@ _REWARDPLUSRESULT_EXCHANGE.containing_type = _REWARDPLUSRESULT
 _REWARDPLUSRESULT.fields_by_name['exchange'].message_type = _REWARDPLUSRESULT_EXCHANGE
 _EXECUTEREWARD.fields_by_name['reward'].message_type = _REWARDSLOT
 _EXECUTEREWARD.fields_by_name['replace'].message_type = _REWARDSLOT
-_MAIL_I18NCONTEXT.containing_type = _MAIL
 _MAIL.fields_by_name['attachments'].message_type = _REWARDSLOT
-_MAIL.fields_by_name['title_i18n'].message_type = _MAIL_I18NCONTEXT
-_MAIL.fields_by_name['content_i18n'].message_type = _MAIL_I18NCONTEXT
+_MAIL.fields_by_name['title_i18n'].message_type = _I18NCONTEXT
+_MAIL.fields_by_name['content_i18n'].message_type = _I18NCONTEXT
 _ACCOUNTSTATISTICBYGAMEMODE_ROUNDENDDATA.containing_type = _ACCOUNTSTATISTICBYGAMEMODE
 _ACCOUNTSTATISTICBYGAMEMODE_RANKSCORE.containing_type = _ACCOUNTSTATISTICBYGAMEMODE
 _ACCOUNTSTATISTICBYGAMEMODE.fields_by_name['round_end'].message_type = _ACCOUNTSTATISTICBYGAMEMODE_ROUNDENDDATA
@@ -14019,11 +15852,31 @@ _ACCOUNTDETAILSTATISTICV2.fields_by_name['rank_statistic'].message_type = _ACCOU
 _ACCOUNTDETAILSTATISTICV2.fields_by_name['customized_contest_statistic'].message_type = _ACCOUNTDETAILSTATISTICV2_CUSTOMIZEDCONTESTSTATISTIC
 _ACCOUNTDETAILSTATISTICV2.fields_by_name['leisure_match_statistic'].message_type = _ACCOUNTDETAILSTATISTIC
 _ACCOUNTDETAILSTATISTICV2.fields_by_name['challenge_match_statistic'].message_type = _ACCOUNTDETAILSTATISTICV2_CHALLENGESTATISTIC
+_ACCOUNTDETAILSTATISTICV2.fields_by_name['activity_match_statistic'].message_type = _ACCOUNTDETAILSTATISTIC
+_ACCOUNTDETAILSTATISTICV2.fields_by_name['ab_match_statistic'].message_type = _ACCOUNTDETAILSTATISTIC
 _GAMECONFIG.fields_by_name['mode'].message_type = _GAMEMODE
 _GAMECONFIG.fields_by_name['meta'].message_type = _GAMEMETADATA
+_RPGACTIVITY.fields_by_name['current_state'].message_type = _RPGSTATE
+_RPGACTIVITY.fields_by_name['last_show_state'].message_type = _RPGSTATE
+_FEEDACTIVITYDATA_COUNTWITHTIMEDATA.containing_type = _FEEDACTIVITYDATA
+_FEEDACTIVITYDATA_GIFTBOXDATA.containing_type = _FEEDACTIVITYDATA
+_FEEDACTIVITYDATA.fields_by_name['friend_receive_data'].message_type = _FEEDACTIVITYDATA_COUNTWITHTIMEDATA
+_FEEDACTIVITYDATA.fields_by_name['friend_send_data'].message_type = _FEEDACTIVITYDATA_COUNTWITHTIMEDATA
+_FEEDACTIVITYDATA.fields_by_name['gift_inbox'].message_type = _FEEDACTIVITYDATA_GIFTBOXDATA
+_MINEACTIVITYDATA.fields_by_name['dig_point'].message_type = _POINT
+_MINEACTIVITYDATA.fields_by_name['map'].message_type = _MINEREWARD
+_ACCOUNTACTIVITYUPDATE.fields_by_name['mine_data'].message_type = _MINEACTIVITYDATA
+_ACCOUNTACTIVITYUPDATE.fields_by_name['rpg_data'].message_type = _RPGACTIVITY
+_ACCOUNTACTIVITYUPDATE.fields_by_name['feed_data'].message_type = _ACTIVITYFEEDDATA
+_ACTIVITYFEEDDATA_COUNTWITHTIMEDATA.containing_type = _ACTIVITYFEEDDATA
+_ACTIVITYFEEDDATA_GIFTBOXDATA.containing_type = _ACTIVITYFEEDDATA
+_ACTIVITYFEEDDATA.fields_by_name['friend_receive_data'].message_type = _ACTIVITYFEEDDATA_COUNTWITHTIMEDATA
+_ACTIVITYFEEDDATA.fields_by_name['friend_send_data'].message_type = _ACTIVITYFEEDDATA_COUNTWITHTIMEDATA
+_ACTIVITYFEEDDATA.fields_by_name['gift_inbox'].message_type = _ACTIVITYFEEDDATA_GIFTBOXDATA
 _ACCOUNTACTIVESTATE.fields_by_name['playing'].message_type = _ACCOUNTPLAYINGGAME
 _FRIEND.fields_by_name['base'].message_type = _PLAYERBASEVIEW
 _FRIEND.fields_by_name['state'].message_type = _ACCOUNTACTIVESTATE
+_MINEREWARD.fields_by_name['point'].message_type = _POINT
 _GAMELIVESEGMENT.fields_by_name['actions'].message_type = _GAMELIVEUNIT
 _GAMELIVEHEAD.fields_by_name['game_config'].message_type = _GAMECONFIG
 _GAMELIVEHEAD.fields_by_name['players'].message_type = _PLAYERGAMEVIEW
@@ -14038,6 +15891,7 @@ _SHOPINFO.fields_by_name['zhp'].message_type = _ZHPSHOP
 _SHOPINFO.fields_by_name['buy_records'].message_type = _BUYRECORD
 _SERVERSETTINGS.fields_by_name['payment_setting'].message_type = _PAYMENTSETTING
 _SERVERSETTINGS.fields_by_name['payment_setting_v2'].message_type = _PAYMENTSETTINGV2
+_SERVERSETTINGS.fields_by_name['nickname_setting'].message_type = _NICKNAMESETTING
 _PAYMENTSETTINGV2_PAYMENTMAINTAIN.containing_type = _PAYMENTSETTINGV2
 _PAYMENTSETTINGV2_PAYMENTSETTINGUNIT.fields_by_name['maintain'].message_type = _PAYMENTSETTINGV2_PAYMENTMAINTAIN
 _PAYMENTSETTINGV2_PAYMENTSETTINGUNIT.containing_type = _PAYMENTSETTINGV2
@@ -14107,12 +15961,21 @@ _NOTIFYFRIENDVIEWCHANGE.fields_by_name['base'].message_type = _PLAYERBASEVIEW
 _NOTIFYFRIENDCHANGE.fields_by_name['friend'].message_type = _FRIEND
 _NOTIFYCLIENTMESSAGE.fields_by_name['sender'].message_type = _PLAYERBASEVIEW
 _NOTIFYACCOUNTUPDATE.fields_by_name['update'].message_type = _ACCOUNTUPDATE
-_NOTIFYANNOUNCEMENTUPDATE.fields_by_name['announcements'].message_type = _ANNOUNCEMENT
+_NOTIFYANNOUNCEMENTUPDATE_ANNOUNCEMENTUPDATE.containing_type = _NOTIFYANNOUNCEMENTUPDATE
+_NOTIFYANNOUNCEMENTUPDATE.fields_by_name['update_list'].message_type = _NOTIFYANNOUNCEMENTUPDATE_ANNOUNCEMENTUPDATE
 _NOTIFYNEWMAIL.fields_by_name['mail'].message_type = _MAIL
 _NOTIFYDAILYTASKUPDATE.fields_by_name['progresses'].message_type = _TASKPROGRESS
 _NOTIFYACTIVITYTASKUPDATE.fields_by_name['progresses'].message_type = _TASKPROGRESS
 _NOTIFYACTIVITYPERIODTASKUPDATE.fields_by_name['progresses'].message_type = _TASKPROGRESS
 _NOTIFYACCOUNTRANDOMTASKUPDATE.fields_by_name['progresses'].message_type = _TASKPROGRESS
+_NOTIFYACTIVITYSEGMENTTASKUPDATE.fields_by_name['progresses'].message_type = _SEGMENTTASKPROGRESS
+_NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA_COUNTWITHTIMEDATA.containing_type = _NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA
+_NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA_GIFTBOXDATA.containing_type = _NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA
+_NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA.fields_by_name['friend_receive_data'].message_type = _NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA_COUNTWITHTIMEDATA
+_NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA.fields_by_name['friend_send_data'].message_type = _NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA_COUNTWITHTIMEDATA
+_NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA.fields_by_name['gift_inbox'].message_type = _NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA_GIFTBOXDATA
+_NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA.containing_type = _NOTIFYACTIVITYUPDATE
+_NOTIFYACTIVITYUPDATE.fields_by_name['list'].message_type = _NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA
 _NOTIFYACCOUNTCHALLENGETASKUPDATE.fields_by_name['progresses'].message_type = _TASKPROGRESS
 _NOTIFYROLLINGNOTICE.fields_by_name['notice'].message_type = _ROLLINGNOTICE
 _NOTIFYSHOPUPDATE.fields_by_name['shop_info'].message_type = _SHOPINFO
@@ -14122,6 +15985,24 @@ _NOTIFYPAYRESULT.fields_by_name['resource_modify'].message_type = _NOTIFYPAYRESU
 _NOTIFYCUSTOMCONTESTSYSTEMMSG.fields_by_name['game_start'].message_type = _CUSTOMIZEDCONTESTGAMESTART
 _NOTIFYCUSTOMCONTESTSYSTEMMSG.fields_by_name['game_end'].message_type = _CUSTOMIZEDCONTESTGAMEEND
 _NOTIFYACTIVITYCHANGE.fields_by_name['new_activities'].message_type = _ACTIVITY
+_NOTIFYGAMEFINISHREWARDV2_LEVELCHANGE.fields_by_name['origin'].message_type = _ACCOUNTLEVEL
+_NOTIFYGAMEFINISHREWARDV2_LEVELCHANGE.fields_by_name['final'].message_type = _ACCOUNTLEVEL
+_NOTIFYGAMEFINISHREWARDV2_LEVELCHANGE.containing_type = _NOTIFYGAMEFINISHREWARDV2
+_NOTIFYGAMEFINISHREWARDV2_MATCHCHEST.fields_by_name['rewards'].message_type = _REWARDSLOT
+_NOTIFYGAMEFINISHREWARDV2_MATCHCHEST.containing_type = _NOTIFYGAMEFINISHREWARDV2
+_NOTIFYGAMEFINISHREWARDV2_MAINCHARACTER.containing_type = _NOTIFYGAMEFINISHREWARDV2
+_NOTIFYGAMEFINISHREWARDV2_CHARACTERGIFT.containing_type = _NOTIFYGAMEFINISHREWARDV2
+_NOTIFYGAMEFINISHREWARDV2.fields_by_name['level_change'].message_type = _NOTIFYGAMEFINISHREWARDV2_LEVELCHANGE
+_NOTIFYGAMEFINISHREWARDV2.fields_by_name['match_chest'].message_type = _NOTIFYGAMEFINISHREWARDV2_MATCHCHEST
+_NOTIFYGAMEFINISHREWARDV2.fields_by_name['main_character'].message_type = _NOTIFYGAMEFINISHREWARDV2_MAINCHARACTER
+_NOTIFYGAMEFINISHREWARDV2.fields_by_name['character_gift'].message_type = _NOTIFYGAMEFINISHREWARDV2_CHARACTERGIFT
+_NOTIFYACTIVITYREWARDV2_ACTIVITYREWARD.fields_by_name['rewards'].message_type = _REWARDSLOT
+_NOTIFYACTIVITYREWARDV2_ACTIVITYREWARD.containing_type = _NOTIFYACTIVITYREWARDV2
+_NOTIFYACTIVITYREWARDV2.fields_by_name['activity_reward'].message_type = _NOTIFYACTIVITYREWARDV2_ACTIVITYREWARD
+_NOTIFYACTIVITYPOINTV2_ACTIVITYPOINT.containing_type = _NOTIFYACTIVITYPOINTV2
+_NOTIFYACTIVITYPOINTV2.fields_by_name['activity_points'].message_type = _NOTIFYACTIVITYPOINTV2_ACTIVITYPOINT
+_NOTIFYLEADERBOARDPOINTV2_LEADERBOARDPOINT.containing_type = _NOTIFYLEADERBOARDPOINTV2
+_NOTIFYLEADERBOARDPOINTV2.fields_by_name['leaderboard_points'].message_type = _NOTIFYLEADERBOARDPOINTV2_LEADERBOARDPOINT
 DESCRIPTOR.message_types_by_name['CustomizedContest'] = _CUSTOMIZEDCONTEST
 DESCRIPTOR.message_types_by_name['ContestGameInfo'] = _CONTESTGAMEINFO
 DESCRIPTOR.message_types_by_name['ContestPlayerInfo'] = _CONTESTPLAYERINFO
@@ -14176,6 +16057,7 @@ DESCRIPTOR.message_types_by_name['ReqAddContestObserver'] = _REQADDCONTESTOBSERV
 DESCRIPTOR.message_types_by_name['ResAddContestObserver'] = _RESADDCONTESTOBSERVER
 DESCRIPTOR.message_types_by_name['ReqRemoveContestObserver'] = _REQREMOVECONTESTOBSERVER
 DESCRIPTOR.message_types_by_name['ResFetchContestChatHistory'] = _RESFETCHCONTESTCHATHISTORY
+DESCRIPTOR.message_types_by_name['ReqClearChatHistory'] = _REQCLEARCHATHISTORY
 DESCRIPTOR.message_types_by_name['NotifyContestMatchingPlayer'] = _NOTIFYCONTESTMATCHINGPLAYER
 DESCRIPTOR.message_types_by_name['NotifyContestMatchingPlayerLock'] = _NOTIFYCONTESTMATCHINGPLAYERLOCK
 DESCRIPTOR.message_types_by_name['NotifyContestGameStart'] = _NOTIFYCONTESTGAMESTART
@@ -14210,6 +16092,7 @@ DESCRIPTOR.message_types_by_name['GameEndResult'] = _GAMEENDRESULT
 DESCRIPTOR.message_types_by_name['GameConnectInfo'] = _GAMECONNECTINFO
 DESCRIPTOR.message_types_by_name['ItemGainRecord'] = _ITEMGAINRECORD
 DESCRIPTOR.message_types_by_name['ItemGainRecords'] = _ITEMGAINRECORDS
+DESCRIPTOR.message_types_by_name['FakeRandomRecords'] = _FAKERANDOMRECORDS
 DESCRIPTOR.message_types_by_name['Item'] = _ITEM
 DESCRIPTOR.message_types_by_name['Bag'] = _BAG
 DESCRIPTOR.message_types_by_name['BagUpdate'] = _BAGUPDATE
@@ -14217,6 +16100,7 @@ DESCRIPTOR.message_types_by_name['RewardSlot'] = _REWARDSLOT
 DESCRIPTOR.message_types_by_name['OpenResult'] = _OPENRESULT
 DESCRIPTOR.message_types_by_name['RewardPlusResult'] = _REWARDPLUSRESULT
 DESCRIPTOR.message_types_by_name['ExecuteReward'] = _EXECUTEREWARD
+DESCRIPTOR.message_types_by_name['I18nContext'] = _I18NCONTEXT
 DESCRIPTOR.message_types_by_name['Mail'] = _MAIL
 DESCRIPTOR.message_types_by_name['AchievementProgress'] = _ACHIEVEMENTPROGRESS
 DESCRIPTOR.message_types_by_name['AccountStatisticByGameMode'] = _ACCOUNTSTATISTICBYGAMEMODE
@@ -14231,8 +16115,18 @@ DESCRIPTOR.message_types_by_name['ClientVersionInfo'] = _CLIENTVERSIONINFO
 DESCRIPTOR.message_types_by_name['Announcement'] = _ANNOUNCEMENT
 DESCRIPTOR.message_types_by_name['TaskProgress'] = _TASKPROGRESS
 DESCRIPTOR.message_types_by_name['GameConfig'] = _GAMECONFIG
+DESCRIPTOR.message_types_by_name['RPGState'] = _RPGSTATE
+DESCRIPTOR.message_types_by_name['RPGActivity'] = _RPGACTIVITY
+DESCRIPTOR.message_types_by_name['ActivityArenaData'] = _ACTIVITYARENADATA
+DESCRIPTOR.message_types_by_name['FeedActivityData'] = _FEEDACTIVITYDATA
+DESCRIPTOR.message_types_by_name['SegmentTaskProgress'] = _SEGMENTTASKPROGRESS
+DESCRIPTOR.message_types_by_name['MineActivityData'] = _MINEACTIVITYDATA
+DESCRIPTOR.message_types_by_name['AccountActivityUpdate'] = _ACCOUNTACTIVITYUPDATE
+DESCRIPTOR.message_types_by_name['ActivityFeedData'] = _ACTIVITYFEEDDATA
 DESCRIPTOR.message_types_by_name['AccountActiveState'] = _ACCOUNTACTIVESTATE
 DESCRIPTOR.message_types_by_name['Friend'] = _FRIEND
+DESCRIPTOR.message_types_by_name['Point'] = _POINT
+DESCRIPTOR.message_types_by_name['MineReward'] = _MINEREWARD
 DESCRIPTOR.message_types_by_name['GameLiveUnit'] = _GAMELIVEUNIT
 DESCRIPTOR.message_types_by_name['GameLiveSegment'] = _GAMELIVESEGMENT
 DESCRIPTOR.message_types_by_name['GameLiveSegmentUri'] = _GAMELIVESEGMENTURI
@@ -14252,6 +16146,7 @@ DESCRIPTOR.message_types_by_name['MonthTicketInfo'] = _MONTHTICKETINFO
 DESCRIPTOR.message_types_by_name['ShopInfo'] = _SHOPINFO
 DESCRIPTOR.message_types_by_name['ChangeNicknameRecord'] = _CHANGENICKNAMERECORD
 DESCRIPTOR.message_types_by_name['ServerSettings'] = _SERVERSETTINGS
+DESCRIPTOR.message_types_by_name['NicknameSetting'] = _NICKNAMESETTING
 DESCRIPTOR.message_types_by_name['PaymentSettingV2'] = _PAYMENTSETTINGV2
 DESCRIPTOR.message_types_by_name['PaymentSetting'] = _PAYMENTSETTING
 DESCRIPTOR.message_types_by_name['AccountSetting'] = _ACCOUNTSETTING
@@ -14291,13 +16186,13 @@ DESCRIPTOR.message_types_by_name['RecordBaBeiInfo'] = _RECORDBABEIINFO
 DESCRIPTOR.message_types_by_name['RecordPeiPaiInfo'] = _RECORDPEIPAIINFO
 DESCRIPTOR.message_types_by_name['RecordRoundInfo'] = _RECORDROUNDINFO
 DESCRIPTOR.message_types_by_name['RecordAnalysisedData'] = _RECORDANALYSISEDDATA
+DESCRIPTOR.message_types_by_name['NotifyCaptcha'] = _NOTIFYCAPTCHA
 DESCRIPTOR.message_types_by_name['NotifyRoomGameStart'] = _NOTIFYROOMGAMESTART
 DESCRIPTOR.message_types_by_name['NotifyMatchGameStart'] = _NOTIFYMATCHGAMESTART
 DESCRIPTOR.message_types_by_name['NotifyRoomPlayerReady'] = _NOTIFYROOMPLAYERREADY
 DESCRIPTOR.message_types_by_name['NotifyRoomPlayerDressing'] = _NOTIFYROOMPLAYERDRESSING
 DESCRIPTOR.message_types_by_name['NotifyRoomPlayerUpdate'] = _NOTIFYROOMPLAYERUPDATE
 DESCRIPTOR.message_types_by_name['NotifyRoomKickOut'] = _NOTIFYROOMKICKOUT
-DESCRIPTOR.message_types_by_name['NotifyMatchTimeout'] = _NOTIFYMATCHTIMEOUT
 DESCRIPTOR.message_types_by_name['NotifyFriendStateChange'] = _NOTIFYFRIENDSTATECHANGE
 DESCRIPTOR.message_types_by_name['NotifyFriendViewChange'] = _NOTIFYFRIENDVIEWCHANGE
 DESCRIPTOR.message_types_by_name['NotifyFriendChange'] = _NOTIFYFRIENDCHANGE
@@ -14314,6 +16209,8 @@ DESCRIPTOR.message_types_by_name['NotifyDailyTaskUpdate'] = _NOTIFYDAILYTASKUPDA
 DESCRIPTOR.message_types_by_name['NotifyActivityTaskUpdate'] = _NOTIFYACTIVITYTASKUPDATE
 DESCRIPTOR.message_types_by_name['NotifyActivityPeriodTaskUpdate'] = _NOTIFYACTIVITYPERIODTASKUPDATE
 DESCRIPTOR.message_types_by_name['NotifyAccountRandomTaskUpdate'] = _NOTIFYACCOUNTRANDOMTASKUPDATE
+DESCRIPTOR.message_types_by_name['NotifyActivitySegmentTaskUpdate'] = _NOTIFYACTIVITYSEGMENTTASKUPDATE
+DESCRIPTOR.message_types_by_name['NotifyActivityUpdate'] = _NOTIFYACTIVITYUPDATE
 DESCRIPTOR.message_types_by_name['NotifyAccountChallengeTaskUpdate'] = _NOTIFYACCOUNTCHALLENGETASKUPDATE
 DESCRIPTOR.message_types_by_name['NotifyNewComment'] = _NOTIFYNEWCOMMENT
 DESCRIPTOR.message_types_by_name['NotifyRollingNotice'] = _NOTIFYROLLINGNOTICE
@@ -14324,9 +16221,14 @@ DESCRIPTOR.message_types_by_name['NotifyServerSetting'] = _NOTIFYSERVERSETTING
 DESCRIPTOR.message_types_by_name['NotifyPayResult'] = _NOTIFYPAYRESULT
 DESCRIPTOR.message_types_by_name['NotifyCustomContestAccountMsg'] = _NOTIFYCUSTOMCONTESTACCOUNTMSG
 DESCRIPTOR.message_types_by_name['NotifyCustomContestSystemMsg'] = _NOTIFYCUSTOMCONTESTSYSTEMMSG
+DESCRIPTOR.message_types_by_name['NotifyMatchTimeout'] = _NOTIFYMATCHTIMEOUT
 DESCRIPTOR.message_types_by_name['NotifyCustomContestState'] = _NOTIFYCUSTOMCONTESTSTATE
 DESCRIPTOR.message_types_by_name['NotifyActivityChange'] = _NOTIFYACTIVITYCHANGE
 DESCRIPTOR.message_types_by_name['NotifyAFKResult'] = _NOTIFYAFKRESULT
+DESCRIPTOR.message_types_by_name['NotifyGameFinishRewardV2'] = _NOTIFYGAMEFINISHREWARDV2
+DESCRIPTOR.message_types_by_name['NotifyActivityRewardV2'] = _NOTIFYACTIVITYREWARDV2
+DESCRIPTOR.message_types_by_name['NotifyActivityPointV2'] = _NOTIFYACTIVITYPOINTV2
+DESCRIPTOR.message_types_by_name['NotifyLeaderboardPointV2'] = _NOTIFYLEADERBOARDPOINTV2
 DESCRIPTOR.enum_types_by_name['GamePlayerState'] = _GAMEPLAYERSTATE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -14804,6 +16706,13 @@ ResFetchContestChatHistory = _reflection.GeneratedProtocolMessageType('ResFetchC
   })
 _sym_db.RegisterMessage(ResFetchContestChatHistory)
 
+ReqClearChatHistory = _reflection.GeneratedProtocolMessageType('ReqClearChatHistory', (_message.Message,), {
+  'DESCRIPTOR' : _REQCLEARCHATHISTORY,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.ReqClearChatHistory)
+  })
+_sym_db.RegisterMessage(ReqClearChatHistory)
+
 NotifyContestMatchingPlayer = _reflection.GeneratedProtocolMessageType('NotifyContestMatchingPlayer', (_message.Message,), {
   'DESCRIPTOR' : _NOTIFYCONTESTMATCHINGPLAYER,
   '__module__' : 'protocol_admin_pb2'
@@ -15081,6 +16990,13 @@ AccountUpdate = _reflection.GeneratedProtocolMessageType('AccountUpdate', (_mess
     # @@protoc_insertion_point(class_scope:lq.AccountUpdate.AccountABMatchUpdate)
     })
   ,
+
+  'SegmentTaskUpdate' : _reflection.GeneratedProtocolMessageType('SegmentTaskUpdate', (_message.Message,), {
+    'DESCRIPTOR' : _ACCOUNTUPDATE_SEGMENTTASKUPDATE,
+    '__module__' : 'protocol_admin_pb2'
+    # @@protoc_insertion_point(class_scope:lq.AccountUpdate.SegmentTaskUpdate)
+    })
+  ,
   'DESCRIPTOR' : _ACCOUNTUPDATE,
   '__module__' : 'protocol_admin_pb2'
   # @@protoc_insertion_point(class_scope:lq.AccountUpdate)
@@ -15095,6 +17011,7 @@ _sym_db.RegisterMessage(AccountUpdate.TaskUpdate)
 _sym_db.RegisterMessage(AccountUpdate.AccountChallengeUpdate)
 _sym_db.RegisterMessage(AccountUpdate.AccountABMatchUpdate)
 _sym_db.RegisterMessage(AccountUpdate.AccountABMatchUpdate.MatchPoint)
+_sym_db.RegisterMessage(AccountUpdate.SegmentTaskUpdate)
 
 GameMetaData = _reflection.GeneratedProtocolMessageType('GameMetaData', (_message.Message,), {
   'DESCRIPTOR' : _GAMEMETADATA,
@@ -15202,6 +17119,13 @@ ItemGainRecords = _reflection.GeneratedProtocolMessageType('ItemGainRecords', (_
   })
 _sym_db.RegisterMessage(ItemGainRecords)
 
+FakeRandomRecords = _reflection.GeneratedProtocolMessageType('FakeRandomRecords', (_message.Message,), {
+  'DESCRIPTOR' : _FAKERANDOMRECORDS,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.FakeRandomRecords)
+  })
+_sym_db.RegisterMessage(FakeRandomRecords)
+
 Item = _reflection.GeneratedProtocolMessageType('Item', (_message.Message,), {
   'DESCRIPTOR' : _ITEM,
   '__module__' : 'protocol_admin_pb2'
@@ -15259,20 +17183,19 @@ ExecuteReward = _reflection.GeneratedProtocolMessageType('ExecuteReward', (_mess
   })
 _sym_db.RegisterMessage(ExecuteReward)
 
-Mail = _reflection.GeneratedProtocolMessageType('Mail', (_message.Message,), {
+I18nContext = _reflection.GeneratedProtocolMessageType('I18nContext', (_message.Message,), {
+  'DESCRIPTOR' : _I18NCONTEXT,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.I18nContext)
+  })
+_sym_db.RegisterMessage(I18nContext)
 
-  'I18nContext' : _reflection.GeneratedProtocolMessageType('I18nContext', (_message.Message,), {
-    'DESCRIPTOR' : _MAIL_I18NCONTEXT,
-    '__module__' : 'protocol_admin_pb2'
-    # @@protoc_insertion_point(class_scope:lq.Mail.I18nContext)
-    })
-  ,
+Mail = _reflection.GeneratedProtocolMessageType('Mail', (_message.Message,), {
   'DESCRIPTOR' : _MAIL,
   '__module__' : 'protocol_admin_pb2'
   # @@protoc_insertion_point(class_scope:lq.Mail)
   })
 _sym_db.RegisterMessage(Mail)
-_sym_db.RegisterMessage(Mail.I18nContext)
 
 AchievementProgress = _reflection.GeneratedProtocolMessageType('AchievementProgress', (_message.Message,), {
   'DESCRIPTOR' : _ACHIEVEMENTPROGRESS,
@@ -15429,6 +17352,94 @@ GameConfig = _reflection.GeneratedProtocolMessageType('GameConfig', (_message.Me
   })
 _sym_db.RegisterMessage(GameConfig)
 
+RPGState = _reflection.GeneratedProtocolMessageType('RPGState', (_message.Message,), {
+  'DESCRIPTOR' : _RPGSTATE,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.RPGState)
+  })
+_sym_db.RegisterMessage(RPGState)
+
+RPGActivity = _reflection.GeneratedProtocolMessageType('RPGActivity', (_message.Message,), {
+  'DESCRIPTOR' : _RPGACTIVITY,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.RPGActivity)
+  })
+_sym_db.RegisterMessage(RPGActivity)
+
+ActivityArenaData = _reflection.GeneratedProtocolMessageType('ActivityArenaData', (_message.Message,), {
+  'DESCRIPTOR' : _ACTIVITYARENADATA,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.ActivityArenaData)
+  })
+_sym_db.RegisterMessage(ActivityArenaData)
+
+FeedActivityData = _reflection.GeneratedProtocolMessageType('FeedActivityData', (_message.Message,), {
+
+  'CountWithTimeData' : _reflection.GeneratedProtocolMessageType('CountWithTimeData', (_message.Message,), {
+    'DESCRIPTOR' : _FEEDACTIVITYDATA_COUNTWITHTIMEDATA,
+    '__module__' : 'protocol_admin_pb2'
+    # @@protoc_insertion_point(class_scope:lq.FeedActivityData.CountWithTimeData)
+    })
+  ,
+
+  'GiftBoxData' : _reflection.GeneratedProtocolMessageType('GiftBoxData', (_message.Message,), {
+    'DESCRIPTOR' : _FEEDACTIVITYDATA_GIFTBOXDATA,
+    '__module__' : 'protocol_admin_pb2'
+    # @@protoc_insertion_point(class_scope:lq.FeedActivityData.GiftBoxData)
+    })
+  ,
+  'DESCRIPTOR' : _FEEDACTIVITYDATA,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.FeedActivityData)
+  })
+_sym_db.RegisterMessage(FeedActivityData)
+_sym_db.RegisterMessage(FeedActivityData.CountWithTimeData)
+_sym_db.RegisterMessage(FeedActivityData.GiftBoxData)
+
+SegmentTaskProgress = _reflection.GeneratedProtocolMessageType('SegmentTaskProgress', (_message.Message,), {
+  'DESCRIPTOR' : _SEGMENTTASKPROGRESS,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.SegmentTaskProgress)
+  })
+_sym_db.RegisterMessage(SegmentTaskProgress)
+
+MineActivityData = _reflection.GeneratedProtocolMessageType('MineActivityData', (_message.Message,), {
+  'DESCRIPTOR' : _MINEACTIVITYDATA,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.MineActivityData)
+  })
+_sym_db.RegisterMessage(MineActivityData)
+
+AccountActivityUpdate = _reflection.GeneratedProtocolMessageType('AccountActivityUpdate', (_message.Message,), {
+  'DESCRIPTOR' : _ACCOUNTACTIVITYUPDATE,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.AccountActivityUpdate)
+  })
+_sym_db.RegisterMessage(AccountActivityUpdate)
+
+ActivityFeedData = _reflection.GeneratedProtocolMessageType('ActivityFeedData', (_message.Message,), {
+
+  'CountWithTimeData' : _reflection.GeneratedProtocolMessageType('CountWithTimeData', (_message.Message,), {
+    'DESCRIPTOR' : _ACTIVITYFEEDDATA_COUNTWITHTIMEDATA,
+    '__module__' : 'protocol_admin_pb2'
+    # @@protoc_insertion_point(class_scope:lq.ActivityFeedData.CountWithTimeData)
+    })
+  ,
+
+  'GiftBoxData' : _reflection.GeneratedProtocolMessageType('GiftBoxData', (_message.Message,), {
+    'DESCRIPTOR' : _ACTIVITYFEEDDATA_GIFTBOXDATA,
+    '__module__' : 'protocol_admin_pb2'
+    # @@protoc_insertion_point(class_scope:lq.ActivityFeedData.GiftBoxData)
+    })
+  ,
+  'DESCRIPTOR' : _ACTIVITYFEEDDATA,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.ActivityFeedData)
+  })
+_sym_db.RegisterMessage(ActivityFeedData)
+_sym_db.RegisterMessage(ActivityFeedData.CountWithTimeData)
+_sym_db.RegisterMessage(ActivityFeedData.GiftBoxData)
+
 AccountActiveState = _reflection.GeneratedProtocolMessageType('AccountActiveState', (_message.Message,), {
   'DESCRIPTOR' : _ACCOUNTACTIVESTATE,
   '__module__' : 'protocol_admin_pb2'
@@ -15442,6 +17453,20 @@ Friend = _reflection.GeneratedProtocolMessageType('Friend', (_message.Message,),
   # @@protoc_insertion_point(class_scope:lq.Friend)
   })
 _sym_db.RegisterMessage(Friend)
+
+Point = _reflection.GeneratedProtocolMessageType('Point', (_message.Message,), {
+  'DESCRIPTOR' : _POINT,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.Point)
+  })
+_sym_db.RegisterMessage(Point)
+
+MineReward = _reflection.GeneratedProtocolMessageType('MineReward', (_message.Message,), {
+  'DESCRIPTOR' : _MINEREWARD,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.MineReward)
+  })
+_sym_db.RegisterMessage(MineReward)
 
 GameLiveUnit = _reflection.GeneratedProtocolMessageType('GameLiveUnit', (_message.Message,), {
   'DESCRIPTOR' : _GAMELIVEUNIT,
@@ -15583,6 +17608,13 @@ ServerSettings = _reflection.GeneratedProtocolMessageType('ServerSettings', (_me
   # @@protoc_insertion_point(class_scope:lq.ServerSettings)
   })
 _sym_db.RegisterMessage(ServerSettings)
+
+NicknameSetting = _reflection.GeneratedProtocolMessageType('NicknameSetting', (_message.Message,), {
+  'DESCRIPTOR' : _NICKNAMESETTING,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.NicknameSetting)
+  })
+_sym_db.RegisterMessage(NicknameSetting)
 
 PaymentSettingV2 = _reflection.GeneratedProtocolMessageType('PaymentSettingV2', (_message.Message,), {
 
@@ -15977,6 +18009,13 @@ RecordAnalysisedData = _reflection.GeneratedProtocolMessageType('RecordAnalysise
   })
 _sym_db.RegisterMessage(RecordAnalysisedData)
 
+NotifyCaptcha = _reflection.GeneratedProtocolMessageType('NotifyCaptcha', (_message.Message,), {
+  'DESCRIPTOR' : _NOTIFYCAPTCHA,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.NotifyCaptcha)
+  })
+_sym_db.RegisterMessage(NotifyCaptcha)
+
 NotifyRoomGameStart = _reflection.GeneratedProtocolMessageType('NotifyRoomGameStart', (_message.Message,), {
   'DESCRIPTOR' : _NOTIFYROOMGAMESTART,
   '__module__' : 'protocol_admin_pb2'
@@ -16035,13 +18074,6 @@ NotifyRoomKickOut = _reflection.GeneratedProtocolMessageType('NotifyRoomKickOut'
   })
 _sym_db.RegisterMessage(NotifyRoomKickOut)
 
-NotifyMatchTimeout = _reflection.GeneratedProtocolMessageType('NotifyMatchTimeout', (_message.Message,), {
-  'DESCRIPTOR' : _NOTIFYMATCHTIMEOUT,
-  '__module__' : 'protocol_admin_pb2'
-  # @@protoc_insertion_point(class_scope:lq.NotifyMatchTimeout)
-  })
-_sym_db.RegisterMessage(NotifyMatchTimeout)
-
 NotifyFriendStateChange = _reflection.GeneratedProtocolMessageType('NotifyFriendStateChange', (_message.Message,), {
   'DESCRIPTOR' : _NOTIFYFRIENDSTATECHANGE,
   '__module__' : 'protocol_admin_pb2'
@@ -16099,11 +18131,19 @@ NotifyAccountLogout = _reflection.GeneratedProtocolMessageType('NotifyAccountLog
 _sym_db.RegisterMessage(NotifyAccountLogout)
 
 NotifyAnnouncementUpdate = _reflection.GeneratedProtocolMessageType('NotifyAnnouncementUpdate', (_message.Message,), {
+
+  'AnnouncementUpdate' : _reflection.GeneratedProtocolMessageType('AnnouncementUpdate', (_message.Message,), {
+    'DESCRIPTOR' : _NOTIFYANNOUNCEMENTUPDATE_ANNOUNCEMENTUPDATE,
+    '__module__' : 'protocol_admin_pb2'
+    # @@protoc_insertion_point(class_scope:lq.NotifyAnnouncementUpdate.AnnouncementUpdate)
+    })
+  ,
   'DESCRIPTOR' : _NOTIFYANNOUNCEMENTUPDATE,
   '__module__' : 'protocol_admin_pb2'
   # @@protoc_insertion_point(class_scope:lq.NotifyAnnouncementUpdate)
   })
 _sym_db.RegisterMessage(NotifyAnnouncementUpdate)
+_sym_db.RegisterMessage(NotifyAnnouncementUpdate.AnnouncementUpdate)
 
 NotifyNewMail = _reflection.GeneratedProtocolMessageType('NotifyNewMail', (_message.Message,), {
   'DESCRIPTOR' : _NOTIFYNEWMAIL,
@@ -16153,6 +18193,44 @@ NotifyAccountRandomTaskUpdate = _reflection.GeneratedProtocolMessageType('Notify
   # @@protoc_insertion_point(class_scope:lq.NotifyAccountRandomTaskUpdate)
   })
 _sym_db.RegisterMessage(NotifyAccountRandomTaskUpdate)
+
+NotifyActivitySegmentTaskUpdate = _reflection.GeneratedProtocolMessageType('NotifyActivitySegmentTaskUpdate', (_message.Message,), {
+  'DESCRIPTOR' : _NOTIFYACTIVITYSEGMENTTASKUPDATE,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.NotifyActivitySegmentTaskUpdate)
+  })
+_sym_db.RegisterMessage(NotifyActivitySegmentTaskUpdate)
+
+NotifyActivityUpdate = _reflection.GeneratedProtocolMessageType('NotifyActivityUpdate', (_message.Message,), {
+
+  'FeedActivityData' : _reflection.GeneratedProtocolMessageType('FeedActivityData', (_message.Message,), {
+
+    'CountWithTimeData' : _reflection.GeneratedProtocolMessageType('CountWithTimeData', (_message.Message,), {
+      'DESCRIPTOR' : _NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA_COUNTWITHTIMEDATA,
+      '__module__' : 'protocol_admin_pb2'
+      # @@protoc_insertion_point(class_scope:lq.NotifyActivityUpdate.FeedActivityData.CountWithTimeData)
+      })
+    ,
+
+    'GiftBoxData' : _reflection.GeneratedProtocolMessageType('GiftBoxData', (_message.Message,), {
+      'DESCRIPTOR' : _NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA_GIFTBOXDATA,
+      '__module__' : 'protocol_admin_pb2'
+      # @@protoc_insertion_point(class_scope:lq.NotifyActivityUpdate.FeedActivityData.GiftBoxData)
+      })
+    ,
+    'DESCRIPTOR' : _NOTIFYACTIVITYUPDATE_FEEDACTIVITYDATA,
+    '__module__' : 'protocol_admin_pb2'
+    # @@protoc_insertion_point(class_scope:lq.NotifyActivityUpdate.FeedActivityData)
+    })
+  ,
+  'DESCRIPTOR' : _NOTIFYACTIVITYUPDATE,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.NotifyActivityUpdate)
+  })
+_sym_db.RegisterMessage(NotifyActivityUpdate)
+_sym_db.RegisterMessage(NotifyActivityUpdate.FeedActivityData)
+_sym_db.RegisterMessage(NotifyActivityUpdate.FeedActivityData.CountWithTimeData)
+_sym_db.RegisterMessage(NotifyActivityUpdate.FeedActivityData.GiftBoxData)
 
 NotifyAccountChallengeTaskUpdate = _reflection.GeneratedProtocolMessageType('NotifyAccountChallengeTaskUpdate', (_message.Message,), {
   'DESCRIPTOR' : _NOTIFYACCOUNTCHALLENGETASKUPDATE,
@@ -16232,6 +18310,13 @@ NotifyCustomContestSystemMsg = _reflection.GeneratedProtocolMessageType('NotifyC
   })
 _sym_db.RegisterMessage(NotifyCustomContestSystemMsg)
 
+NotifyMatchTimeout = _reflection.GeneratedProtocolMessageType('NotifyMatchTimeout', (_message.Message,), {
+  'DESCRIPTOR' : _NOTIFYMATCHTIMEOUT,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.NotifyMatchTimeout)
+  })
+_sym_db.RegisterMessage(NotifyMatchTimeout)
+
 NotifyCustomContestState = _reflection.GeneratedProtocolMessageType('NotifyCustomContestState', (_message.Message,), {
   'DESCRIPTOR' : _NOTIFYCUSTOMCONTESTSTATE,
   '__module__' : 'protocol_admin_pb2'
@@ -16253,6 +18338,90 @@ NotifyAFKResult = _reflection.GeneratedProtocolMessageType('NotifyAFKResult', (_
   })
 _sym_db.RegisterMessage(NotifyAFKResult)
 
+NotifyGameFinishRewardV2 = _reflection.GeneratedProtocolMessageType('NotifyGameFinishRewardV2', (_message.Message,), {
+
+  'LevelChange' : _reflection.GeneratedProtocolMessageType('LevelChange', (_message.Message,), {
+    'DESCRIPTOR' : _NOTIFYGAMEFINISHREWARDV2_LEVELCHANGE,
+    '__module__' : 'protocol_admin_pb2'
+    # @@protoc_insertion_point(class_scope:lq.NotifyGameFinishRewardV2.LevelChange)
+    })
+  ,
+
+  'MatchChest' : _reflection.GeneratedProtocolMessageType('MatchChest', (_message.Message,), {
+    'DESCRIPTOR' : _NOTIFYGAMEFINISHREWARDV2_MATCHCHEST,
+    '__module__' : 'protocol_admin_pb2'
+    # @@protoc_insertion_point(class_scope:lq.NotifyGameFinishRewardV2.MatchChest)
+    })
+  ,
+
+  'MainCharacter' : _reflection.GeneratedProtocolMessageType('MainCharacter', (_message.Message,), {
+    'DESCRIPTOR' : _NOTIFYGAMEFINISHREWARDV2_MAINCHARACTER,
+    '__module__' : 'protocol_admin_pb2'
+    # @@protoc_insertion_point(class_scope:lq.NotifyGameFinishRewardV2.MainCharacter)
+    })
+  ,
+
+  'CharacterGift' : _reflection.GeneratedProtocolMessageType('CharacterGift', (_message.Message,), {
+    'DESCRIPTOR' : _NOTIFYGAMEFINISHREWARDV2_CHARACTERGIFT,
+    '__module__' : 'protocol_admin_pb2'
+    # @@protoc_insertion_point(class_scope:lq.NotifyGameFinishRewardV2.CharacterGift)
+    })
+  ,
+  'DESCRIPTOR' : _NOTIFYGAMEFINISHREWARDV2,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.NotifyGameFinishRewardV2)
+  })
+_sym_db.RegisterMessage(NotifyGameFinishRewardV2)
+_sym_db.RegisterMessage(NotifyGameFinishRewardV2.LevelChange)
+_sym_db.RegisterMessage(NotifyGameFinishRewardV2.MatchChest)
+_sym_db.RegisterMessage(NotifyGameFinishRewardV2.MainCharacter)
+_sym_db.RegisterMessage(NotifyGameFinishRewardV2.CharacterGift)
+
+NotifyActivityRewardV2 = _reflection.GeneratedProtocolMessageType('NotifyActivityRewardV2', (_message.Message,), {
+
+  'ActivityReward' : _reflection.GeneratedProtocolMessageType('ActivityReward', (_message.Message,), {
+    'DESCRIPTOR' : _NOTIFYACTIVITYREWARDV2_ACTIVITYREWARD,
+    '__module__' : 'protocol_admin_pb2'
+    # @@protoc_insertion_point(class_scope:lq.NotifyActivityRewardV2.ActivityReward)
+    })
+  ,
+  'DESCRIPTOR' : _NOTIFYACTIVITYREWARDV2,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.NotifyActivityRewardV2)
+  })
+_sym_db.RegisterMessage(NotifyActivityRewardV2)
+_sym_db.RegisterMessage(NotifyActivityRewardV2.ActivityReward)
+
+NotifyActivityPointV2 = _reflection.GeneratedProtocolMessageType('NotifyActivityPointV2', (_message.Message,), {
+
+  'ActivityPoint' : _reflection.GeneratedProtocolMessageType('ActivityPoint', (_message.Message,), {
+    'DESCRIPTOR' : _NOTIFYACTIVITYPOINTV2_ACTIVITYPOINT,
+    '__module__' : 'protocol_admin_pb2'
+    # @@protoc_insertion_point(class_scope:lq.NotifyActivityPointV2.ActivityPoint)
+    })
+  ,
+  'DESCRIPTOR' : _NOTIFYACTIVITYPOINTV2,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.NotifyActivityPointV2)
+  })
+_sym_db.RegisterMessage(NotifyActivityPointV2)
+_sym_db.RegisterMessage(NotifyActivityPointV2.ActivityPoint)
+
+NotifyLeaderboardPointV2 = _reflection.GeneratedProtocolMessageType('NotifyLeaderboardPointV2', (_message.Message,), {
+
+  'LeaderboardPoint' : _reflection.GeneratedProtocolMessageType('LeaderboardPoint', (_message.Message,), {
+    'DESCRIPTOR' : _NOTIFYLEADERBOARDPOINTV2_LEADERBOARDPOINT,
+    '__module__' : 'protocol_admin_pb2'
+    # @@protoc_insertion_point(class_scope:lq.NotifyLeaderboardPointV2.LeaderboardPoint)
+    })
+  ,
+  'DESCRIPTOR' : _NOTIFYLEADERBOARDPOINTV2,
+  '__module__' : 'protocol_admin_pb2'
+  # @@protoc_insertion_point(class_scope:lq.NotifyLeaderboardPointV2)
+  })
+_sym_db.RegisterMessage(NotifyLeaderboardPointV2)
+_sym_db.RegisterMessage(NotifyLeaderboardPointV2.LeaderboardPoint)
+
 
 
 _CUSTOMIZEDCONTESTMANAGERAPI = _descriptor.ServiceDescriptor(
@@ -16262,8 +18431,8 @@ _CUSTOMIZEDCONTESTMANAGERAPI = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=31072,
-  serialized_end=33945,
+  serialized_start=35644,
+  serialized_end=38577,
   methods=[
   _descriptor.MethodDescriptor(
     name='loginContestManager',
@@ -16662,6 +18831,16 @@ _CUSTOMIZEDCONTESTMANAGERAPI = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_REQCOMMON,
     output_type=_RESFETCHCONTESTCHATHISTORY,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='clearChatHistory',
+    full_name='lq.CustomizedContestManagerApi.clearChatHistory',
+    index=40,
+    containing_service=None,
+    input_type=_REQCLEARCHATHISTORY,
+    output_type=_RESCOMMON,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

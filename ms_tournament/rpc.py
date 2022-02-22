@@ -49,6 +49,7 @@ class CustomizedContestManagerApi(MSRPCService):
         'addContestObserver': pb.ReqAddContestObserver,
         'removeContestObserver': pb.ReqRemoveContestObserver,
         'fetchContestChatHistory': pb.ReqCommon,
+        'clearChatHistory': pb.ReqClearChatHistory,
     }
     _res = {
         'loginContestManager': pb.ResContestManageLogin,
@@ -91,6 +92,7 @@ class CustomizedContestManagerApi(MSRPCService):
         'addContestObserver': pb.ResAddContestObserver,
         'removeContestObserver': pb.ResCommon,
         'fetchContestChatHistory': pb.ResFetchContestChatHistory,
+        'clearChatHistory': pb.ResCommon,
     }
 
     def get_package_name(self):
@@ -224,3 +226,6 @@ class CustomizedContestManagerApi(MSRPCService):
 
     async def fetch_contest_chat_history(self, req):
         return await self.call_method('fetchContestChatHistory', req)
+
+    async def clear_chat_history(self, req):
+        return await self.call_method('clearChatHistory', req)
