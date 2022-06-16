@@ -130,6 +130,7 @@ class Lobby(MSRPCService):
         'changeMainCharacter': pb.ReqChangeMainCharacter,
         'changeCharacterSkin': pb.ReqChangeCharacterSkin,
         'changeCharacterView': pb.ReqChangeCharacterView,
+        'setHiddenCharacter': pb.ReqSetHiddenCharacter,
         'sendGiftToCharacter': pb.ReqSendGiftToCharacter,
         'sellItem': pb.ReqSellItem,
         'fetchCommonView': pb.ReqCommon,
@@ -261,6 +262,7 @@ class Lobby(MSRPCService):
         'sendActivityGiftToFriend': pb.ReqSendActivityGiftToFriend,
         'receiveActivityGift': pb.ReqReceiveActivityGift,
         'fetchFriendFeedActivityData': pb.ReqFetchFriendFeedActivityData,
+        'openPreChestItem': pb.ReqOpenPreChestItem,
     }
     _res = {
         'fetchConnectionInfo': pb.ResConnectionInfo,
@@ -384,6 +386,7 @@ class Lobby(MSRPCService):
         'changeMainCharacter': pb.ResCommon,
         'changeCharacterSkin': pb.ResCommon,
         'changeCharacterView': pb.ResCommon,
+        'setHiddenCharacter': pb.ResSetHiddenCharacter,
         'sendGiftToCharacter': pb.ResSendGiftToCharacter,
         'sellItem': pb.ResCommon,
         'fetchCommonView': pb.ResCommonView,
@@ -515,6 +518,7 @@ class Lobby(MSRPCService):
         'sendActivityGiftToFriend': pb.ResSendActivityGiftToFriend,
         'receiveActivityGift': pb.ResCommon,
         'fetchFriendFeedActivityData': pb.ResFetchFriendFeedActivityData,
+        'openPreChestItem': pb.ResOpenPreChestItem,
     }
 
     def get_package_name(self):
@@ -891,6 +895,9 @@ class Lobby(MSRPCService):
 
     async def change_character_view(self, req):
         return await self.call_method('changeCharacterView', req)
+
+    async def set_hidden_character(self, req):
+        return await self.call_method('setHiddenCharacter', req)
 
     async def send_gift_to_character(self, req):
         return await self.call_method('sendGiftToCharacter', req)
@@ -1284,6 +1291,9 @@ class Lobby(MSRPCService):
 
     async def fetch_friend_feed_activity_data(self, req):
         return await self.call_method('fetchFriendFeedActivityData', req)
+
+    async def open_pre_chest_item(self, req):
+        return await self.call_method('openPreChestItem', req)
 
 
 class FastTest(MSRPCService):

@@ -180,7 +180,7 @@ message NotifyNewComment {
 }
 
 message NotifyRollingNotice {
-  RollingNotice notice = 1;
+  repeated RollingNotice notice = 1;
 }
 
 message NotifyGiftSendRefresh {
@@ -625,6 +625,7 @@ message GameMode {
 message GameTestingEnvironmentSet {
   uint32 paixing = 1;
   uint32 left_count = 2;
+  uint32 field_spell_var = 3;
 }
 
 message GameDetailRule {
@@ -679,6 +680,7 @@ message GameDetailRule {
   uint32 huansanzhang = 49;
   uint32 chuanma = 50;
   uint32 reveal_discard = 51;
+  uint32 field_spell_mode = 52;
   bool disable_leijiyiman = 60;
 }
 
@@ -911,6 +913,8 @@ message ClientDeviceInfo {
   string sale_platform = 7;
   string hardware_vendor = 8;
   string model_number = 9;
+  uint32 screen_width = 10;
+  uint32 screen_height = 11;
 }
 
 message ClientVersionInfo {
@@ -1780,6 +1784,7 @@ service Lobby {
   rpc changeMainCharacter (ReqChangeMainCharacter) returns (ResCommon);
   rpc changeCharacterSkin (ReqChangeCharacterSkin) returns (ResCommon);
   rpc changeCharacterView (ReqChangeCharacterView) returns (ResCommon);
+  rpc setHiddenCharacter (ReqSetHiddenCharacter) returns (ResSetHiddenCharacter);
   rpc sendGiftToCharacter (ReqSendGiftToCharacter) returns (ResSendGiftToCharacter);
   rpc sellItem (ReqSellItem) returns (ResCommon);
   rpc fetchCommonView (ReqCommon) returns (ResCommonView);
@@ -1911,6 +1916,7 @@ service Lobby {
   rpc sendActivityGiftToFriend (ReqSendActivityGiftToFriend) returns (ResSendActivityGiftToFriend);
   rpc receiveActivityGift (ReqReceiveActivityGift) returns (ResCommon);
   rpc fetchFriendFeedActivityData (ReqFetchFriendFeedActivityData) returns (ResFetchFriendFeedActivityData);
+  rpc openPreChestItem (ReqOpenPreChestItem) returns (ResOpenPreChestItem);
 }
 
 message ResConnectionInfo {
@@ -3120,6 +3126,7 @@ message ResCharacterInfo {
   repeated uint32 finished_endings = 7;
   repeated uint32 rewarded_endings = 8;
   repeated uint32 character_sort = 9;
+  repeated uint32 hidden_characters = 10;
 }
 
 message ReqUpdateCharacterSort {
@@ -3139,6 +3146,15 @@ message ReqChangeCharacterView {
   uint32 character_id = 1;
   uint32 slot = 2;
   uint32 item_id = 3;
+}
+
+message ReqSetHiddenCharacter {
+  repeated uint32 chara_list = 1;
+}
+
+message ResSetHiddenCharacter {
+  Error error = 1;
+  repeated uint32 hidden_characters = 2;
 }
 
 message ReqSendGiftToCharacter {
@@ -4005,6 +4021,16 @@ message ResFetchFriendFeedActivityData {
 
 }
 
+message ReqOpenPreChestItem {
+  uint32 item_id = 1;
+  uint32 pool_id = 2;
+}
+
+message ResOpenPreChestItem {
+  Error error = 1;
+  repeated OpenResult results = 2;
+}
+
 message ActionMJStart {
 }
 
@@ -4029,6 +4055,14 @@ message ChuanmaGang {
   repeated HuleInfo hules_history = 5;
 }
 
+message ActionNewCard {
+  uint32 field_spell = 1;
+}
+
+message RecordNewCard {
+  uint32 field_spell = 1;
+}
+
 message ActionNewRound {
   uint32 chang = 1;
   uint32 ju = 2;
@@ -4047,6 +4081,7 @@ message ActionNewRound {
   repeated NewRoundOpenedTiles opens = 15;
   MuyuInfo muyu = 16;
   uint32 ju_count = 17;
+  uint32 field_spell = 18;
 }
 
 message RecordNewRound {
@@ -4070,6 +4105,7 @@ message RecordNewRound {
   MuyuInfo muyu = 18;
   repeated OptionalOperationList operations = 19;
   uint32 ju_count = 20;
+  uint32 field_spell = 21;
   message TingPai {
     uint32 seat = 1;
     repeated TingPaiInfo tingpais1 = 2;
@@ -4213,6 +4249,7 @@ message HuleInfo {
   uint32 title_id = 18;
   uint32 point_sum = 19;
   uint32 dadian = 20;
+  uint32 baopai = 21;
 }
 
 message TingPaiInfo {
@@ -4419,6 +4456,8 @@ message ActionChiPengGang {
   repeated TingPaiDiscardInfo tingpais = 8;
   repeated uint32 tile_states = 9;
   MuyuInfo muyu = 10;
+  repeated int32 scores = 11;
+  uint32 liqibang = 12;
 }
 
 message RecordChiPengGang {
@@ -4431,6 +4470,8 @@ message RecordChiPengGang {
   OptionalOperationList operation = 8;
   repeated uint32 tile_states = 9;
   MuyuInfo muyu = 10;
+  repeated int32 scores = 11;
+  uint32 liqibang = 12;
 }
 
 message ActionGangResult {
