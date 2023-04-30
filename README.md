@@ -40,3 +40,9 @@ It was tested on Ubuntu.
 1. `chmod +x ms-admin-plugin.py`
 1. `sudo cp ms-admin-plugin.py /usr/bin/ms-admin-plugin.py`
 1. `protoc --custom_out=. --plugin=protoc-gen-custom=ms-admin-plugin.py ./protocol_admin.proto`
+
+### How to release new version
+
+1. `pip install twine`
+2. `python setup.py sdist`
+3. `twine upload dist/*`

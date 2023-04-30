@@ -10,6 +10,9 @@ class Lobby(MSRPCService):
     
     _req = {
         'fetchConnectionInfo': pb.ReqCommon,
+        'fetchQueueInfo': pb.ReqCommon,
+        'cancelQueue': pb.ReqCommon,
+        'openidCheck': pb.ReqOpenidCheck,
         'signup': pb.ReqSignupAccount,
         'login': pb.ReqLogin,
         'loginSuccess': pb.ReqCommon,
@@ -167,11 +170,18 @@ class Lobby(MSRPCService):
         'createJPDocomoOrder': pb.ReqCreateJPDocomoOrder,
         'createJPWebMoneyOrder': pb.ReqCreateJPWebMoneyOrder,
         'createJPSoftbankOrder': pb.ReqCreateJPSoftbankOrder,
+        'createJPPayPayOrder': pb.ReqCreateJPPayPayOrder,
+        'fetchJPCommonCreditCardOrder': pb.ReqFetchJPCommonCreditCardOrder,
         'createENPaypalOrder': pb.ReqCreateENPaypalOrder,
         'createENMasterCardOrder': pb.ReqCreateENMasterCardOrder,
         'createENVisaOrder': pb.ReqCreateENVisaOrder,
         'createENJCBOrder': pb.ReqCreateENJCBOrder,
         'createENAlipayOrder': pb.ReqCreateENAlipayOrder,
+        'createKRPaypalOrder': pb.ReqCreateKRPaypalOrder,
+        'createKRMasterCardOrder': pb.ReqCreateKRMasterCardOrder,
+        'createKRVisaOrder': pb.ReqCreateKRVisaOrder,
+        'createKRJCBOrder': pb.ReqCreateKRJCBOrder,
+        'createKRAlipayOrder': pb.ReqCreateKRAlipayOrder,
         'createDMMOrder': pb.ReqCreateDMMOrder,
         'createIAPOrder': pb.ReqCreateIAPOrder,
         'createSteamOrder': pb.ReqCreateSteamOrder,
@@ -186,6 +196,7 @@ class Lobby(MSRPCService):
         'createBillingOrder': pb.ReqCreateBillingOrder,
         'solveGooglePlayOrder': pb.ReqSolveGooglePlayOrder,
         'solveGooglePayOrderV3': pb.ReqSolveGooglePlayOrderV3,
+        'deliverAA32Order': pb.ReqDeliverAA32Order,
         'fetchMisc': pb.ReqCommon,
         'modifySignature': pb.ReqModifySignature,
         'fetchIDCardInfo': pb.ReqCommon,
@@ -215,6 +226,7 @@ class Lobby(MSRPCService):
         'completeActivityTask': pb.ReqCompleteActivityTask,
         'completeActivityFlipTask': pb.ReqCompleteActivityTask,
         'completePeriodActivityTask': pb.ReqCompleteActivityTask,
+        'completePeriodActivityTaskBatch': pb.ReqCompletePeriodActivityTaskBatch,
         'completeRandomActivityTask': pb.ReqCompleteActivityTask,
         'receiveActivityFlipTask': pb.ReqReceiveActivityFlipTask,
         'completeSegmentTaskReward': pb.ReqCompleteSegmentTaskReward,
@@ -230,6 +242,8 @@ class Lobby(MSRPCService):
         'refreshGameObserveAuth': pb.ReqRefreshGameObserveAuth,
         'fetchActivityBuff': pb.ReqCommon,
         'upgradeActivityBuff': pb.ReqUpgradeActivityBuff,
+        'upgradeActivityLevel': pb.ReqUpgradeActivityLevel,
+        'receiveUpgradeActivityReward': pb.ReqReceiveUpgradeActivityReward,
         'upgradeChallenge': pb.ReqCommon,
         'refreshChallenge': pb.ReqCommon,
         'fetchChallengeInfo': pb.ReqCommon,
@@ -252,7 +266,9 @@ class Lobby(MSRPCService):
         'checkPrivacy': pb.ReqCheckPrivacy,
         'responseCaptcha': pb.ReqResponseCaptcha,
         'fetchRPGBattleHistory': pb.ReqFetchRPGBattleHistory,
+        'fetchRPGBattleHistoryV2': pb.ReqFetchRPGBattleHistory,
         'receiveRPGRewards': pb.ReqReceiveRPGRewards,
+        'receiveRPGReward': pb.ReqReceiveRPGReward,
         'buyArenaTicket': pb.ReqBuyArenaTicket,
         'enterArena': pb.ReqEnterArena,
         'receiveArenaReward': pb.ReqArenaReward,
@@ -261,11 +277,29 @@ class Lobby(MSRPCService):
         'feedActivityFeed': pb.ReqFeedActivityFeed,
         'sendActivityGiftToFriend': pb.ReqSendActivityGiftToFriend,
         'receiveActivityGift': pb.ReqReceiveActivityGift,
-        'fetchFriendFeedActivityData': pb.ReqFetchFriendFeedActivityData,
+        'receiveAllActivityGift': pb.ReqReceiveAllActivityGift,
+        'fetchFriendGiftActivityData': pb.ReqFetchFriendGiftActivityData,
         'openPreChestItem': pb.ReqOpenPreChestItem,
+        'fetchVoteActivity': pb.ReqFetchVoteActivity,
+        'voteActivity': pb.ReqVoteActivity,
+        'unlockActivitySpot': pb.ReqUnlockActivitySpot,
+        'receiveActivitySpotReward': pb.ReqReceiveActivitySpotReward,
+        'deleteAccount': pb.ReqCommon,
+        'cancelDeleteAccount': pb.ReqCommon,
+        'logReport': pb.ReqLogReport,
+        'bindOauth2': pb.ReqBindOauth2,
+        'fetchOauth2Info': pb.ReqFetchOauth2,
+        'setLoadingImage': pb.ReqSetLoadingImage,
+        'fetchShopInterval': pb.ReqCommon,
+        'fetchActivityInterval': pb.ReqCommon,
+        'fetchRecentFriend': pb.ReqCommon,
+        'openGacha': pb.ReqOpenGacha,
     }
     _res = {
         'fetchConnectionInfo': pb.ResConnectionInfo,
+        'fetchQueueInfo': pb.ResFetchQueueInfo,
+        'cancelQueue': pb.ResCommon,
+        'openidCheck': pb.ResOauth2Check,
         'signup': pb.ResSignupAccount,
         'login': pb.ResLogin,
         'loginSuccess': pb.ResCommon,
@@ -423,11 +457,18 @@ class Lobby(MSRPCService):
         'createJPDocomoOrder': pb.ResCreateJPDocomoOrder,
         'createJPWebMoneyOrder': pb.ResCreateJPWebMoneyOrder,
         'createJPSoftbankOrder': pb.ResCreateJPSoftbankOrder,
+        'createJPPayPayOrder': pb.ResCreateJPPayPayOrder,
+        'fetchJPCommonCreditCardOrder': pb.ResFetchJPCommonCreditCardOrder,
         'createENPaypalOrder': pb.ResCreateENPaypalOrder,
         'createENMasterCardOrder': pb.ResCreateENMasterCardOrder,
         'createENVisaOrder': pb.ResCreateENVisaOrder,
         'createENJCBOrder': pb.ResCreateENJCBOrder,
         'createENAlipayOrder': pb.ResCreateENAlipayOrder,
+        'createKRPaypalOrder': pb.ResCreateKRPaypalOrder,
+        'createKRMasterCardOrder': pb.ResCreateKRMasterCardOrder,
+        'createKRVisaOrder': pb.ResCreateKRVisaOrder,
+        'createKRJCBOrder': pb.ResCreateKRJCBOrder,
+        'createKRAlipayOrder': pb.ResCreateKRAlipayOrder,
         'createDMMOrder': pb.ResCreateDmmOrder,
         'createIAPOrder': pb.ResCreateIAPOrder,
         'createSteamOrder': pb.ResCreateSteamOrder,
@@ -442,6 +483,7 @@ class Lobby(MSRPCService):
         'createBillingOrder': pb.ResCreateBillingOrder,
         'solveGooglePlayOrder': pb.ResCommon,
         'solveGooglePayOrderV3': pb.ResCommon,
+        'deliverAA32Order': pb.ResCommon,
         'fetchMisc': pb.ResMisc,
         'modifySignature': pb.ResCommon,
         'fetchIDCardInfo': pb.ResIDCardInfo,
@@ -471,6 +513,7 @@ class Lobby(MSRPCService):
         'completeActivityTask': pb.ResCommon,
         'completeActivityFlipTask': pb.ResCommon,
         'completePeriodActivityTask': pb.ResCommon,
+        'completePeriodActivityTaskBatch': pb.ResCommon,
         'completeRandomActivityTask': pb.ResCommon,
         'receiveActivityFlipTask': pb.ResReceiveActivityFlipTask,
         'completeSegmentTaskReward': pb.ResCompleteSegmentTaskReward,
@@ -486,6 +529,8 @@ class Lobby(MSRPCService):
         'refreshGameObserveAuth': pb.ResRefreshGameObserveAuth,
         'fetchActivityBuff': pb.ResActivityBuff,
         'upgradeActivityBuff': pb.ResActivityBuff,
+        'upgradeActivityLevel': pb.ResUpgradeActivityLevel,
+        'receiveUpgradeActivityReward': pb.ResReceiveUpgradeActivityReward,
         'upgradeChallenge': pb.ResUpgradeChallenge,
         'refreshChallenge': pb.ResRefreshChallenge,
         'fetchChallengeInfo': pb.ResFetchChallengeInfo,
@@ -508,7 +553,9 @@ class Lobby(MSRPCService):
         'checkPrivacy': pb.ResCommon,
         'responseCaptcha': pb.ResCommon,
         'fetchRPGBattleHistory': pb.ResFetchRPGBattleHistory,
+        'fetchRPGBattleHistoryV2': pb.ResFetchRPGBattleHistoryV2,
         'receiveRPGRewards': pb.ResReceiveRPGRewards,
+        'receiveRPGReward': pb.ResReceiveRPGRewards,
         'buyArenaTicket': pb.ResCommon,
         'enterArena': pb.ResCommon,
         'receiveArenaReward': pb.ResArenaReward,
@@ -517,8 +564,23 @@ class Lobby(MSRPCService):
         'feedActivityFeed': pb.ResFeedActivityFeed,
         'sendActivityGiftToFriend': pb.ResSendActivityGiftToFriend,
         'receiveActivityGift': pb.ResCommon,
-        'fetchFriendFeedActivityData': pb.ResFetchFriendFeedActivityData,
+        'receiveAllActivityGift': pb.ResReceiveAllActivityGift,
+        'fetchFriendGiftActivityData': pb.ResFetchFriendGiftActivityData,
         'openPreChestItem': pb.ResOpenPreChestItem,
+        'fetchVoteActivity': pb.ResFetchVoteActivity,
+        'voteActivity': pb.ResVoteActivity,
+        'unlockActivitySpot': pb.ResCommon,
+        'receiveActivitySpotReward': pb.ResReceiveActivitySpotReward,
+        'deleteAccount': pb.ResDeleteAccount,
+        'cancelDeleteAccount': pb.ResCommon,
+        'logReport': pb.ResCommon,
+        'bindOauth2': pb.ResCommon,
+        'fetchOauth2Info': pb.ResFetchOauth2,
+        'setLoadingImage': pb.ResCommon,
+        'fetchShopInterval': pb.ResFetchShopInterval,
+        'fetchActivityInterval': pb.ResFetchActivityInterval,
+        'fetchRecentFriend': pb.ResFetchrecentFriend,
+        'openGacha': pb.ResOpenGacha,
     }
 
     def get_package_name(self):
@@ -535,6 +597,15 @@ class Lobby(MSRPCService):
 
     async def fetch_connection_info(self, req):
         return await self.call_method('fetchConnectionInfo', req)
+
+    async def fetch_queue_info(self, req):
+        return await self.call_method('fetchQueueInfo', req)
+
+    async def cancel_queue(self, req):
+        return await self.call_method('cancelQueue', req)
+
+    async def openid_check(self, req):
+        return await self.call_method('openidCheck', req)
 
     async def signup(self, req):
         return await self.call_method('signup', req)
@@ -1007,6 +1078,12 @@ class Lobby(MSRPCService):
     async def create_jp_softbank_order(self, req):
         return await self.call_method('createJPSoftbankOrder', req)
 
+    async def create_jp_pay_pay_order(self, req):
+        return await self.call_method('createJPPayPayOrder', req)
+
+    async def fetch_jp_common_credit_card_order(self, req):
+        return await self.call_method('fetchJPCommonCreditCardOrder', req)
+
     async def create_en_paypal_order(self, req):
         return await self.call_method('createENPaypalOrder', req)
 
@@ -1021,6 +1098,21 @@ class Lobby(MSRPCService):
 
     async def create_en_alipay_order(self, req):
         return await self.call_method('createENAlipayOrder', req)
+
+    async def create_kr_paypal_order(self, req):
+        return await self.call_method('createKRPaypalOrder', req)
+
+    async def create_kr_master_card_order(self, req):
+        return await self.call_method('createKRMasterCardOrder', req)
+
+    async def create_kr_visa_order(self, req):
+        return await self.call_method('createKRVisaOrder', req)
+
+    async def create_krjcb_order(self, req):
+        return await self.call_method('createKRJCBOrder', req)
+
+    async def create_kr_alipay_order(self, req):
+        return await self.call_method('createKRAlipayOrder', req)
 
     async def create_dmm_order(self, req):
         return await self.call_method('createDMMOrder', req)
@@ -1063,6 +1155,9 @@ class Lobby(MSRPCService):
 
     async def solve_google_pay_order_v3(self, req):
         return await self.call_method('solveGooglePayOrderV3', req)
+
+    async def deliver_aa32_order(self, req):
+        return await self.call_method('deliverAA32Order', req)
 
     async def fetch_misc(self, req):
         return await self.call_method('fetchMisc', req)
@@ -1151,6 +1246,9 @@ class Lobby(MSRPCService):
     async def complete_period_activity_task(self, req):
         return await self.call_method('completePeriodActivityTask', req)
 
+    async def complete_period_activity_task_batch(self, req):
+        return await self.call_method('completePeriodActivityTaskBatch', req)
+
     async def complete_random_activity_task(self, req):
         return await self.call_method('completeRandomActivityTask', req)
 
@@ -1195,6 +1293,12 @@ class Lobby(MSRPCService):
 
     async def upgrade_activity_buff(self, req):
         return await self.call_method('upgradeActivityBuff', req)
+
+    async def upgrade_activity_level(self, req):
+        return await self.call_method('upgradeActivityLevel', req)
+
+    async def receive_upgrade_activity_reward(self, req):
+        return await self.call_method('receiveUpgradeActivityReward', req)
 
     async def upgrade_challenge(self, req):
         return await self.call_method('upgradeChallenge', req)
@@ -1262,8 +1366,14 @@ class Lobby(MSRPCService):
     async def fetch_rpg_battle_history(self, req):
         return await self.call_method('fetchRPGBattleHistory', req)
 
+    async def fetch_rpg_battle_history_v2(self, req):
+        return await self.call_method('fetchRPGBattleHistoryV2', req)
+
     async def receive_rpg_rewards(self, req):
         return await self.call_method('receiveRPGRewards', req)
+
+    async def receive_rpg_reward(self, req):
+        return await self.call_method('receiveRPGReward', req)
 
     async def buy_arena_ticket(self, req):
         return await self.call_method('buyArenaTicket', req)
@@ -1289,11 +1399,56 @@ class Lobby(MSRPCService):
     async def receive_activity_gift(self, req):
         return await self.call_method('receiveActivityGift', req)
 
-    async def fetch_friend_feed_activity_data(self, req):
-        return await self.call_method('fetchFriendFeedActivityData', req)
+    async def receive_all_activity_gift(self, req):
+        return await self.call_method('receiveAllActivityGift', req)
+
+    async def fetch_friend_gift_activity_data(self, req):
+        return await self.call_method('fetchFriendGiftActivityData', req)
 
     async def open_pre_chest_item(self, req):
         return await self.call_method('openPreChestItem', req)
+
+    async def fetch_vote_activity(self, req):
+        return await self.call_method('fetchVoteActivity', req)
+
+    async def vote_activity(self, req):
+        return await self.call_method('voteActivity', req)
+
+    async def unlock_activity_spot(self, req):
+        return await self.call_method('unlockActivitySpot', req)
+
+    async def receive_activity_spot_reward(self, req):
+        return await self.call_method('receiveActivitySpotReward', req)
+
+    async def delete_account(self, req):
+        return await self.call_method('deleteAccount', req)
+
+    async def cancel_delete_account(self, req):
+        return await self.call_method('cancelDeleteAccount', req)
+
+    async def log_report(self, req):
+        return await self.call_method('logReport', req)
+
+    async def bind_oauth2(self, req):
+        return await self.call_method('bindOauth2', req)
+
+    async def fetch_oauth2_info(self, req):
+        return await self.call_method('fetchOauth2Info', req)
+
+    async def set_loading_image(self, req):
+        return await self.call_method('setLoadingImage', req)
+
+    async def fetch_shop_interval(self, req):
+        return await self.call_method('fetchShopInterval', req)
+
+    async def fetch_activity_interval(self, req):
+        return await self.call_method('fetchActivityInterval', req)
+
+    async def fetch_recent_friend(self, req):
+        return await self.call_method('fetchRecentFriend', req)
+
+    async def open_gacha(self, req):
+        return await self.call_method('openGacha', req)
 
 
 class FastTest(MSRPCService):
