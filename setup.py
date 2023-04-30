@@ -2,22 +2,23 @@ import setuptools
 
 from distutils.core import setup
 
-with open('requirements.txt') as f:
-    requirements = f.read().splitlines()
-
 setup(
     name='ms_api',
     packages=[
         'ms',
         'ms_tournament',
     ],
-    version='0.10.226',
+    version='0.10.226-2',
     description='Python wrapper for the Mahjong Soul (Majsoul) Protobuf objects. It allows to use their API.',
     long_description='',
     author='Nihisil',
     author_email='alexey@nihisil.com',
     url='https://github.com/MahjongRepository/mahjong_soul_api',
-    install_requires=requirements,
+    install_requires=[
+        'protobuf',
+        'websockets',
+        'aiohttp',
+    ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Console',
