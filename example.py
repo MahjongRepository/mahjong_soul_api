@@ -128,7 +128,7 @@ async def load_and_process_game_log(lobby, uuid):
 
     req = pb.ReqGameRecord()
     req.game_uuid = uuid
-    req.client_version_string = 'web-0.9.333'
+    req.client_version_string = 'web-0.10.246'
     res = await lobby.fetch_game_record(req)
 
     record_wrapper = pb.Wrapper()
