@@ -45,7 +45,7 @@ async def main():
         game_logs = await load_game_logs(lobby)
         logging.info("Found {} records".format(len(game_logs)))
     else:
-        game_log = await load_and_process_game_log(lobby, log_uuid)
+        game_log = await load_and_process_game_log(lobby, log_uuid, version_to_force)
         logging.info("game {} result : \n{}".format(game_log.head.uuid, game_log.head.result))
 
     await channel.close()
@@ -123,12 +123,12 @@ async def load_game_logs(lobby):
     return records
 
 
-async def load_and_process_game_log(lobby, uuid):
+async def load_and_process_game_log(lobby, uuid, version_to_force):
     logging.info("Loading game log")
 
     req = pb.ReqGameRecord()
     req.game_uuid = uuid
-    req.client_version_string = 'web-0.10.246'
+    req.client_version_string = f"web-{version_to_force}"
     res = await lobby.fetch_game_record(req)
 
     record_wrapper = pb.Wrapper()

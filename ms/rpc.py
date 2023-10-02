@@ -151,7 +151,7 @@ class Lobby(MSRPCService):
         'buyFromZHP': pb.ReqBuyFromZHP,
         'refreshZHPShop': pb.ReqReshZHPShop,
         'fetchMonthTicketInfo': pb.ReqCommon,
-        'payMonthTicket': pb.ReqPayMonthTicket,
+        'payMonthTicket': pb.ReqCommon,
         'exchangeCurrency': pb.ReqExchangeCurrency,
         'exchangeChestStone': pb.ReqExchangeCurrency,
         'exchangeDiamond': pb.ReqExchangeCurrency,
@@ -172,6 +172,7 @@ class Lobby(MSRPCService):
         'createJPSoftbankOrder': pb.ReqCreateJPSoftbankOrder,
         'createJPPayPayOrder': pb.ReqCreateJPPayPayOrder,
         'fetchJPCommonCreditCardOrder': pb.ReqFetchJPCommonCreditCardOrder,
+        'createJPGMOOrder': pb.ReqCreateJPGMOOrder,
         'createENPaypalOrder': pb.ReqCreateENPaypalOrder,
         'createENMasterCardOrder': pb.ReqCreateENMasterCardOrder,
         'createENVisaOrder': pb.ReqCreateENVisaOrder,
@@ -283,6 +284,7 @@ class Lobby(MSRPCService):
         'fetchVoteActivity': pb.ReqFetchVoteActivity,
         'voteActivity': pb.ReqVoteActivity,
         'unlockActivitySpot': pb.ReqUnlockActivitySpot,
+        'unlockActivitySpotEnding': pb.ReqUnlockActivitySpotEnding,
         'receiveActivitySpotReward': pb.ReqReceiveActivitySpotReward,
         'deleteAccount': pb.ReqCommon,
         'cancelDeleteAccount': pb.ReqCommon,
@@ -294,6 +296,11 @@ class Lobby(MSRPCService):
         'fetchActivityInterval': pb.ReqCommon,
         'fetchRecentFriend': pb.ReqCommon,
         'openGacha': pb.ReqOpenGacha,
+        'taskRequest': pb.ReqTaskRequest,
+        'simulationActivityTrain': pb.ReqSimulationActivityTrain,
+        'fetchSimulationGameRecord': pb.ReqFetchSimulationGameRecord,
+        'startSimulationActivityGame': pb.ReqStartSimulationActivityGame,
+        'fetchSimulationGameRank': pb.ReqFetchSimulationGameRank,
     }
     _res = {
         'fetchConnectionInfo': pb.ResConnectionInfo,
@@ -459,6 +466,7 @@ class Lobby(MSRPCService):
         'createJPSoftbankOrder': pb.ResCreateJPSoftbankOrder,
         'createJPPayPayOrder': pb.ResCreateJPPayPayOrder,
         'fetchJPCommonCreditCardOrder': pb.ResFetchJPCommonCreditCardOrder,
+        'createJPGMOOrder': pb.ResCreateJPGMOOrder,
         'createENPaypalOrder': pb.ResCreateENPaypalOrder,
         'createENMasterCardOrder': pb.ResCreateENMasterCardOrder,
         'createENVisaOrder': pb.ResCreateENVisaOrder,
@@ -570,6 +578,7 @@ class Lobby(MSRPCService):
         'fetchVoteActivity': pb.ResFetchVoteActivity,
         'voteActivity': pb.ResVoteActivity,
         'unlockActivitySpot': pb.ResCommon,
+        'unlockActivitySpotEnding': pb.ResCommon,
         'receiveActivitySpotReward': pb.ResReceiveActivitySpotReward,
         'deleteAccount': pb.ResDeleteAccount,
         'cancelDeleteAccount': pb.ResCommon,
@@ -581,6 +590,11 @@ class Lobby(MSRPCService):
         'fetchActivityInterval': pb.ResFetchActivityInterval,
         'fetchRecentFriend': pb.ResFetchrecentFriend,
         'openGacha': pb.ResOpenGacha,
+        'taskRequest': pb.ResCommon,
+        'simulationActivityTrain': pb.ResSimulationActivityTrain,
+        'fetchSimulationGameRecord': pb.ResFetchSimulationGameRecord,
+        'startSimulationActivityGame': pb.ResStartSimulationActivityGame,
+        'fetchSimulationGameRank': pb.ResFetchSimulationGameRank,
     }
 
     def get_package_name(self):
@@ -1084,6 +1098,9 @@ class Lobby(MSRPCService):
     async def fetch_jp_common_credit_card_order(self, req):
         return await self.call_method('fetchJPCommonCreditCardOrder', req)
 
+    async def create_jpgmo_order(self, req):
+        return await self.call_method('createJPGMOOrder', req)
+
     async def create_en_paypal_order(self, req):
         return await self.call_method('createENPaypalOrder', req)
 
@@ -1417,6 +1434,9 @@ class Lobby(MSRPCService):
     async def unlock_activity_spot(self, req):
         return await self.call_method('unlockActivitySpot', req)
 
+    async def unlock_activity_spot_ending(self, req):
+        return await self.call_method('unlockActivitySpotEnding', req)
+
     async def receive_activity_spot_reward(self, req):
         return await self.call_method('receiveActivitySpotReward', req)
 
@@ -1449,6 +1469,21 @@ class Lobby(MSRPCService):
 
     async def open_gacha(self, req):
         return await self.call_method('openGacha', req)
+
+    async def task_request(self, req):
+        return await self.call_method('taskRequest', req)
+
+    async def simulation_activity_train(self, req):
+        return await self.call_method('simulationActivityTrain', req)
+
+    async def fetch_simulation_game_record(self, req):
+        return await self.call_method('fetchSimulationGameRecord', req)
+
+    async def start_simulation_activity_game(self, req):
+        return await self.call_method('startSimulationActivityGame', req)
+
+    async def fetch_simulation_game_rank(self, req):
+        return await self.call_method('fetchSimulationGameRank', req)
 
 
 class FastTest(MSRPCService):

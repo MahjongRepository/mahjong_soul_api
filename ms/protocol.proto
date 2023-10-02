@@ -811,6 +811,7 @@ message Mail {
   uint32 reference_id = 9;
   repeated I18nContext title_i18n = 10;
   repeated I18nContext content_i18n = 11;
+  uint32 template_id = 12;
 }
 
 message AchievementProgress {
@@ -949,6 +950,7 @@ message Announcement {
   uint32 id = 1;
   string title = 2;
   string content = 3;
+  string header_image = 4;
 }
 
 message TaskProgress {
@@ -957,6 +959,7 @@ message TaskProgress {
   bool achieved = 3;
   bool rewarded = 4;
   bool failed = 5;
+  uint32 rewarded_time = 6;
 }
 
 message GameConfig {
@@ -1038,6 +1041,7 @@ message AccountActivityUpdate {
   repeated lq.ActivityFriendGiftData friend_gift_data = 5;
   repeated lq.ActivityUpgradeData upgrade_data = 6;
   repeated lq.ActivityGachaUpdateData gacha_data = 7;
+  repeated lq.ActivitySimulationData simulation_data = 8;
 }
 
 message ActivityFeedData {
@@ -1113,6 +1117,43 @@ message ActivityGachaUpdateData {
   uint32 remain_count = 3;
 }
 
+message ActivitySimulationGameRecordMessage {
+  uint32 type = 1;
+  repeated uint32 args = 2;
+  uint32 xun = 3;
+}
+
+message ActivitySimulationGameRecord {
+  uint32 round = 1;
+  repeated uint32 seats = 2;
+  string uuid = 3;
+  uint32 start_time = 4;
+  repeated int32 scores = 5;
+  repeated ActivitySimulationGameRecordMessage messages = 6;
+}
+
+message ActivitySimulationDailyContest {
+  uint32 day = 1;
+  repeated uint32 characters = 2;
+  repeated ActivitySimulationGameRecord records = 3;
+  uint32 round = 4;
+}
+
+message ActivitySimulationTrainRecord {
+  uint32 time = 1;
+  repeated int32 modify_stats = 2;
+  repeated uint32 final_stats = 3;
+  uint32 type = 4;
+}
+
+message ActivitySimulationData {
+  uint32 activity_id = 1;
+  repeated uint32 stats = 2;
+  uint32 stamina_update_time = 3;
+  repeated ActivitySimulationDailyContest daily_contest = 4;
+  repeated ActivitySimulationTrainRecord train_records = 5;
+}
+
 message ActivitySpotData {
   uint32 activity_id = 1;
   repeated SpotData spots = 3;
@@ -1120,6 +1161,7 @@ message ActivitySpotData {
     uint32 unique_id = 1;
     uint32 rewarded = 2;
     repeated uint32 unlocked_ending = 3;
+    uint32 unlocked = 4;
   }
 
 }
@@ -1286,6 +1328,7 @@ message PaymentSettingV2 {
     uint32 end_time = 2;
     uint32 goods_click_action = 3;
     string goods_click_text = 4;
+    repeated string enabled_channel = 5;
   }
 
   message PaymentSettingUnit {
@@ -1296,6 +1339,7 @@ message PaymentSettingV2 {
     PaymentMaintain maintain = 5;
     bool enable_for_frozen_account = 6;
     string extra_data = 7;
+    repeated string enabled_channel = 8;
   }
 
 }
@@ -1626,6 +1670,7 @@ message ContestDetailRule {
   uint32 disable_angang_guoshi = 67;
   uint32 enable_renhe = 68;
   uint32 enable_baopai_extend_settings = 69;
+  uint32 fanfu = 70;
 }
 
 message ContestDetailRuleV2 {
@@ -1771,22 +1816,148 @@ message ActivityBuffData {
   uint32 level = 5;
 }
 
-message AccountResourceModify {
-  uint32 id = 1;
-  uint32 origin = 2;
-  uint32 final = 3;
-  int32 modify = 4;
+message AccountResourceSnapshot {
+  repeated BagItemSnapshot bag_item = 1;
+  repeated CurrencySnapshot currency = 2;
+  TitleSnapshot title = 3;
+  UsedTitleSnapshot used_title = 4;
+  message BagItemSnapshot {
+    uint32 resource_id = 1;
+    uint32 resource_count = 2;
+    uint32 resource_version = 3;
+  }
+
+  message CurrencySnapshot {
+    uint32 currency_id = 1;
+    uint32 currency_count = 2;
+  }
+
+  message TitleSnapshot {
+    repeated uint32 title_list = 1;
+  }
+
+  message UsedTitleSnapshot {
+    uint32 title_id = 1;
+  }
+
 }
 
-message AccountResourceRecord {
-  repeated AccountResourceModify records = 1;
+message AccountCharacterSnapshot {
+  repeated uint32 created_characters = 1;
+  repeated Character removed_characters = 2;
+  repeated Character modified_characters = 3;
+  MainCharacterSnapshot main_character = 4;
+  SkinsSnapshot skins = 5;
+  HiddenCharacter hidden_characters = 6;
+  message MainCharacterSnapshot {
+    uint32 character_id = 1;
+  }
+
+  message SkinsSnapshot {
+    repeated uint32 skin_list = 1;
+  }
+
+  message HiddenCharacter {
+    repeated uint32 hidden_list = 1;
+  }
+
 }
 
-message AccountResourceRecordCache {
+message AccountMailRecord {
+  repeated uint32 created_mails = 1;
+  repeated MailSnapshot removed_mails = 2;
+  repeated MailSnapshot modified_mails = 3;
+  message MailSnapshot {
+    uint32 mail_id = 1;
+    uint32 reference_id = 2;
+    uint32 create_time = 3;
+    uint32 expire_time = 4;
+    uint32 take_attachment = 5;
+    repeated RewardSlot attachments = 6;
+  }
+
+}
+
+message AccountAchievementSnapshot {
+  repeated AchievementProgress achievements = 1;
+  RewardedGroupSnapshot rewarded_group = 2;
+  AchievementVersion version = 3;
+  message RewardedGroupSnapshot {
+    uint32 rewarded_id = 1;
+  }
+
+  message AchievementVersion {
+    uint32 version = 1;
+  }
+
+}
+
+message AccountMiscSnapshot {
+  FaithData faith_data = 1;
+  AccountVIPRewardSnapshot vip_reward_gained = 2;
+  AccountVIP vip = 3;
+  ShopInfo shop_info = 4;
+  AccountMonthTicketSnapshot month_ticket = 5;
+  repeated AccountRechargeInfo recharged = 6;
+  AccountMonthTicketSnapshotV2 month_ticket_v2 = 7;
+  message AccountVIPRewardSnapshot {
+    repeated uint32 rewarded = 1;
+  }
+
+  message MonthTicketInfo {
+    uint32 id = 1;
+    uint32 end_time = 2;
+    uint32 last_pay_time = 3;
+    uint32 record_start_time = 4;
+    repeated uint32 history = 5;
+  }
+
+  message AccountMonthTicketSnapshot {
+    repeated MonthTicketInfo tickets = 1;
+  }
+
+  message AccountVIP {
+    uint32 vip = 1;
+  }
+
+  message AccountRechargeInfo {
+    uint32 level = 1;
+    uint32 recharge_time = 2;
+  }
+
+  message AccountMonthTicketSnapshotV2 {
+    uint32 end_time = 1;
+    uint32 last_pay_time = 2;
+    uint32 record_start_time = 3;
+    repeated uint32 history = 4;
+  }
+
+}
+
+message AccountGiftCodeRecord {
+  repeated string used_gift_code = 1;
+}
+
+message AccSn {
+  AccountResourceSnapshot resource = 1;
+  AccountCharacterSnapshot character = 2;
+  AccountMailRecord mail = 3;
+  AccountAchievementSnapshot achievement = 4;
+  AccountMiscSnapshot misc = 5;
+  AccountGiftCodeRecord gift_code = 6;
+}
+
+message AccSnDa {
   uint32 account_id = 1;
   uint32 time = 2;
-  uint32 reason = 3;
-  bytes resource_record = 4;
+  bytes snapshot = 3;
+}
+
+message TransparentData {
+  string method = 1;
+  bytes data = 2;
+  string session = 3;
+  NetworkEndpoint remote = 4;
 }
 
 service Lobby {
@@ -1932,7 +2103,7 @@ service Lobby {
   rpc buyFromZHP (ReqBuyFromZHP) returns (ResCommon);
   rpc refreshZHPShop (ReqReshZHPShop) returns (ResRefreshZHPShop);
   rpc fetchMonthTicketInfo (ReqCommon) returns (ResMonthTicketInfo);
-  rpc payMonthTicket (ReqPayMonthTicket) returns (ResPayMonthTicket);
+  rpc payMonthTicket (ReqCommon) returns (ResPayMonthTicket);
   rpc exchangeCurrency (ReqExchangeCurrency) returns (ResCommon);
   rpc exchangeChestStone (ReqExchangeCurrency) returns (ResCommon);
   rpc exchangeDiamond (ReqExchangeCurrency) returns (ResCommon);
@@ -1953,6 +2124,7 @@ service Lobby {
   rpc createJPSoftbankOrder (ReqCreateJPSoftbankOrder) returns (ResCreateJPSoftbankOrder);
   rpc createJPPayPayOrder (ReqCreateJPPayPayOrder) returns (ResCreateJPPayPayOrder);
   rpc fetchJPCommonCreditCardOrder (ReqFetchJPCommonCreditCardOrder) returns (ResFetchJPCommonCreditCardOrder);
+  rpc createJPGMOOrder (ReqCreateJPGMOOrder) returns (ResCreateJPGMOOrder);
   rpc createENPaypalOrder (ReqCreateENPaypalOrder) returns (ResCreateENPaypalOrder);
   rpc createENMasterCardOrder (ReqCreateENMasterCardOrder) returns (ResCreateENMasterCardOrder);
   rpc createENVisaOrder (ReqCreateENVisaOrder) returns (ResCreateENVisaOrder);
@@ -2064,6 +2236,7 @@ service Lobby {
   rpc fetchVoteActivity (ReqFetchVoteActivity) returns (ResFetchVoteActivity);
   rpc voteActivity (ReqVoteActivity) returns (ResVoteActivity);
   rpc unlockActivitySpot (ReqUnlockActivitySpot) returns (ResCommon);
+  rpc unlockActivitySpotEnding (ReqUnlockActivitySpotEnding) returns (ResCommon);
   rpc receiveActivitySpotReward (ReqReceiveActivitySpotReward) returns (ResReceiveActivitySpotReward);
   rpc deleteAccount (ReqCommon) returns (ResDeleteAccount);
   rpc cancelDeleteAccount (ReqCommon) returns (ResCommon);
@@ -2075,6 +2248,11 @@ service Lobby {
   rpc fetchActivityInterval (ReqCommon) returns (ResFetchActivityInterval);
   rpc fetchRecentFriend (ReqCommon) returns (ResFetchrecentFriend);
   rpc openGacha (ReqOpenGacha) returns (ResOpenGacha);
+  rpc taskRequest (ReqTaskRequest) returns (ResCommon);
+  rpc simulationActivityTrain (ReqSimulationActivityTrain) returns (ResSimulationActivityTrain);
+  rpc fetchSimulationGameRecord (ReqFetchSimulationGameRecord) returns (ResFetchSimulationGameRecord);
+  rpc startSimulationActivityGame (ReqStartSimulationActivityGame) returns (ResStartSimulationActivityGame);
+  rpc fetchSimulationGameRank (ReqFetchSimulationGameRank) returns (ResFetchSimulationGameRank);
 }
 
 message ResConnectionInfo {
@@ -3091,6 +3269,20 @@ message ResFetchJPCommonCreditCardOrder {
   Error error = 1;
 }
 
+message ReqCreateJPGMOOrder {
+  uint32 goods_id = 1;
+  uint32 client_type = 2;
+  uint32 account_id = 3;
+  string return_url = 4;
+  string access_token = 5;
+  string client_version_string = 6;
+}
+
+message ResCreateJPGMOOrder {
+  Error error = 1;
+  string order_id = 2;
+}
+
 message ReqCreateYostarOrder {
   uint32 goods_id = 1;
   uint32 client_type = 2;
@@ -3592,7 +3784,7 @@ message ResRefreshZHPShop {
 
 message ResMonthTicketInfo {
   Error error = 2;
-  repeated MonthTicketInfo month_ticket_info = 1;
+  MonthTicketInfo month_ticket_info = 1;
 }
 
 message ReqExchangeCurrency {
@@ -3796,6 +3988,7 @@ message ResAccountActivityData {
   repeated lq.ActivityFriendGiftData friend_gift_data = 20;
   repeated lq.ActivityUpgradeData upgrade_data = 21;
   repeated lq.ActivityGachaUpdateData gacha_data = 22;
+  repeated lq.ActivitySimulationData simulation_data = 23;
   message ActivitySignInData {
     uint32 activity_id = 1;
     uint32 sign_in_count = 2;
@@ -4421,6 +4614,10 @@ message ResVoteActivity {
 
 message ReqUnlockActivitySpot {
   uint32 unique_id = 1;
+}
+
+message ReqUnlockActivitySpotEnding {
+  uint32 unique_id = 1;
   uint32 ending_id = 2;
 }
 
@@ -4504,6 +4701,55 @@ message ResOpenGacha {
   uint32 remain_count = 5;
 }
 
+message ReqTaskRequest {
+  repeated uint32 params = 1;
+}
+
+message ReqSimulationActivityTrain {
+  uint32 activity_id = 1;
+  uint32 type = 2;
+}
+
+message ResSimulationActivityTrain {
+  Error error = 1;
+  uint32 result_type = 2;
+  repeated uint32 final_stats = 4;
+}
+
+message ReqFetchSimulationGameRecord {
+  string game_uuid = 1;
+  uint32 activity_id = 2;
+}
+
+message ResFetchSimulationGameRecord {
+  Error error = 1;
+  repeated ActivitySimulationGameRecordMessage messages = 2;
+}
+
+message ReqStartSimulationActivityGame {
+  uint32 activity_id = 1;
+}
+
+message ResStartSimulationActivityGame {
+  Error error = 1;
+  repeated lq.ActivitySimulationGameRecord records = 2;
+}
+
+message ReqFetchSimulationGameRank {
+  uint32 activity_id = 1;
+  uint32 day = 2;
+}
+
+message ResFetchSimulationGameRank {
+  Error error = 1;
+  repeated RankInfo rank = 2;
+  message RankInfo {
+    uint32 character = 1;
+    float score = 2;
+  }
+
+}
+
 message ActionMJStart {
 }
 
@@ -4555,6 +4801,7 @@ message ActionNewRound {
   MuyuInfo muyu = 16;
   uint32 ju_count = 17;
   uint32 field_spell = 18;
+  string sha256 = 19;
 }
 
 message RecordNewRound {
@@ -4579,6 +4826,7 @@ message RecordNewRound {
   repeated OptionalOperationList operations = 19;
   uint32 ju_count = 20;
   uint32 field_spell = 21;
+  string sha256 = 22;
   message TingPai {
     uint32 seat = 1;
     repeated TingPaiInfo tingpais1 = 2;
