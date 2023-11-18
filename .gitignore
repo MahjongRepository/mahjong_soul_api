@@ -13,3 +13,5 @@ build/*
 
 temp
 temp.py
+
+.env
