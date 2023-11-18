@@ -31,7 +31,6 @@ It was tested on Ubuntu.
 1. `sudo cp ms-plugin.py /usr/bin/ms-plugin.py`
 1. `protoc --custom_out=. --plugin=protoc-gen-custom=ms-plugin.py ./protocol.proto`
 
-
 ### How to update protocol files for manager API to the new version
 
 1. Prepare new `liqi_admin.json` file from MS tournament manager panel
@@ -46,3 +45,15 @@ It was tested on Ubuntu.
 1. `pip install twine`
 2. `python setup.py sdist`
 3. `twine upload dist/*`
+
+## メモ
+
+とりあえず中国版で sample.py を動かすことはできた
+
+```
+poetry shell
+poetry install
+python example.py -u **mailAddress** -p **password**
+____
+wget https://game.maj-soul.com/1/v0.10.297.w/res/proto/liqi.json
+```
