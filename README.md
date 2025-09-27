@@ -31,16 +31,6 @@ It was tested on Ubuntu.
 1. `sudo cp ms-plugin.py /usr/bin/ms-plugin.py`
 1. `protoc --custom_out=. --plugin=protoc-gen-custom=ms-plugin.py ./protocol.proto`
 
-
-### How to update protocol files for manager API to the new version
-
-1. Prepare new `liqi_admin.json` file from MS tournament manager panel
-1. `python ms_tournament/generate_proto_file.py`
-1. `protoc --python_out=. protocol_admin.proto`
-1. `chmod +x ms-admin-plugin.py`
-1. `sudo cp ms-admin-plugin.py /usr/bin/ms-admin-plugin.py`
-1. `protoc --custom_out=. --plugin=protoc-gen-custom=ms-admin-plugin.py ./protocol_admin.proto`
-
 ### How to release new version
 
 1. `pip install twine`
