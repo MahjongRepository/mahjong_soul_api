@@ -7,7 +7,7 @@ Python wrappers for Majsoul allow you to interact with their servers from Python
 1. Install python packages from `requirements.txt`
 2. `python example.py -u username -p password`
 
-This example is working only with **Python3.7+**.
+This example is working only with **Python3.9+**.
 
 Also, you need to have an account from CN server to run this example, because only accounts from CN server has the ability to login with login and password.
 
