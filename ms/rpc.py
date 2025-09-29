@@ -15,7 +15,11 @@ class Lobby(MSRPCService):
         'openidCheck': pb.ReqOpenidCheck,
         'signup': pb.ReqSignupAccount,
         'login': pb.ReqLogin,
+        'prepareLogin': pb.ReqPrepareLogin,
+        'fastLogin': pb.ReqCommon,
+        'fetchInfo': pb.ReqCommon,
         'loginSuccess': pb.ReqCommon,
+        'fetchServerMaintenanceInfo': pb.ReqCommon,
         'emailLogin': pb.ReqEmailLogin,
         'oauth2Auth': pb.ReqOauth2Auth,
         'oauth2Check': pb.ReqOauth2Check,
@@ -34,19 +38,22 @@ class Lobby(MSRPCService):
         'bindAccount': pb.ReqBindAccount,
         'logout': pb.ReqLogout,
         'heatbeat': pb.ReqHeatBeat,
+        'searchAccountByEid': pb.ReqSearchAccountByEidLobby,
         'loginBeat': pb.ReqLoginBeat,
         'createNickname': pb.ReqCreateNickname,
         'modifyNickname': pb.ReqModifyNickname,
         'modifyBirthday': pb.ReqModifyBirthday,
         'fetchRoom': pb.ReqCommon,
+        'fetchGamingInfo': pb.ReqCommon,
         'createRoom': pb.ReqCreateRoom,
         'joinRoom': pb.ReqJoinRoom,
         'leaveRoom': pb.ReqCommon,
         'readyPlay': pb.ReqRoomReady,
         'dressingStatus': pb.ReqRoomDressing,
         'startRoom': pb.ReqRoomStart,
-        'kickPlayer': pb.ReqRoomKick,
+        'roomKickPlayer': pb.ReqRoomKickPlayer,
         'modifyRoom': pb.ReqModifyRoom,
+        'addRoomRobot': pb.ReqAddRoomRobot,
         'matchGame': pb.ReqJoinMatchQueue,
         'cancelMatch': pb.ReqCancelMatchQueue,
         'fetchAccountInfo': pb.ReqAccountInfo,
@@ -59,8 +66,11 @@ class Lobby(MSRPCService):
         'fetchGameRecord': pb.ReqGameRecord,
         'readGameRecord': pb.ReqGameRecord,
         'fetchGameRecordList': pb.ReqGameRecordList,
+        'fetchGameRecordListV2': pb.ReqGameRecordListV2,
+        'fetchNextGameRecordList': pb.ReqNextGameRecordList,
         'fetchCollectedGameRecordList': pb.ReqCommon,
         'fetchGameRecordsDetail': pb.ReqGameRecordsDetail,
+        'fetchGameRecordsDetailV2': pb.ReqGameRecordsDetailV2,
         'addCollectedGameRecord': pb.ReqAddCollectedGameRecord,
         'removeCollectedGameRecord': pb.ReqRemoveCollectedGameRecord,
         'changeCollectedGameRecordRemarks': pb.ReqChangeCollectedGameRecordRemarks,
@@ -119,9 +129,12 @@ class Lobby(MSRPCService):
         'leaveComment': pb.ReqLeaveComment,
         'deleteComment': pb.ReqDeleteComment,
         'updateReadComment': pb.ReqUpdateReadComment,
-        'fetchRollingNotice': pb.ReqCommon,
+        'fetchRollingNotice': pb.ReqFetchRollingNotice,
+        'fetchMaintainNotice': pb.ReqCommon,
         'fetchServerTime': pb.ReqCommon,
         'fetchPlatformProducts': pb.ReqPlatformBillingProducts,
+        'fetchRandomCharacter': pb.ReqCommon,
+        'setRandomCharacter': pb.ReqRandomCharacter,
         'cancelGooglePlayOrder': pb.ReqCancelGooglePlayOrder,
         'openChest': pb.ReqOpenChest,
         'buyFromChestShop': pb.ReqBuyFromChestShop,
@@ -191,6 +204,7 @@ class Lobby(MSRPCService):
         'createMyCardWebOrder': pb.ReqCreateMyCardOrder,
         'createPaypalOrder': pb.ReqCreatePaypalOrder,
         'createXsollaOrder': pb.ReqCreateXsollaOrder,
+        'createXsollaV4Order': pb.ReqCreateXsollaOrder,
         'verifyMyCardOrder': pb.ReqVerifyMyCardOrder,
         'verificationIAPOrder': pb.ReqVerificationIAPOrder,
         'createYostarSDKOrder': pb.ReqCreateYostarOrder,
@@ -206,14 +220,14 @@ class Lobby(MSRPCService):
         'gainVipReward': pb.ReqGainVipReward,
         'fetchRefundOrder': pb.ReqCommon,
         'fetchCustomizedContestList': pb.ReqFetchCustomizedContestList,
-        'fetchCustomizedContestExtendInfo': pb.ReqFetchCustomizedContestExtendInfo,
         'fetchCustomizedContestAuthInfo': pb.ReqFetchCustomizedContestAuthInfo,
         'enterCustomizedContest': pb.ReqEnterCustomizedContest,
         'leaveCustomizedContest': pb.ReqCommon,
         'fetchCustomizedContestOnlineInfo': pb.ReqFetchCustomizedContestOnlineInfo,
         'fetchCustomizedContestByContestId': pb.ReqFetchCustomizedContestByContestId,
+        'signupCustomizedContest': pb.ReqSignupCustomizedContest,
         'startCustomizedContest': pb.ReqStartCustomizedContest,
-        'stopCustomizedContest': pb.ReqCommon,
+        'stopCustomizedContest': pb.ReqStopCustomizedContest,
         'joinCustomizedContestChatRoom': pb.ReqJoinCustomizedContestChatRoom,
         'leaveCustomizedContestChatRoom': pb.ReqCommon,
         'sayChatMessage': pb.ReqSayChatMessage,
@@ -221,14 +235,20 @@ class Lobby(MSRPCService):
         'fetchCustomizedContestGameLiveList': pb.ReqFetchCustomizedContestGameLiveList,
         'followCustomizedContest': pb.ReqTargetCustomizedContest,
         'unfollowCustomizedContest': pb.ReqTargetCustomizedContest,
+        'fetchContestTeamRank': pb.ReqFetchContestTeamRank,
+        'fetchContestTeamMember': pb.ReqFetchContestTeamMember,
+        'fetchContestTeamPlayerRank': pb.ReqFetchContestTeamPlayerRank,
+        'fetchContestPlayerRank': pb.ReqFetchContestPlayerRank,
         'fetchActivityList': pb.ReqCommon,
         'fetchAccountActivityData': pb.ReqCommon,
         'exchangeActivityItem': pb.ReqExchangeActivityItem,
         'completeActivityTask': pb.ReqCompleteActivityTask,
+        'completeActivityTaskBatch': pb.ReqCompleteActivityTaskBatch,
         'completeActivityFlipTask': pb.ReqCompleteActivityTask,
         'completePeriodActivityTask': pb.ReqCompleteActivityTask,
         'completePeriodActivityTaskBatch': pb.ReqCompletePeriodActivityTaskBatch,
         'completeRandomActivityTask': pb.ReqCompleteActivityTask,
+        'completeRandomActivityTaskBatch': pb.ReqCompleteActivityTaskBatch,
         'receiveActivityFlipTask': pb.ReqReceiveActivityFlipTask,
         'completeSegmentTaskReward': pb.ReqCompleteSegmentTaskReward,
         'fetchActivityFlipInfo': pb.ReqFetchActivityFlipInfo,
@@ -265,7 +285,6 @@ class Lobby(MSRPCService):
         'digMine': pb.ReqDigMine,
         'fetchLastPrivacy': pb.ReqFetchLastPrivacy,
         'checkPrivacy': pb.ReqCheckPrivacy,
-        'responseCaptcha': pb.ReqResponseCaptcha,
         'fetchRPGBattleHistory': pb.ReqFetchRPGBattleHistory,
         'fetchRPGBattleHistoryV2': pb.ReqFetchRPGBattleHistory,
         'receiveRPGRewards': pb.ReqReceiveRPGRewards,
@@ -301,6 +320,86 @@ class Lobby(MSRPCService):
         'fetchSimulationGameRecord': pb.ReqFetchSimulationGameRecord,
         'startSimulationActivityGame': pb.ReqStartSimulationActivityGame,
         'fetchSimulationGameRank': pb.ReqFetchSimulationGameRank,
+        'generateCombiningCraft': pb.ReqGenerateCombiningCraft,
+        'moveCombiningCraft': pb.ReqMoveCombiningCraft,
+        'combiningRecycleCraft': pb.ReqCombiningRecycleCraft,
+        'recoverCombiningRecycle': pb.ReqRecoverCombiningRecycle,
+        'finishCombiningOrder': pb.ReqFinishCombiningOrder,
+        'upgradeVillageBuilding': pb.ReqUpgradeVillageBuilding,
+        'receiveVillageBuildingReward': pb.ReqReceiveVillageBuildingReward,
+        'startVillageTrip': pb.ReqStartVillageTrip,
+        'receiveVillageTripReward': pb.ReqReceiveVillageTripReward,
+        'completeVillageTask': pb.ReqCompleteVillageTask,
+        'getFriendVillageData': pb.ReqGetFriendVillageData,
+        'setVillageWorker': pb.ReqSetVillageWorker,
+        'nextRoundVillage': pb.ReqNextRoundVillage,
+        'shootActivityAttackEnemies': pb.ReqShootActivityAttackEnemies,
+        'resolveFestivalActivityProposal': pb.ReqResolveFestivalActivityProposal,
+        'resolveFestivalActivityEvent': pb.ReqResolveFestivalActivityEvent,
+        'buyFestivalProposal': pb.ReqBuyFestivalProposal,
+        'islandActivityMove': pb.ReqIslandActivityMove,
+        'islandActivityBuy': pb.ReqIslandActivityBuy,
+        'islandActivitySell': pb.ReqIslandActivitySell,
+        'islandActivityTidyBag': pb.ReqIslandActivityTidyBag,
+        'islandActivityUnlockBagGrid': pb.ReqIslandActivityUnlockBagGrid,
+        'createCustomizedContest': pb.ReqCreateCustomizedContest,
+        'fetchManagerCustomizedContestList': pb.ReqFetchmanagerCustomizedContestList,
+        'fetchManagerCustomizedContest': pb.ReqFetchManagerCustomizedContest,
+        'updateManagerCustomizedContest': pb.ReqUpdateManagerCustomizedContest,
+        'fetchReadyPlayerList': pb.ReqFetchReadyPlayerList,
+        'createGamePlan': pb.ReqCreateGamePlan,
+        'generateContestManagerLoginCode': pb.ReqCommon,
+        'fetchAmuletActivityData': pb.ReqFetchAmuletActivityData,
+        'amuletActivityFetchBrief': pb.ReqAmuletActivityFetchBrief,
+        'amuletActivityStartGame': pb.ReqAmuletActivityStartGame,
+        'amuletActivityOperate': pb.ReqAmuletActivityOperate,
+        'amuletActivityUpgrade': pb.ReqAmuletActivityUpgrade,
+        'amuletActivityBuy': pb.ReqAmuletActivityBuy,
+        'amuletActivitySelectPack': pb.ReqAmuletActivitySelectPack,
+        'amuletActivitySellEffect': pb.ReqAmuletActivitySellEffect,
+        'amuletActivityEffectSort': pb.ReqAmuletActivityEffectSort,
+        'amuletActivityGiveup': pb.ReqAmuletActivityGiveup,
+        'amuletActivityRefreshShop': pb.ReqAmuletActivityRefreshShop,
+        'amuletActivitySelectFreeEffect': pb.ReqAmuletActivitySelectFreeEffect,
+        'amuletActivityUpgradeShopBuff': pb.ReqAmuletActivityUpgradeShopBuff,
+        'amuletActivityEndShopping': pb.ReqAmuletActivityEndShopping,
+        'amuletActivitySetSkillLevel': pb.ReqAmuletActivitySetSkillLevel,
+        'amuletActivityMaintainInfo': pb.ReqCommon,
+        'amuletActivitySelectRewardPack': pb.ReqAmuletActivitySelectRewardPack,
+        'amuletActivitySelectBookEffect': pb.ReqAmuletActivitySelectBookEffect,
+        'storyActivityUnlock': pb.ReqStoryActivityUnlock,
+        'storyActivityUnlockEnding': pb.ReqStoryActivityUnlockEnding,
+        'storyActivityReceiveEndingReward': pb.ReqStoryActivityReceiveEndingReward,
+        'storyActivityReceiveFinishReward': pb.ReqStoryActivityReceiveFinishReward,
+        'storyActivityReceiveAllFinishReward': pb.ReqStoryActivityReceiveAllFinishReward,
+        'storyActivityUnlockEndingAndReceive': pb.ReqStoryActivityUnlockEndingAndReceive,
+        'fetchActivityRank': pb.ReqFetchActivityRank,
+        'setVerifiedHidden': pb.ReqSetVerifiedHidden,
+        'fetchQuestionnaireList': pb.ReqFetchQuestionnaireList,
+        'fetchQuestionnaireDetail': pb.ReqFetchQuestionnaireDetail,
+        'submitQuestionnaire': pb.ReqSubmitQuestionnaire,
+        'setFriendRoomRandomBotChar': pb.ReqSetFriendRoomRandomBotChar,
+        'fetchAccountGameHuRecords': pb.ReqFetchAccountGameHuRecords,
+        'fetchAccountInfoExtra': pb.ReqFetchAccountInfoExtra,
+        'setAccountFavoriteHu': pb.ReqSetAccountFavoriteHu,
+        'fetchSeerReport': pb.ReqFetchSeerReport,
+        'createSeerReport': pb.ReqCreateSeerReport,
+        'fetchSeerReportList': pb.ReqCommon,
+        'fetchSeerInfo': pb.ReqCommon,
+        'selectChestChooseUpActivity': pb.ReqSelectChestChooseUp,
+        'generateAnnualReportToken': pb.ReqGenerateAnnualReportToken,
+        'fetchAnnualReportInfo': pb.ReqCommon,
+        'remarkFriend': pb.ReqRemarkFriend,
+        'simV2ActivityFetchInfo': pb.ReqSimV2ActivityFetchInfo,
+        'simV2ActivityStartSeason': pb.ReqSimV2ActivityStartSeason,
+        'simV2ActivityTrain': pb.ReqSimV2ActivityTrain,
+        'simV2ActivitySelectEvent': pb.ReqSimV2ActivitySelectEvent,
+        'simV2ActivityStartMatch': pb.ReqSimV2ActivityStartMatch,
+        'simV2ActivityEndMatch': pb.ReqSimV2ActivityEndMatch,
+        'simV2ActivityGiveUp': pb.ReqSimV2ActivityGiveUp,
+        'simV2ActivitySetUpgrade': pb.ReqSimV2ActivitySetUpgrade,
+        'progressRewardActivityReceive': pb.ReqProgressRewardActivityReceive,
+        'fetchProgressRewardActivityInfo': pb.ReqFetchProgressRewardActivityInfo,
     }
     _res = {
         'fetchConnectionInfo': pb.ResConnectionInfo,
@@ -309,7 +408,11 @@ class Lobby(MSRPCService):
         'openidCheck': pb.ResOauth2Check,
         'signup': pb.ResSignupAccount,
         'login': pb.ResLogin,
+        'prepareLogin': pb.ResCommon,
+        'fastLogin': pb.ResFastLogin,
+        'fetchInfo': pb.ResFetchInfo,
         'loginSuccess': pb.ResCommon,
+        'fetchServerMaintenanceInfo': pb.ResFetchServerMaintenanceInfo,
         'emailLogin': pb.ResLogin,
         'oauth2Auth': pb.ResOauth2Auth,
         'oauth2Check': pb.ResOauth2Check,
@@ -328,19 +431,22 @@ class Lobby(MSRPCService):
         'bindAccount': pb.ResCommon,
         'logout': pb.ResLogout,
         'heatbeat': pb.ResCommon,
+        'searchAccountByEid': pb.ResSearchAccountbyEidLobby,
         'loginBeat': pb.ResCommon,
         'createNickname': pb.ResCommon,
         'modifyNickname': pb.ResCommon,
         'modifyBirthday': pb.ResCommon,
         'fetchRoom': pb.ResSelfRoom,
+        'fetchGamingInfo': pb.ResFetchGamingInfo,
         'createRoom': pb.ResCreateRoom,
         'joinRoom': pb.ResJoinRoom,
         'leaveRoom': pb.ResCommon,
         'readyPlay': pb.ResCommon,
         'dressingStatus': pb.ResCommon,
         'startRoom': pb.ResCommon,
-        'kickPlayer': pb.ResCommon,
+        'roomKickPlayer': pb.ResCommon,
         'modifyRoom': pb.ResCommon,
+        'addRoomRobot': pb.ResCommon,
         'matchGame': pb.ResCommon,
         'cancelMatch': pb.ResCommon,
         'fetchAccountInfo': pb.ResAccountInfo,
@@ -353,8 +459,11 @@ class Lobby(MSRPCService):
         'fetchGameRecord': pb.ResGameRecord,
         'readGameRecord': pb.ResCommon,
         'fetchGameRecordList': pb.ResGameRecordList,
+        'fetchGameRecordListV2': pb.ResGameRecordListV2,
+        'fetchNextGameRecordList': pb.ResNextGameRecordList,
         'fetchCollectedGameRecordList': pb.ResCollectedGameRecordList,
         'fetchGameRecordsDetail': pb.ResGameRecordsDetail,
+        'fetchGameRecordsDetailV2': pb.ResGameRecordsDetailV2,
         'addCollectedGameRecord': pb.ResAddCollectedGameRecord,
         'removeCollectedGameRecord': pb.ResRemoveCollectedGameRecord,
         'changeCollectedGameRecordRemarks': pb.ResChangeCollectedGameRecordRemarks,
@@ -413,9 +522,12 @@ class Lobby(MSRPCService):
         'leaveComment': pb.ResCommon,
         'deleteComment': pb.ResCommon,
         'updateReadComment': pb.ResCommon,
-        'fetchRollingNotice': pb.ReqRollingNotice,
+        'fetchRollingNotice': pb.ResFetchRollingNotice,
+        'fetchMaintainNotice': pb.ResFetchMaintainNotice,
         'fetchServerTime': pb.ResServerTime,
         'fetchPlatformProducts': pb.ResPlatformBillingProducts,
+        'fetchRandomCharacter': pb.ResRandomCharacter,
+        'setRandomCharacter': pb.ResCommon,
         'cancelGooglePlayOrder': pb.ResCommon,
         'openChest': pb.ResOpenChest,
         'buyFromChestShop': pb.ResBuyFromChestShop,
@@ -485,6 +597,7 @@ class Lobby(MSRPCService):
         'createMyCardWebOrder': pb.ResCreateMyCardOrder,
         'createPaypalOrder': pb.ResCreatePaypalOrder,
         'createXsollaOrder': pb.ResCreateXsollaOrder,
+        'createXsollaV4Order': pb.ResCreateXsollaOrder,
         'verifyMyCardOrder': pb.ResCommon,
         'verificationIAPOrder': pb.ResVerificationIAPOrder,
         'createYostarSDKOrder': pb.ResCreateYostarOrder,
@@ -500,12 +613,12 @@ class Lobby(MSRPCService):
         'gainVipReward': pb.ResCommon,
         'fetchRefundOrder': pb.ResFetchRefundOrder,
         'fetchCustomizedContestList': pb.ResFetchCustomizedContestList,
-        'fetchCustomizedContestExtendInfo': pb.ResFetchCustomizedContestExtendInfo,
         'fetchCustomizedContestAuthInfo': pb.ResFetchCustomizedContestAuthInfo,
         'enterCustomizedContest': pb.ResEnterCustomizedContest,
         'leaveCustomizedContest': pb.ResCommon,
         'fetchCustomizedContestOnlineInfo': pb.ResFetchCustomizedContestOnlineInfo,
         'fetchCustomizedContestByContestId': pb.ResFetchCustomizedContestByContestId,
+        'signupCustomizedContest': pb.ResSignupCustomizedContest,
         'startCustomizedContest': pb.ResCommon,
         'stopCustomizedContest': pb.ResCommon,
         'joinCustomizedContestChatRoom': pb.ResJoinCustomizedContestChatRoom,
@@ -515,14 +628,20 @@ class Lobby(MSRPCService):
         'fetchCustomizedContestGameLiveList': pb.ResFetchCustomizedContestGameLiveList,
         'followCustomizedContest': pb.ResCommon,
         'unfollowCustomizedContest': pb.ResCommon,
+        'fetchContestTeamRank': pb.ResFetchContestTeamRank,
+        'fetchContestTeamMember': pb.ResFetchContestTeamMember,
+        'fetchContestTeamPlayerRank': pb.ResFetchContestPlayerRank,
+        'fetchContestPlayerRank': pb.ResFetchContestPlayerRank,
         'fetchActivityList': pb.ResActivityList,
         'fetchAccountActivityData': pb.ResAccountActivityData,
         'exchangeActivityItem': pb.ResExchangeActivityItem,
         'completeActivityTask': pb.ResCommon,
+        'completeActivityTaskBatch': pb.ResCommon,
         'completeActivityFlipTask': pb.ResCommon,
         'completePeriodActivityTask': pb.ResCommon,
         'completePeriodActivityTaskBatch': pb.ResCommon,
         'completeRandomActivityTask': pb.ResCommon,
+        'completeRandomActivityTaskBatch': pb.ResCommon,
         'receiveActivityFlipTask': pb.ResReceiveActivityFlipTask,
         'completeSegmentTaskReward': pb.ResCompleteSegmentTaskReward,
         'fetchActivityFlipInfo': pb.ResFetchActivityFlipInfo,
@@ -559,7 +678,6 @@ class Lobby(MSRPCService):
         'digMine': pb.ResDigMine,
         'fetchLastPrivacy': pb.ResFetchLastPrivacy,
         'checkPrivacy': pb.ResCommon,
-        'responseCaptcha': pb.ResCommon,
         'fetchRPGBattleHistory': pb.ResFetchRPGBattleHistory,
         'fetchRPGBattleHistoryV2': pb.ResFetchRPGBattleHistoryV2,
         'receiveRPGRewards': pb.ResReceiveRPGRewards,
@@ -595,6 +713,86 @@ class Lobby(MSRPCService):
         'fetchSimulationGameRecord': pb.ResFetchSimulationGameRecord,
         'startSimulationActivityGame': pb.ResStartSimulationActivityGame,
         'fetchSimulationGameRank': pb.ResFetchSimulationGameRank,
+        'generateCombiningCraft': pb.ResGenerateCombiningCraft,
+        'moveCombiningCraft': pb.ResMoveCombiningCraft,
+        'combiningRecycleCraft': pb.ResCombiningRecycleCraft,
+        'recoverCombiningRecycle': pb.ResRecoverCombiningRecycle,
+        'finishCombiningOrder': pb.ResFinishCombiningOrder,
+        'upgradeVillageBuilding': pb.ResCommon,
+        'receiveVillageBuildingReward': pb.ResReceiveVillageBuildingReward,
+        'startVillageTrip': pb.ResCommon,
+        'receiveVillageTripReward': pb.ResReceiveVillageTripReward,
+        'completeVillageTask': pb.ResCompleteVillageTask,
+        'getFriendVillageData': pb.ResGetFriendVillageData,
+        'setVillageWorker': pb.ResSetVillageWorker,
+        'nextRoundVillage': pb.ResNextRoundVillage,
+        'shootActivityAttackEnemies': pb.ResShootActivityAttackEnemies,
+        'resolveFestivalActivityProposal': pb.ResResolveFestivalActivityProposal,
+        'resolveFestivalActivityEvent': pb.ResResolveFestivalActivityEvent,
+        'buyFestivalProposal': pb.ResBuyFestivalProposal,
+        'islandActivityMove': pb.ResCommon,
+        'islandActivityBuy': pb.ResCommon,
+        'islandActivitySell': pb.ResCommon,
+        'islandActivityTidyBag': pb.ResCommon,
+        'islandActivityUnlockBagGrid': pb.ResCommon,
+        'createCustomizedContest': pb.ResCreateCustomizedContest,
+        'fetchManagerCustomizedContestList': pb.ResFetchManagerCustomizedContestList,
+        'fetchManagerCustomizedContest': pb.ResFetchManagerCustomizedContest,
+        'updateManagerCustomizedContest': pb.ResCommon,
+        'fetchReadyPlayerList': pb.ResFetchReadyPlayerList,
+        'createGamePlan': pb.ResCommon,
+        'generateContestManagerLoginCode': pb.ResGenerateContestManagerLoginCode,
+        'fetchAmuletActivityData': pb.ResFetchAmuletActivityData,
+        'amuletActivityFetchBrief': pb.ResAmuletActivityFetchBrief,
+        'amuletActivityStartGame': pb.ResAmuletEventResponse,
+        'amuletActivityOperate': pb.ResAmuletEventResponse,
+        'amuletActivityUpgrade': pb.ResAmuletEventResponse,
+        'amuletActivityBuy': pb.ResAmuletEventResponse,
+        'amuletActivitySelectPack': pb.ResAmuletEventResponse,
+        'amuletActivitySellEffect': pb.ResAmuletEventResponse,
+        'amuletActivityEffectSort': pb.ResAmuletEventResponse,
+        'amuletActivityGiveup': pb.ResCommon,
+        'amuletActivityRefreshShop': pb.ResAmuletEventResponse,
+        'amuletActivitySelectFreeEffect': pb.ResAmuletEventResponse,
+        'amuletActivityUpgradeShopBuff': pb.ResAmuletEventResponse,
+        'amuletActivityEndShopping': pb.ResAmuletEventResponse,
+        'amuletActivitySetSkillLevel': pb.ResCommon,
+        'amuletActivityMaintainInfo': pb.ResAmuletActivityMaintainInfo,
+        'amuletActivitySelectRewardPack': pb.ResAmuletEventResponse,
+        'amuletActivitySelectBookEffect': pb.ResCommon,
+        'storyActivityUnlock': pb.ResCommon,
+        'storyActivityUnlockEnding': pb.ResCommon,
+        'storyActivityReceiveEndingReward': pb.ResStoryReward,
+        'storyActivityReceiveFinishReward': pb.ResStoryReward,
+        'storyActivityReceiveAllFinishReward': pb.ResStoryReward,
+        'storyActivityUnlockEndingAndReceive': pb.ResStoryActivityUnlockEndingAndReceive,
+        'fetchActivityRank': pb.ResFetchActivityRank,
+        'setVerifiedHidden': pb.ResCommon,
+        'fetchQuestionnaireList': pb.ResFetchQuestionnaireList,
+        'fetchQuestionnaireDetail': pb.ResFetchQuestionnaireDetail,
+        'submitQuestionnaire': pb.ResCommon,
+        'setFriendRoomRandomBotChar': pb.ResCommon,
+        'fetchAccountGameHuRecords': pb.ResFetchAccountGameHuRecords,
+        'fetchAccountInfoExtra': pb.ResFetchAccountInfoExtra,
+        'setAccountFavoriteHu': pb.ResCommon,
+        'fetchSeerReport': pb.ResFetchSeerReport,
+        'createSeerReport': pb.ResCreateSeerReport,
+        'fetchSeerReportList': pb.ResFetchSeerReportList,
+        'fetchSeerInfo': pb.ResFetchSeerInfo,
+        'selectChestChooseUpActivity': pb.ReqCommon,
+        'generateAnnualReportToken': pb.ResGenerateAnnualReportToken,
+        'fetchAnnualReportInfo': pb.ResFetchAnnualReportInfo,
+        'remarkFriend': pb.ResCommon,
+        'simV2ActivityFetchInfo': pb.ResSimV2ActivityFetchInfo,
+        'simV2ActivityStartSeason': pb.ResSimV2ActivityStartSeason,
+        'simV2ActivityTrain': pb.ResSimV2ActivityTrain,
+        'simV2ActivitySelectEvent': pb.ResSimV2ActivitySelectEvent,
+        'simV2ActivityStartMatch': pb.ResSimV2ActivityStartMatch,
+        'simV2ActivityEndMatch': pb.ResSimV2ActivityEndMatch,
+        'simV2ActivityGiveUp': pb.ResCommon,
+        'simV2ActivitySetUpgrade': pb.ResCommon,
+        'progressRewardActivityReceive': pb.ResProgressRewardActivityReceive,
+        'fetchProgressRewardActivityInfo': pb.ResFetchProgressRewardActivityInfo,
     }
 
     def get_package_name(self):
@@ -627,8 +825,20 @@ class Lobby(MSRPCService):
     async def login(self, req):
         return await self.call_method('login', req)
 
+    async def prepare_login(self, req):
+        return await self.call_method('prepareLogin', req)
+
+    async def fast_login(self, req):
+        return await self.call_method('fastLogin', req)
+
+    async def fetch_info(self, req):
+        return await self.call_method('fetchInfo', req)
+
     async def login_success(self, req):
         return await self.call_method('loginSuccess', req)
+
+    async def fetch_server_maintenance_info(self, req):
+        return await self.call_method('fetchServerMaintenanceInfo', req)
 
     async def email_login(self, req):
         return await self.call_method('emailLogin', req)
@@ -684,6 +894,9 @@ class Lobby(MSRPCService):
     async def heatbeat(self, req):
         return await self.call_method('heatbeat', req)
 
+    async def search_account_by_eid(self, req):
+        return await self.call_method('searchAccountByEid', req)
+
     async def login_beat(self, req):
         return await self.call_method('loginBeat', req)
 
@@ -698,6 +911,9 @@ class Lobby(MSRPCService):
 
     async def fetch_room(self, req):
         return await self.call_method('fetchRoom', req)
+
+    async def fetch_gaming_info(self, req):
+        return await self.call_method('fetchGamingInfo', req)
 
     async def create_room(self, req):
         return await self.call_method('createRoom', req)
@@ -717,11 +933,14 @@ class Lobby(MSRPCService):
     async def start_room(self, req):
         return await self.call_method('startRoom', req)
 
-    async def kick_player(self, req):
-        return await self.call_method('kickPlayer', req)
+    async def room_kick_player(self, req):
+        return await self.call_method('roomKickPlayer', req)
 
     async def modify_room(self, req):
         return await self.call_method('modifyRoom', req)
+
+    async def add_room_robot(self, req):
+        return await self.call_method('addRoomRobot', req)
 
     async def match_game(self, req):
         return await self.call_method('matchGame', req)
@@ -759,11 +978,20 @@ class Lobby(MSRPCService):
     async def fetch_game_record_list(self, req):
         return await self.call_method('fetchGameRecordList', req)
 
+    async def fetch_game_record_list_v2(self, req):
+        return await self.call_method('fetchGameRecordListV2', req)
+
+    async def fetch_next_game_record_list(self, req):
+        return await self.call_method('fetchNextGameRecordList', req)
+
     async def fetch_collected_game_record_list(self, req):
         return await self.call_method('fetchCollectedGameRecordList', req)
 
     async def fetch_game_records_detail(self, req):
         return await self.call_method('fetchGameRecordsDetail', req)
+
+    async def fetch_game_records_detail_v2(self, req):
+        return await self.call_method('fetchGameRecordsDetailV2', req)
 
     async def add_collected_game_record(self, req):
         return await self.call_method('addCollectedGameRecord', req)
@@ -942,11 +1170,20 @@ class Lobby(MSRPCService):
     async def fetch_rolling_notice(self, req):
         return await self.call_method('fetchRollingNotice', req)
 
+    async def fetch_maintain_notice(self, req):
+        return await self.call_method('fetchMaintainNotice', req)
+
     async def fetch_server_time(self, req):
         return await self.call_method('fetchServerTime', req)
 
     async def fetch_platform_products(self, req):
         return await self.call_method('fetchPlatformProducts', req)
+
+    async def fetch_random_character(self, req):
+        return await self.call_method('fetchRandomCharacter', req)
+
+    async def set_random_character(self, req):
+        return await self.call_method('setRandomCharacter', req)
 
     async def cancel_google_play_order(self, req):
         return await self.call_method('cancelGooglePlayOrder', req)
@@ -1155,6 +1392,9 @@ class Lobby(MSRPCService):
     async def create_xsolla_order(self, req):
         return await self.call_method('createXsollaOrder', req)
 
+    async def create_xsolla_v4_order(self, req):
+        return await self.call_method('createXsollaV4Order', req)
+
     async def verify_my_card_order(self, req):
         return await self.call_method('verifyMyCardOrder', req)
 
@@ -1200,9 +1440,6 @@ class Lobby(MSRPCService):
     async def fetch_customized_contest_list(self, req):
         return await self.call_method('fetchCustomizedContestList', req)
 
-    async def fetch_customized_contest_extend_info(self, req):
-        return await self.call_method('fetchCustomizedContestExtendInfo', req)
-
     async def fetch_customized_contest_auth_info(self, req):
         return await self.call_method('fetchCustomizedContestAuthInfo', req)
 
@@ -1217,6 +1454,9 @@ class Lobby(MSRPCService):
 
     async def fetch_customized_contest_by_contest_id(self, req):
         return await self.call_method('fetchCustomizedContestByContestId', req)
+
+    async def signup_customized_contest(self, req):
+        return await self.call_method('signupCustomizedContest', req)
 
     async def start_customized_contest(self, req):
         return await self.call_method('startCustomizedContest', req)
@@ -1245,6 +1485,18 @@ class Lobby(MSRPCService):
     async def unfollow_customized_contest(self, req):
         return await self.call_method('unfollowCustomizedContest', req)
 
+    async def fetch_contest_team_rank(self, req):
+        return await self.call_method('fetchContestTeamRank', req)
+
+    async def fetch_contest_team_member(self, req):
+        return await self.call_method('fetchContestTeamMember', req)
+
+    async def fetch_contest_team_player_rank(self, req):
+        return await self.call_method('fetchContestTeamPlayerRank', req)
+
+    async def fetch_contest_player_rank(self, req):
+        return await self.call_method('fetchContestPlayerRank', req)
+
     async def fetch_activity_list(self, req):
         return await self.call_method('fetchActivityList', req)
 
@@ -1257,6 +1509,9 @@ class Lobby(MSRPCService):
     async def complete_activity_task(self, req):
         return await self.call_method('completeActivityTask', req)
 
+    async def complete_activity_task_batch(self, req):
+        return await self.call_method('completeActivityTaskBatch', req)
+
     async def complete_activity_flip_task(self, req):
         return await self.call_method('completeActivityFlipTask', req)
 
@@ -1268,6 +1523,9 @@ class Lobby(MSRPCService):
 
     async def complete_random_activity_task(self, req):
         return await self.call_method('completeRandomActivityTask', req)
+
+    async def complete_random_activity_task_batch(self, req):
+        return await self.call_method('completeRandomActivityTaskBatch', req)
 
     async def receive_activity_flip_task(self, req):
         return await self.call_method('receiveActivityFlipTask', req)
@@ -1377,9 +1635,6 @@ class Lobby(MSRPCService):
     async def check_privacy(self, req):
         return await self.call_method('checkPrivacy', req)
 
-    async def response_captcha(self, req):
-        return await self.call_method('responseCaptcha', req)
-
     async def fetch_rpg_battle_history(self, req):
         return await self.call_method('fetchRPGBattleHistory', req)
 
@@ -1484,6 +1739,246 @@ class Lobby(MSRPCService):
 
     async def fetch_simulation_game_rank(self, req):
         return await self.call_method('fetchSimulationGameRank', req)
+
+    async def generate_combining_craft(self, req):
+        return await self.call_method('generateCombiningCraft', req)
+
+    async def move_combining_craft(self, req):
+        return await self.call_method('moveCombiningCraft', req)
+
+    async def combining_recycle_craft(self, req):
+        return await self.call_method('combiningRecycleCraft', req)
+
+    async def recover_combining_recycle(self, req):
+        return await self.call_method('recoverCombiningRecycle', req)
+
+    async def finish_combining_order(self, req):
+        return await self.call_method('finishCombiningOrder', req)
+
+    async def upgrade_village_building(self, req):
+        return await self.call_method('upgradeVillageBuilding', req)
+
+    async def receive_village_building_reward(self, req):
+        return await self.call_method('receiveVillageBuildingReward', req)
+
+    async def start_village_trip(self, req):
+        return await self.call_method('startVillageTrip', req)
+
+    async def receive_village_trip_reward(self, req):
+        return await self.call_method('receiveVillageTripReward', req)
+
+    async def complete_village_task(self, req):
+        return await self.call_method('completeVillageTask', req)
+
+    async def get_friend_village_data(self, req):
+        return await self.call_method('getFriendVillageData', req)
+
+    async def set_village_worker(self, req):
+        return await self.call_method('setVillageWorker', req)
+
+    async def next_round_village(self, req):
+        return await self.call_method('nextRoundVillage', req)
+
+    async def shoot_activity_attack_enemies(self, req):
+        return await self.call_method('shootActivityAttackEnemies', req)
+
+    async def resolve_festival_activity_proposal(self, req):
+        return await self.call_method('resolveFestivalActivityProposal', req)
+
+    async def resolve_festival_activity_event(self, req):
+        return await self.call_method('resolveFestivalActivityEvent', req)
+
+    async def buy_festival_proposal(self, req):
+        return await self.call_method('buyFestivalProposal', req)
+
+    async def island_activity_move(self, req):
+        return await self.call_method('islandActivityMove', req)
+
+    async def island_activity_buy(self, req):
+        return await self.call_method('islandActivityBuy', req)
+
+    async def island_activity_sell(self, req):
+        return await self.call_method('islandActivitySell', req)
+
+    async def island_activity_tidy_bag(self, req):
+        return await self.call_method('islandActivityTidyBag', req)
+
+    async def island_activity_unlock_bag_grid(self, req):
+        return await self.call_method('islandActivityUnlockBagGrid', req)
+
+    async def create_customized_contest(self, req):
+        return await self.call_method('createCustomizedContest', req)
+
+    async def fetch_manager_customized_contest_list(self, req):
+        return await self.call_method('fetchManagerCustomizedContestList', req)
+
+    async def fetch_manager_customized_contest(self, req):
+        return await self.call_method('fetchManagerCustomizedContest', req)
+
+    async def update_manager_customized_contest(self, req):
+        return await self.call_method('updateManagerCustomizedContest', req)
+
+    async def fetch_ready_player_list(self, req):
+        return await self.call_method('fetchReadyPlayerList', req)
+
+    async def create_game_plan(self, req):
+        return await self.call_method('createGamePlan', req)
+
+    async def generate_contest_manager_login_code(self, req):
+        return await self.call_method('generateContestManagerLoginCode', req)
+
+    async def fetch_amulet_activity_data(self, req):
+        return await self.call_method('fetchAmuletActivityData', req)
+
+    async def amulet_activity_fetch_brief(self, req):
+        return await self.call_method('amuletActivityFetchBrief', req)
+
+    async def amulet_activity_start_game(self, req):
+        return await self.call_method('amuletActivityStartGame', req)
+
+    async def amulet_activity_operate(self, req):
+        return await self.call_method('amuletActivityOperate', req)
+
+    async def amulet_activity_upgrade(self, req):
+        return await self.call_method('amuletActivityUpgrade', req)
+
+    async def amulet_activity_buy(self, req):
+        return await self.call_method('amuletActivityBuy', req)
+
+    async def amulet_activity_select_pack(self, req):
+        return await self.call_method('amuletActivitySelectPack', req)
+
+    async def amulet_activity_sell_effect(self, req):
+        return await self.call_method('amuletActivitySellEffect', req)
+
+    async def amulet_activity_effect_sort(self, req):
+        return await self.call_method('amuletActivityEffectSort', req)
+
+    async def amulet_activity_giveup(self, req):
+        return await self.call_method('amuletActivityGiveup', req)
+
+    async def amulet_activity_refresh_shop(self, req):
+        return await self.call_method('amuletActivityRefreshShop', req)
+
+    async def amulet_activity_select_free_effect(self, req):
+        return await self.call_method('amuletActivitySelectFreeEffect', req)
+
+    async def amulet_activity_upgrade_shop_buff(self, req):
+        return await self.call_method('amuletActivityUpgradeShopBuff', req)
+
+    async def amulet_activity_end_shopping(self, req):
+        return await self.call_method('amuletActivityEndShopping', req)
+
+    async def amulet_activity_set_skill_level(self, req):
+        return await self.call_method('amuletActivitySetSkillLevel', req)
+
+    async def amulet_activity_maintain_info(self, req):
+        return await self.call_method('amuletActivityMaintainInfo', req)
+
+    async def amulet_activity_select_reward_pack(self, req):
+        return await self.call_method('amuletActivitySelectRewardPack', req)
+
+    async def amulet_activity_select_book_effect(self, req):
+        return await self.call_method('amuletActivitySelectBookEffect', req)
+
+    async def story_activity_unlock(self, req):
+        return await self.call_method('storyActivityUnlock', req)
+
+    async def story_activity_unlock_ending(self, req):
+        return await self.call_method('storyActivityUnlockEnding', req)
+
+    async def story_activity_receive_ending_reward(self, req):
+        return await self.call_method('storyActivityReceiveEndingReward', req)
+
+    async def story_activity_receive_finish_reward(self, req):
+        return await self.call_method('storyActivityReceiveFinishReward', req)
+
+    async def story_activity_receive_all_finish_reward(self, req):
+        return await self.call_method('storyActivityReceiveAllFinishReward', req)
+
+    async def story_activity_unlock_ending_and_receive(self, req):
+        return await self.call_method('storyActivityUnlockEndingAndReceive', req)
+
+    async def fetch_activity_rank(self, req):
+        return await self.call_method('fetchActivityRank', req)
+
+    async def set_verified_hidden(self, req):
+        return await self.call_method('setVerifiedHidden', req)
+
+    async def fetch_questionnaire_list(self, req):
+        return await self.call_method('fetchQuestionnaireList', req)
+
+    async def fetch_questionnaire_detail(self, req):
+        return await self.call_method('fetchQuestionnaireDetail', req)
+
+    async def submit_questionnaire(self, req):
+        return await self.call_method('submitQuestionnaire', req)
+
+    async def set_friend_room_random_bot_char(self, req):
+        return await self.call_method('setFriendRoomRandomBotChar', req)
+
+    async def fetch_account_game_hu_records(self, req):
+        return await self.call_method('fetchAccountGameHuRecords', req)
+
+    async def fetch_account_info_extra(self, req):
+        return await self.call_method('fetchAccountInfoExtra', req)
+
+    async def set_account_favorite_hu(self, req):
+        return await self.call_method('setAccountFavoriteHu', req)
+
+    async def fetch_seer_report(self, req):
+        return await self.call_method('fetchSeerReport', req)
+
+    async def create_seer_report(self, req):
+        return await self.call_method('createSeerReport', req)
+
+    async def fetch_seer_report_list(self, req):
+        return await self.call_method('fetchSeerReportList', req)
+
+    async def fetch_seer_info(self, req):
+        return await self.call_method('fetchSeerInfo', req)
+
+    async def select_chest_choose_up_activity(self, req):
+        return await self.call_method('selectChestChooseUpActivity', req)
+
+    async def generate_annual_report_token(self, req):
+        return await self.call_method('generateAnnualReportToken', req)
+
+    async def fetch_annual_report_info(self, req):
+        return await self.call_method('fetchAnnualReportInfo', req)
+
+    async def remark_friend(self, req):
+        return await self.call_method('remarkFriend', req)
+
+    async def sim_v2_activity_fetch_info(self, req):
+        return await self.call_method('simV2ActivityFetchInfo', req)
+
+    async def sim_v2_activity_start_season(self, req):
+        return await self.call_method('simV2ActivityStartSeason', req)
+
+    async def sim_v2_activity_train(self, req):
+        return await self.call_method('simV2ActivityTrain', req)
+
+    async def sim_v2_activity_select_event(self, req):
+        return await self.call_method('simV2ActivitySelectEvent', req)
+
+    async def sim_v2_activity_start_match(self, req):
+        return await self.call_method('simV2ActivityStartMatch', req)
+
+    async def sim_v2_activity_end_match(self, req):
+        return await self.call_method('simV2ActivityEndMatch', req)
+
+    async def sim_v2_activity_give_up(self, req):
+        return await self.call_method('simV2ActivityGiveUp', req)
+
+    async def sim_v2_activity_set_upgrade(self, req):
+        return await self.call_method('simV2ActivitySetUpgrade', req)
+
+    async def progress_reward_activity_receive(self, req):
+        return await self.call_method('progressRewardActivityReceive', req)
+
+    async def fetch_progress_reward_activity_info(self, req):
+        return await self.call_method('fetchProgressRewardActivityInfo', req)
 
 
 class FastTest(MSRPCService):
@@ -1590,3 +2085,39 @@ class FastTest(MSRPCService):
 
     async def stop_observe(self, req):
         return await self.call_method('stopObserve', req)
+
+
+class Route(MSRPCService):
+    version = None
+    
+    _req = {
+        'requestConnection': pb.ReqRequestConnection,
+        'requestRouteChange': pb.ReqRequestRouteChange,
+        'heartbeat': pb.ReqHeartbeat,
+    }
+    _res = {
+        'requestConnection': pb.ResRequestConnection,
+        'requestRouteChange': pb.ResRequestRouteChange,
+        'heartbeat': pb.ResHeartbeat,
+    }
+
+    def get_package_name(self):
+        return 'lq'
+
+    def get_service_name(self):
+        return 'Route'
+
+    def get_req_class(self, method):
+        return Route._req[method]
+
+    def get_res_class(self, method):
+        return Route._res[method]
+
+    async def request_connection(self, req):
+        return await self.call_method('requestConnection', req)
+
+    async def request_route_change(self, req):
+        return await self.call_method('requestRouteChange', req)
+
+    async def heartbeat(self, req):
+        return await self.call_method('heartbeat', req)
