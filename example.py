@@ -63,7 +63,18 @@ async def connect():
             config = await res.json()
             logging.info(f"Config: {config}")
 
-            url = config["ip"][0]["region_urls"][1]["url"]
+            # Support both old and new config formats
+            ip_info = config["ip"][0]
+            if "region_urls" in ip_info:
+                # Old format: use region_urls
+                url = ip_info["region_urls"][1]["url"]
+            else:
+                # New format: use gateways
+                gateways = ip_info.get("gateways", [])
+                if gateways:
+                    url = gateways[0]["url"]
+                else:
+                    url = ip_info.get("system_email_url", "")
 
         async with session.get(url + "?service=ws-gateway&protocol=ws&ssl=true") as res:
             servers = await res.json()
@@ -99,11 +110,14 @@ async def login(lobby, username, password, version_to_force):
     req.currency_platforms.append(2)
 
     res = await lobby.login(req)
-    token = res.access_token
-    if not token:
+
+    if res.HasField("error") and res.error.code != 0:
         logging.error("Login Error:")
-        logging.error(res)
+        logging.error(res.error)
         return False
+
+    token = res.access_token
+    logging.info(f"Login successful! Account ID: {res.account_id}, Nickname: {res.account.nickname}")
 
     return True
 
