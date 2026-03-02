@@ -1,3 +1,6 @@
-protobuf==4.22.3
-websockets==15.0.1
-aiohttp==3.9.0
+# Mahjong Soul API dependencies
+# Requires Python 3.9+
+
+protobuf>=4.22.3
+websockets>=15.0.1
+aiohttp>=3.11.0  # Pre-built wheels for Python 3.9+
