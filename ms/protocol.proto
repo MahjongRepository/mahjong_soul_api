@@ -1015,6 +1015,7 @@ message ClientDeviceInfo {
   uint32 screen_height = 11;
   string user_agent = 12;
   uint32 screen_type = 13;
+  string device_id = 14;
 }
 
 message ClientVersionInfo {
@@ -8154,6 +8155,7 @@ message ReqRequestConnection {
   uint32 type = 2;
   string route_id = 3;
   uint64 timestamp = 4;
+  string platform = 6;
 }
 
 message ResRequestConnection {
