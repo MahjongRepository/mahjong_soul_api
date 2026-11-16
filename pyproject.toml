@@ -7,9 +7,8 @@ authors = [{ name = "Nihisil", email = "alexey@nihisil.com" }]
 license = "MIT"
 requires-python = ">=3.9"
 dependencies = [
-    "protobuf>=4.22.3",
+    "protobuf>=5.29",
     "websockets>=15.0.1",
-    "aiohttp>=3.9.0",
 ]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -27,3 +26,8 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
 packages = ["ms"]
+
+[dependency-groups]
+dev = [
+    "aiohttp>=3.13",
+]
