@@ -1,6 +1,6 @@
 [project]
 name = "ms_api"
-version = "0.11.100"
+version = "0.11.252"
 description = "Python wrapper for the Mahjong Soul (Majsoul) Protobuf objects. It allows to use their API."
 readme = "README.md"
 authors = [{ name = "Nihisil", email = "alexey@nihisil.com" }]
