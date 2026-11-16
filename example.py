@@ -3,13 +3,15 @@ import hashlib
 import hmac
 import logging
 import random
+import time
 import uuid
+from datetime import datetime, timezone
 from optparse import OptionParser
 
 import aiohttp
 
 from ms.base import MSRPCChannel
-from ms.rpc import Lobby
+from ms.rpc import Lobby, Route
 import ms.protocol_pb2 as pb
 from google.protobuf.json_format import MessageToJson
 
@@ -19,6 +21,8 @@ logging.basicConfig(
 )
 
 MS_HOST = "https://game.maj-soul.com"
+ROUTE_PLATFORM = "Web"
+ROUTE_CONNECTION_OK = 1
 
 
 async def main():
@@ -39,11 +43,15 @@ async def main():
         parser.error("Username or password cant be empty")
 
     lobby, channel, version_to_force = await connect()
-    await login(lobby, username, password, version_to_force)
+    if not await login(lobby, username, password, version_to_force):
+        await channel.close()
+        return
 
     if not log_uuid:
         game_logs = await load_game_logs(lobby)
         logging.info("Found {} records".format(len(game_logs)))
+        for record in game_logs:
+            log_game_record(record)
     else:
         game_log = await load_and_process_game_log(lobby, log_uuid, version_to_force)
         logging.info("game {} result : \n{}".format(game_log.head.uuid, game_log.head.result))
@@ -51,37 +59,44 @@ async def main():
     await channel.close()
 
 
-async def connect():
+async def connect() -> tuple[Lobby, MSRPCChannel, str]:
     async with aiohttp.ClientSession() as session:
-        async with session.get("{}/1/version.json".format(MS_HOST)) as res:
-            version = await res.json()
-            logging.info(f"Version: {version}")
-            version = version["version"]
-            version_to_force = version.replace(".w", "")
+        async with session.get(f"{MS_HOST}/1/version.json") as res:
+            version = (await res.json())["version"]
+        logging.info(f"Version: {version}")
+        version_to_force = version.replace(".w", "")
 
-        async with session.get("{}/1/v{}/config.json".format(MS_HOST, version)) as res:
+        async with session.get(f"{MS_HOST}/1/v{version}/config.json") as res:
             config = await res.json()
-            logging.info(f"Config: {config}")
+        gateway_url = config["ip"][0]["gateways"][0]["url"]
 
-            url = config["ip"][0]["region_urls"][1]["url"]
+        routes_params = {"platform": ROUTE_PLATFORM, "version": version}
+        async with session.get(f"{gateway_url}/api/clientgate/routes", params=routes_params) as res:
+            routes = (await res.json())["data"]["routes"]
+        logging.info(f"Available routes: {[route['id'] for route in routes]}")
 
-        async with session.get(url + "?service=ws-gateway&protocol=ws&ssl=true") as res:
-            servers = await res.json()
-            logging.info(f"Available servers: {servers}")
-
-            servers = servers["servers"]
-            server = random.choice(servers)
-            endpoint = "wss://{}/gateway".format(server)
-
+    route = random.choice(routes)
+    endpoint = f"wss://{route['domain']}/gateway"
     logging.info(f"Chosen endpoint: {endpoint}")
+
     channel = MSRPCChannel(endpoint)
-
-    lobby = Lobby(channel)
-
     await channel.connect(MS_HOST)
+    await request_route_connection(channel, route["id"])
     logging.info("Connection was established")
 
-    return lobby, channel, version_to_force
+    return Lobby(channel), channel, version_to_force
+
+
+async def request_route_connection(channel: MSRPCChannel, route_id: str) -> None:
+    req = pb.ReqRequestConnection()
+    req.type = 2
+    req.route_id = route_id
+    req.timestamp = int(time.time() * 1000)
+    req.platform = ROUTE_PLATFORM
+
+    res = await Route(channel).request_connection(req)
+    if res.result != ROUTE_CONNECTION_OK:
+        raise RuntimeError(f"Route connection to {route_id} failed: {res}")
 
 
 async def login(lobby, username, password, version_to_force):
@@ -118,9 +133,19 @@ async def load_game_logs(lobby):
     req.start = current
     req.count = step
     res = await lobby.fetch_game_record_list(req)
-    records.extend([r.uuid for r in res.record_list])
+    records.extend(res.record_list)
 
     return records
+
+
+def log_game_record(record: pb.RecordGame) -> None:
+    started = datetime.fromtimestamp(record.start_time, timezone.utc).strftime("%Y-%m-%d %H:%M")
+    nicknames = {a.seat: a.nickname for a in record.accounts}
+    players = sorted(record.result.players, key=lambda p: -p.part_point_1)
+    standings = ", ".join(
+        "{} {}".format(nicknames.get(p.seat, "AI"), p.part_point_1) for p in players
+    )
+    logging.info("{} {} | {}".format(started, record.uuid, standings))
 
 
 async def load_and_process_game_log(lobby, uuid, version_to_force):

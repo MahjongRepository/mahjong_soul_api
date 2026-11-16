@@ -4,8 +4,10 @@ Python wrappers for Majsoul allow you to interact with their servers from Python
 
 ## For User
 
-1. Install python packages from `requirements.txt`
-2. `python example.py -u username -p password`
+1. Install [uv](https://docs.astral.sh/uv/)
+2. `uv run example.py -u username -p password`
+
+The example logs in and lists your latest 30 games. Pass `-l <game uuid>` to load one game log instead.
 
 This example is working only with **Python3.9+**.
 
@@ -17,7 +19,7 @@ If you want to login to EN or JP servers you need to write your code to authenti
 
 ### Requirements
 
-1. Install python packages from `requerements.txt`
+1. `uv sync`
 1. Install protobuf compiler `sudo apt install protobuf-compiler`
 
 ### How to update protocol files to the new version
@@ -33,6 +35,6 @@ It was tested on Ubuntu.
 
 ### How to release new version
 
-1. `pip install twine`
-2. `python setup.py sdist`
-3. `twine upload dist/*`
+1. Bump `version` in `pyproject.toml`
+2. `uv build`
+3. `uv publish`

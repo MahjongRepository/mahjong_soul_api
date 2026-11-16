@@ -1,0 +1,29 @@
+[project]
+name = "ms_api"
+version = "0.11.100"
+description = "Python wrapper for the Mahjong Soul (Majsoul) Protobuf objects. It allows to use their API."
+readme = "README.md"
+authors = [{ name = "Nihisil", email = "alexey@nihisil.com" }]
+license = "MIT"
+requires-python = ">=3.9"
+dependencies = [
+    "protobuf>=4.22.3",
+    "websockets>=15.0.1",
+    "aiohttp>=3.9.0",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.9",
+]
+
+[project.urls]
+Homepage = "https://github.com/MahjongRepository/mahjong_soul_api"
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["ms"]
