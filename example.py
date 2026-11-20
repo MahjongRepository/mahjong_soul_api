@@ -162,7 +162,10 @@ async def load_and_process_game_log(lobby, uuid, version_to_force):
     game_details = pb.GameDetailRecords()
     game_details.ParseFromString(record_wrapper.data)
 
-    game_records_count = len(game_details.records)
+    records = game_details.records
+    if not records:
+        records = [action.result for action in game_details.actions if action.result]
+    game_records_count = len(records)
     logging.info("Found {} game records".format(game_records_count))
 
     round_record_wrapper = pb.Wrapper()
@@ -171,7 +174,7 @@ async def load_and_process_game_log(lobby, uuid, version_to_force):
     is_show_deal_tile = False
 
     for i in range(0, game_records_count):
-        round_record_wrapper.ParseFromString(game_details.records[i])
+        round_record_wrapper.ParseFromString(records[i])
 
         if round_record_wrapper.name == ".lq.RecordNewRound" and not is_show_new_round_record:
             logging.info("Found record type = {}".format(round_record_wrapper.name))
