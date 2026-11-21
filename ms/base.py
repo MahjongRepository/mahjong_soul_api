@@ -47,7 +47,12 @@ class MSRPCChannel:
 
     async def dispatch_msg(self):
         while True:
-            msg = await self._ws.recv()
+            try:
+                msg = await self._ws.recv()
+            except websockets.ConnectionClosed:
+                for evt in self._req_events.values():
+                    evt.set()
+                return
             type_byte = msg[0]
             if type_byte == 1:  # NOTIFY
                 wrapper = self.unwrap(msg[1:])
@@ -78,7 +83,8 @@ class MSRPCChannel:
         await evt.wait()
 
         if not idx in self._res:
-            return None
+            self._req_events.pop(idx, None)
+            raise ConnectionError("WebSocket connection closed")
         res = self._res[idx]
         del self._res[idx]
 
