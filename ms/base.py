@@ -74,8 +74,13 @@ class MSRPCChannel:
         evt = asyncio.Event()
         self._req_events[idx] = evt
 
-        await self._ws.send(pkt)
-        await evt.wait()
+        try:
+            await self._ws.send(pkt)
+            await evt.wait()
+        except (Exception, asyncio.CancelledError):
+            self._req_events.pop(idx, None)
+            self._res.pop(idx, None)
+            raise
 
         if not idx in self._res:
             return None
